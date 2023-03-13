@@ -1,0 +1,26 @@
+<accordion [isAnimated]="true">
+  <accordion-group class="sidebar-item"
+    *ngFor="let item of sidebarItems">
+    <span accordion-heading class="item-heading">
+        <i-feather [name]="item.icon" class="icon"></i-feather>
+        <span class="ms-2">{{item.text}}</span>
+    </span>
+    <div *ngFor="let subItem of item.subItems"
+      class="d-flex flex-row h-100 pt-3 pb-3 sub-item">
+      <div class="selection-pill  rounded-pill text-bg-dark h-100"></div>
+      <div class="flex-grow-1">
+        {{subItem.text}}
+      </div>
+
+    </div>
+  </accordion-group>
+
+</accordion>
+
+
+
+
+
+
+
+

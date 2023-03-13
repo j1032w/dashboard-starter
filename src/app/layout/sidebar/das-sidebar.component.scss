@@ -1,0 +1,71 @@
+@import "../../common/styles/variables";
+
+:host {
+  display: block;
+  background-color: $sidebar-background-color;
+  height: 100%;
+
+  ::ng-deep {
+    .panel {
+      background-color: inherit;
+      --bs-card-border-width: 0;
+
+      .panel-heading:hover {
+        background-color: $gray-300;
+      }
+
+      .panel-body {
+        padding: 0 0 0 3rem;
+      }
+    }
+  }
+}
+
+.sidebar-item {
+  &:hover {
+    background-color: $gray-300;
+  }
+
+  .icon {
+    stroke-width: 1px;
+  }
+
+  .selection-pill {
+    width: 0.2rem;
+  }
+
+  .sub-item {
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .sub-item-container {
+
+  }
+
+  .item-text {
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    color: white;
+
+    &:hover, &:focus {
+      background-color: $sidebar-background-color;
+      font-weight: $font-weight-medium;
+      cursor: pointer;
+    }
+  }
+
+
+  //.sub-item {
+  //  .sub-item-text {
+  //    font-size: $font-size-sm;
+  //  }
+  //
+  //  &:hover{
+  //    font-weight: $font-weight-medium;
+  //  }
+  //
+  //}
+}

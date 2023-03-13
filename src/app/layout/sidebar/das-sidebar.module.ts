@@ -3,12 +3,16 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FeatherModule} from 'angular-feather';
+import {Monitor, Package} from 'angular-feather/icons';
+import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
+import {DasSidebarComponent} from './das-sidebar.component';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {DasIconsModule} from './common/das-icons.module';
-import {DasLayoutModule} from './layout/layout.module';
+const icons = {
+  Monitor,
+  Package
+
+};
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -18,31 +22,32 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    DasSidebarComponent
   ],
   imports: [
+    FeatherModule.pick(icons),
     HttpClientModule,
+
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     PerfectScrollbarModule,
-    DasLayoutModule,
-    DasIconsModule,
-    DasLayoutModule,
-    FeatherModule
+
+    FeatherModule,
+
+    AccordionModule,
+
+
+  ],
+  exports: [
+    DasSidebarComponent
   ],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
-    // {
-    //   provide : HTTP_INTERCEPTORS,
-    //   useClass: AppInterceptor,
-    //   multi   : true
-    // }
-  ],
-  bootstrap: [AppComponent]
+
+  ]
 })
-export class AppModule {
+export class DasSidebarModule {
 }

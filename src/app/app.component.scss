@@ -1,0 +1,19 @@
+@import "./common/styles/variables";
+
+:host{
+  width: 100%;
+  height: 100%;
+  background-color: #faf9f8;
+
+  display: flex;
+  flex-direction: column;
+  .main-container {
+    flex: 1;
+  }
+
+}
+
+.sidebar{
+  width: $sidebar-width;
+  z-index: $zindex-popover;
+}

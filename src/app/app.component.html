@@ -2,12 +2,16 @@
 
 <!--<adm-header></adm-header>-->
 
+<das-header class="header"></das-header>
+<div class="main-container d-flex flex-row">
+  <das-sidebar class="sidebar h-100"></das-sidebar>
 
-<div class="container">
-  <h1>Help, I'm trapped in a container!</h1>
-</div>
-<div>
-  <h1>I'm free!</h1>
+  <div class="content flex-grow-1">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>
 
-<router-outlet></router-outlet>
+
+
+

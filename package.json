@@ -2,16 +2,15 @@
   "name": "dashboard-starter",
   "version": "0.0.1",
   "scripts": {
-    "ng": "ng",
+    "ng": "node ./node_modules/@angular/cli/bin/ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start:dev": "node ./node_modules/@angular/cli/bin/ng serve --configuration development --host 0.0.0.0"
+    "start:dev": "ng serve --configuration development --host 0.0.0.0"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^15.2.1",
     "@angular/animations": "^15.2.2",
     "@angular/cdk": "^15.2.2",
     "@angular/common": "^15.2.1",
@@ -22,7 +21,7 @@
     "@angular/platform-browser": "^15.2.1",
     "@angular/platform-browser-dynamic": "^15.2.1",
     "@angular/router": "^15.2.1",
-    "@ant-design/icons-angular": "^15.0.0",
+    "angular-feather": "^6.5.0",
     "angular-gridster2": "^15.0.3",
     "bootstrap": "^5.2.3",
     "dragula": "^3.7.3",
@@ -81,7 +80,6 @@
     "jest-preset-angular": "13.0.0",
     "jest-sonar-reporter": "^2.0.0",
     "jest-when": "^3.5.2",
-    "ng-zorro-antd": "^15.0.3",
     "prettier": "2.8.4",
     "sonarqube-scanner": "3.0.1",
     "ts-jest": "29.0.5",

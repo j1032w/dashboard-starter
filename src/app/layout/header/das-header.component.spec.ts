@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdmHeaderComponent } from './adm-header.component';
+import { DasHeaderComponent } from './das-header.component';
 
 describe('AdmHeaderComponent', () => {
-  let component: AdmHeaderComponent;
-  let fixture: ComponentFixture<AdmHeaderComponent>;
+  let component: DasHeaderComponent;
+  let fixture: ComponentFixture<DasHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdmHeaderComponent ]
+      declarations: [ DasHeaderComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdmHeaderComponent);
+    fixture = TestBed.createComponent(DasHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

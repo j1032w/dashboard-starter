@@ -4,7 +4,7 @@ import {Subject} from 'rxjs';
 @Component({
   template: ''
 })
-export abstract class AdmComponentBase implements OnDestroy{
+export abstract class DasComponentBase implements OnDestroy{
   protected readonly ngUnsubscribe = new Subject();
 
   ngOnDestroy() {

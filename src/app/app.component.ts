@@ -1,6 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
-import {IconService} from '@ant-design/icons-angular';
-import {AccountBookFill} from '@ant-design/icons-angular/icons';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +8,7 @@ import {AccountBookFill} from '@ant-design/icons-angular/icons';
 export class AppComponent {
   title = 'dashboard starter';
 
-  constructor(readonly iconService: IconService) {
-    this.iconService.addIcon(...[ AccountBookFill ]);
-    this.iconService.twoToneColor = { primaryColor: '#1890ff' };
+  constructor() {
+
   }
 }

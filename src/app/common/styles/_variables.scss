@@ -1,0 +1,15 @@
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+// common
+
+// Somehow bootstrap variables doesn't define $font-weight-medium,
+// though docs has it
+// https://getbootstrap.com/docs/5.3/utilities/text/#font-weight-and-italics
+$font-weight-medium: 500;
+
+
+$sidebar-width: 15rem;
+$sidebar-background-color: #F3F2F1 ;
+
