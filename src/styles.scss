@@ -4,5 +4,14 @@
 @import "bootstrap/scss/variables";
 
 
-html, body { height: 100%; }
+// Added by angular material
+// ng add @angular/material
+html, body {
+  height: 100%;
+}
 
+body {
+  margin: 0;
+  //font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

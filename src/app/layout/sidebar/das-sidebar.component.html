@@ -1,21 +1,35 @@
-<accordion [isAnimated]="true">
-  <accordion-group class="sidebar-item"
-    *ngFor="let item of sidebarItems">
-    <span accordion-heading class="item-heading">
-        <i-feather [name]="item.icon" class="icon"></i-feather>
-        <span class="ms-2">{{item.text}}</span>
-    </span>
-    <div *ngFor="let subItem of item.subItems"
-      class="d-flex flex-row h-100 pt-3 pb-3 sub-item">
-      <div class="selection-pill  rounded-pill text-bg-dark h-100"></div>
-      <div class="flex-grow-1">
-        {{subItem.text}}
-      </div>
+<cdk-accordion class="example-accordion">
+  <cdk-accordion-item #sidebarItemComponent="cdkAccordionItem"
+    *ngFor="let item of sidebarItems; let index = index;"
 
+    class="example-accordion-item"
+    role="button"
+    tabindex="0"
+    [attr.id]="'accordion-header-' + index"
+    [attr.aria-expanded]="sidebarItemComponent.expanded"
+    [attr.aria-controls]="'accordion-body-' + index">
+
+    <div class="example-accordion-item-header" (click)="sidebarItemComponent.toggle()">
+      {{ item }}
+      <span class="example-accordion-item-description">
+        Click to {{ sidebarItemComponent.expanded ? 'close' : 'open' }}
+      </span>
     </div>
-  </accordion-group>
+    <div
+      class="example-accordion-item-body"
+      role="region"
+      [style.display]="sidebarItemComponent.expanded ? '' : 'none'"
+      [attr.id]="'accordion-body-' + index"
+      [attr.aria-labelledby]="'accordion-header-' + index">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
+      excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
+      veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
+    </div>
+  </cdk-accordion-item>
+</cdk-accordion>
 
-</accordion>
+
+
 
 
 

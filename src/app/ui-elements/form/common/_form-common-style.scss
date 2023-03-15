@@ -1,0 +1,12 @@
+@import "../../../common/styles/variables";
+.block {
+  background-color: white;
+  padding: 0.5rem;
+  border: 1px solid #dbe1e8;
+
+  .block-title {
+    background-color: $block-title-background-color;
+    margin: -1rem -1rem 1rem -1rem;
+    padding: 1rem;
+  }
+}

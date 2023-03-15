@@ -17,13 +17,17 @@ export class DasSidebarService {
       }),
 
       new DasSidebarItem({
-        text: 'Component',
+        text: 'Components',
         icon: 'package',
         subItems: [
           new DasSidebarItem({text: 'Grids'}),
           new DasSidebarItem({text: 'Forms'}),
+          new DasSidebarItem({text: 'Virtual Scroll for huge lists'}),
+          new DasSidebarItem({text: 'Angular Animations'}),
           new DasSidebarItem({text: 'Message'}),
           new DasSidebarItem({text: 'SVG Icons'}),
+
+
         ]
       }),
 

@@ -1,5 +1,6 @@
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FeatherModule} from 'angular-feather';
@@ -9,6 +10,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DasIconsModule} from './common/das-icons.module';
 import {DasLayoutModule} from './layout/layout.module';
+import {UiElementModule} from './ui-elements/ui-element.module';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -18,7 +20,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     HttpClientModule,
@@ -29,7 +31,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DasLayoutModule,
     DasIconsModule,
     DasLayoutModule,
-    FeatherModule
+    UiElementModule,
+    FeatherModule,
+    FormsModule
   ],
   providers: [
     {

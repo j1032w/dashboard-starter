@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +6,20 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'dashboard starter';
+
+
+
+  username = '';
+
+  @Input() title = '';
+
+
 
   constructor() {
 
+  }
+
+  resetUsername($event: Event) {
+    this.username = 'abc';
   }
 }
