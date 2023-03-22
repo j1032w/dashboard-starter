@@ -1,0 +1,16 @@
+<c-breadcrumb></c-breadcrumb>
+
+<a routerLink="/product" [queryParams]="{category:'electronics' }" >products?category=electronics</a>
+<p></p>
+<a [routerLink]="['product', 'Id-123', 'ASUS', {material:'Aluminum'}]"
+   [queryParams]="{category:'kitchen' }"
+   fragment="description">brand asus</a>
+
+
+
+<a class="ms-5 me-5"  routerLink="./abc"
+   [queryParams]="{category:'kitchen' }"
+   fragment="description">brand Giga</a>
+
+
+<button (click)="onClick()" >click</button>

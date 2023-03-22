@@ -10,6 +10,7 @@ export class UiFloatingLabelFormComponent {
   hidePassword = true;
 
   email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
 
   dateRange = new FormGroup({
     start: new FormControl<Date | null>(null),

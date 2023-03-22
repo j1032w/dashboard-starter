@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
-import {DasComponentBase} from '../../common/components/das-component-base.component';
+import {Router} from '@angular/router';
+import {DasComponentBase} from '../../components/das-component-base.component';
+
+
 
 
 @Component({
@@ -11,10 +14,15 @@ import {DasComponentBase} from '../../common/components/das-component-base.compo
 export class DasHeaderComponent extends DasComponentBase {
   menus: any[] = [];
 
-  constructor() {
+  constructor(private readonly router:Router) {
     super();
 
   }
 
+  onClick(){
+
+   this.router.navigateByUrl('product/id-456/msi').then();
+   // this.router.navigate(['product', 'id-123', 'ASUS']).then();
+  }
 
 }

@@ -3,12 +3,15 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BreadcrumbModule} from '@coreui/angular';
 import {FeatherModule} from 'angular-feather';
-import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
+import {PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {DasIconsModule} from './common/das-icons.module';
+import {DasIconsModule} from './components/das-icons.module';
+import {DashboardModule} from './dashboard/dashboard.module';
+
 import {DasLayoutModule} from './layout/layout.module';
 import {UiElementModule} from './ui-elements/ui-element.module';
 
@@ -33,19 +36,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DasLayoutModule,
     UiElementModule,
     FeatherModule,
-    FormsModule
+    FormsModule,
+    BreadcrumbModule,
+    DashboardModule
   ],
-  providers: [
-    {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },
-    // {
-    //   provide : HTTP_INTERCEPTORS,
-    //   useClass: AppInterceptor,
-    //   multi   : true
-    // }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

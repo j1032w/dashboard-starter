@@ -1,14 +1,6 @@
-import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {PerfectScrollbarConfigInterface} from 'ngx-perfect-scrollbar';
+import {RouterLink} from '@angular/router';
 import {DasHeaderComponent} from './das-header.component';
-
-
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
-};
 
 
 @NgModule({
@@ -16,9 +8,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DasHeaderComponent
   ],
   imports: [
-    HttpClientModule,
-    BrowserModule,
-    BrowserAnimationsModule
+    RouterLink
 
 
   ],

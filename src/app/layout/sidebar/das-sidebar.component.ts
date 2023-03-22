@@ -1,6 +1,7 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Component, OnInit} from '@angular/core';
-import {DasComponentBase} from '../../common/components/das-component-base.component';
+import {DasComponentBase} from '../../components/das-component-base.component';
+
 import {DasSidebarItem} from './services/das-sidebar-item';
 import {DasSidebarService} from './services/das-sidebar.service';
 

@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BreadcrumbModule} from '@coreui/angular';
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 
 import {DasHeaderComponent} from './header/das-header.component';
@@ -12,16 +13,13 @@ import {DasSidebarComponent} from './sidebar/das-sidebar.component';
 import {DasSidebarModule} from './sidebar/das-sidebar.module';
 
 
-
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
 
 @NgModule({
-  declarations: [
-
-  ],
+  declarations: [],
   imports: [
     DasSidebarModule,
     DasHeaderModule,
@@ -30,6 +28,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserModule,
     BrowserAnimationsModule,
     PerfectScrollbarModule,
+    BreadcrumbModule,
 
   ],
   exports: [
