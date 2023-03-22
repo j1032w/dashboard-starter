@@ -4,8 +4,10 @@ import {NgModule} from '@angular/core';
 
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BreadcrumbModule} from '@coreui/angular';
+
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
+import {DasBreadcrumbComponent} from './breadcrumb/das-breadcrumb.component';
+import {DasBreadcrumbModule} from './breadcrumb/das-breadcrumb.module';
 
 import {DasHeaderComponent} from './header/das-header.component';
 import {DasHeaderModule} from './header/das-header.module';
@@ -23,17 +25,19 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   imports: [
     DasSidebarModule,
     DasHeaderModule,
+
     HttpClientModule,
 
     BrowserModule,
     BrowserAnimationsModule,
     PerfectScrollbarModule,
-    BreadcrumbModule,
+    DasBreadcrumbModule,
 
   ],
   exports: [
     DasHeaderComponent,
-    DasSidebarComponent
+    DasSidebarComponent,
+    DasBreadcrumbComponent
   ],
   providers: [
     {

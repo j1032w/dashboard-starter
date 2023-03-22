@@ -2,21 +2,21 @@ import {NgModule} from '@angular/core';
 import {RouterLink} from '@angular/router';
 
 import {PerfectScrollbarConfigInterface} from 'ngx-perfect-scrollbar';
-import {BreadcrumbComponent} from './breadcrumb.component';
+import {DasBreadcrumbComponent} from './das-breadcrumb.component';
 
 
 
 @NgModule({
   declarations: [
-    BreadcrumbComponent
+    DasBreadcrumbComponent
   ],
   imports: [
     RouterLink
   ],
   exports: [
-    BreadcrumbComponent
+    DasBreadcrumbComponent
   ],
   providers: []
 })
-export class BreadcrumbModule {
+export class DasBreadcrumbModule {
 }

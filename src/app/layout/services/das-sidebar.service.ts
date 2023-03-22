@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 @Injectable({providedIn: 'root'})
-export class AdmNavigationService {
+export class DasNavigationService {
   toggled = false;
   _hasBackgroundImage = true;
   menus = [

@@ -1,22 +1,32 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {DashboardComponent} from './dashboard/dashboard.component';
+import {DasDashboardViewComponent} from './views/dashboard/das-dashboard-view.component';
+
 
 const routes: Routes = [
-  {path: 'dashboard', component: DashboardComponent, data: {title: 'Dashboard'}},
-
   {
-    path: 'product/:id/:brand',
-    component: DashboardComponent,
-
-    data: {title: 'Dashboard'}
+    path: "multiple",
+    component: DasDashboardViewComponent,
+    data: { breadCrumb: "Home"},
+    children: [
+      {
+        path: "child",
+        component: DasDashboardViewComponent,
+        data: { breadCrumb: "child"},
+        children: [
+          {
+            path: "grand-child",
+            component: DasDashboardViewComponent,
+            data: { breadCrumb: "grand-child"}
+          }
+        ]
+      }
+    ]
   },
 
-  {
-    path: 'product',
-    component: DashboardComponent,
-    data: {title: 'Dashboard'}
-  },
+
+
+  {path: 'dashboard', component: DasDashboardViewComponent, data: {title: 'Dashboard'}},
 
 
   {

@@ -5,6 +5,13 @@ import {UiGridComponent} from './grid/ui-grid.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'form',
+    pathMatch: 'full'
+  },
+
+
+  {
     path: 'form',
     component: UiFormComponent,
     data: {title: 'Form'}
