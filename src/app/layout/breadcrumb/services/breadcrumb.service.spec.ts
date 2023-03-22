@@ -10,7 +10,9 @@ describe('BreadcrumbService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes([])],
-    });
+    }).compileComponents();
+
+
     service = TestBed.inject(BreadcrumbService);
   });
 

@@ -1,18 +1,17 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "module": "commonjs",
     "types": [
-      "jest",
-      "node"
+      "node",
+      "jest"
     ],
-    "allowJs": true
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true
   },
+
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
-  ],
-  "emitDecoratorMetadata": true
+  ]
 }
