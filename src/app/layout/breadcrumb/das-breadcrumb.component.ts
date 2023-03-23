@@ -10,7 +10,7 @@ import {BreadcrumbService} from './services/breadcrumb.service';
 })
 export class DasBreadcrumbComponent extends DasComponentBase implements OnInit {
 
-  constructor(private readonly breadcrumbService: BreadcrumbService) {
+  constructor(public readonly breadcrumbService:BreadcrumbService) {
     super();
 
 

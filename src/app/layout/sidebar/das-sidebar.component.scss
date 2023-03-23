@@ -2,70 +2,44 @@
 
 :host {
   display: block;
+  height: 100%;
+
+
+}
+
+.sidebar {
   background-color: $sidebar-background-color;
   height: 100%;
 
-  ::ng-deep {
-    .panel {
-      background-color: inherit;
-      --bs-card-border-width: 0;
+  display: block;
 
-      .panel-heading:hover {
-        background-color: $gray-300;
-      }
+  .item-label {
+    padding: 1rem 0 1rem 1rem;
+    color: $gray-400;
+  }
 
-      .panel-body {
-        padding: 0 0 0 3rem;
-      }
+  .child-container {
+    background-color: rgba(0, 0, 0, .2);
+    color: $gray-400;
+
+    .item-label {
+      padding: 0.5rem 0 0.5rem 3rem;
     }
-  }
-}
-
-.sidebar-item {
-  &:hover {
-    background-color: $gray-300;
-  }
-
-  .icon {
-    stroke-width: 1px;
-  }
-
-  .selection-pill {
-    width: 0.2rem;
-  }
-
-  .sub-item {
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  .sub-item-container {
 
   }
+;
 
-  .item-text {
-    font-size: $font-size-base;
-    font-weight: $font-weight-normal;
+
+  .item-label:hover,
+  .is-active {
     color: white;
-
-    &:hover, &:focus {
-      background-color: $sidebar-background-color;
-      font-weight: $font-weight-medium;
-      cursor: pointer;
-    }
+    background-color: rgba($white, .05)
   }
 
-
-  //.sub-item {
-  //  .sub-item-text {
-  //    font-size: $font-size-sm;
-  //  }
-  //
-  //  &:hover{
-  //    font-weight: $font-weight-medium;
-  //  }
-  //
-  //}
 }
+
+i-feather {
+  margin-right: 0.3rem;
+}
+
+

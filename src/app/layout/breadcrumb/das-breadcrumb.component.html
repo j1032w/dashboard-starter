@@ -1,0 +1,13 @@
+
+
+<div class='breadcrumb p-2'>
+  <span *ngFor='let breadcrumbItem of breadcrumbService.breadcrumbItems; let last = last'
+        >
+    <ng-container *ngIf='!last'>
+       <a [routerLink]='breadcrumbItem.path'>{{breadcrumbItem.label}} </a>
+      <span class='ps-1 pe-1 divider'>/</span>
+    </ng-container>
+
+    <span *ngIf='last' class='last-item'>{{ breadcrumbItem.label }}</span>
+  </span>
+</div>

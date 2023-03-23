@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {NgModule} from '@angular/core';
 import {RouterLink} from '@angular/router';
 
@@ -11,6 +12,7 @@ import {DasBreadcrumbComponent} from './das-breadcrumb.component';
     DasBreadcrumbComponent
   ],
   imports: [
+    CommonModule,
     RouterLink
   ],
   exports: [

@@ -1,5 +1,7 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Component, OnInit} from '@angular/core';
+import { matExpansionAnimations } from '@angular/material/expansion';
+import { takeUntil } from 'rxjs';
 import {DasComponentBase} from '../../components/das-component-base.component';
 
 import {DasSidebarItem} from './services/das-sidebar-item';
@@ -10,17 +12,10 @@ import {DasSidebarService} from './services/das-sidebar.service';
   selector: 'das-sidebar',
   templateUrl: './das-sidebar.component.html',
   styleUrls: ['./das-sidebar.component.scss'],
-  animations: [
-    trigger('slide', [
-      state('up', style({height: 0})),
-      state('down', style({height: '*'})),
-      transition('up <=> down', animate(200))
-    ])
-  ]
+  animations: [matExpansionAnimations.bodyExpansion],
 })
 export class DasSidebarComponent extends DasComponentBase implements OnInit {
 
-  sidebarItems: DasSidebarItem[] = [];
 
   constructor(
     public readonly sidebarService: DasSidebarService,
@@ -30,7 +25,7 @@ export class DasSidebarComponent extends DasComponentBase implements OnInit {
 
 
   ngOnInit(): void {
-    this.sidebarItems = this.sidebarService.fetchItems();
+
   }
 
 

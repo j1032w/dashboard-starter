@@ -7,17 +7,17 @@ const routes: Routes = [
   {
     path: "multiple",
     component: DasDashboardViewComponent,
-    data: { breadCrumb: "Home"},
+    data: { label: "multiple"},
     children: [
       {
         path: "child",
         component: DasDashboardViewComponent,
-        data: { breadCrumb: "child"},
+        data: { label: "child"},
         children: [
           {
             path: "grand-child",
             component: DasDashboardViewComponent,
-            data: { breadCrumb: "grand-child"}
+            data: { label: "grand-child"}
           }
         ]
       }
@@ -26,7 +26,7 @@ const routes: Routes = [
 
 
 
-  {path: 'dashboard', component: DasDashboardViewComponent, data: {title: 'Dashboard'}},
+  {path: 'dashboard', component: DasDashboardViewComponent, data: {label: 'Dashboard'}},
 
 
   {
@@ -37,8 +37,8 @@ const routes: Routes = [
 
   },
 
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  {path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { label: "Home"}},
+  //{path: '**', redirectTo: '/dashboard', pathMatch: 'full', data: { label: "Home"}}
 
 ];
 

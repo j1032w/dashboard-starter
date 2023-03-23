@@ -1,3 +1,14 @@
+@import "../../common/styles/variables";
+
 :host {
   display: block;
 }
+
+.breadcrumb{
+  background-color: white;
+  .last-item, .divider{
+    color: $disabled-color;
+  }
+}
+
+

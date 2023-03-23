@@ -1,40 +1,64 @@
-<cdk-accordion class="example-accordion">
-  <cdk-accordion-item #sidebarItemComponent="cdkAccordionItem"
-    *ngFor="let item of sidebarItems; let index = index;"
+<cdk-accordion class='sidebar' [multi]='true'>
+  <cdk-accordion-item
+    *ngFor='let sidebarItem of sidebarService.sidebarItems; let index = index;'
+    #accordionItemComponent='cdkAccordionItem'
 
-    class="example-accordion-item"
-    role="button"
-    tabindex="0"
+    class='accordion-item'
+    role='button'
+    tabindex='0'
     [attr.id]="'accordion-header-' + index"
-    [attr.aria-expanded]="sidebarItemComponent.expanded"
+    [attr.aria-expanded]='accordionItemComponent.expanded'
     [attr.aria-controls]="'accordion-body-' + index">
 
-    <div class="example-accordion-item-header" (click)="sidebarItemComponent.toggle()">
-      {{ item }}
-      <span class="example-accordion-item-description">
-        Click to {{ sidebarItemComponent.expanded ? 'close' : 'open' }}
-      </span>
+
+    <div class='ps-0 mb-0'>
+      <div *ngIf='sidebarItem.childItems.length===0'
+          [routerLink]='sidebarItem.path'
+          routerLinkActive='is-active'>
+        <div class=' align-items-center item-label'>
+          <i-feather [name]='sidebarItem.icon'></i-feather>
+          {{ sidebarItem.text }}
+        </div>
+      </div>
+
+
+      <div *ngIf='sidebarItem.childItems.length>0'        >
+        <div class='align-items-center  item-label' (click)='accordionItemComponent.toggle()' >
+          <span>
+            <i-feather [name]='sidebarItem.icon' ></i-feather>
+            {{ sidebarItem.text }}
+          </span>
+
+
+          <ng-container *ngIf='sidebarItem.childItems.length>0' class='float-end'>
+            <ng-container *ngIf='accordionItemComponent.expanded'>
+              <i-feather name='chevron-down' class="float-end"></i-feather>
+            </ng-container>
+
+            <ng-container *ngIf='!accordionItemComponent.expanded'>
+              <i-feather name='chevron-left' class="float-end"></i-feather>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div *ngIf='accordionItemComponent.expanded'
+            class='btn-toggle-nav list-unstyled fw-normal pb-1 small ps-0 child-container'>
+          <div *ngFor='let childItem of sidebarItem.childItems'
+              [routerLink]='childItem.path'
+              routerLinkActive='is-active'>
+            <div href='#' class='item-label'>
+              {{childItem.text}}
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
     </div>
-    <div
-      class="example-accordion-item-body"
-      role="region"
-      [style.display]="sidebarItemComponent.expanded ? '' : 'none'"
-      [attr.id]="'accordion-body-' + index"
-      [attr.aria-labelledby]="'accordion-header-' + index">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
-      excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
-      veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
-    </div>
+
+
   </cdk-accordion-item>
 </cdk-accordion>
-
-
-
-
-
-
-
-
-
-
 

@@ -19,10 +19,6 @@ export class DasHeaderComponent extends DasComponentBase {
 
   }
 
-  onClick(){
 
-   this.router.navigateByUrl('product/id-456/msi').then();
-   // this.router.navigate(['product', 'id-123', 'ASUS']).then();
-  }
 
 }

@@ -3,6 +3,8 @@
 @import 'bootstrap/scss/variables';
 
 // common
+$disabled-color: $gray-600;
+
 
 // Somehow bootstrap variables doesn't define $font-weight-medium,
 // though docs have it
@@ -11,7 +13,7 @@ $font-weight-medium: 500;
 
 
 $sidebar-width: 15rem;
-$sidebar-background-color: #F3F2F1 ;
+$sidebar-background-color: #3c4b64 ;
 
 
 

@@ -1,17 +1,17 @@
-import {CdkAccordionModule} from '@angular/cdk/accordion';
-import {HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FeatherModule} from 'angular-feather';
-import {Monitor, Package} from 'angular-feather/icons';
-import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
-import {DasSidebarComponent} from './das-sidebar.component';
-
-const icons = {
-  Monitor,
-  Package
-};
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { FeatherModule } from 'angular-feather';
+import {
+  PERFECT_SCROLLBAR_CONFIG,
+  PerfectScrollbarConfigInterface,
+  PerfectScrollbarModule
+} from 'ngx-perfect-scrollbar';
+import { DasIconsModule } from '../../components/das-icons.module';
+import { DasSidebarComponent } from './das-sidebar.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -24,15 +24,18 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DasSidebarComponent
   ],
   imports: [
-    FeatherModule.pick(icons),
+    DasIconsModule,
     HttpClientModule,
 
     BrowserModule,
     BrowserAnimationsModule,
     PerfectScrollbarModule,
 
-    FeatherModule,
+
     CdkAccordionModule,
+    FeatherModule,
+    RouterLink,
+    RouterLinkActive
   ],
   exports: [
     DasSidebarComponent
@@ -41,7 +44,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },
+    }
 
   ]
 })
