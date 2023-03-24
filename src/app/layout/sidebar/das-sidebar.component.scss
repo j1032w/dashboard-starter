@@ -16,7 +16,10 @@
   .item-label {
     padding: 1rem 0 1rem 1rem;
     color: $gray-400;
+    border-left: 0.4rem solid transparent;
   }
+
+
 
   .child-container {
     background-color: rgba(0, 0, 0, .2);
@@ -33,7 +36,8 @@
   .item-label:hover,
   .is-active {
     color: white;
-    background-color: rgba($white, .05)
+    background-color: rgba($white, .05);
+    border-left-color: $blue-400;
   }
 
 }

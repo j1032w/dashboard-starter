@@ -1,8 +1,7 @@
-import {Component} from '@angular/core';
-import {Router} from '@angular/router';
-import {DasComponentBase} from '../../components/das-component-base.component';
-
-
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component } from '@angular/core';
+import { DasComponentBase } from '../../components/das-component-base.component';
+import { DasLayoutService } from '../services/das-layout.service';
 
 
 @Component({
@@ -12,13 +11,12 @@ import {DasComponentBase} from '../../components/das-component-base.component';
 
 })
 export class DasHeaderComponent extends DasComponentBase {
-  menus: any[] = [];
 
-  constructor(private readonly router:Router) {
+
+  constructor(public readonly layoutService: DasLayoutService) {
     super();
 
   }
-
 
 
 }

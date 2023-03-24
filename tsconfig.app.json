@@ -6,7 +6,8 @@
     "types": []
   },
   "files": [
-    "src/main.ts"
+    "src/main.ts",
+    "src/web-animations.min.js"
   ],
   "include": [
     "src/**/*.d.ts"

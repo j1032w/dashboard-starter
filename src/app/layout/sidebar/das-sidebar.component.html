@@ -1,7 +1,7 @@
 <cdk-accordion class='sidebar' [multi]='true'>
   <cdk-accordion-item
     *ngFor='let sidebarItem of sidebarService.sidebarItems; let index = index;'
-    #accordionItemComponent='cdkAccordionItem'
+    #accordionItemComponent='cdkAccordionItem' [expanded]='sidebarItem.expanded'
 
     class='accordion-item'
     role='button'
@@ -13,40 +13,42 @@
 
     <div class='ps-0 mb-0'>
       <div *ngIf='sidebarItem.childItems.length===0'
-          [routerLink]='sidebarItem.path'
-          routerLinkActive='is-active'>
-        <div class=' align-items-center item-label'>
+           [routerLink]='sidebarItem.path'
+           routerLinkActive='is-active'
+           class='item-label'>
+        <div class='align-items-center'>
           <i-feather [name]='sidebarItem.icon'></i-feather>
           {{ sidebarItem.text }}
         </div>
       </div>
 
 
-      <div *ngIf='sidebarItem.childItems.length>0'        >
-        <div class='align-items-center  item-label' (click)='accordionItemComponent.toggle()' >
+      <div *ngIf='sidebarItem.childItems.length>0'>
+        <div class='align-items-center item-label'
+             (click)='toggleAccordionItem(accordionItemComponent, sidebarItem)'>
           <span>
-            <i-feather [name]='sidebarItem.icon' ></i-feather>
+            <i-feather [name]='sidebarItem.icon'></i-feather>
             {{ sidebarItem.text }}
           </span>
 
 
           <ng-container *ngIf='sidebarItem.childItems.length>0' class='float-end'>
             <ng-container *ngIf='accordionItemComponent.expanded'>
-              <i-feather name='chevron-down' class="float-end"></i-feather>
+              <i-feather name='chevron-down' class='float-end'></i-feather>
             </ng-container>
 
             <ng-container *ngIf='!accordionItemComponent.expanded'>
-              <i-feather name='chevron-left' class="float-end"></i-feather>
+              <i-feather name='chevron-left' class='float-end'></i-feather>
             </ng-container>
           </ng-container>
         </div>
 
         <div *ngIf='accordionItemComponent.expanded'
-            class='btn-toggle-nav list-unstyled fw-normal pb-1 small ps-0 child-container'>
-          <div *ngFor='let childItem of sidebarItem.childItems'
-              [routerLink]='childItem.path'
-              routerLinkActive='is-active'>
-            <div href='#' class='item-label'>
+             class='btn-toggle-nav list-unstyled fw-normal pb-1 small ps-0 child-container '>
+          <div *ngFor='let childItem of sidebarItem.childItems' class='item-label'
+               [routerLink]='childItem.path'
+               routerLinkActive='is-active'>
+            <div href='#' >
               {{childItem.text}}
             </div>
           </div>

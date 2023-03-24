@@ -5,6 +5,7 @@
     "/dist/**"
   ],
   "compilerOptions": {
+    "allowJs": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "resolveJsonModule": true,

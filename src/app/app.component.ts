@@ -1,26 +1,39 @@
-import {Component, Input} from '@angular/core';
+import { transition, trigger, useAnimation } from '@angular/animations';
+import { Component, Input, OnInit } from '@angular/core';
+import { slideInLeft, slideOutLeft } from 'ng-animate';
+import { DasSettingService } from './common/services/das-setting.service';
+import { DasLayoutService } from './layout/services/das-layout.service';
+
+const animationParams = { params: { timing: 0.3 } };
 
 @Component({
   selector: 'das-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('slideInOut', [
+      transition(':enter', useAnimation(slideInLeft, animationParams)),
+      transition(':leave', useAnimation(slideOutLeft, animationParams))
+    ])
+  ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
 
-
-  username = '';
-
-  @Input() title = '';
-
-
-
-  constructor() {
+  constructor(
+    public readonly dasLayoutService: DasLayoutService,
+    public readonly dasSettingService: DasSettingService
+  ) {
 
 
   }
 
-  resetUsername($event: Event) {
-    this.username = 'abc';
+  ngOnInit() {
+    setTimeout(()=>{
+      this.dasSettingService.isPauseAnimation = false;
+    }, 300)
+
   }
+
+
 }

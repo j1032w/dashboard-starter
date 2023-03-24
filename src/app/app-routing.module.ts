@@ -30,10 +30,10 @@ const routes: Routes = [
 
 
   {
-    path: 'ui-elements',
-    data: {title: 'UI Elements'},
-    loadChildren: () => import('./ui-elements/ui-element-routing.module')
-      .then((m) => m.UiElementRoutingModule)
+    path: 'user-interface',
+    data: {label: 'User Interface'},
+    loadChildren: () => import('./views/user-interface/das-user-interface-routing.module')
+      .then((m) => m.DasUserInterfaceRoutingModule)
 
   },
 

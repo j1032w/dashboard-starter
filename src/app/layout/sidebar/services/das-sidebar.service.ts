@@ -4,6 +4,18 @@ import { DasSidebarItem } from './das-sidebar-item';
 @Injectable({ providedIn: 'root' })
 export class DasSidebarService {
 
+  selectItem(selectedItem:DasSidebarItem){
+    for (const sidebarItem of this.sidebarItems) {
+      sidebarItem.selected = false;
+      for (const childItem of sidebarItem.childItems) {
+        sidebarItem.selected = false;
+      }
+    }
+
+    selectedItem.selected = true;
+  }
+
+
   sidebarItems = [
     new DasSidebarItem({ text: 'Dashboard', icon: 'monitor', path:'/dashboard' }),
 
@@ -13,10 +25,10 @@ export class DasSidebarService {
       text: 'UI Interface',
       icon: 'layout',
       childItems: [
-        new DasSidebarItem({ text: 'Animation', icon:'eye', path:'/ui-interface/animation' }),
-        new DasSidebarItem({ text: 'Drag and Drop', icon:'move', path:'/ui-interface/drag'  }),
-        new DasSidebarItem({ text: 'Grid', icon: 'grid' , path:'/ui-interface/grid' }),
-        new DasSidebarItem({ text: 'Virtual Scroll', icon:'file-text', path:'/ui-interface/virtual-scroll' }),
+        new DasSidebarItem({ text: 'Animation', icon:'eye', path:'/user-interface/animation' }),
+        new DasSidebarItem({ text: 'Drag and Drop', icon:'move', path:'/user-interface/drag'  }),
+        new DasSidebarItem({ text: 'Grid', icon: 'grid' , path:'/user-interface/grid' }),
+        new DasSidebarItem({ text: 'Virtual Scroll', icon:'file-text', path:'/user-interface/virtual-scroll' }),
       ]
     }),
 

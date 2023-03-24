@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterLink} from '@angular/router';
+import { FeatherModule } from 'angular-feather';
 import {DasHeaderComponent} from './das-header.component';
 
 
@@ -8,7 +9,8 @@ import {DasHeaderComponent} from './das-header.component';
     DasHeaderComponent
   ],
   imports: [
-    RouterLink
+    RouterLink,
+    FeatherModule
 
 
   ],

@@ -9,7 +9,7 @@ import {
   Film, Flag,
   Github,
   Grid,
-  Heart, Key, Layout,
+  Heart, Key, Layout, Menu,
   Monitor, Move,
   Package, PieChart, TrendingUp
 } from 'angular-feather/icons';
@@ -39,6 +39,7 @@ const icons = {
   Package,
   TrendingUp,
   Layout,
+  Menu,
 
 
 

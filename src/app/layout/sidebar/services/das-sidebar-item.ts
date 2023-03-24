@@ -5,6 +5,9 @@ export class DasSidebarItem {
   path = '';
   childItems: DasSidebarItem [] = []
 
+  expanded = false;
+
+
   constructor(data?: Partial<DasSidebarItem>) {
     Object.assign(this, data);
   }
