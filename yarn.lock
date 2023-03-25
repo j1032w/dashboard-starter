@@ -1349,26 +1349,6 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@coreui/angular@^4.3.17":
-  version "4.3.17"
-  resolved "https://registry.yarnpkg.com/@coreui/angular/-/angular-4.3.17.tgz#d39bc16a4b295862855c1d180464111097c71472"
-  integrity sha512-M4kBdUUgjkRnIELJU9oVL7DK2QL/w1Bh8fc/YyEVkgWkmt/PJPmpXG+dUaAOh53lcTK8xRVF7drT0aAenwRZFQ==
-  dependencies:
-    "@popperjs/core" "~2.11.6"
-    tslib "^2.3.0"
-
-"@coreui/icons-angular@^4.3.17":
-  version "4.3.17"
-  resolved "https://registry.yarnpkg.com/@coreui/icons-angular/-/icons-angular-4.3.17.tgz#56f22e67c679fac0271948105a7c64f7e86cad02"
-  integrity sha512-3ZffIm9w2R4ziG/HsNGYBQ8Xb7EATRsFTi4t5rbW+Wbp0C8xhIyN+sn7BrDTHWmsdvHwEr0/6dtJmDbOsdlYrQ==
-  dependencies:
-    tslib "^2.3.0"
-
-"@coreui/utils@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@coreui/utils/-/utils-2.0.1.tgz#0d92ae133a481d3e493e6b968d64d28f37ae650d"
-  integrity sha512-6m1aOZI6cLxsQYcl+FTR7Ks9nRNi+RRNXFiUBGxUbvIWAXk/32V4kiNCyPXcKLclknITImDBV6qeeO73usd4VA==
-
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
   resolved "https://registry.npmjs.org/@cspotcode/source-map-support/-/source-map-support-0.8.1.tgz"
@@ -2779,11 +2759,6 @@
     read-package-json-fast "^3.0.0"
     which "^3.0.0"
 
-"@popperjs/core@~2.11.6":
-  version "2.11.6"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
-  integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
-
 "@schematics/angular@15.2.4", "@schematics/angular@^15.2.4":
   version "15.2.4"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-15.2.4.tgz#b61b9cb3becf601e904f60490846c1d95bd63700"
@@ -3903,6 +3878,11 @@ batch@0.6.1:
   version "0.6.1"
   resolved "https://registry.npmjs.org/batch/-/batch-0.6.1.tgz"
   integrity sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==
+
+bezier-easing@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/bezier-easing/-/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
+  integrity sha512-gbIqZ/eslnUFC1tjEvtz0sgx+xTK20wDnYMIA27VA04R7w6xxXQPZDbibjA9DTWZRA2CXtwHykkVzlCaAJAZig==
 
 big.js@^5.2.2:
   version "5.2.2"
@@ -7920,14 +7900,13 @@ ngx-bootstrap@^10.2.0:
   dependencies:
     tslib "^2.3.0"
 
-ngx-perfect-scrollbar@^10.1.1:
-  version "10.1.1"
-  resolved "https://registry.npmjs.org/ngx-perfect-scrollbar/-/ngx-perfect-scrollbar-10.1.1.tgz"
-  integrity sha512-f9IaDJGlBzSxnJ3Ki76n2JdzfQngUFyCf0E+CuVLaR5jL0IJDcTu7vOs8wexXunRMTd8xvIv0+sdIxf8hXAGWg==
+ngx-scrollbar@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-scrollbar/-/ngx-scrollbar-11.0.0.tgz#86a272302086c9a71d77c6ae9f8dcf14f717ae5a"
+  integrity sha512-bvIsdoOVjb8nmMXCr+ditKUE1FeY1b+QOunozP3Mh6U+wjKHuozpWzDyPGx0cakBCiRUX7IepOU9OlsTIVZ+Zg==
   dependencies:
-    perfect-scrollbar "1.5.0"
-    resize-observer-polyfill "^1.5.0"
-    tslib "^2.0.0"
+    bezier-easing "^2.1.0"
+    tslib "^2.3.1"
 
 nice-napi@^1.0.2:
   version "1.0.2"
@@ -8475,11 +8454,6 @@ pend@~1.2.0:
   resolved "https://registry.npmjs.org/pend/-/pend-1.2.0.tgz"
   integrity sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==
 
-perfect-scrollbar@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/perfect-scrollbar/-/perfect-scrollbar-1.5.0.tgz"
-  integrity sha512-NrNHJn5mUGupSiheBTy6x+6SXCFbLlm8fVZh9moIzw/LgqElN5q4ncR4pbCBCYuCJ8Kcl9mYM0NgDxvW+b4LxA==
-
 picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
@@ -8936,11 +8910,6 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/requires-port/-/requires-port-1.0.0.tgz"
   integrity sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==
-
-resize-observer-polyfill@^1.5.0:
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz"
-  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@^3.0.0:
   version "3.0.0"
@@ -9907,7 +9876,7 @@ tsconfig-paths@^3.14.1:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@2.5.0, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0, tslib@^2.5.0:
+tslib@2.5.0, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.3.1, tslib@^2.4.0, tslib@^2.5.0:
   version "2.5.0"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.5.0.tgz"
   integrity sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==

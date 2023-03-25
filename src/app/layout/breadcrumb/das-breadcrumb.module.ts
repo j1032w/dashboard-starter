@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {NgModule} from '@angular/core';
 import {RouterLink} from '@angular/router';
-
-import {PerfectScrollbarConfigInterface} from 'ngx-perfect-scrollbar';
 import {DasBreadcrumbComponent} from './das-breadcrumb.component';
 
 

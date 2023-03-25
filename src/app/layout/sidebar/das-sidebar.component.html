@@ -1,4 +1,5 @@
-<div class='sidebar-container d-flex flex-column h-100'>
+<ng-scrollbar visibility="hover" appearance="compact"
+              class='sidebar-container d-flex flex-column h-100'>
   <cdk-accordion class='sidebar-menu flex-grow-1' [multi]='true'>
     <cdk-accordion-item
       *ngFor='let sidebarItem of sidebarService.sidebarItems; let index = index;'
@@ -68,5 +69,5 @@
   </cdk-accordion>
 
 
-</div>
+</ng-scrollbar>
 

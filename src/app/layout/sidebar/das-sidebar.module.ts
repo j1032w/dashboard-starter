@@ -3,18 +3,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FeatherModule } from 'angular-feather';
-import {
-  PERFECT_SCROLLBAR_CONFIG,
-  PerfectScrollbarConfigInterface,
-  PerfectScrollbarModule
-} from 'ngx-perfect-scrollbar';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 import { DasIconsModule } from '../../components/das-icons.module';
 import { DasSidebarComponent } from './das-sidebar.component';
 
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
-};
 
 
 @NgModule({
@@ -24,7 +17,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   imports: [
     DasIconsModule,
     CommonModule,
-    PerfectScrollbarModule,
+    NgScrollbarModule,
 
 
     CdkAccordionModule,
@@ -36,10 +29,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DasSidebarComponent
   ],
   providers: [
-    {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+
 
   ]
 })
