@@ -27,7 +27,8 @@ export class DasSidebarService {
       childItems: [
         new DasSidebarItem({ text: 'Animation', path: '/user-interface/animation' }),
         new DasSidebarItem({ text: 'Drag and Drop', path: '/user-interface/drag-drop' }),
-
+        // new DasSidebarItem({ text: 'Query Builder', path: '/user-interface/query-builder' }),
+        new DasSidebarItem({ text: 'Responsive Design', path: '/user-interface/responsive' }),
         new DasSidebarItem({ text: 'Virtual Scroll', path: '/user-interface/virtual-scroll' })
       ]
     }),

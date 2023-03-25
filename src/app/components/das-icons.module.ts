@@ -11,7 +11,7 @@ import {
   Grid,
   Heart, Key, Layout, Menu, MessageSquare,
   Monitor, Move,
-  Package, PieChart, Tag, TrendingUp
+  Package, PieChart, Settings, Tag, TrendingUp
 } from 'angular-feather/icons';
 
 
@@ -43,6 +43,7 @@ const icons = {
   Menu,
   MessageSquare,
   Tag,
+  Settings
 
 
 
