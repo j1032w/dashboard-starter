@@ -31,5 +31,4 @@ export class DasSidebarComponent extends DasComponentBase {
   }
 
 
-
 }

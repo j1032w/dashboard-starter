@@ -7,43 +7,46 @@
 
 }
 
-.sidebar {
+.sidebar-container{
   background-color: $sidebar-background-color;
-  height: 100%;
+  color: $gray-400;
 
-  display: block;
+  .sidebar-menu {
 
-  .item-label {
-    padding: 1rem 0 1rem 1rem;
-    color: $gray-400;
-    border-left: 0.4rem solid transparent;
-  }
-
-
-
-  .child-container {
-    background-color: rgba(0, 0, 0, .2);
-    color: $gray-400;
 
     .item-label {
-      padding: 0.5rem 0 0.5rem 3rem;
+      padding: 1rem 0 1rem 1rem;
+      color: $gray-400;
+      border-left: 0.4rem solid transparent;
+    }
+
+
+
+    .child-container {
+      background-color: rgba(0, 0, 0, .2);
+
+
+      .item-label {
+        padding: 0.5rem 0 0.5rem 3rem;
+      }
+
+    };
+
+
+    .item-label:hover,
+    .is-active {
+      color: white;
+      background-color: rgba($white, .05);
+      border-left-color: $primary;
     }
 
   }
-;
 
-
-  .item-label:hover,
-  .is-active {
-    color: white;
-    background-color: rgba($white, .05);
-    border-left-color: $blue-400;
+  i-feather {
+    margin-right: 0.3rem;
   }
-
 }
 
-i-feather {
-  margin-right: 0.3rem;
-}
+
 
 

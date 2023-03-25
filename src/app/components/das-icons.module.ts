@@ -5,13 +5,13 @@ import {
   Bell, Bold,
   Camera,
   ChevronDown,
-  ChevronLeft, Edit, Eye, Facebook, Feather, FileText,
+  ChevronLeft, ChevronsLeft, Edit, Eye, Facebook, Feather, FileText,
   Film, Flag,
   Github,
   Grid,
-  Heart, Key, Layout, Menu,
+  Heart, Key, Layout, Menu, MessageSquare,
   Monitor, Move,
-  Package, PieChart, TrendingUp
+  Package, PieChart, Tag, TrendingUp
 } from 'angular-feather/icons';
 
 
@@ -24,6 +24,7 @@ const icons = {
   Bold,
   ChevronDown,
   ChevronLeft,
+  ChevronsLeft,
   Edit,
   Eye,
   Facebook,
@@ -40,6 +41,8 @@ const icons = {
   TrendingUp,
   Layout,
   Menu,
+  MessageSquare,
+  Tag,
 
 
 

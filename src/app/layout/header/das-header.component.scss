@@ -1,23 +1,23 @@
 @import "../../common/styles/variables";
 
-:host{
+:host {
   display: block;
 
 }
 
 
-.header{
+.header {
   height: 4rem;
   border: 1px solid $gray-500;
   padding: 1rem 1rem 1rem 1rem;
-
+  background-color: white;
   // prevent selection
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
-  .menu{
+  .menu {
     cursor: pointer;
     font-size: 1.4rem;
   }
