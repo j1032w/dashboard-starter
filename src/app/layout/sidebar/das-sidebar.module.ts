@@ -8,8 +8,6 @@ import { DasIconsModule } from '../../components/das-icons.module';
 import { DasSidebarComponent } from './das-sidebar.component';
 
 
-
-
 @NgModule({
   declarations: [
     DasSidebarComponent
@@ -28,10 +26,7 @@ import { DasSidebarComponent } from './das-sidebar.component';
   exports: [
     DasSidebarComponent
   ],
-  providers: [
-
-
-  ]
+  providers: []
 })
 export class DasSidebarModule {
 }

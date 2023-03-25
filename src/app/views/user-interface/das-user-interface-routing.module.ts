@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UiAnimationComponent } from './animation/ui-animation.component';
 
 import { UiDragDropComponent } from './drag-drop/ui-drag-drop.component';
+import { UiResponsiveComponent } from './responsive/ui-responsive.component';
 import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.component';
 
 
@@ -30,6 +31,12 @@ const routes: Routes = [
     path: 'virtual-scroll',
     component: UiVirtualScrollComponent,
     data: { label: 'Virtual Scroll' }
+  },
+
+  {
+    path: 'responsive',
+    component: UiResponsiveComponent,
+    data: { label: 'Responsive Design' }
   }
 
 

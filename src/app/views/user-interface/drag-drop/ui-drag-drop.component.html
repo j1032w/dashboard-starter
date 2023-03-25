@@ -17,7 +17,7 @@
     <div #listOne="cdkDropList" cdkDropList  [cdkDropListConnectedTo]="[listTwo]"
          [cdkDropListData]="todoItems"
          (cdkDropListDropped)="dropped($event)"
-         class="drop-list m-2 p-2">
+         class="drop-list m-2 p-2 user-select-non">
       <div>To do</div>
       <div cdkDrag *ngFor="let item of todoItems"
            class="drag-item fs-4 m-2 user-select-non" >Item {{item}}</div>
@@ -26,7 +26,7 @@
     <div #listTwo="cdkDropList" cdkDropList  [cdkDropListConnectedTo]="[listOne]"
          [cdkDropListData]="doneItems"
          (cdkDropListDropped)="dropped($event)"
-         class="drop-list m-2 p-2">
+         class="drop-list m-2 p-2 user-select-non">
       <div>Done</div>
       <div cdkDrag *ngFor="let item of doneItems"
            class="drag-item fs-4 m-2 user-select-non" >Item {{item}}</div>

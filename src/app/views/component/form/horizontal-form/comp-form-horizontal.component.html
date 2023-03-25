@@ -1,94 +1,91 @@
-<div class="block">
-  <div class="block-title">
-    <strong>Horizontal</strong> Form
+
+<p-card header="Horizontal Form">
+  <form class="container-fluid">
+  <div class="form-group  mb-3 row">
+    <label class="col-sm-3 col-form-label text-end" for="static-text">Static</label>
+    <div class="col-sm-9">
+      <input type="text" readonly id="static-text" name="static-text" class="form-control-plaintext"
+             placeholder="Enter Text.." value="username">
+    </div>
   </div>
 
-  <form class="container-fluid">
-    <div class="form-group  mb-3 row">
-      <label class="col-sm-3 col-form-label text-end" for="static-text">Static</label>
-      <div class="col-sm-9">
-        <input type="text" readonly id="static-text" name="static-text" class="form-control-plaintext"
-               placeholder="Enter Text.." value="username">
-      </div>
+  <div class="form-group mb-3 row">
+    <label class="col-sm-3 col-form-label text-end" for="email">Email</label>
+    <div class="col-sm-9">
+      <input type="email" id="email" name="email" class="form-control"
+             placeholder="Enter Email..">
+      <span class="help-block">Please enter email</span>
     </div>
+  </div>
 
-    <div class="form-group mb-3 row">
-      <label class="col-sm-3 col-form-label text-end" for="email">Email</label>
-      <div class="col-sm-9">
-        <input type="email" id="email" name="email" class="form-control"
-               placeholder="Enter Email..">
-        <span class="help-block">Please enter email</span>
-      </div>
+  <div class="form-group mb-3 row">
+    <label class="col-sm-3 col-form-label text-end" for="password">Password</label>
+    <div class="col-sm-9">
+      <input type="password" id="password" name="password" class="form-control" autoComplete="new-password"
+             placeholder="Enter Password..">
+      <span class="help-block">Please enter a complex password</span>
     </div>
+  </div>
 
-    <div class="form-group mb-3 row">
-      <label class="col-sm-3 col-form-label text-end" for="password">Password</label>
-      <div class="col-sm-9">
-        <input type="password" id="password" name="password" class="form-control" autoComplete="new-password"
-               placeholder="Enter Password..">
-        <span class="help-block">Please enter a complex password</span>
-      </div>
+
+  <div class="form-group mb-3 row ">
+    <label class="col-sm-3 col-form-label text-end" for="disabled-input">Disabled</label>
+    <div class="col-sm-9">
+      <input type="text" disabled id="disabled-input" name="disabled-input" class="form-control"
+             value="Disabled Input">
+
     </div>
+  </div>
 
-
-    <div class="form-group mb-3 row ">
-      <label class="col-sm-3 col-form-label text-end" for="disabled-input">Disabled</label>
-      <div class="col-sm-9">
-        <input type="text" disabled id="disabled-input" name="disabled-input" class="form-control"
-               value="Disabled Input">
-
-      </div>
+  <div class="form-group mb-3 row">
+    <label class="col-sm-3 col-form-label text-end" for="dropDownList">Select</label>
+    <div class="col-sm-9">
+      <select id="dropDownList" name="dropDownList" class="form-control" size="1">
+        <option value="0">Please select</option>
+        <option value="1">Option #1</option>
+        <option value="2">Option #2</option>
+        <option value="3">Option #3</option>
+      </select>
     </div>
+  </div>
 
-    <div class="form-group mb-3 row">
-      <label class="col-sm-3 col-form-label text-end" for="dropDownList">Select</label>
-      <div class="col-sm-9">
-        <select id="dropDownList" name="dropDownList" class="form-control" size="1">
-          <option value="0">Please select</option>
-          <option value="1">Option #1</option>
-          <option value="2">Option #2</option>
-          <option value="3">Option #3</option>
-        </select>
-      </div>
+
+  <div class="form-group mb-3 row">
+    <label class="col-sm-3 col-form-label text-end">Radios</label>
+    <div class="col-sm-9 pt-2">
+      <label class="me-3" for="example-inline-radio1">
+        <input type="radio" id="example-inline-radio1" name="example-inline-radios" value="option1"> One
+      </label>
+      <label class="me-3" for="example-inline-radio2">
+        <input type="radio" id="example-inline-radio2" name="example-inline-radios" value="option2"> Two
+      </label>
+      <label class="me-3" for="example-inline-radio3">
+        <input type="radio" id="example-inline-radio3" name="example-inline-radios" value="option3"> Three
+      </label>
     </div>
+  </div>
 
 
-    <div class="form-group mb-3 row">
-      <label class="col-sm-3 col-form-label text-end">Radios</label>
-      <div class="col-sm-9 pt-2">
-        <label class="me-3" for="example-inline-radio1">
-          <input type="radio" id="example-inline-radio1" name="example-inline-radios" value="option1"> One
-        </label>
-        <label class="me-3" for="example-inline-radio2">
-          <input type="radio" id="example-inline-radio2" name="example-inline-radios" value="option2"> Two
-        </label>
-        <label class="me-3" for="example-inline-radio3">
-          <input type="radio" id="example-inline-radio3" name="example-inline-radios" value="option3"> Three
-        </label>
-      </div>
+  <div class="form-group mb-3 row">
+    <label class="col-sm-3 col-form-label text-end">Checkboxes</label>
+    <div class="col-sm-9 pt-2">
+      <label class="me-3" for="example-inline-checkbox1">
+        <input type="checkbox" id="example-inline-checkbox1" name="example-inline-checkbox1" value="option1"> One
+      </label>
+      <label class="me-3" for="example-inline-checkbox2">
+        <input type="checkbox" id="example-inline-checkbox2" name="example-inline-checkbox2" value="option2"> Two
+      </label>
+      <label class="me-3" for="example-inline-checkbox3">
+        <input type="checkbox" id="example-inline-checkbox3" name="example-inline-checkbox3" value="option3"> Three
+      </label>
     </div>
+  </div>
 
-
-    <div class="form-group mb-3 row">
-      <label class="col-sm-3 col-form-label text-end">Checkboxes</label>
-      <div class="col-sm-9 pt-2">
-        <label class="me-3" for="example-inline-checkbox1">
-          <input type="checkbox" id="example-inline-checkbox1" name="example-inline-checkbox1" value="option1"> One
-        </label>
-        <label class="me-3" for="example-inline-checkbox2">
-          <input type="checkbox" id="example-inline-checkbox2" name="example-inline-checkbox2" value="option2"> Two
-        </label>
-        <label class="me-3" for="example-inline-checkbox3">
-          <input type="checkbox" id="example-inline-checkbox3" name="example-inline-checkbox3" value="option3"> Three
-        </label>
-      </div>
+  <div class="form-group row  justify-content-end">
+    <div class="col-sm-12">
+      <button type="submit" class="btn btn-sm btn-primary me-2">Submit</button>
+      <button type="reset" class="btn btn-sm btn-warning">Reset</button>
     </div>
-
-    <div class="form-group row  justify-content-end">
-      <div class="col-sm-12">
-        <button type="submit" class="btn btn-sm btn-primary me-2">Submit</button>
-        <button type="reset" class="btn btn-sm btn-warning">Reset</button>
-      </div>
-    </div>
+  </div>
   </form>
-</div>
+</p-card>

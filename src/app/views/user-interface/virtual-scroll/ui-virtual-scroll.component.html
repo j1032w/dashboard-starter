@@ -1,1 +1,19 @@
-<p>virtual-scroll works!</p>
+<div class="virtual-scroll-container p-3 h-100 ">
+
+  <div class="mb-3">
+    <label class="form-label me-2" for="amount">Amount</label>
+    <p-inputNumber id="amount"  inputId="integeronly" [(ngModel)]="amount" [max]="100000"></p-inputNumber> (Max: 100,000)
+    <br>
+    <span class="btn btn-primary" (click)="setAmount()">Reload</span>
+  </div>
+
+  <ng-scrollbar class="scroller" visibility="hover" appearance="compact" [minThumbSize]="50">
+    <cdk-virtual-scroll-viewport itemSize="50" scrollViewport>
+      <div *cdkVirtualFor="let item of items" class="item m-2 me-3"> Item #{{item}}</div>
+    </cdk-virtual-scroll-viewport>
+  </ng-scrollbar>
+
+  <p-toast position="bottom-center"></p-toast>
+</div>
+
+

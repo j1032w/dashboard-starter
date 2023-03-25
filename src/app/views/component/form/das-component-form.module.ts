@@ -7,6 +7,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { CardModule } from 'primeng/card';
 import { CompFormComponent } from './comp-form.component';
 import { CompFormHorizontalComponent } from './horizontal-form/comp-form-horizontal.component';
 
@@ -29,6 +30,7 @@ import { CompFloatingLabelFormComponent } from './floating-label-form/comp-float
     MatNativeDateModule,
     MatSelectModule,
     ReactiveFormsModule,
+    CardModule
   ],
   exports: [
     CompFormComponent

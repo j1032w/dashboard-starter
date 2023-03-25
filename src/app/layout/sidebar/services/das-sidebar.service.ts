@@ -52,7 +52,7 @@ export class DasSidebarService {
         new DasSidebarItem({ text: 'Brands', path: '/icons/brand' }),
         new DasSidebarItem({ text: 'Flags', path: '/icons/flag' }),
         new DasSidebarItem({ text: 'Font Awesome', path: '/icons/font-awesome' }),
-        new DasSidebarItem({ text: 'SVG', path: '/icons/svg' })
+        new DasSidebarItem({ text: 'SVG Icons', path: '/icons/svg' })
 
 
       ]
