@@ -1,39 +1,17 @@
-import { transition, trigger, useAnimation } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
-import { slideInLeft, slideOutLeft } from 'ng-animate';
-import { DasSettingService } from './common/services/das-setting.service';
-import { DasLayoutService } from './layout/services/das-layout.service';
+import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
-const animationParams = { params: { timing: 0.3 } };
 
 @Component({
   selector: 'das-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger('slideInOut', [
-      transition(':enter', useAnimation(slideInLeft, animationParams)),
-      transition(':leave', useAnimation(slideOutLeft, animationParams))
-    ])
-  ]
+  styleUrls: ['./app.component.scss']
+
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-
-  constructor(
-    public readonly dasLayoutService: DasLayoutService,
-    public readonly dasSettingService: DasSettingService
-  ) {
-
-
+  constructor(    private titleService: Title) {
+    titleService.setTitle('Dashboard Starter');
   }
-
-  ngOnInit() {
-    setTimeout(()=>{
-      this.dasSettingService.isPauseAnimation = false;
-    }, 300)
-
-  }
-
 
 }

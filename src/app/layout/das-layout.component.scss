@@ -1,0 +1,15 @@
+@import "../common/styles/variables";
+
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+
+
+
+.sidebar{
+  width: $sidebar-width;
+  z-index: $zindex-popover;
+}

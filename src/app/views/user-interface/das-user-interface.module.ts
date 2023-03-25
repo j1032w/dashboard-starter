@@ -1,23 +1,27 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeatherModule } from 'angular-feather';
+import { DasUserInterfaceRoutingModule } from './das-user-interface-routing.module';
+import { UiDragDropComponent } from './drag-drop/ui-drag-drop.component';
+import { DasUiFormModule } from './form/das-ui-form.module';
+import { UiGridComponent } from './grid/ui-grid.component';
+import { UiAnimationComponent } from './animation/ui-animation.component';
+
 import { DasUserInterfaceComponent } from './user-interface.component';
-import { UiAnimationComponent } from './ui-animation/ui-animation.component';
 
 
 @NgModule({
   declarations: [
     DasUserInterfaceComponent,
-    UiAnimationComponent
+    UiAnimationComponent,
+    UiDragDropComponent,
+    UiGridComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-
+    CommonModule,
+    DasUserInterfaceRoutingModule,
     FeatherModule,
-    FormsModule
+    DasUiFormModule
 
   ],
   providers: []

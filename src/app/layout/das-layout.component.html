@@ -1,0 +1,16 @@
+<div class='h-100 d-flex flex-column'>
+<das-header class="header"></das-header>
+
+<div class="main-container flex-grow-1 d-flex flex-row">
+  <das-sidebar  *ngIf="dasLayoutService.layout.isShowSidebar"
+                [@.disabled] = "dasSettingService.isPauseAnimation"
+                @slideInOut class="sidebar h-100"></das-sidebar>
+
+  <div class="content flex-grow-1 d-flex flex-column">
+    <das-breadcrumb></das-breadcrumb>
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+</div>

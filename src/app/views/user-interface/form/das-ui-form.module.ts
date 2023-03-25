@@ -7,7 +7,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import { UiHorizontalFormComponent } from './horizontal-form/ui-horizontal-form.component';
+import { UiFormHorizontalComponent } from './horizontal-form/ui-form-horizontal.component';
 import {UiFormComponent} from './ui-form.component';
 import { UiFloatingLabelFormComponent } from './floating-label-form/ui-floating-label-form.component';
 
@@ -15,22 +15,22 @@ import { UiFloatingLabelFormComponent } from './floating-label-form/ui-floating-
 
 @NgModule({
   declarations: [
-    UiHorizontalFormComponent,
-    UiFormComponent,
     UiFloatingLabelFormComponent,
+    UiFormComponent,
+    UiFormHorizontalComponent,
   ],
   imports: [
     CommonModule,
-    MatInputModule,
-    MatIconModule,
     MatButtonModule,
-    ReactiveFormsModule,
-    MatSelectModule,
     MatDatepickerModule,
+    MatIconModule,
+    MatInputModule,
     MatNativeDateModule,
+    MatSelectModule,
+    ReactiveFormsModule,
   ],
   exports: [
-    UiFormComponent,
+    UiFormComponent
   ]
 })
-export class UiFormModule { }
+export class DasUiFormModule { }

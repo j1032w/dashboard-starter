@@ -1,8 +1,6 @@
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FeatherModule } from 'angular-feather';
 import {
@@ -25,10 +23,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   imports: [
     DasIconsModule,
-    HttpClientModule,
-
-    BrowserModule,
-    BrowserAnimationsModule,
+    CommonModule,
     PerfectScrollbarModule,
 
 

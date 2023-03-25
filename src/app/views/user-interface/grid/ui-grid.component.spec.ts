@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UiGridComponent } from './ui-grid.component';
 
-describe('GridComponent', () => {
+describe('UiGridComponent', () => {
   let component: UiGridComponent;
   let fixture: ComponentFixture<UiGridComponent>;
 

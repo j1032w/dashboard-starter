@@ -26,7 +26,7 @@ export class BreadcrumbService extends DasServiceBaes {
         filter((event) => event instanceof NavigationEnd)
       )
       .subscribe((event) => {
-        this.breadcrumbItems = [{ path: '/', label: 'Home' }];
+        this.breadcrumbItems = [];
 
         let url = '';
         let currentRoute: ActivatedRoute | null = this.activatedRoute.root;
