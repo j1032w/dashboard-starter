@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'das-ui-floating-label-form',
-  templateUrl: './ui-floating-label-form.component.html',
-  styleUrls: ['./ui-floating-label-form.component.scss']
+  selector: 'das-comp-floating-label-form',
+  templateUrl: './comp-floating-label-form.component.html',
+  styleUrls: ['./comp-floating-label-form.component.scss']
 })
-export class UiFloatingLabelFormComponent {
+export class CompFloatingLabelFormComponent {
   hidePassword = true;
 
   email = new FormControl('', [Validators.required, Validators.email]);

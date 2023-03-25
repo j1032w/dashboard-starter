@@ -47,6 +47,14 @@ const routes: Routes = [
         loadChildren: () => import('./views/user-interface/das-user-interface.module')
           .then((m) => m.DasUserInterfaceModule)
 
+      },
+
+      {
+        path: 'component',
+        data: { label: 'Components' },
+        loadChildren: () => import('./views/component/das-component-view.module')
+          .then((m) => m.DasComponentViewModule)
+
       }
     ]
   }

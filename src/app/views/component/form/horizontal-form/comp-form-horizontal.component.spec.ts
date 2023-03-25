@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiFormHorizontalComponent } from './ui-form-horizontal.component';
+import { CompFormHorizontalComponent } from './comp-form-horizontal.component';
 
 describe('HorizontalFormComponent', () => {
-  let component: UiFormHorizontalComponent;
-  let fixture: ComponentFixture<UiFormHorizontalComponent>;
+  let component: CompFormHorizontalComponent;
+  let fixture: ComponentFixture<CompFormHorizontalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiFormHorizontalComponent ]
+      declarations: [ CompFormHorizontalComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UiFormHorizontalComponent);
+    fixture = TestBed.createComponent(CompFormHorizontalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,12 +1,8 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { UiAnimationComponent } from './animation/ui-animation.component';
 
 import { UiDragDropComponent } from './drag-drop/ui-drag-drop.component';
-import { UiFormComponent } from './form/ui-form.component';
-import { UiGridComponent } from './grid/ui-grid.component';
-import { UiAnimationComponent } from './animation/ui-animation.component';
-import { DasUserInterfaceComponent } from './user-interface.component';
-
 
 
 const routes: Routes = [
@@ -18,29 +14,16 @@ const routes: Routes = [
   },
 
   {
-    path: "animation",
+    path: 'animation',
     component: UiAnimationComponent,
-    data: { label: "Animation"},
+    data: { label: 'Animation' }
   },
 
   {
-    path: "drag-drop",
+    path: 'drag-drop',
     component: UiDragDropComponent,
-    data: { label: "Drag and Drop"},
-  },
-
-  {
-    path: "form",
-    component: UiFormComponent,
-    data: { label: "Form"},
-  },
-
-  {
-    path: "grid",
-    component: UiGridComponent,
-    data: { label: "Grid"},
+    data: { label: 'Drag and Drop' }
   }
-
 
 
 ];

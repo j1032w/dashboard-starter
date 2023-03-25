@@ -9,8 +9,6 @@ import { AppComponent } from './app.component';
 import { DasIconsModule } from './components/das-icons.module';
 import { DasLayoutModule } from './layout/layout.module';
 
-import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.module';
-
 
 @NgModule({
   declarations: [
@@ -24,8 +22,7 @@ import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.mod
     HttpClientModule,
     AppRoutingModule,
     DasIconsModule,
-    FeatherModule,
-    DasDashboardViewModule
+    FeatherModule
 
   ],
   providers: [],

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiFloatingLabelFormComponent } from './ui-floating-label-form.component';
+import { CompFloatingLabelFormComponent } from './comp-floating-label-form.component';
 
 describe('FloatingLabelFormComponent', () => {
-  let component: UiFloatingLabelFormComponent;
-  let fixture: ComponentFixture<UiFloatingLabelFormComponent>;
+  let component: CompFloatingLabelFormComponent;
+  let fixture: ComponentFixture<CompFloatingLabelFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiFloatingLabelFormComponent ]
+      declarations: [ CompFloatingLabelFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UiFloatingLabelFormComponent);
+    fixture = TestBed.createComponent(CompFloatingLabelFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

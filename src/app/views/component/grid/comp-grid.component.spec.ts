@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiFormComponent } from './ui-form.component';
+import { CompGridComponent } from './comp-grid.component';
 
-describe('FormComponent', () => {
-  let component: UiFormComponent;
-  let fixture: ComponentFixture<UiFormComponent>;
+describe('CompGridComponent', () => {
+  let component: CompGridComponent;
+  let fixture: ComponentFixture<CompGridComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiFormComponent ]
+      declarations: [ CompGridComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UiFormComponent);
+    fixture = TestBed.createComponent(CompGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -27,8 +27,7 @@ export class DasSidebarService {
       childItems: [
         new DasSidebarItem({ text: 'Animation', path: '/user-interface/animation' }),
         new DasSidebarItem({ text: 'Drag and Drop', path: '/user-interface/drag-drop' }),
-        new DasSidebarItem({ text: 'Form', path: '/user-interface/form' }),
-        new DasSidebarItem({ text: 'Grid', path: '/user-interface/grid' }),
+
         new DasSidebarItem({ text: 'Virtual Scroll', path: '/user-interface/virtual-scroll' })
       ]
     }),
@@ -38,9 +37,10 @@ export class DasSidebarService {
       text: 'Components',
       icon: 'package',
       childItems: [
-        new DasSidebarItem({ text: 'Button', path: '/components/button' }),
-        new DasSidebarItem({ text: 'Form', path: '/components/form' }),
-        new DasSidebarItem({ text: 'Notification', path: '/components/notification' })
+        new DasSidebarItem({ text: 'Button', path: '/component/button' }),
+        new DasSidebarItem({ text: 'Form', path: '/component/form' }),
+        new DasSidebarItem({ text: 'Grid', path: '/component/grid' }),
+        new DasSidebarItem({ text: 'Notification', path: '/component/notification' })
       ]
     }),
 
