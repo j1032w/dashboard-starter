@@ -7,4 +7,42 @@ import { Component } from '@angular/core';
 })
 export class UiResponsiveComponent {
 
+  visible = true;
+
+  colClass = 'col-lg-12';
+
+  dialogSize = 'Large';
+
+  header = 'large';
+
+  width='1200px';
+  constructor() {
+    this.setSize('large');
+  }
+
+  setSize(size: string) {
+    switch (size) {
+      case 'small':
+        this.colClass = 'col-12';
+        this.header = 'Small';
+        this.width = '400px';
+        break;
+
+      case 'medium':
+        this.colClass = 'col-lg-6';
+        this.header = 'Medium';
+        this.width = '700px';
+        break;
+
+      default:
+        this.colClass = 'col-xxl-4';
+        this.header = 'Large';
+        this.width = '1100px';
+    }
+
+    this.visible = true;
+
+
+  }
+
 }

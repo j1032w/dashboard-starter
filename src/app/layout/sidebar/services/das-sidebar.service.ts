@@ -38,12 +38,13 @@ export class DasSidebarService {
       text: 'Components',
       icon: 'package',
       childItems: [
-        new DasSidebarItem({ text: 'Button', path: '/component/button' }),
+        new DasSidebarItem({ text: 'Base', path: '/component/base' }),
         new DasSidebarItem({ text: 'Form', path: '/component/form' }),
         new DasSidebarItem({ text: 'Grid', path: '/component/grid' }),
         new DasSidebarItem({ text: 'Notification', path: '/component/notification' })
       ]
     }),
+
 
     new DasSidebarItem({
       text: 'Icons',

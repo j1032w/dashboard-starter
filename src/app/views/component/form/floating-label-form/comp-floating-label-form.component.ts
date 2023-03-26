@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -7,6 +7,9 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./comp-floating-label-form.component.scss']
 })
 export class CompFloatingLabelFormComponent {
+
+  @Input() colClass= 'col-xl-6 col-lg-12  col-xxl-4';
+
   hidePassword = true;
 
   email = new FormControl('', [Validators.required, Validators.email]);

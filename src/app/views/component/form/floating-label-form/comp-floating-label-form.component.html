@@ -1,82 +1,74 @@
-<p-card header="Floating Label Form">
-  <div class="container-fluid">
+
+<div class="container-fluid">
+  <div class="row">
+    <mat-form-field [ngClass]="colClass" class="mb-3" appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="name@example.com" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field [ngClass]="colClass" class="mb-3" appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input autoComplete="new-password" id="password" name="password" matInput
+             [type]="hidePassword ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
 
 
-    <div class="row">
-      <div class="col-md-6">
-
-        <mat-form-field class="w-100  mb-3" appearance="fill">
-          <mat-label>Enter your email</mat-label>
-          <input matInput placeholder="name@example.com" [formControl]="email" required>
-          <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="w-100  mb-3" appearance="fill">
-          <mat-label>Enter your password</mat-label>
-          <input autoComplete="new-password" id="password" name="password" matInput [type]="hidePassword ? 'password' : 'text'">
-          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hidePassword">
-            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-        </mat-form-field>
-
-        <mat-form-field class="w-100  mb-3" appearance="fill">
-          <mat-label>Textarea</mat-label>
-          <textarea rows="5" matInput></textarea>
-        </mat-form-field>
-      </div>
+    <mat-form-field [ngClass]="colClass" class="mb-3" appearance="fill" floatLabel="always">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" class="example-right-align" placeholder="0">
+      <span matTextPrefix>$&nbsp;</span>
+      <span matTextSuffix>.00</span>
+    </mat-form-field>
 
 
-      <div class="col-md-6">
-        <mat-form-field class="w-100  mb-3" appearance="fill" floatLabel="always">
-          <mat-label>Amount</mat-label>
-          <input matInput type="number" class="example-right-align" placeholder="0">
-          <span matTextPrefix>$&nbsp;</span>
-          <span matTextSuffix>.00</span>
-        </mat-form-field>
+    <mat-form-field [ngClass]="colClass" class="mb-3" hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>Enter some input</mat-label>
+      <input matInput #input maxlength="10" placeholder="Ex. Nougat">
+      <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field [ngClass]="colClass" class="mb-3" appearance="fill">
+      <mat-label>Select me</mat-label>
+      <mat-select>
+        <mat-option value="option1">Option #1</mat-option>
+        <mat-option value="option2">Option #2</mat-option>
+        <mat-option value="option3">Option #3</mat-option>
+      </mat-select>
+      <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
 
 
-        <mat-form-field class="w-100 mb-3" hintLabel="Max 10 characters" appearance="fill">
-          <mat-label>Enter some input</mat-label>
-          <input matInput #input maxlength="10" placeholder="Ex. Nougat">
-          <mat-hint align="end">{{input.value.length}}/10</mat-hint>
-        </mat-form-field>
+    <mat-form-field [ngClass]="colClass" class="mb-3" appearance="fill">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="dateRange" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
 
-        <mat-form-field class="w-100  mb-3" appearance="fill">
-          <mat-label>Select me</mat-label>
-          <mat-select>
-            <mat-option value="option1">Option #1</mat-option>
-            <mat-option value="option2">Option #2</mat-option>
-            <mat-option value="option3">Option #3</mat-option>
-          </mat-select>
-          <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-        </mat-form-field>
-
-
-        <mat-form-field class="w-100  mb-3" appearance="fill">
-          <mat-label>Enter a date range</mat-label>
-          <mat-date-range-input [formGroup]="dateRange" [rangePicker]="picker">
-            <input matStartDate formControlName="start" placeholder="Start date">
-            <input matEndDate formControlName="end" placeholder="End date">
-          </mat-date-range-input>
-          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-date-range-picker #picker></mat-date-range-picker>
-
-          <mat-error *ngIf="dateRange.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-          <mat-error *ngIf="dateRange.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-        </mat-form-field>
+      <mat-error *ngIf="dateRange.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+      <mat-error *ngIf="dateRange.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+    </mat-form-field>
+  </div>
 
 
-      </div>
+  <div class="row">
+    <mat-form-field [ngClass]="colClass" class="mb-3" appearance="fill">
+      <mat-label>Textarea</mat-label>
+      <textarea rows="5" matInput></textarea>
+    </mat-form-field>
+  </div>
 
-
-    </div>
-
-    <div class="form-group row  justify-content-end">
-      <div class="col-sm-12">
-        <button type="submit" class="btn btn-sm btn-primary me-2">Submit</button>
-      </div>
+  <div class="form-group row  justify-content-end">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-sm btn-primary me-2">Submit</button>
     </div>
   </div>
-</p-card>
+</div>

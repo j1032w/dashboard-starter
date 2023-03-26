@@ -1,14 +1,9 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CompBaseComponent } from './base/comp-base.component';
 import { CompFormComponent } from './form/comp-form.component';
 import { CompGridComponent } from './grid/comp-grid.component';
-
-
-
-
-
-
-
+import { CompNotificationComponent } from './notification/comp-notification.component';
 
 
 const routes: Routes = [
@@ -32,15 +27,15 @@ const routes: Routes = [
   },
 
   {
-    path: "button",
-    component: CompFormComponent,
-    data: { label: "Form"},
+    path: "base",
+    component: CompBaseComponent,
+    data: { label: "Base Component"},
   },
 
   {
     path: "notification",
-    component: CompFormComponent,
-    data: { label: "Grid"},
+    component: CompNotificationComponent,
+    data: { label: 'Notification'},
   }
 
 

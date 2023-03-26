@@ -5,7 +5,7 @@ import {
   Bell, Bold,
   Camera,
   ChevronDown,
-  ChevronLeft, ChevronsLeft, Edit, Eye, Facebook, Feather, FileText,
+  ChevronLeft, ChevronRight, ChevronsLeft, Edit, Eye, Facebook, Feather, FileText,
   Film, Flag,
   Github,
   Grid,
@@ -43,7 +43,8 @@ const icons = {
   Menu,
   MessageSquare,
   Tag,
-  Settings
+  Settings,
+  ChevronRight
 
 
 

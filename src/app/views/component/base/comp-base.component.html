@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-lg-6  ">
+
+      <div class="container-fluid shadow bg-body rounded p-3">
+        <div class="row mb-4">
+          <div class="col-12">
+            <p-toast></p-toast>
+            <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+            <div class="fs-5">Delete confirmation</div>
+            <span (click)="delete()" class="btn btn-primary">Delete</span>
+          </div>
+
+        </div>
+
+
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="fs-5">Rating</div>
+            <p-rating></p-rating>
+          </div>
+
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="fs-5">Switch</div>
+            <p-selectButton [options]="selectButtonStateOptions" optionLabel="label"
+                            optionValue="value"></p-selectButton>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-lg-6 shadow  bg-body rounded">
+      <p-tabView >
+        <p-tabPanel header="Tab I" class="fs-5">
+          <div >
+            Input validation is the process of checking and validating user input
+            before it is processed by an application.
+            This can help prevent attacks such as SQL injection and cross-site scripting (XSS).
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Tab II" class="fs-5">
+          <div>
+            Angular's DomSanitizer service provides a set of functions to sanitize user inputs
+            before rendering them on the page. For example,
+            you can use DomSanitizer's sanitizeHtml() function to sanitize any HTML content
+            before rendering it on the page.
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Tab III" class="fs-5">
+          <p>
+            Implementing a Content Security Policy can prevent XSS attacks by specifying
+            which sources of content are allowed to be loaded on a page.
+            You can add a Content-Security-Policy HTTP header to your server's response
+            or use the meta tag to specify the policy.
+          </p>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+
+</div>
+
+
+

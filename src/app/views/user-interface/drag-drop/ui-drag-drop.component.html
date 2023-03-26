@@ -8,7 +8,7 @@
 
 <div class="drop-list-container   mt-5 p-2 e">
 
-  Todo: <span class="me-3" *ngFor="let item of todoItems">#{{ item }}</span>
+  To do: <span class="me-3" *ngFor="let item of todoItems">#{{ item }}</span>
   <br/>
   Done: <span class="me-3" *ngFor="let item of doneItems">#{{ item }}</span>
 
@@ -17,19 +17,19 @@
     <div #listOne="cdkDropList" cdkDropList  [cdkDropListConnectedTo]="[listTwo]"
          [cdkDropListData]="todoItems"
          (cdkDropListDropped)="dropped($event)"
-         class="drop-list m-2 p-2 user-select-non">
+         class="drop-list m-2 p-2">
       <div>To do</div>
       <div cdkDrag *ngFor="let item of todoItems"
-           class="drag-item fs-4 m-2 user-select-non" >Item {{item}}</div>
+           class="drag-item fs-5 m-2 user-select-none" >Item {{item}}</div>
     </div>
 
     <div #listTwo="cdkDropList" cdkDropList  [cdkDropListConnectedTo]="[listOne]"
          [cdkDropListData]="doneItems"
          (cdkDropListDropped)="dropped($event)"
-         class="drop-list m-2 p-2 user-select-non">
+         class="drop-list m-2 p-2">
       <div>Done</div>
       <div cdkDrag *ngFor="let item of doneItems"
-           class="drag-item fs-4 m-2 user-select-non" >Item {{item}}</div>
+           class="drag-item fs-5 m-2 user-select-none" >Item {{item}}</div>
     </div>
 
   </div>
