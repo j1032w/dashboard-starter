@@ -3,7 +3,8 @@ export class DasSidebarItem {
   icon = '';
   selected = false;
   path = '';
-  childItems: DasSidebarItem [] = []
+  childItems: DasSidebarItem [] = [];
+  childTemplate: string;
 
   expanded = false;
 

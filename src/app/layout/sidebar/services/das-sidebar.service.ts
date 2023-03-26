@@ -19,7 +19,7 @@ export class DasSidebarService {
   sidebarItems = [
     new DasSidebarItem({ text: 'Dashboard', icon: 'monitor', path: '/dashboard' }),
 
-    new DasSidebarItem({ text: 'Chart', icon: 'trending-up', path: '/chart' }),
+    new DasSidebarItem({ text: 'Chart', icon: 'trending-up', path: '/chart', childTemplate:'chartSetting' }),
 
     new DasSidebarItem({
       text: 'User Interface',

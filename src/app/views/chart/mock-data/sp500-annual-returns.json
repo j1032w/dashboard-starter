@@ -1,0 +1,74 @@
+{
+  "data": [
+    {
+      "year": "2010",
+      "averageClosingPrice": 1139.97,
+      "annualChange": 12.78
+    },
+    {
+      "year": "2011",
+      "averageClosingPrice": 1267.64,
+      "annualChange": 0
+    },
+    {
+      "year": "2012",
+      "averageClosingPrice": 1379.61,
+      "annualChange": 13.41
+    },
+    {
+      "year": "2013",
+      "averageClosingPrice": 1643.80,
+      "annualChange": 29.60
+    },
+    {
+      "year": "2014",
+      "averageClosingPrice": 1931.38,
+      "annualChange": 11.39
+    },
+    {
+      "year": "2015",
+      "averageClosingPrice": 2061.07,
+      "annualChange": -0.73
+    },
+    {
+      "year": "2016",
+      "averageClosingPrice": 2094.65,
+      "annualChange": 9.54
+    },
+    {
+      "year": "2017",
+      "averageClosingPrice": 2449.08,
+      "annualChange": 19.42
+    },
+    {
+      "year": "2018",
+      "averageClosingPrice": 2746.21,
+      "annualChange": -6.24
+    },
+    {
+      "year": "2019",
+      "averageClosingPrice": 2913.36,
+      "annualChange": 28.88
+    },
+    {
+      "year": "2020",
+      "averageClosingPrice": 3217.86,
+      "annualChange": 16.26
+    },
+    {
+      "year": "2021",
+      "averageClosingPrice": 4273.41,
+      "annualChange": 26.89
+    },
+    {
+      "year": "2022",
+      "averageClosingPrice": 4097.49,
+      "annualChange": -19.44
+    },
+    {
+      "year": "2023",
+      "averageClosingPrice": 3997.67,
+      "annualChange": 3.42
+    }
+  ]
+}

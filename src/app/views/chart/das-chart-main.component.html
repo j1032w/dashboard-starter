@@ -1,3 +1,68 @@
-<dx-button
-  text="Click me">
-</dx-button>
+<div class="bg-white h-100">
+  <dx-chart
+    class="chart"
+    id="chart"
+    [dataSource]="dataSource"
+    title="S&P 500 Historical Annual Returns"
+    palette="Harmony Light"
+  >
+    <dxi-value-axis name="averageClosingPrice" position="left" [tickInterval]="300">
+    </dxi-value-axis>
+
+    <dxi-value-axis
+      name="annualChangePercent"
+      position="right"
+      [showZero]="true"
+      [tickInterval]="5"
+      [valueMarginsEnabled]="false"
+    >
+      <dxo-label [customizeText]="customizeLabelText"></dxo-label>
+      <dxi-constant-line
+        [value]="80"
+        color="#fc3535"
+        dashStyle="dash"
+        [width]="2"
+      >
+        <dxo-label [visible]="false"></dxo-label>
+      </dxi-constant-line>
+    </dxi-value-axis>
+
+    <dxo-argument-axis>
+      <dxo-label overlappingBehavior="stagger"></dxo-label>
+    </dxo-argument-axis>
+
+
+    <dxo-tooltip
+      [enabled]="true"
+      [shared]="true"
+      [customizeTooltip]="customizeTooltip"
+    >
+    </dxo-tooltip>
+
+
+    <dxo-common-series-settings argumentField="year"></dxo-common-series-settings>
+
+
+    <dxi-series
+      type="bar"
+      valueField="averageClosingPrice"
+      axis="frequency"
+      name="Average Closing Price"
+      color="#fac29a"
+    >
+    </dxi-series>
+
+    <dxi-series
+      type="spline"
+      valueField="annualChangePercent"
+      axis="percentage"
+      name="Annual Change Percent"
+      color="#6b71c3"
+    >
+    </dxi-series>
+
+    <dxo-legend verticalAlignment="top" horizontalAlignment="center">
+    </dxo-legend>
+  </dx-chart>
+
+</div>
