@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DasSidebarItem } from './das-sidebar-item';
+import { DasSidebarItem, SidebarItemTypeEnum } from './das-sidebar-item';
 
 @Injectable({ providedIn: 'root' })
 export class DasSidebarService {
@@ -19,11 +19,17 @@ export class DasSidebarService {
   sidebarItems = [
     new DasSidebarItem({ text: 'Dashboard', icon: 'monitor', path: '/dashboard' }),
 
-    new DasSidebarItem({ text: 'Chart', icon: 'trending-up', path: '/chart', childTemplate:'chartSetting' }),
+    new DasSidebarItem({
+      text: 'Chart',
+      icon: 'trending-up',
+      path: '/chart',
+      childTemplate: 'chartSetting'
+    }),
 
     new DasSidebarItem({
       text: 'User Interface',
       icon: 'layout',
+      type: SidebarItemTypeEnum.WithChildrenItems,
       childItems: [
         new DasSidebarItem({ text: 'Animation', path: '/user-interface/animation' }),
         new DasSidebarItem({ text: 'Drag and Drop', path: '/user-interface/drag-drop' }),
@@ -37,6 +43,7 @@ export class DasSidebarService {
     new DasSidebarItem({
       text: 'Components',
       icon: 'package',
+      type: SidebarItemTypeEnum.WithChildrenItems,
       childItems: [
         new DasSidebarItem({ text: 'Base', path: '/component/base' }),
         new DasSidebarItem({ text: 'Form', path: '/component/form' }),

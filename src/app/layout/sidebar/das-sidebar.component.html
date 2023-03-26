@@ -4,7 +4,6 @@
     <cdk-accordion-item
       *ngFor="let sidebarItem of sidebarService.sidebarItems; let index = index;"
       #accordionItemComponent="cdkAccordionItem" [expanded]="sidebarItem.expanded"
-
       class="accordion-item"
       role="button"
       tabindex="0"
@@ -14,71 +13,82 @@
 
 
       <div class="ps-0 mb-0">
+        <ng-container [ngSwitch]="sidebarItem.type">
+          <ng-container *ngSwitchCase="sidebarItemTypeEnum.WithChildTemplate">
+            <ng-template [ngTemplateOutlet]="expandableItem"
+                         [ngTemplateOutletContext]="{$implicit:{accordionItemComponent, sidebarItem}}"
+            >
+
+            </ng-template>
+
+            <ng-container *ngIf="accordionItemComponent.expanded">
+              <ng-container *ngTemplateOutlet="{chartSetting}[sidebarItem.childTemplate]??null"></ng-container>
+            </ng-container>
+          </ng-container>
 
 
+          <ng-container *ngSwitchCase="sidebarItemTypeEnum.WithChildrenItems">
+            <ng-template [ngTemplateOutlet]="expandableItem"
+                         [ngTemplateOutletContext]="{$implicit:{accordionItemComponent, sidebarItem}}">
 
-        <div *ngIf="sidebarItem.childItems.length===0"
-             [routerLink]="sidebarItem.path"
-             routerLinkActive="is-active"
-             class="item-label">
-          <div class="align-items-center">
-            <i-feather [name]="sidebarItem.icon"></i-feather>
-            {{ sidebarItem.text }}
-          </div>
-        </div>
+            </ng-template>
 
-        <ng-container *ngIf="sidebarItem.childTemplate">
-          <ng-container *ngTemplateOutlet="chartSetting"></ng-container>
+            <div *ngIf="accordionItemComponent.expanded"
+                 class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-0 child-container ">
+              <div *ngFor="let childItem of sidebarItem.childItems" class="item-label"
+                   [routerLink]="childItem.path"
+                   routerLinkActive="is-active">
+                <div href="#" class="user-select-none">
+                  {{childItem.text}}
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+
+          <ng-container *ngSwitchDefault>
+            <div [routerLink]="sidebarItem.path"
+                 routerLinkActive="is-active"
+                 class="item-label user-select-none">
+              <div class="align-items-center">
+                <i-feather [name]="sidebarItem.icon"></i-feather>
+                {{ sidebarItem.text }}
+              </div>
+            </div>
+          </ng-container>
+
         </ng-container>
 
 
-        <div *ngIf="sidebarItem.childItems.length>0">
-          <div class="align-items-center item-label"
-               (click)="toggleAccordionItem(accordionItemComponent, sidebarItem)">
-            <span>
-              <i-feather [name]="sidebarItem.icon"></i-feather>
-              {{ sidebarItem.text }}
-            </span>
-
-            <ng-container *ngIf="sidebarItem.childItems.length>0" class="float-end">
-              <ng-container *ngIf="accordionItemComponent.expanded">
-                <i-feather name="chevron-down" class="float-end"></i-feather>
-              </ng-container>
-
-              <ng-container *ngIf="!accordionItemComponent.expanded">
-                <i-feather name="chevron-left" class="float-end"></i-feather>
-              </ng-container>
-            </ng-container>
-          </div>
-
-          <div *ngIf="accordionItemComponent.expanded"
-               class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-0 child-container ">
-            <div *ngFor="let childItem of sidebarItem.childItems" class="item-label"
-                 [routerLink]="childItem.path"
-                 routerLinkActive="is-active">
-              <div href="#">
-                {{childItem.text}}
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-
-
       </div>
-
-
     </cdk-accordion-item>
 
-    <div class=""></div>
   </cdk-accordion>
 </ng-scrollbar>
 
-<ng-template #chartSetting>
-  aaaa
+<ng-template #chartSetting let-ctx>
+
+
+
 </ng-template>
 
-<ng-template #expandableItem>
-  
+
+<ng-template #expandableItem let-ctx>
+  <div class="align-items-center item-label user-select-none" [routerLink]="ctx.sidebarItem.path"
+       (click)="toggleAccordionItem(ctx.accordionItemComponent, ctx.sidebarItem)">
+    <span>
+      <i-feather [name]="ctx.sidebarItem.icon"></i-feather>
+      {{ ctx.sidebarItem.text }}
+    </span>
+
+    <ng-container class="float-end">
+      <ng-container *ngIf="ctx.accordionItemComponent.expanded">
+        <i-feather name="chevron-down" class="float-end"></i-feather>
+      </ng-container>
+
+      <ng-container *ngIf="!ctx.accordionItemComponent.expanded">
+        <i-feather name="chevron-left" class="float-end"></i-feather>
+      </ng-container>
+    </ng-container>
+  </div>
 </ng-template>

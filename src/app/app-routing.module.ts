@@ -9,14 +9,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
   {
-    path: '',
-    component: DasLayoutComponent,
-    data: {
-      label: 'Home'
-    },
+    path: '', component: DasLayoutComponent, data: { label: 'Home' },
 
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch:'full' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
       { path: 'dashboard', component: DasDashboardMainComponent, data: { label: 'Dashboard' } },
 

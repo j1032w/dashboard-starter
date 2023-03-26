@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { matExpansionAnimations } from '@angular/material/expansion';
 
 import { DasComponentBase } from '../../components/das-component-base.component';
-import { DasSidebarItem } from './services/das-sidebar-item';
+import { DasSidebarItem, SidebarItemTypeEnum } from './services/das-sidebar-item';
 import { DasSidebarService } from './services/das-sidebar.service';
 
 
@@ -18,6 +18,7 @@ import { DasSidebarService } from './services/das-sidebar.service';
 export class DasSidebarComponent extends DasComponentBase {
 
 
+  sidebarItemTypeEnum = SidebarItemTypeEnum;
   constructor(
     public readonly sidebarService: DasSidebarService
   ) {
