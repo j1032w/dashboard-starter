@@ -1,19 +1,18 @@
 import { CommonModule } from '@angular/common';
 import {NgModule} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
-import {DasDashboardViewComponent} from './das-dashboard-view.component';
+import {DasDashboardMainComponent} from './das-dashboard-main.component';
 
 
 @NgModule({
-  declarations: [DasDashboardViewComponent],
+  declarations: [DasDashboardMainComponent],
   imports: [
     CommonModule,
-    RouterLink,
-    RouterOutlet
+
 
   ],
   exports: [
-    DasDashboardViewComponent
+    DasDashboardMainComponent
   ],
   providers: []
 })

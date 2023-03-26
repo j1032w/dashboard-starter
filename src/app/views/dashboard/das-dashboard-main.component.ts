@@ -6,11 +6,11 @@ import { BreadcrumbService } from '../../layout/breadcrumb/services/breadcrumb.s
 
 
 @Component({
-  selector: 'das-dashboard-view',
-  templateUrl: './das-dashboard-view.component.html',
-  styleUrls: ['./das-dashboard-view.component.scss']
+  selector: 'das-dashboard-main',
+  templateUrl: './das-dashboard-main.component.html',
+  styleUrls: ['./das-dashboard-main.component.scss']
 })
-export class DasDashboardViewComponent extends DasComponentBase implements OnInit{
+export class DasDashboardMainComponent extends DasComponentBase implements OnInit{
 
 
   constructor(private readonly activatedRoute: ActivatedRoute,

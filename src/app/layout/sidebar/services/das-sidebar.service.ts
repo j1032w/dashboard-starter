@@ -19,7 +19,7 @@ export class DasSidebarService {
   sidebarItems = [
     new DasSidebarItem({ text: 'Dashboard', icon: 'monitor', path: '/dashboard' }),
 
-    new DasSidebarItem({ text: 'Chart', icon: 'trending-up', path: '/multiple/child/grand-child' }),
+    new DasSidebarItem({ text: 'Chart', icon: 'trending-up', path: '/chart' }),
 
     new DasSidebarItem({
       text: 'User Interface',
@@ -46,18 +46,18 @@ export class DasSidebarService {
     }),
 
 
-    new DasSidebarItem({
-      text: 'Icons',
-      icon: 'key',
-      childItems: [
-        new DasSidebarItem({ text: 'Brands', path: '/icons/brand' }),
-        new DasSidebarItem({ text: 'Flags', path: '/icons/flag' }),
-        new DasSidebarItem({ text: 'Font Awesome', path: '/icons/font-awesome' }),
-        new DasSidebarItem({ text: 'SVG Icons', path: '/icons/svg' })
-
-
-      ]
-    })
+    // new DasSidebarItem({
+    //   text: 'Icons',
+    //   icon: 'key',
+    //   childItems: [
+    //     new DasSidebarItem({ text: 'Brands', path: '/icons/brand' }),
+    //     new DasSidebarItem({ text: 'Flags', path: '/icons/flag' }),
+    //     new DasSidebarItem({ text: 'Font Awesome', path: '/icons/font-awesome' }),
+    //     new DasSidebarItem({ text: 'SVG Icons', path: '/icons/svg' })
+    //
+    //
+    //   ]
+    // })
 
   ];
 

@@ -16,14 +16,15 @@ import { UiAnimationComponent } from './animation/ui-animation.component';
 import { DasUserInterfaceRoutingModule } from './das-user-interface-routing.module';
 import { UiDragDropComponent } from './drag-drop/ui-drag-drop.component';
 import { UiResponsiveComponent } from './responsive/ui-responsive.component';
+import { DasUserInterfaceMainComponent } from './user-interface-main.component';
 
-import { DasUserInterfaceComponent } from './user-interface.component';
+
 import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.component';
 
 
 @NgModule({
   declarations: [
-    DasUserInterfaceComponent,
+    DasUserInterfaceMainComponent,
     UiAnimationComponent,
     UiDragDropComponent,
     UiVirtualScrollComponent,

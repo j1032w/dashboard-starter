@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DasIconsModule } from './components/das-icons.module';
 import { DasLayoutModule } from './layout/layout.module';
+import { DasChartViewModule } from './views/chart/das-chart-view.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { DasLayoutModule } from './layout/layout.module';
     HttpClientModule,
     AppRoutingModule,
     DasIconsModule,
-    FeatherModule
+    FeatherModule,
+    DasChartViewModule
 
   ],
   providers: [],
