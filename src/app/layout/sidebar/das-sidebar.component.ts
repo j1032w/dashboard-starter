@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { matExpansionAnimations } from '@angular/material/expansion';
 
 import { DasComponentBase } from '../../components/das-component-base.component';
+import { DasChartService } from '../../views/chart/das-chart.service';
 import { DasSidebarItem, SidebarItemTypeEnum } from './services/das-sidebar-item';
 import { DasSidebarService } from './services/das-sidebar.service';
 
@@ -19,10 +20,18 @@ export class DasSidebarComponent extends DasComponentBase {
 
 
   sidebarItemTypeEnum = SidebarItemTypeEnum;
+
+  isChartTitleVisible = true;
+  isChartLegendVisible = true;
+
   constructor(
     public readonly sidebarService: DasSidebarService
   ) {
     super();
+  }
+
+  toggleChartTitle(){
+    this.isChartTitleVisible = !this.isChartTitleVisible;
   }
 
 

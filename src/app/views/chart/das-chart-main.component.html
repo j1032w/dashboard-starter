@@ -1,9 +1,9 @@
 <div class="bg-white h-100">
   <dx-chart
-    class="chart"
+    class="chart p-3"
     id="chart"
     [dataSource]="dataSource"
-    title="S&P 500 Historical Annual Returns"
+    [title]="chartService.title"
     palette="Harmony Light"
   >
     <dxi-value-axis name="averageClosingPrice" position="left" [tickInterval]="300">
@@ -46,7 +46,7 @@
     <dxi-series
       type="bar"
       valueField="averageClosingPrice"
-      axis="frequency"
+      axis="averageClosingPrice"
       name="Average Closing Price"
       color="#fac29a"
     >
@@ -55,13 +55,14 @@
     <dxi-series
       type="spline"
       valueField="annualChangePercent"
-      axis="percentage"
+      axis="annualChangePercent"
       name="Annual Change Percent"
       color="#6b71c3"
     >
     </dxi-series>
 
-    <dxo-legend verticalAlignment="top" horizontalAlignment="center">
+    <dxo-legend *ngIf="chartService.isLegendVisible"
+      verticalAlignment="top" horizontalAlignment="center">
     </dxo-legend>
   </dx-chart>
 

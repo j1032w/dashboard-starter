@@ -1,19 +1,33 @@
-import {NgModule} from '@angular/core';
-import {FeatherModule} from 'angular-feather';
+import { NgModule } from '@angular/core';
+import { FeatherModule } from 'angular-feather';
 import {
   Airplay,
-  Bell, Bold,
-  Camera,
+  Bell,
+  Bold,
   ChevronDown,
-  ChevronLeft, ChevronRight, ChevronsLeft, Edit, Eye, Facebook, Feather, FileText,
-  Film, Flag,
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  Edit,
+  Eye,
+  Facebook,
+  Feather,
+  FileText,
+  Film,
+  Flag,
   Github,
   Grid,
-  Heart, Key, Layout, Menu, MessageSquare,
-  Monitor, Move,
-  Package, PieChart, Settings, Tag, TrendingUp
+  Key,
+  Layout,
+  Menu,
+  MessageSquare,
+  Monitor,
+  Move,
+  Package,
+  Settings,
+  Tag,
+  TrendingUp
 } from 'angular-feather/icons';
-
 
 
 const icons = {
@@ -45,7 +59,6 @@ const icons = {
   Tag,
   Settings,
   ChevronRight
-
 
 
 };

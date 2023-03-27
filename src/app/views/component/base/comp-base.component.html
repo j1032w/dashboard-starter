@@ -3,17 +3,18 @@
 
     <div class="col-lg-6  ">
 
+
+
       <div class="container-fluid shadow bg-body rounded p-3">
         <div class="row mb-4">
           <div class="col-12">
-            <p-toast></p-toast>
-            <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
-            <div class="fs-5">Delete confirmation</div>
-            <span (click)="delete()" class="btn btn-primary">Delete</span>
+            <div class="fs-5 mb-4">Badge</div>
+            <p-avatar label="D" pBadge styleClass="mr-5" value="1"
+                      size="large"
+                      [style]="{ 'background-color': '#4caf4f', color: '#ffffff' }"></p-avatar>
           </div>
 
         </div>
-
 
         <div class="row mb-4">
           <div class="col-12">

@@ -3,8 +3,11 @@
 :host {
   display: block;
   height: 100%;
+}
 
-
+::ng-deep .p-checkbox .p-checkbox-box {
+  width: 1rem;
+  height: 1rem;
 }
 
 .sidebar-container{

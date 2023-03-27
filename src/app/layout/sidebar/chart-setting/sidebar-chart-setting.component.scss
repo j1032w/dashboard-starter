@@ -1,0 +1,21 @@
+@import "../../../common/styles/variables";
+
+:host {
+  display: block;
+}
+
+::ng-deep {
+  .p-inputswitch {
+    height: 1.5rem;
+
+  }
+}
+
+.chart-setting-container {
+  background-color: $gray-200;
+
+  .input-label{
+    cursor: pointer;
+  }
+}
+

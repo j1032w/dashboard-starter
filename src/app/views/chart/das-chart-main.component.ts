@@ -7,10 +7,12 @@ import { Sp500AnnualHistory, DasChartService } from './das-chart.service';
   styleUrls: ['./das-chart-main.component.scss']
 })
 export class DasChartMainComponent {
+
+
   dataSource: Sp500AnnualHistory[];
 
-  constructor(service:DasChartService) {
-    this.dataSource = service.getSp500Data();
+  constructor(public readonly chartService:DasChartService) {
+    this.dataSource = chartService.getSp500Data();
   }
 
   customizeTooltip = (info: any) => ({

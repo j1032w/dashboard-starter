@@ -3,7 +3,8 @@
   <cdk-accordion class="sidebar-menu flex-grow-1" [multi]="true">
     <cdk-accordion-item
       *ngFor="let sidebarItem of sidebarService.sidebarItems; let index = index;"
-      #accordionItemComponent="cdkAccordionItem" [expanded]="sidebarItem.expanded"
+      #accordionItemComponent="cdkAccordionItem"
+      [expanded]="sidebarItem.expanded"
       class="accordion-item"
       role="button"
       tabindex="0"
@@ -14,19 +15,22 @@
 
       <div class="ps-0 mb-0">
         <ng-container [ngSwitch]="sidebarItem.type">
+
+          <!-- case:  child template        -->
           <ng-container *ngSwitchCase="sidebarItemTypeEnum.WithChildTemplate">
             <ng-template [ngTemplateOutlet]="expandableItem"
-                         [ngTemplateOutletContext]="{$implicit:{accordionItemComponent, sidebarItem}}"
-            >
-
+                         [ngTemplateOutletContext]="{$implicit:{accordionItemComponent, sidebarItem}}">
             </ng-template>
 
             <ng-container *ngIf="accordionItemComponent.expanded">
-              <ng-container *ngTemplateOutlet="{chartSetting}[sidebarItem.childTemplate]??null"></ng-container>
+              <div *ngTemplateOutlet="{chartSetting}[sidebarItem.childTemplate]??null">
+
+              </div>
             </ng-container>
           </ng-container>
 
 
+          <!-- case:  child items        -->
           <ng-container *ngSwitchCase="sidebarItemTypeEnum.WithChildrenItems">
             <ng-template [ngTemplateOutlet]="expandableItem"
                          [ngTemplateOutletContext]="{$implicit:{accordionItemComponent, sidebarItem}}">
@@ -46,14 +50,15 @@
           </ng-container>
 
 
+          <!-- default        -->
           <ng-container *ngSwitchDefault>
-            <div [routerLink]="sidebarItem.path"
-                 routerLinkActive="is-active"
+            <div [routerLink]="sidebarItem.path" routerLinkActive="is-active"
                  class="item-label user-select-none">
               <div class="align-items-center">
                 <i-feather [name]="sidebarItem.icon"></i-feather>
                 {{ sidebarItem.text }}
               </div>
+
             </div>
           </ng-container>
 
@@ -66,15 +71,15 @@
   </cdk-accordion>
 </ng-scrollbar>
 
-<ng-template #chartSetting let-ctx>
+<ng-template #chartSetting>
 
-
-
+  <das-sidebar-chart-setting></das-sidebar-chart-setting>
 </ng-template>
 
 
 <ng-template #expandableItem let-ctx>
   <div class="align-items-center item-label user-select-none" [routerLink]="ctx.sidebarItem.path"
+       routerLinkActive="is-active"
        (click)="toggleAccordionItem(ctx.accordionItemComponent, ctx.sidebarItem)">
     <span>
       <i-feather [name]="ctx.sidebarItem.icon"></i-feather>

@@ -19,12 +19,15 @@ export class DasSidebarService {
   sidebarItems = [
     new DasSidebarItem({ text: 'Dashboard', icon: 'monitor', path: '/dashboard' }),
 
+
     new DasSidebarItem({
       text: 'Chart',
       icon: 'trending-up',
       path: '/chart',
-      childTemplate: 'chartSetting'
+      childTemplate: 'chartSetting',
+      type: SidebarItemTypeEnum.WithChildTemplate
     }),
+
 
     new DasSidebarItem({
       text: 'User Interface',
@@ -50,7 +53,7 @@ export class DasSidebarService {
         new DasSidebarItem({ text: 'Grid', path: '/component/grid' }),
         new DasSidebarItem({ text: 'Notification', path: '/component/notification' })
       ]
-    }),
+    })
 
 
     // new DasSidebarItem({

@@ -6,14 +6,17 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FeatherModule } from 'angular-feather';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { CheckboxModule } from 'primeng/checkbox';
+import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
 import { DasIconsModule } from '../../components/das-icons.module';
 import { DasSidebarComponent } from './das-sidebar.component';
+import { SidebarChartSettingComponent } from './chart-setting/sidebar-chart-setting.component';
 
 
 @NgModule({
   declarations: [
-    DasSidebarComponent
+    DasSidebarComponent,
+    SidebarChartSettingComponent
   ],
   imports: [
     DasIconsModule,
@@ -27,7 +30,8 @@ import { DasSidebarComponent } from './das-sidebar.component';
     RouterLinkActive,
     InputTextModule,
     FormsModule,
-    CheckboxModule
+    CheckboxModule,
+    InputSwitchModule
   ],
   exports: [
     DasSidebarComponent
