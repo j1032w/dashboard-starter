@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
-import {NgModule} from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
-import {DasDashboardMainComponent} from './das-dashboard-main.component';
+import { NgModule } from '@angular/core';
+import { DasDashboardMainComponent } from './das-dashboard-main.component';
 
 
 @NgModule({
   declarations: [DasDashboardMainComponent],
   imports: [
-    CommonModule,
+    CommonModule
 
 
   ],

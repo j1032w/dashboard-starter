@@ -1,9 +1,7 @@
 import { CommonModule } from '@angular/common';
-import {NgModule} from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import { NgModule } from '@angular/core';
 import { DevExtremeModule, DxButtonModule } from 'devextreme-angular';
 import { DasChartMainComponent } from './das-chart-main.component';
-
 
 
 @NgModule({

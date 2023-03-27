@@ -8,7 +8,7 @@ import {BreadcrumbService} from './services/breadcrumb.service';
   templateUrl: './das-breadcrumb.component.html',
   styleUrls: ['./das-breadcrumb.component.scss']
 })
-export class DasBreadcrumbComponent extends DasComponentBase implements OnInit {
+export class DasBreadcrumbComponent extends DasComponentBase  {
 
   constructor(public readonly breadcrumbService:BreadcrumbService) {
     super();
@@ -16,7 +16,5 @@ export class DasBreadcrumbComponent extends DasComponentBase implements OnInit {
 
   }
 
-  ngOnInit() {
 
-  }
 }
