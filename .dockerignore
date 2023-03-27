@@ -1,0 +1,13 @@
+.git
+.gitignore
+.angular
+.prettierignore
+.vscode
+.idea
+.run
+coverage
+docker-compose*.yml
+Dockerfile
+node_modules
+jest.config.js
+yarn-error.log
