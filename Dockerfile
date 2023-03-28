@@ -1,11 +1,11 @@
 # Use an official Node.js runtime as a parent image
-FROM node:14-alpine as build
+FROM node:14-alpine AS build
 
 # Set the working directory
 WORKDIR /ng-app
 # Add project into container, install dependencies
 
-ADD .yarn yarn.lock package.json angular.json tsconfig.* eslint.* /ng-app/
+ADD .yarn yarn.lock package.json angular.json tsconfig.json  tsconfig.app.json /ng-app/
 ADD src/ /ng-app/src/
 RUN yarn install --update-checksums --no-progress --non-interactive
 
@@ -24,8 +24,9 @@ FROM nginx:1.21-alpine
 #    adduser -D -u 1001 -G nginx -h /var/cache/nginx -s /sbin/nologin nginx
 
 # Change the ownership of the directories that Nginx needs to write to
-RUN  chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx
-RUN  chmod o+wr /var/cache/nginx /var/run /var/log/nginx
+RUN chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx
+RUN chmod g+wr /var/cache/nginx /var/run /var/log/nginx
+
 
 
 # Switch to the non-root user
