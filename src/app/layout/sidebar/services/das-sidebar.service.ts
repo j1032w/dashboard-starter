@@ -4,18 +4,6 @@ import { DasSidebarItem, SidebarItemTypeEnum } from './das-sidebar-item';
 @Injectable({ providedIn: 'root' })
 export class DasSidebarService {
 
-  selectItem(selectedItem: DasSidebarItem) {
-    for (const sidebarItem of this.sidebarItems) {
-      sidebarItem.selected = false;
-      for (const childItem of sidebarItem.childItems) {
-        sidebarItem.selected = false;
-      }
-    }
-
-    selectedItem.selected = true;
-  }
-
-
   sidebarItems = [
     new DasSidebarItem({ text: 'Dashboard', icon: 'monitor', path: '/dashboard' }),
 
