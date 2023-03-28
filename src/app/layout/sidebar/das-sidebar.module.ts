@@ -9,8 +9,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
 import { DasIconsModule } from '../../components/das-icons.module';
-import { DasSidebarComponent } from './das-sidebar.component';
 import { SidebarChartSettingComponent } from './chart-setting/sidebar-chart-setting.component';
+import { DasSidebarComponent } from './das-sidebar.component';
 
 
 @NgModule({
@@ -19,19 +19,17 @@ import { SidebarChartSettingComponent } from './chart-setting/sidebar-chart-sett
     SidebarChartSettingComponent
   ],
   imports: [
-    DasIconsModule,
-    CommonModule,
-    NgScrollbarModule,
-
-
     CdkAccordionModule,
-    FeatherModule,
-    RouterLink,
-    RouterLinkActive,
-    InputTextModule,
-    FormsModule,
     CheckboxModule,
-    InputSwitchModule
+    CommonModule,
+    DasIconsModule,
+    FeatherModule,
+    FormsModule,
+    InputSwitchModule,
+    InputTextModule,
+    NgScrollbarModule,
+    RouterLink,
+    RouterLinkActive
   ],
   exports: [
     DasSidebarComponent

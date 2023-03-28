@@ -11,6 +11,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { MessagesModule } from 'primeng/messages';
 
 import { ToastModule } from 'primeng/toast';
+import { DasIconsModule } from '../../components/das-icons.module';
 import { DasComponentFormModule } from '../component/form/das-component-form.module';
 import { UiAnimationComponent } from './animation/ui-animation.component';
 import { DasUserInterfaceRoutingModule } from './das-user-interface-routing.module';
@@ -34,6 +35,7 @@ import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.com
   imports: [
     CommonModule,
     DasUserInterfaceRoutingModule,
+    DasIconsModule,
     FeatherModule,
     DragDropModule,
     NgScrollbarModule,

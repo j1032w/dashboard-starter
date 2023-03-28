@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonTestConfig } from '../../../common/services/common-test-config';
+import { DasUserInterfaceModule } from '../das-user-interface.module';
 
 import { UiAnimationComponent } from './ui-animation.component';
 
@@ -8,9 +11,19 @@ describe('UiAnimationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiAnimationComponent ]
+      imports: [
+        ...CommonTestConfig.imports,
+        DasUserInterfaceModule,
+
+        // Jest raised error with animation
+        // TypeError: element.animate is not a function
+        // https://github.com/angular/angular/issues/45016
+        // https://github.com/angular/angular/issues/45379
+        NoopAnimationsModule
+      ],
+      providers: [...CommonTestConfig.providers]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(UiAnimationComponent);
     component = fixture.componentInstance;

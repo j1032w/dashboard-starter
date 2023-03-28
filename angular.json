@@ -48,7 +48,13 @@
               "node_modules/devextreme/dist/css/dx.light.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "node_modules/web-animations-js/web-animations.min.js",
+                "inject": false,
+                "bundleName": "web-animations-js"
+              }
+            ]
           },
           "configurations": {
             "production": {
