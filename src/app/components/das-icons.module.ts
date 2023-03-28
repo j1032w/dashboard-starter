@@ -59,8 +59,6 @@ const icons = {
   Tag,
   Settings,
   ChevronRight
-
-
 };
 
 @NgModule({

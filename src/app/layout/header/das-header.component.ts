@@ -17,5 +17,9 @@ export class DasHeaderComponent extends DasComponentBase {
 
   }
 
+  openLink(url:string){
+    window.open(url, "_blank");
+  }
+
 
 }
