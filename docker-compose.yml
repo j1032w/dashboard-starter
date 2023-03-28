@@ -3,7 +3,7 @@ version: '3.4'
 services:
   dashboard-starter-ui:
     container_name: dashboard-starter-ui
-    image: 'dashboard-starter-ui'
+    image: dashboard-starter-ui:${TAG:-develop}
 
     build:
       context: .

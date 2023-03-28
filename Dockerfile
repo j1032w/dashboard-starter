@@ -1,21 +1,16 @@
 # Use an official Node.js runtime as a parent image
 FROM node:14-alpine as build
 
+# Set the working directory
+WORKDIR /ng-app
+# Add project into container, install dependencies
 
-# Set the working directory to /app
-WORKDIR /app
+ADD .yarn yarn.lock package.json angular.json tsconfig.* eslint.* /ng-app/
+ADD src/ /ng-app/src/
+RUN yarn install --update-checksums --no-progress --non-interactive
 
-# Copy the package.json and package-lock.json files to the container
-COPY package*.json ./
-
-# Install Node.js packages
-RUN npm install
-
-# Copy the rest of the application code to the container
-COPY . .
-
-# Build the Angular application
-RUN npm run build --prod
+# Build application
+RUN yarn build-prod
 
 
 
@@ -38,7 +33,7 @@ USER nginx
 
 
 # Copy the compiled application from the first image to the nginx server directory
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /ng-app/dist /usr/share/nginx/html
 
 # Copy the nginx configuration file to the container
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
