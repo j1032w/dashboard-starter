@@ -1,27 +1,61 @@
 # Dashboard Starter
+Angular + Angular Material CDK + Bootstrap Admin Dashboard Boilerplate
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=bugs)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
+
+<a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.glitch.me/badge?page_id=j1032w/dashboard-starter"></a>
 
 
 
-## Docker
-#### To build Dashboard Starter in a local PC
+
+
+# Live Demo
+https://www.j1032.com/dashboard
+
+[![Demo](documentation/dashboard.png)](https://www.j1032.com/dashboard)
+
+
+# Setup and Usage
+1. Clone the repository
 ```
-docker image build --progress=plain --tag dashboard-starter:develop .
-```  
+git clone https://github.com/j1032w/dashboard-starter.git
+```
+2. Open your copied repo folder in terminal
+```
+yarn install
+yarn start-dev
+```
 
-or with docker-compose
+
+# Docker
+### Pull and run
+```
+docker pull northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
+
+docker run -d  -p 4200:80 --restart always --name=dashboard-starter-ui northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
+```
+
+### Build and run
+With docker-compose
 ```
 docker-compose build
-```
 
-#### To run
-```
-docker container run -p 4200:80 --rm dashboard-starter:develop
-```
-
-or with docker-compose
-```
 docker-compose up
 ```
+
+or
+
+```
+docker image build --progress=plain --tag dashboard-starter:develop 
+
+docker container run -p 4200:80 --rm dashboard-starter:develop
+```  
+
+
+
+
 
 
 
