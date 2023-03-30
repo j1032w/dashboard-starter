@@ -25,6 +25,7 @@ git clone https://github.com/j1032w/dashboard-starter.git
 2. Open your copied repo folder in terminal
 ```
 yarn install
+
 yarn start-dev
 ```
 
@@ -40,17 +41,17 @@ docker run -d  -p 4200:80 --restart always --name=dashboard-starter-ui northamer
 ### Build and run
 With docker-compose
 ```
-docker-compose build
+docker compose build
 
-docker-compose up
+docker compose up
 ```
 
 or
 
 ```
-docker image build --progress=plain --tag dashboard-starter:develop 
+docker image build --progress=plain --tag dashboard-starter-ui:develop 
 
-docker container run -p 4200:80 --rm dashboard-starter:develop
+docker container run -p 4200:80 --rm dashboard-starter-ui:develop
 ```  
 
 
