@@ -36,9 +36,9 @@ export class DasSidebarService {
       icon: 'package',
       type: SidebarItemTypeEnum.WithChildrenItems,
       childItems: [
-        new DasSidebarItem({ text: 'Base', path: '/component/base' }),
         new DasSidebarItem({ text: 'Form', path: '/component/form' }),
         new DasSidebarItem({ text: 'Grid', path: '/component/grid' }),
+        new DasSidebarItem({ text: 'Multiple Purpose', path: '/component/multiple-purpose' }),
         new DasSidebarItem({ text: 'Notification', path: '/component/notification' })
       ]
     })

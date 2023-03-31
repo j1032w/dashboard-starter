@@ -78,7 +78,7 @@
 
 
 <ng-template #expandableItem let-ctx>
-  <div class="align-items-center item-label user-select-none" [routerLink]="ctx.sidebarItem.path"
+  <div class="align-items-center item-label user-select-none"
        routerLinkActive="is-active"
        (click)="toggleAccordionItem(ctx.accordionItemComponent, ctx.sidebarItem)">
     <span>

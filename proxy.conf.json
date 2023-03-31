@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "wss://ws.finnhub.io",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

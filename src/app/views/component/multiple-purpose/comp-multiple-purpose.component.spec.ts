@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompBaseComponent } from './comp-base.component';
+import { CompMultiplePurposeComponent } from './comp-multiple-purpose.component';
 
 describe('CompButtonComponent', () => {
-  let component: CompBaseComponent;
-  let fixture: ComponentFixture<CompBaseComponent>;
+  let component: CompMultiplePurposeComponent;
+  let fixture: ComponentFixture<CompMultiplePurposeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompBaseComponent ]
+      declarations: [ CompMultiplePurposeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CompBaseComponent);
+    fixture = TestBed.createComponent(CompMultiplePurposeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
