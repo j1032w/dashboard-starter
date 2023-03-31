@@ -7,10 +7,10 @@ WORKDIR /ng-app
 
 ADD .yarn yarn.lock package.json angular.json tsconfig.json  tsconfig.app.json /ng-app/
 ADD src/ /ng-app/src/
-RUN yarn install --update-checksums --no-progress --non-interactive
+RUN yarn install --update-checksums --no-progress --non-interactive --ignore-scripts
 
 # Build application
-RUN yarn build-prod
+RUN yarn build-prod --ignore-scripts
 
 
 
