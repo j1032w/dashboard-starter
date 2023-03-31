@@ -10,7 +10,7 @@ ADD src/ /ng-app/src/
 RUN yarn install --update-checksums --no-progress --non-interactive --ignore-scripts
 
 # Build application
-RUN yarn build-prod
+RUN yarn --ignore-scripts build-prod
 
 
 
