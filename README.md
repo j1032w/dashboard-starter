@@ -4,10 +4,10 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=bugs)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 
-<a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.glitch.me/badge?page_id=j1032w/dashboard-starter"></a>
+<a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.laobi.icu/badge?page_id=j1032w/dashboard-starter"></a>
 
 
-Dashboard Starter is a dashboard boilerplate project built with Angular, Angular Material CDK and Bootstrap.
+Dashboard Starter is a dashboard boilerplate project built with Angular v15, Angular Material CDK v15 and Bootstrap v5.
 
 You will need to adjust the code to fit your specific needs, but I hope that this project can give you a good starting point.
 
