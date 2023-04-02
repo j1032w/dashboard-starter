@@ -9,7 +9,7 @@
 
 Dashboard Starter is a dashboard boilerplate project built with Angular v15, Angular Material CDK v15 and Bootstrap v5.
 
-You will need to adjust the code to fit your specific needs, but I hope that this project can give you a good starting point.
+You will need to adjust the code to fit your specific needs, and I hope that this project can give you a good starting point.
 
 
 
@@ -21,40 +21,43 @@ https://www.j1032.com/dashboard
 
 
 # Setup and Usage
-1. Clone the repository
+### Clone repository
 ```
 git clone https://github.com/j1032w/dashboard-starter.git
 ```
-2. Open your copied repo folder in terminal
+### Running development server
 ```
 yarn install
 
 yarn start-dev
 ```
+Navigate to `http://localhost:4200/`
 
+### Running unit tests
+```
+yarn test
+```
 
 # Docker
-### Pull and run
+### Deployment
 ```
-docker pull northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
-
-docker run -d  -p 4200:80 --restart always --name=dashboard-starter-ui northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
+docker container rm -f dashboard-starter-ui \
+&& docker run -d --pull=always -p 4200:80 --name=dashboard-starter-ui  northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
 ```
 
 ### Build and run
 With docker-compose
 ```
 docker compose build
-
 docker compose up
 ```
 
-or
+or with Docker standalone
 
 ```
 docker image build --progress=plain --tag dashboard-starter-ui:develop 
 
-docker container run -p 4200:80 --rm dashboard-starter-ui:develop
+docker container run -d -p 4200:80 --rm dashboard-starter-ui:develop
 ```  
 
 
