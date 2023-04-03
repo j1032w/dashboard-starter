@@ -6,12 +6,15 @@
 
 <p-dialog [header]="header" appendTo="body"
           [(visible)]="visible"
-          [style]="{width: width, height:'60vh'}"
+          [style]="{width: width, height:'35rem'}"
           class="pe-3">
-  <ng-scrollbar appearance="compact" visibility="hover">
-    <das-comp-floating-label-form [colClass]="colClass"></das-comp-floating-label-form>
+  <ng-scrollbar appearance="compact" visibility="hover" >
+    <das-comp-floating-label-form [colClass]="colClass" class="pe-2"></das-comp-floating-label-form>
   </ng-scrollbar>
 
+  <ng-template pTemplate="footer">
+    <button type="submit" class="btn btn-sm btn-primary me-2">Submit</button>
+  </ng-template>
 </p-dialog>
 
 
