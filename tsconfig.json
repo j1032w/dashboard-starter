@@ -38,6 +38,8 @@
     ]
   },
   "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "annotateForClosureCompiler": true,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

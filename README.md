@@ -1,4 +1,5 @@
 # Dashboard Starter
+A dashboard boilerplate project
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
@@ -7,12 +8,17 @@
 <a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.laobi.icu/badge?page_id=j1032w/dashboard-starter"></a>
 
 
-Dashboard Starter is a dashboard boilerplate project built with Angular v15, Angular Material CDK v15 and Bootstrap v5.
+
 
 You will need to adjust the code to fit your specific needs, and I hope that this project can give you a good starting point.
 
-
-
+What I've got here
+- Built on Angular, Typescript, SCSS, [Angular Material CDK](https://material.angular.io/cdk/categories) and [Bootstrap](https://getbootstrap.com/)    
+- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compile
+- SVG Icons
+- Unit testing with [Jest](https://jestjs.io/)
+- Dockerized application
+- Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)
 
 # Live Demo
 https://www.j1032.com/dashboard
@@ -20,18 +26,17 @@ https://www.j1032.com/dashboard
 [![Demo](documentation/dashboard.png)](https://www.j1032.com/dashboard)
 
 
-# Setup and Usage
-### Clone repository
+# Quick start
+1. Clone repository
 ```
 git clone https://github.com/j1032w/dashboard-starter.git
 ```
-### Running development server
+2. Running development server
 ```
 yarn install
-
 yarn start-dev
 ```
-Navigate to `http://localhost:4200/`
+3. Navigate to [http://localhost:4200/](http://localhost:4200/)
 
 ### Running unit tests
 ```
@@ -40,12 +45,12 @@ yarn test
 
 # Docker
 ### Deployment
+Load container image form Google cloud Artifact registry 
 ```
-docker container rm -f dashboard-starter-ui \
-&& docker run -d --pull=always -p 4200:80 --name=dashboard-starter-ui  northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
+docker run -d --pull=always -p 4200:80 --name=dashboard-starter-ui  northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
 ```
 
-### Build and run
+### Build container locally
 With docker-compose
 ```
 docker compose build
