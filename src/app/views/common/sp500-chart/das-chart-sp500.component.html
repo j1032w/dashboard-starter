@@ -1,0 +1,69 @@
+<div class="bg-white h-100 w-100 d-flex">
+  <dx-chart
+    class="chart p-3 flex-grow-1"
+    id="chart"
+    [dataSource]="dataSource"
+    [title]="chartService.title"
+    palette="Harmony Light"
+  >
+    <dxi-value-axis name="averageClosingPrice" position="left" [tickInterval]="300">
+    </dxi-value-axis>
+
+    <dxi-value-axis
+      name="annualChangePercent"
+      position="right"
+      [showZero]="true"
+      [tickInterval]="5"
+      [valueMarginsEnabled]="false"
+    >
+      <dxo-label [customizeText]="customizeLabelText"></dxo-label>
+      <dxi-constant-line
+        [value]="80"
+        color="#fc3535"
+        dashStyle="dash"
+        [width]="2"
+      >
+        <dxo-label [visible]="false"></dxo-label>
+      </dxi-constant-line>
+    </dxi-value-axis>
+
+    <dxo-argument-axis>
+      <dxo-label overlappingBehavior="stagger"></dxo-label>
+    </dxo-argument-axis>
+
+
+    <dxo-tooltip
+      [enabled]="true"
+      [shared]="true"
+      [customizeTooltip]="customizeTooltip"
+    >
+    </dxo-tooltip>
+
+
+    <dxo-common-series-settings argumentField="year"></dxo-common-series-settings>
+
+
+    <dxi-series
+      type="bar"
+      valueField="averageClosingPrice"
+      axis="averageClosingPrice"
+      name="Average Closing Price"
+      color="#fac29a"
+    >
+    </dxi-series>
+
+    <dxi-series
+      type="spline"
+      valueField="annualChangePercent"
+      axis="annualChangePercent"
+      name="Annual Change Percent"
+      color="#6b71c3"
+    >
+    </dxi-series>
+
+    <dxo-legend *ngIf="chartService.isLegendVisible"
+                verticalAlignment="top" horizontalAlignment="center">
+    </dxo-legend>
+  </dx-chart>
+
+</div>

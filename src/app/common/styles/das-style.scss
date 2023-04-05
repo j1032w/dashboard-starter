@@ -3,13 +3,15 @@
 .toolbar {
   .toolbar-button {
     height: 1.5rem;
-    width: 2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    width: 1.7rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    border: 1px solid transparent;
+
 
     &:hover {
       cursor: pointer;
-      border: 1px solid $gray-400;
+      border: 1px solid $gray-500;
 
     }
   }

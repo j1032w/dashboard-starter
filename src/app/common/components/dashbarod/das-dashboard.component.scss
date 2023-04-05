@@ -1,4 +1,3 @@
-@import "../../../common/styles/variables";
 @import "../../../common/styles/das-style";
 
 
@@ -12,10 +11,11 @@
 }
 
 
-
 ::ng-deep {
-  .gridster-column, .gridster-row{
-    border-color: $gray-400 !important;
+  .gridster-column, .gridster-row {
+    border-color: $info !important;
+    border-right-width: 0 !important;
+    border-bottom-width: 0 !important;
   }
 
   .gridster-preview {
@@ -27,7 +27,19 @@
 }
 
 
-.title{
+.title {
   cursor: hand;
 }
 
+.dashboard-setting-toolbar {
+  position: absolute;
+  right: 1rem;
+  top: 3.5rem;
+  font-weight: bold;
+
+
+  .toolbar-button{
+    padding: 0.3rem;
+  }
+
+}

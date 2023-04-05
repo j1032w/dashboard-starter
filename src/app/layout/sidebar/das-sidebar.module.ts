@@ -26,6 +26,7 @@ import { DasSidebarComponent } from './das-sidebar.component';
     NgScrollbarModule,
     RouterLink,
     RouterLinkActive
+
   ],
   exports: [
     DasSidebarComponent

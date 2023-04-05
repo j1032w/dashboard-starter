@@ -14,6 +14,9 @@ import {DasHeaderComponent} from './das-header.component';
     RouterLink,
     FeatherModule,
     MatBadgeModule,
+    TooltipModule,
+    TooltipModule,
+    TooltipModule,
     TooltipModule
 
 

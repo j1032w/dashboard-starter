@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardSp500ChartComponent } from './dashboard-sp500-chart.component';
+import { DasChartSp500Component } from './das-chart-sp500.component';
 
 describe('Sp500HistoryReturnComponent', () => {
-  let component: DashboardSp500ChartComponent;
-  let fixture: ComponentFixture<DashboardSp500ChartComponent>;
+  let component: DasChartSp500Component;
+  let fixture: ComponentFixture<DasChartSp500Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardSp500ChartComponent ]
+      declarations: [ DasChartSp500Component ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DashboardSp500ChartComponent);
+    fixture = TestBed.createComponent(DasChartSp500Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,6 +6,7 @@ export class DasDashboardService {
 
   widgets: DasWidget[];
 
+  isSettingVisible = false;
 
 }
 

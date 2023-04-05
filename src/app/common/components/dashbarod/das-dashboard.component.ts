@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { DisplayGrid, GridType } from 'angular-gridster2';
+import { Component, Input, ViewChild } from '@angular/core';
+import { DisplayGrid, GridsterComponent, GridType } from 'angular-gridster2';
 import { DasDashboardService } from './services/das-dashboard.service';
 import { DasWidget } from './services/das.widget';
 
@@ -9,12 +9,13 @@ import { DasWidget } from './services/das.widget';
   styleUrls: ['./das-dashboard.component.scss']
 })
 export class DasDashboardComponent {
+
   @Input() options: any = {
     //compactType: CompactType.CompactUp,
     swap: true,
     pushItems: true,
     pushDirections: { north: true, east: true, south: true, west: true },
-    pushResizeItems: false,
+    pushResizeItems: true,
 
     displayGrid: DisplayGrid.OnDragAndResize,
     gridType: GridType.VerticalFixed,
@@ -23,7 +24,9 @@ export class DasDashboardComponent {
     maxCols: 12,
     mobileBreakpoint: 800,
     fixedColWidth: 100,
-    fixedRowHeight: 100,
+    fixedRowHeight: 45,
+    minItemCols:2,
+
 
     draggable: {
       enabled: true,
@@ -42,6 +45,9 @@ export class DasDashboardComponent {
     }
   };
 
+  @ViewChild('gridsterComponent', { static: true }) gridsterComponent: GridsterComponent;
+
+
   constructor(public readonly dashboardService: DasDashboardService) {
   }
 
@@ -50,4 +56,39 @@ export class DasDashboardComponent {
     $event.stopPropagation();
     this.dashboardService.widgets.splice(this.dashboardService.widgets.indexOf(item), 1);
   }
+
+  toggleDashboardSettingVisibility(){
+    this.dashboardService.isSettingVisible = !this.dashboardService.isSettingVisible;
+
+  }
+
+  toggleMinimizeItem($event: any, gristerItemComponet: any, item: DasWidget): void {
+    $event.preventDefault();
+    $event.stopPropagation();
+    item.isMinimized = !item.isMinimized;
+
+    if (item.isMinimized) {
+      item.rows = 1;
+      gristerItemComponet.$item.rows = 1;
+      gristerItemComponet.setSize();
+
+    } else {
+      item.rows = 4;
+      gristerItemComponet.$item.rows = 4;
+      gristerItemComponet.setSize();
+    }
+
+    // this.gridsterComponent.updateGrid();
+    //this.gridsterComponent.optionsChanged();
+    // this.gridsterComponent.gridRenderer.updateGridster();
+    //this.gridsterComponent.setGridSize();
+    // this.gridsterComponent['calculateLayout']();
+    //this.gridsterComponent.gridRenderer.updateGridster();
+
+    this.gridsterComponent.calculateLayout$.next();
+
+    //this.dashboardService.widgets = _.cloneDeep(this.dashboardService.widgets);
+
+  }
 }
+

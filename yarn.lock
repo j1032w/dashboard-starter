@@ -8076,6 +8076,13 @@ ng-animate@^2.0.1:
   dependencies:
     tslib "^2.3.0"
 
+ng-dynamic-component@^10.7.0:
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/ng-dynamic-component/-/ng-dynamic-component-10.7.0.tgz#454ae427a484c95c8b4220fcb0d569321256dc72"
+  integrity sha512-shkht4L2nA632qo5GNendZdQXoHUBuKz6SLLh20qi5oESBm3b5AWyhHu0fb/7tb+f+zAcwtVVe1M0819/bnK9A==
+  dependencies:
+    tslib "^2.0.0"
+
 ngx-bootstrap@^10.2.0:
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-10.2.0.tgz#5ae8b0a3b3f0bec2f0229556f059be57dd602871"

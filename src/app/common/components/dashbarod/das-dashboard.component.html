@@ -1,23 +1,43 @@
-<gridster [options]="options" class="p-0 m-0 gridster">
+<div class="toolbar dashboard-setting-toolbar ">
+  <span class="toolbar-button" (click)="toggleDashboardSettingVisibility()">
+    <i-feather name="settings"></i-feather>
+    <span class="ps-1">Dashboard Settings</span>
+  </span>
 
+</div>
+<das-dashboard-setting></das-dashboard-setting>
 
-  <gridster-item [item]="item" *ngFor="let item of dashboardService.widgets"
+<gridster [options]="options" class="p-0 m-0 gridster" #gridsterComponent>
+  <gridster-item [item]="item" *ngFor="let item of dashboardService.widgets;" #gridsterItemComponent
                  class="gridster-item rounded"
   >
     <div class="h-100 d-flex flex-column ">
-      <div class="fw-semibold bg-light d-flex flex-row" >
+      <div class="fw-semibold bg-light d-flex flex-row">
         <div class="title drag-handler p-2 flex-grow-1">title</div>
         <div class="toolbar p-2">
           <i-feather name="repeat" class="toolbar-button" title="Refresh"></i-feather>
           <i-feather name="rotate-cw" class="toolbar-button" title="Refresh"></i-feather>
-          <i-feather name="minimize2" class="toolbar-button" title="Minimize"></i-feather>
-          <i-feather name="x" class="toolbar-button" title="Remove" (click)="removeItem($event, item)"></i-feather>
+
+          <!--          <i-feather name="minimize2" class="toolbar-button" title="Minimize"-->
+          <!--                     (click)="toggleMinimizeItem($event, gridsterItemComponent, item)"></i-feather>-->
+
+          <i-feather name="x" class="toolbar-button" title="Remove"
+                     (click)="removeItem($event, item)"></i-feather>
         </div>
 
       </div>
-      <div class="flex-grow-1 gridster-item-content"></div>
+
+
+      <div class="flex-grow-1">
+        <ndc-dynamic *ngIf="item.frontComponentClass"
+                     [ndcDynamicComponent]="item.frontComponentClass"></ndc-dynamic>
+      </div>
+
     </div>
 
   </gridster-item>
 
 </gridster>
+
+
+
