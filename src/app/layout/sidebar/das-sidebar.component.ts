@@ -2,7 +2,8 @@ import { CdkAccordionItem } from '@angular/cdk/accordion';
 import { Component } from '@angular/core';
 import { matExpansionAnimations } from '@angular/material/expansion';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DasComponentBase } from '../../components/das-component-base.component';
+import { DasComponentBase } from '../../common/components/das-component-base.component';
+
 import { DasSidebarItem, SidebarItemTypeEnum } from './services/das-sidebar-item';
 import { DasSidebarService } from './services/das-sidebar.service';
 

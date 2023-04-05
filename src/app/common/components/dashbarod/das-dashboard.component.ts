@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { CompactType, DisplayGrid, GridType } from 'angular-gridster2';
+import { DisplayGrid, GridType } from 'angular-gridster2';
 import { DasDashboardService } from './services/das-dashboard.service';
+import { DasWidget } from './services/das.widget';
 
 @Component({
   selector: 'das-dashboard',
@@ -42,5 +43,11 @@ export class DasDashboardComponent {
   };
 
   constructor(public readonly dashboardService: DasDashboardService) {
+  }
+
+  removeItem($event: MouseEvent | TouchEvent, item: DasWidget): void {
+    $event.preventDefault();
+    $event.stopPropagation();
+    this.dashboardService.widgets.splice(this.dashboardService.widgets.indexOf(item), 1);
   }
 }

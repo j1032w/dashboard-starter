@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { FeatherModule } from 'angular-feather';
 import {
@@ -26,7 +27,11 @@ import {
   Package,
   Settings,
   Tag,
-  TrendingUp
+  X,
+  TrendingUp,
+  Minimize2,
+  RotateCw,
+  Repeat
 } from 'angular-feather/icons';
 
 
@@ -58,7 +63,12 @@ const icons = {
   MessageSquare,
   Tag,
   Settings,
-  ChevronRight
+  ChevronRight,
+  X,
+  Minimize2,
+  RotateCw,
+  Repeat
+
 };
 
 @NgModule({

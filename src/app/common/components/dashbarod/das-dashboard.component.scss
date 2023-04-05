@@ -1,4 +1,6 @@
-@import "../../common/styles/variables";
+@import "../../../common/styles/variables";
+@import "../../../common/styles/das-style";
+
 
 :host {
   display: block;
@@ -29,12 +31,3 @@
   cursor: hand;
 }
 
-.drag-indicator{
-  position: absolute;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.5;
-  border: 2px dashed black;
-  border-radius: 5px;
-  box-sizing: border-box;
-}

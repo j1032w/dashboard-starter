@@ -1,17 +1,14 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FeatherModule } from 'angular-feather';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MessagesModule } from 'primeng/messages';
+import { DasCommonModule } from '../../common/components/das-common.module';
 
-import { ToastModule } from 'primeng/toast';
-import { DasIconsModule } from '../../components/das-icons.module';
 import { DasComponentFormModule } from '../component/form/das-component-form.module';
 import { UiAnimationComponent } from './animation/ui-animation.component';
 import { DasUserInterfaceRoutingModule } from './das-user-interface-routing.module';
@@ -33,20 +30,17 @@ import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.com
 
   ],
   imports: [
+    DasCommonModule,
     CardModule,
-    CommonModule,
     DasComponentFormModule,
-    DasIconsModule,
     DasUserInterfaceRoutingModule,
     DialogModule,
     DragDropModule,
-    FeatherModule,
     FormsModule,
     InputNumberModule,
     MessagesModule,
     NgScrollbarModule,
-    ScrollingModule,
-    ToastModule,
+    ScrollingModule
 
   ],
   providers: []

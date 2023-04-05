@@ -1,0 +1,16 @@
+@import "variables";
+
+.toolbar {
+  .toolbar-button {
+    height: 1.5rem;
+    width: 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid $gray-400;
+
+    }
+  }
+}

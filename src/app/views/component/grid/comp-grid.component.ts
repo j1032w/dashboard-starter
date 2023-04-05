@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { DasComponentBase } from '../../../components/das-component-base.component';
+import { DasComponentBase } from '../../../common/components/das-component-base.component';
+
 
 @Component({
   selector: 'das-comp-grid',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DasComponentBase } from '../../components/das-component-base.component';
-import { DasDashboardService } from '../../components/dashbarod/services/das-dashboard.service';
-import { DasWidget } from '../../components/dashbarod/services/das.widget';
+import { DasComponentBase } from '../../common/components/das-component-base.component';
+import { DasDashboardService } from '../../common/components/dashbarod/services/das-dashboard.service';
+import { DasWidget } from '../../common/components/dashbarod/services/das.widget';
 import { DashboardSp500ChartComponent } from './sp500-history-return/sp500-chart/dashboard-sp500-chart.component';
 
 

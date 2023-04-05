@@ -1,12 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FeatherModule } from 'angular-feather';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DasIconsModule } from './components/das-icons.module';
+import { DasCommonModule } from './common/components/das-common.module';
 import { DasLayoutModule } from './layout/layout.module';
 import { DasChartViewModule } from './views/chart/das-chart-view.module';
 import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.module';
@@ -20,13 +18,11 @@ import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.mod
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    CommonModule,
+    DasCommonModule,
     DasChartViewModule,
     DasDashboardViewModule,
-    DasIconsModule,
     DasLayoutModule,
-    FeatherModule,
-    HttpClientModule,
+    HttpClientModule
 
   ],
   providers: [],
