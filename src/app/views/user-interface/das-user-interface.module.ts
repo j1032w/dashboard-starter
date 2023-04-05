@@ -33,20 +33,20 @@ import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.com
 
   ],
   imports: [
+    CardModule,
     CommonModule,
-    DasUserInterfaceRoutingModule,
+    DasComponentFormModule,
     DasIconsModule,
-    FeatherModule,
+    DasUserInterfaceRoutingModule,
+    DialogModule,
     DragDropModule,
+    FeatherModule,
+    FormsModule,
+    InputNumberModule,
+    MessagesModule,
     NgScrollbarModule,
     ScrollingModule,
-    MessagesModule,
     ToastModule,
-    InputNumberModule,
-    FormsModule,
-    CardModule,
-    DasComponentFormModule,
-    DialogModule
 
   ],
   providers: []

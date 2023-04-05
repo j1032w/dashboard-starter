@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { Sp500AnnualHistory, DasChartService } from './das-chart.service';
+import { Sp500AnnualHistory, DasChartViewService } from './das-chart-view.service';
 
 @Component({
-  selector: 'das-chart-main',
-  templateUrl: './das-chart-main.component.html',
-  styleUrls: ['./das-chart-main.component.scss']
+  selector: 'das-chart-view',
+  templateUrl: './das-chart-view.component.html',
+  styleUrls: ['./das-chart-view.component.scss']
 })
-export class DasChartMainComponent {
+export class DasChartViewComponent {
 
 
   dataSource: Sp500AnnualHistory[];
 
-  constructor(public readonly chartService:DasChartService) {
+  constructor(public readonly chartService:DasChartViewService) {
     this.dataSource = chartService.getSp500Data();
   }
 

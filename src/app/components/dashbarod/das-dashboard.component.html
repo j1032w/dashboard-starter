@@ -1,0 +1,21 @@
+<gridster [options]="options" class="p-0 m-0 gridster">
+
+
+  <gridster-item [item]="item" *ngFor="let item of dashboardService.widgets"
+                 class="gridster-item rounded"
+  >
+    <div class="h-100 d-flex flex-column ">
+      <div class="fw-semibold bg-light d-flex flex-row" >
+        <div class="title drag-handler p-2 flex-grow-1">title</div>
+        <div class="toolbar"></div>
+
+      </div>
+      <div class="flex-grow-1 gridster-item-content"></div>
+    </div>
+    <div class="drag-indecator"></div>
+
+
+
+  </gridster-item>
+
+</gridster>

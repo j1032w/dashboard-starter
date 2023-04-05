@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { DasIconsModule } from './components/das-icons.module';
 import { DasLayoutModule } from './layout/layout.module';
 import { DasChartViewModule } from './views/chart/das-chart-view.module';
+import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.module';
 
 
 @NgModule({
@@ -16,15 +17,16 @@ import { DasChartViewModule } from './views/chart/das-chart-view.module';
     AppComponent
   ],
   imports: [
-    CommonModule,
-    BrowserModule,
-    DasLayoutModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    CommonModule,
+    DasChartViewModule,
+    DasDashboardViewModule,
     DasIconsModule,
+    DasLayoutModule,
     FeatherModule,
-    DasChartViewModule
+    HttpClientModule,
 
   ],
   providers: [],

@@ -1,17 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { DasDashboardMainComponent } from './das-dashboard-main.component';
+import { DasDashboardModule } from '../../components/dashbarod/das-dashboard.module';
+import { DashboardViewComponent } from './dashboard-view.component';
+import { DashboardSp500ChartComponent } from './sp500-history-return/sp500-chart/dashboard-sp500-chart.component';
+
 
 
 @NgModule({
-  declarations: [DasDashboardMainComponent],
+  declarations: [DashboardViewComponent, DashboardSp500ChartComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    DasDashboardModule
 
 
   ],
   exports: [
-    DasDashboardMainComponent
+    DashboardViewComponent,
+
   ],
   providers: []
 })

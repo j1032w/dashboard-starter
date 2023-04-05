@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DasChartService } from '../../../views/chart/das-chart.service';
+import { DasChartViewService } from '../../../views/chart/das-chart-view.service';
 
 @Component({
   selector: 'das-sidebar-chart-setting',
@@ -8,6 +8,6 @@ import { DasChartService } from '../../../views/chart/das-chart.service';
 })
 export class SidebarChartSettingComponent {
 
-  constructor(public readonly chartService: DasChartService) {
+  constructor(public readonly chartService: DasChartViewService) {
   }
 }

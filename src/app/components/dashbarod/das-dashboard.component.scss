@@ -1,0 +1,40 @@
+@import "../../common/styles/variables";
+
+:host {
+  display: block;
+}
+
+.gridster {
+  background-color: $main-background-color;
+
+}
+
+
+
+::ng-deep {
+  .gridster-column, .gridster-row{
+    border-color: $gray-400 !important;
+  }
+
+  .gridster-preview {
+    box-shadow: $box-shadow-lg;
+    border: 2px dashed $gray-500;
+    background-color: $gray-100;
+  }
+
+}
+
+
+.title{
+  cursor: hand;
+}
+
+.drag-indicator{
+  position: absolute;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.5;
+  border: 2px dashed black;
+  border-radius: 5px;
+  box-sizing: border-box;
+}

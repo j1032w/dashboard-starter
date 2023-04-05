@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CanvasWidgetComponent } from './canvas-widget.component';
+import { DasChartViewComponent } from './das-chart-view.component';
 
-describe('CanvasTitleComponent', () => {
-  let component: CanvasWidgetComponent;
-  let fixture: ComponentFixture<CanvasWidgetComponent>;
+describe('ChartComponent', () => {
+  let component: DasChartViewComponent;
+  let fixture: ComponentFixture<DasChartViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CanvasWidgetComponent ]
+      declarations: [ DasChartViewComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CanvasWidgetComponent);
+    fixture = TestBed.createComponent(DasChartViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

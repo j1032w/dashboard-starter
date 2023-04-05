@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DasLayoutComponent } from './layout/das-layout.component';
-import { DasChartMainComponent } from './views/chart/das-chart-main.component';
-import { DasDashboardMainComponent } from './views/dashboard/das-dashboard-main.component';
+import { DasChartViewComponent } from './views/chart/das-chart-view.component';
+import { DashboardViewComponent } from './views/dashboard/dashboard-view.component';
 
 
 const routes: Routes = [
@@ -14,9 +14,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
-      { path: 'dashboard', component: DasDashboardMainComponent, data: { label: 'Dashboard' } },
+      { path: 'dashboard', component: DashboardViewComponent, data: { label: 'Dashboard' } },
 
-      { path: 'chart', component: DasChartMainComponent, data: { label: 'Chart' } },
+      { path: 'chart', component: DasChartViewComponent, data: { label: 'Chart' } },
 
 
       {

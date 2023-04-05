@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { DevExtremeModule, DxButtonModule } from 'devextreme-angular';
-import { DasChartMainComponent } from './das-chart-main.component';
+import { DasChartViewComponent } from './das-chart-view.component';
 
 
 @NgModule({
-  declarations: [DasChartMainComponent],
+  declarations: [DasChartViewComponent],
   imports: [
     CommonModule,
     DxButtonModule,
@@ -13,7 +13,7 @@ import { DasChartMainComponent } from './das-chart-main.component';
 
   ],
   exports: [
-    DasChartMainComponent
+    DasChartViewComponent
   ],
   providers: []
 })

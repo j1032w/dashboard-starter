@@ -4,7 +4,7 @@ import sp500AnnualReturns from './mock-data/sp500-annual-returns.json';
 
 
 @Injectable({ providedIn: 'root' })
-export class DasChartService {
+export class DasChartViewService {
 
 
 
