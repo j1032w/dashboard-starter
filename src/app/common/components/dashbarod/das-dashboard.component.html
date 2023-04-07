@@ -13,7 +13,7 @@
   <gridster-item #gridsterItemComponent
                  [item]="item" *ngFor="let item of dashboardService.widgets;"
                  class="gridster-item rounded">
-    <das-dashboard-widget-dynamic-loader [widgetConfig]="item"></das-dashboard-widget-dynamic-loader>
+    <ng-container das-dashboard-widget-dynamic-loader [widgetConfig]="item"></ng-container>
 
   </gridster-item>
 

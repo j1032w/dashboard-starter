@@ -10,14 +10,14 @@ import { DvWidgetSp500Component } from './sp500-widget/dv-widget-sp500.component
 @NgModule({
   declarations: [
     DashboardViewComponent,
-    DvWidgetSp500Component],
+    DvWidgetSp500Component
+
+  ],
 
   imports: [
     CommonModule,
-    DasDashboardModule,
-    DasViewCommonModule
-
-
+    DasViewCommonModule,
+    DasDashboardModule
   ],
   exports: [
     DashboardViewComponent

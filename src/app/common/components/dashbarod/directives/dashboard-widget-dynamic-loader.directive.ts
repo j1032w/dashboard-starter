@@ -1,20 +1,18 @@
-import { Component, ComponentRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { ComponentRef, Directive, Input, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
 import { DasWidgetConfig } from '../services/dasWidgetConfig';
 
 
-@Component({
-  selector: 'das-dashboard-widget-dynamic-loader',
-  templateUrl: './dashboard-widget-dynamic-loader.component.html'
+@Directive({
+  selector: '[das-dashboard-widget-dynamic-loader]'
 })
-export class DashboardWidgetDynamicLoaderComponent implements OnInit, OnDestroy {
+export class DashboardWidgetDynamicLoaderDirective implements OnInit, OnDestroy {
   @Input() widgetConfig: DasWidgetConfig;
-
-  @ViewChild('widgetContainer', { read: ViewContainerRef, static: true })
-  viewContainerRef: ViewContainerRef;
 
 
   private componentRef: ComponentRef<any>;
 
+  constructor(private readonly viewContainerRef: ViewContainerRef) {
+  }
 
   ngOnInit(): void {
     // Since Angular v13, ComponentFactory and ComponentFactoryResolver were deprecated.
