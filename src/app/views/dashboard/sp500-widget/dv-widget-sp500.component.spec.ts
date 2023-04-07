@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DasWidgetComponent } from './das-widget.component';
+import { DvWidgetSp500Component } from './dv-widget-sp500.component';
 
-describe('CanvasTitleComponent', () => {
-  let component: DasWidgetComponent;
-  let fixture: ComponentFixture<DasWidgetComponent>;
+describe('DvWidgetSp500Component', () => {
+  let component: DvWidgetSp500Component;
+  let fixture: ComponentFixture<DvWidgetSp500Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DasWidgetComponent ]
+      declarations: [ DvWidgetSp500Component ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DasWidgetComponent);
+    fixture = TestBed.createComponent(DvWidgetSp500Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

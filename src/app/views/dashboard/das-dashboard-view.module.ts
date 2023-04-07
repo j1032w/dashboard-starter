@@ -4,11 +4,18 @@ import { DasDashboardModule } from '../../common/components/dashbarod/das-dashbo
 import { DasViewCommonModule } from '../common/das-view-common.module';
 
 import { DashboardViewComponent } from './dashboard-view.component';
-import { DashboardViewSp500WidgetComponent } from './sp500-widget/dashboard-view-sp500-widget.component';
+import { DvWidgetSp500ChartComponent } from './sp500-widget/chart/dv-widget-sp500-chart.component';
+import { DvWidgetSp500Component } from './sp500-widget/dv-widget-sp500.component';
+
+
 
 
 @NgModule({
-  declarations: [DashboardViewComponent, DashboardViewSp500WidgetComponent],
+  declarations: [
+    DashboardViewComponent,
+    DvWidgetSp500ChartComponent,
+    DvWidgetSp500Component],
+
   imports: [
     CommonModule,
     DasDashboardModule,

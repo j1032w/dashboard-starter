@@ -4,14 +4,12 @@ import { GridsterModule } from 'angular-gridster2';
 import { DynamicModule } from 'ng-dynamic-component';
 import { DasCommonModule } from '../das-common.module';
 import { DasDashboardComponent } from './das-dashboard.component';
-import { DasWidgetComponent } from './widget/das-widget.component';
 import { DasDashboardSettingComponent } from './setting/das-dashboard-setting.component';
 
 
 @NgModule({
   declarations: [
     DasDashboardComponent,
-    DasWidgetComponent,
     DasDashboardSettingComponent
   ],
 
@@ -25,8 +23,7 @@ import { DasDashboardSettingComponent } from './setting/das-dashboard-setting.co
   ],
 
   exports: [
-    DasDashboardComponent,
-    DasWidgetComponent
+    DasDashboardComponent
   ]
 })
 export class DasDashboardModule {

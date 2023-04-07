@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { DasComponentBase } from '../../common/components/das-component-base.component';
 import { DasDashboardService } from '../../common/components/dashbarod/services/das-dashboard.service';
 import { DasWidget } from '../../common/components/dashbarod/services/das.widget';
-import { DashboardViewSp500WidgetComponent } from './sp500-widget/dashboard-view-sp500-widget.component';
+import { DvWidgetSp500ChartComponent } from './sp500-widget/chart/dv-widget-sp500-chart.component';
+
 
 
 @Component({
@@ -21,6 +22,9 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
 
   }
 
+
+
+
   ngOnInit() {
     this.dasDashboardService.widgets = [];
     this.dasDashboardService.widgets.push(new DasWidget({
@@ -29,7 +33,7 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
       rows: 8,
       x: 0,
       y: 0,
-      frontComponentClass: DashboardViewSp500WidgetComponent
+      frontComponentClass: DvWidgetSp500ChartComponent
     }));
 
     for (let i = 0; i < 10; i++) {
@@ -44,3 +48,7 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
   }
 
 }
+
+
+
+

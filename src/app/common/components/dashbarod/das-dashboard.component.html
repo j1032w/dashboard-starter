@@ -33,6 +33,11 @@
                      [ndcDynamicComponent]="item.frontComponentClass"></ndc-dynamic>
       </div>
 
+      <div class="flex-grow-1">
+        <ndc-dynamic *ngIf="item.backComponentClass"
+                     [ndcDynamicComponent]="item.backComponentClass"></ndc-dynamic>
+      </div>
+
     </div>
 
   </gridster-item>
