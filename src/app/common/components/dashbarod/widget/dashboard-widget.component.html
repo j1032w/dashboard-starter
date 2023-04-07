@@ -1,0 +1,28 @@
+<div class="h-100 d-flex flex-column ">
+  <div class="fw-semibold bg-light d-flex flex-row">
+    <div class="title drag-handler p-2 flex-grow-1">{{widgetConfig.title}}</div>
+    <div class="toolbar p-2">
+      <i-feather name="repeat" class="toolbar-button" title="Flip" (click)="flip()"></i-feather>
+      <i-feather name="rotate-cw" class="toolbar-button" title="Refresh"></i-feather>
+
+      <!--          <i-feather name="minimize2" class="toolbar-button" title="Minimize"-->
+      <!--                     (click)="toggleMinimizeItem($event, gridsterItemComponent, item)"></i-feather>-->
+
+      <i-feather name="x" class="toolbar-button" title="Remove"
+                 (click)="dashboardService.removeWidget(widgetConfig)"></i-feather>
+    </div>
+
+  </div>
+
+  <!--  widget content-->
+  <div class="flex-grow-1">
+    <ng-content select=".widget-front"></ng-content>
+    <ng-content select=".widget-back"></ng-content>
+  </div>
+
+
+  <ng-content select=".widget-setting"></ng-content>
+
+
+
+</div>

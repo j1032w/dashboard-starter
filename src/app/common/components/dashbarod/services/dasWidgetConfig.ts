@@ -1,4 +1,6 @@
-export class DasWidget {
+import { DashboardWidgetComponent } from '../widget/dashboard-widget.component';
+
+export class DasWidgetConfig {
   cols: number;
   rows: number;
   x: number;
@@ -10,12 +12,12 @@ export class DasWidget {
   isMinimized: boolean;
   isShowFlipButton: boolean;
   isShowRefreshButton: boolean;
-  frontComponentClass: any;
+  widgetComponentClass: any;
   backComponentClass: any;
 
   originalRows = 1;
 
-  constructor(data: Partial<DasWidget>) {
+  constructor(data?: Partial<DasWidgetConfig>) {
     this.cols = data?.cols ?? 1;
     this.rows = data?.rows ?? 1;
     this.x = data?.x ?? 0;
@@ -26,7 +28,7 @@ export class DasWidget {
     this.isMinimized = data?.isMinimized ?? false;
     this.isShowRefreshButton = data?.isShowRefreshButton ?? false;
     this.isShowFlipButton = data?.isShowFlipButton ?? false;
-    this.frontComponentClass = data?.frontComponentClass ?? null;
+    this.widgetComponentClass = data?.widgetComponentClass ?? DashboardWidgetComponent;
     this.backComponentClass = data?.backComponentClass ?? null;
     this.originalRows = this.rows;
 

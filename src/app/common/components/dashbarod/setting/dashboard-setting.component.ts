@@ -3,10 +3,10 @@ import { DasDashboardService } from '../services/das-dashboard.service';
 
 @Component({
   selector: 'das-dashboard-setting',
-  templateUrl: './das-dashboard-setting.component.html',
-  styleUrls: ['./das-dashboard-setting.component.scss']
+  templateUrl: './dashboard-setting.component.html',
+  styleUrls: ['./dashboard-setting.component.scss']
 })
-export class DasDashboardSettingComponent {
+export class DashboardSettingComponent {
 
 
   constructor(public readonly dashboardService:DasDashboardService) {
