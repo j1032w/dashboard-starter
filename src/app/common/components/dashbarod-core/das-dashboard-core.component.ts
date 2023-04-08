@@ -1,54 +1,30 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { DisplayGrid, GridsterComponent, GridType } from 'angular-gridster2';
-import { DasDashboardService } from './services/das-dashboard.service';
-import { DasWidgetOption } from './services/dasWidgetOption';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { GridsterComponent } from 'angular-gridster2';
+import { GRIDSTER_OPTIONS } from './services/das-dashbaord-constant';
+import { DasDashboardCoreService } from './services/das-dashboard-core.service';
+import { DasWidgetOption } from './services/das-widget-option';
+
 
 @Component({
-  selector: 'das-dashboard',
-  templateUrl: './das-dashboard.component.html',
-  styleUrls: ['./das-dashboard.component.scss']
+  selector: 'das-dashboard-core',
+  templateUrl: './das-dashboard-core.component.html',
+  styleUrls: ['./das-dashboard-core.component.scss']
 })
-export class DasDashboardComponent {
 
-  @Input() options: any = {
-    //compactType: CompactType.CompactUp,
-    swap: true,
-    pushItems: true,
-    pushDirections: { north: true, east: true, south: true, west: true },
-    pushResizeItems: true,
+export class DasDashboardCoreComponent implements OnInit {
+  @Input() widgetOptions: DasWidgetOption[] = [];
 
-    displayGrid: DisplayGrid.OnDragAndResize,
-    gridType: GridType.VerticalFixed,
-    margin: 10,
-    minCols: 12,
-    maxCols: 12,
-    mobileBreakpoint: 800,
-    fixedColWidth: 100,
-    fixedRowHeight: 45,
-    minItemCols:2,
-
-
-    draggable: {
-      enabled: true,
-      disableScrollHorizontal: true,
-      ignoreContent: true
-    },
-
-    resizable: {
-      enabled: true,
-      handles: {
-        n: false,
-        nw: false,
-        ne: false
-
-      }
-    }
-  };
+  gridsterOptions: any = GRIDSTER_OPTIONS;
 
   @ViewChild('gridsterComponent', { static: true }) gridsterComponent: GridsterComponent;
 
 
-  constructor(public readonly dashboardService: DasDashboardService) {
+  constructor(public readonly dashboardService: DasDashboardCoreService) {
+  }
+
+
+  ngOnInit() {
+    this.dashboardService.widgetOptions = this.widgetOptions;
   }
 
   removeItem($event: MouseEvent | TouchEvent, item: DasWidgetOption): void {
@@ -57,7 +33,7 @@ export class DasDashboardComponent {
     this.dashboardService.widgetOptions.splice(this.dashboardService.widgetOptions.indexOf(item), 1);
   }
 
-  toggleDashboardSettingVisibility(){
+  showHideDashboardSetting() {
     this.dashboardService.isSettingVisible = !this.dashboardService.isSettingVisible;
 
   }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DasDashboardService } from '../services/das-dashboard.service';
+import { DasDashboardCoreService } from '../services/das-dashboard-core.service';
 
 @Component({
   selector: 'das-dashboard-setting',
@@ -9,7 +9,7 @@ import { DasDashboardService } from '../services/das-dashboard.service';
 export class DashboardSettingComponent {
 
 
-  constructor(public readonly dashboardService:DasDashboardService) {
+  constructor(public readonly dashboardService:DasDashboardCoreService) {
   }
 
   save(){

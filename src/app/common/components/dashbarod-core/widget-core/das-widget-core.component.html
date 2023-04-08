@@ -4,10 +4,11 @@
     <div class="toolbar p-2">
       <i-feather name="repeat" class="toolbar-button" title="Flip" (click)="flip()"></i-feather>
       <i-feather name="rotate-cw" class="toolbar-button" title="Refresh"></i-feather>
-      <i-feather name="settings" class="toolbar-button" title="Setting"></i-feather>
 
-      <!--          <i-feather name="minimize2" class="toolbar-button" title="Minimize"-->
-      <!--                     (click)="toggleMinimizeItem($event, gridsterItemComponent, item)"></i-feather>-->
+      <i-feather name="settings" class="toolbar-button" title="Open Setting"
+                 (click)="dashboardService.showWidgetSettingPopup(widgetOption)">
+      </i-feather>
+
 
       <i-feather name="x" class="toolbar-button" title="Remove"
                  (click)="dashboardService.removeWidget(widgetOption)"></i-feather>
@@ -21,8 +22,9 @@
     <ng-content select=".widget-back"></ng-content>
   </div>
 
+  <das-dashboard-widget-setting [widgetOption]="widgetOption"></das-dashboard-widget-setting>
 
-  <ng-content select=".widget-setting"></ng-content>
+  <ng-content #widgetSetting select=".widget-setting"></ng-content>
 
 
 

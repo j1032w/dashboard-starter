@@ -1,23 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { DasDashboardModule } from '../../common/components/dashbarod/das-dashboard.module';
+import { DasDashboardCoreModule } from '../../common/components/dashbarod-core/das-dashboard-core.module';
 import { DasViewCommonModule } from '../common/das-view-common.module';
 
 import { DashboardViewComponent } from './dashboard-view.component';
-import { DvWidgetSp500Component } from './sp500-widget/dv-widget-sp500.component';
+import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component';
+import { DvDemoWidgetComponent } from './demo-widget/dv-demo-widget.component';
 
 
 @NgModule({
   declarations: [
     DashboardViewComponent,
-    DvWidgetSp500Component
+    DvSp500WidgetComponent,
+    DvDemoWidgetComponent
 
   ],
 
   imports: [
     CommonModule,
     DasViewCommonModule,
-    DasDashboardModule
+    DasDashboardCoreModule
   ],
   exports: [
     DashboardViewComponent

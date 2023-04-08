@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DasDashboardWidgetSettingComponent } from './das-dashboard-widget-setting.component';
+import { DasWidgetCoreSettingComponent } from './das-widget-core-setting.component';
 
 describe('WidgetSettingComponent', () => {
-  let component: DasDashboardWidgetSettingComponent;
-  let fixture: ComponentFixture<DasDashboardWidgetSettingComponent>;
+  let component: DasWidgetCoreSettingComponent;
+  let fixture: ComponentFixture<DasWidgetCoreSettingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DasDashboardWidgetSettingComponent ]
+      declarations: [ DasWidgetCoreSettingComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DasDashboardWidgetSettingComponent);
+    fixture = TestBed.createComponent(DasWidgetCoreSettingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

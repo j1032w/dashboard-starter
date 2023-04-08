@@ -1,5 +1,3 @@
-import { DashboardWidgetComponent } from '../widget/dashboard-widget.component';
-
 export class DasWidgetOption {
   cols: number;
   rows: number;
@@ -13,7 +11,6 @@ export class DasWidgetOption {
   isShowFlipButton: boolean;
   isShowRefreshButton: boolean;
   widgetComponentClass: any;
-  backComponentClass: any;
 
   originalRows = 1;
 
@@ -24,12 +21,11 @@ export class DasWidgetOption {
     this.y = data?.y ?? 0;
 
     this.id = data?.id ?? 0;
+    this.widgetComponentClass = data?.widgetComponentClass ?? null;
     this.title = data?.title ?? '';
     this.isMinimized = data?.isMinimized ?? false;
     this.isShowRefreshButton = data?.isShowRefreshButton ?? false;
     this.isShowFlipButton = data?.isShowFlipButton ?? false;
-    this.widgetComponentClass = data?.widgetComponentClass ?? DashboardWidgetComponent;
-    this.backComponentClass = data?.backComponentClass ?? null;
     this.originalRows = this.rows;
 
   }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DasComponentBase } from '../../common/components/das-component-base.component';
-import { DasDashboardService } from '../../common/components/dashbarod/services/das-dashboard.service';
-import { DasWidgetOption } from '../../common/components/dashbarod/services/dasWidgetOption';
-import { DvWidgetSp500Component } from './sp500-widget/dv-widget-sp500.component';
+import { DasDashboardCoreService } from '../../common/components/dashbarod-core/services/das-dashboard-core.service';
+import { DasWidgetOption } from '../../common/components/dashbarod-core/services/das-widget-option';
+import { DvDemoWidgetComponent } from './demo-widget/dv-demo-widget.component';
+
+import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component';
 
 
 @Component({
@@ -12,37 +14,39 @@ import { DvWidgetSp500Component } from './sp500-widget/dv-widget-sp500.component
 })
 export class DashboardViewComponent extends DasComponentBase implements OnInit {
 
+  widgetOptions: DasWidgetOption[] = [];
 
-  constructor(private readonly dasDashboardService: DasDashboardService
+
+  constructor(private readonly dasDashboardService: DasDashboardCoreService
   ) {
     super();
 
-    this.dasDashboardService.widgetOptions = [];
-
-  }
-
-
-  ngOnInit() {
-    this.dasDashboardService.widgetOptions = [];
-    this.dasDashboardService.widgetOptions.push(new DasWidgetOption({
+    this.widgetOptions.push(new DasWidgetOption({
       id: 11,
       cols: 6,
       rows: 8,
       x: 0,
       y: 0,
-      widgetComponentClass: DvWidgetSp500Component,
+      widgetComponentClass: DvSp500WidgetComponent,
       title: 'Sp500 Annual Returns'
     }));
 
     for (let i = 0; i < 10; i++) {
-      this.dasDashboardService.widgetOptions.push(new DasWidgetOption({
+      this.widgetOptions.push(new DasWidgetOption({
         id: i,
         cols: 3,
         rows: 4,
         x: 0,
-        y: 0
+        y: 0,
+        widgetComponentClass: DvDemoWidgetComponent
       }));
     }
+
+  }
+
+
+  ngOnInit() {
+
   }
 
 }
