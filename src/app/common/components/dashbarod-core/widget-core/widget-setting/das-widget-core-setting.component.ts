@@ -16,7 +16,7 @@ export class DasWidgetCoreSettingComponent extends DasComponentBase implements O
 
   isVisible = false;
 
-  constructor(private readonly dashboardService: DasDashboardCoreService) {
+  constructor(public readonly dashboardService: DasDashboardCoreService) {
     super();
   }
 
