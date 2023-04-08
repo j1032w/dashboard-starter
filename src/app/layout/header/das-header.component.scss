@@ -1,4 +1,4 @@
-@import "../../common/styles/variables";
+@import "../../common/styles/das-style";
 
 :host {
   display: block;
@@ -9,18 +9,21 @@
 .header {
   height: 3rem;
   border: 1px solid $gray-500;
-  padding: 1rem 1rem 1rem 1rem;
   background-color: white;
+
+  .title{
+    cursor: pointer;
+  }
 
   .menu {
     cursor: pointer;
     font-size: 1.2rem;
+    width: 6rem;
+    height: 2rem
   }
 
   .github-icon{
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    cursor: pointer;
+    height: 2rem;
+    width: 3rem
   }
 }

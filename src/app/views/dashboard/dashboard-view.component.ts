@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DasComponentBase } from '../../common/components/das-component-base.component';
 import { DasDashboardService } from '../../common/components/dashbarod/services/das-dashboard.service';
-import { DasWidgetConfig } from '../../common/components/dashbarod/services/dasWidgetConfig';
+import { DasWidgetOption } from '../../common/components/dashbarod/services/dasWidgetOption';
 import { DvWidgetSp500Component } from './sp500-widget/dv-widget-sp500.component';
 
 
@@ -17,14 +17,14 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
   ) {
     super();
 
-    this.dasDashboardService.widgets = [];
+    this.dasDashboardService.widgetOptions = [];
 
   }
 
 
   ngOnInit() {
-    this.dasDashboardService.widgets = [];
-    this.dasDashboardService.widgets.push(new DasWidgetConfig({
+    this.dasDashboardService.widgetOptions = [];
+    this.dasDashboardService.widgetOptions.push(new DasWidgetOption({
       id: 11,
       cols: 6,
       rows: 8,
@@ -35,7 +35,7 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
     }));
 
     for (let i = 0; i < 10; i++) {
-      this.dasDashboardService.widgets.push(new DasWidgetConfig({
+      this.dasDashboardService.widgetOptions.push(new DasWidgetOption({
         id: i,
         cols: 3,
         rows: 4,

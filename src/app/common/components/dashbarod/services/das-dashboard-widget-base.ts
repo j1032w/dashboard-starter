@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { DasWidgetConfig } from './dasWidgetConfig';
+import { DasWidgetOption } from './dasWidgetOption';
 
 @Component({
   template:''
 })
 export class DasDashboardWidgetBase{
-  @Input() widgetConfig: DasWidgetConfig;
+  @Input() widgetOption: DasWidgetOption;
 }

@@ -6,8 +6,10 @@ import { DasCommonModule } from '../das-common.module';
 import { DasDashboardComponent } from './das-dashboard.component';
 import { DashboardWidgetDynamicLoaderDirective } from './directives/dashboard-widget-dynamic-loader.directive';
 import { DasDashboardWidgetBase } from './services/das-dashboard-widget-base';
-import { DashboardSettingComponent } from './setting/dashboard-setting.component';
+import { DashboardSettingComponent } from './dashboard-setting/dashboard-setting.component';
 import { DashboardWidgetComponent } from './widget/dashboard-widget.component';
+import { DasDashboardWidgetSettingComponent } from './widget/widget-setting/das-dashboard-widget-setting.component';
+
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { DashboardWidgetComponent } from './widget/dashboard-widget.component';
     DashboardSettingComponent,
     DashboardWidgetDynamicLoaderDirective,
     DashboardWidgetComponent,
-    DasDashboardWidgetBase
+    DasDashboardWidgetBase,
+    DasDashboardWidgetSettingComponent
   ],
 
 

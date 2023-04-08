@@ -1,12 +1,12 @@
 import { ComponentRef, Directive, Input, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
-import { DasWidgetConfig } from '../services/dasWidgetConfig';
+import { DasWidgetOption } from '../services/dasWidgetOption';
 
 
 @Directive({
   selector: '[das-dashboard-widget-dynamic-loader]'
 })
 export class DashboardWidgetDynamicLoaderDirective implements OnInit, OnDestroy {
-  @Input() widgetConfig: DasWidgetConfig;
+  @Input() widgetOption: DasWidgetOption;
 
 
   private componentRef: ComponentRef<any>;
@@ -19,12 +19,12 @@ export class DashboardWidgetDynamicLoaderDirective implements OnInit, OnDestroy 
     // https://angular.io/api/core/ComponentFactoryResolver
     this.viewContainerRef.clear();
     const component =
-      this.viewContainerRef.createComponent(this.widgetConfig.widgetComponentClass);
+      this.viewContainerRef.createComponent(this.widgetOption.widgetComponentClass);
     // @ts-ignore
-    component.setInput('widgetConfig', this.widgetConfig);
+    component.setInput('widgetOption', this.widgetOption);
 
     // @ts-ignore
-    component.instance.widgetConfig = this.widgetConfig;
+    component.instance.widgetConfig = this.widgetOption;
     component.changeDetectorRef.detectChanges();
 
     this.componentRef = component;

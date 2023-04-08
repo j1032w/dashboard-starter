@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DasDashboardService } from '../services/das-dashboard.service';
-import { DasWidgetConfig } from '../services/dasWidgetConfig';
+import { DasWidgetOption } from '../services/dasWidgetOption';
 
 @Component({
   selector: 'das-dashboard-widget',
@@ -8,13 +8,13 @@ import { DasWidgetConfig } from '../services/dasWidgetConfig';
   styleUrls: ['./dashboard-widget.component.scss']
 })
 export class DashboardWidgetComponent {
-  @Input() widgetConfig: DasWidgetConfig = new DasWidgetConfig();
+  @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
 
 
   constructor(public readonly dashboardService: DasDashboardService) {
   }
 
   flip(){
-    console.log(this.widgetConfig);
+    console.log(this.widgetOption);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { DisplayGrid, GridsterComponent, GridType } from 'angular-gridster2';
 import { DasDashboardService } from './services/das-dashboard.service';
-import { DasWidgetConfig } from './services/dasWidgetConfig';
+import { DasWidgetOption } from './services/dasWidgetOption';
 
 @Component({
   selector: 'das-dashboard',
@@ -51,10 +51,10 @@ export class DasDashboardComponent {
   constructor(public readonly dashboardService: DasDashboardService) {
   }
 
-  removeItem($event: MouseEvent | TouchEvent, item: DasWidgetConfig): void {
+  removeItem($event: MouseEvent | TouchEvent, item: DasWidgetOption): void {
     $event.preventDefault();
     $event.stopPropagation();
-    this.dashboardService.widgets.splice(this.dashboardService.widgets.indexOf(item), 1);
+    this.dashboardService.widgetOptions.splice(this.dashboardService.widgetOptions.indexOf(item), 1);
   }
 
   toggleDashboardSettingVisibility(){
@@ -62,7 +62,7 @@ export class DasDashboardComponent {
 
   }
 
-  toggleMinimizeItem($event: any, gristerItemComponet: any, item: DasWidgetConfig): void {
+  toggleMinimizeItem($event: any, gristerItemComponet: any, item: DasWidgetOption): void {
     $event.preventDefault();
     $event.stopPropagation();
     item.isMinimized = !item.isMinimized;

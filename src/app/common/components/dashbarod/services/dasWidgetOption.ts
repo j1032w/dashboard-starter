@@ -1,6 +1,6 @@
 import { DashboardWidgetComponent } from '../widget/dashboard-widget.component';
 
-export class DasWidgetConfig {
+export class DasWidgetOption {
   cols: number;
   rows: number;
   x: number;
@@ -17,7 +17,7 @@ export class DasWidgetConfig {
 
   originalRows = 1;
 
-  constructor(data?: Partial<DasWidgetConfig>) {
+  constructor(data?: Partial<DasWidgetOption>) {
     this.cols = data?.cols ?? 1;
     this.rows = data?.rows ?? 1;
     this.x = data?.x ?? 0;

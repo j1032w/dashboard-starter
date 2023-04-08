@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DasDashboardEvent } from './dasDashboardEvent';
-import { DasWidgetConfig } from './dasWidgetConfig';
+import { DasWidgetOption } from './dasWidgetOption';
 
 @Injectable({ providedIn: 'root' })
 export class DasDashboardService {
 
-  widgets: DasWidgetConfig[];
+  widgetOptions: DasWidgetOption[];
 
   isSettingVisible = false;
 
@@ -19,8 +19,8 @@ export class DasDashboardService {
     this.widgetEvent = this.widgetEventSubject.asObservable();
   }
 
-  removeWidget(widgetConfig: DasWidgetConfig) {
-    this.widgets.splice(this.widgets.indexOf(widgetConfig), 1);
+  removeWidget(widgetOption: DasWidgetOption) {
+    this.widgetOptions.splice(this.widgetOptions.indexOf(widgetOption), 1);
   }
 
 }

@@ -35,9 +35,9 @@ export class UiResponsiveComponent {
         break;
 
       default:
-        this.colClass = 'col-xxl-4';
+        this.colClass = 'col-xl-4';
         this.header = 'Large';
-        this.width = '1100px';
+        this.width = '900px';
     }
 
     this.visible = true;

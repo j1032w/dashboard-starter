@@ -41,7 +41,6 @@
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.41",
     "ng-animate": "^2.0.1",
-    "ng-dynamic-component": "^10.7.0",
     "ngx-bootstrap": "^10.2.0",
     "ngx-scrollbar": "^11.0.0",
     "normalize.css": "^8.0.1",

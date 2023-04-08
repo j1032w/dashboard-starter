@@ -11,9 +11,9 @@
 
 <gridster [options]="options" class="p-0 m-0 gridster" #gridsterComponent>
   <gridster-item #gridsterItemComponent
-                 [item]="item" *ngFor="let item of dashboardService.widgets;"
+                 [item]="item" *ngFor="let item of dashboardService.widgetOptions;"
                  class="gridster-item rounded">
-    <ng-container das-dashboard-widget-dynamic-loader [widgetConfig]="item"></ng-container>
+    <ng-container das-dashboard-widget-dynamic-loader [widgetOption]="item"></ng-container>
 
   </gridster-item>
 
