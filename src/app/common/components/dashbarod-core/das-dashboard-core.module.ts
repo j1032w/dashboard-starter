@@ -1,6 +1,8 @@
 import { CdkDrag, CdkDragHandle } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { GridsterModule } from 'angular-gridster2';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 import { DialogModule } from 'primeng/dialog';
 import { DasCommonModule } from '../das-common.module';
 import { DasDashboardCoreComponent } from './das-dashboard-core.component';
@@ -27,7 +29,9 @@ import { DasWidgetCoreSettingComponent } from './widget-core/widget-setting/das-
     GridsterModule,
     CdkDrag,
     CdkDragHandle,
-    DialogModule
+    DialogModule,
+    NgScrollbarModule,
+    ReactiveFormsModule
   ],
 
   exports: [

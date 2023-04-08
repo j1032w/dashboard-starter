@@ -3,8 +3,9 @@ import { DasComponentBase } from '../../common/components/das-component-base.com
 import { DasDashboardCoreService } from '../../common/components/dashbarod-core/services/das-dashboard-core.service';
 import { DasWidgetOption } from '../../common/components/dashbarod-core/services/das-widget-option';
 import { DvDemoWidgetComponent } from './demo-widget/dv-demo-widget.component';
-
 import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component';
+
+
 
 
 @Component({
@@ -38,6 +39,7 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
         rows: 4,
         x: 0,
         y: 0,
+        title: `Id: ${i}`,
         widgetComponentClass: DvDemoWidgetComponent
       }));
     }

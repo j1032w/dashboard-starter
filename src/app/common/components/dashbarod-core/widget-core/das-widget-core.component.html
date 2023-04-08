@@ -1,12 +1,14 @@
 <div class="h-100 d-flex flex-column ">
   <div class="fw-semibold bg-light d-flex flex-row">
-    <div class="title drag-handler p-2 flex-grow-1">{{widgetOption.title}}</div>
+    <div class="title drag-handler p-2 fw-bold flex-grow-1">{{widgetOption.title}}</div>
     <div class="toolbar p-2">
-      <i-feather name="repeat" class="toolbar-button" title="Flip" (click)="flip()"></i-feather>
+      <i-feather name="repeat" class="toolbar-button rotate-90" title="Flip"
+                 (click)="flip()"></i-feather>
+
       <i-feather name="rotate-cw" class="toolbar-button" title="Refresh"></i-feather>
 
       <i-feather name="settings" class="toolbar-button" title="Open Setting"
-                 (click)="dashboardService.showWidgetSettingPopup(widgetOption)">
+                 (click)="showSettingModal()">
       </i-feather>
 
 
@@ -17,16 +19,24 @@
   </div>
 
   <!--  widget content-->
-  <div class="flex-grow-1">
-    <ng-content select=".widget-front"></ng-content>
-    <ng-content select=".widget-back"></ng-content>
+  <div class="h-100">
+    <div class="h-100" [hidden]="!widgetOption.isShowFront"
+         [@flip]="widgetOption.isShowFront?'front':'back'">
+      <ng-content select=".widget-front" class="h-100"></ng-content>
+    </div>
+
+    <div class="h-100" [hidden]="widgetOption.isShowFront"
+         [@flip]="widgetOption.isShowFront?'front':'back'">
+      <ng-content select=".widget-back" class="h-100"></ng-content>
+    </div>
+
   </div>
 
-  <das-dashboard-widget-setting [widgetOption]="widgetOption"></das-dashboard-widget-setting>
+
+  <das-dashboard-widget-setting [(isVisible)]="isSettingVisible"
+                                [widgetOption]="widgetOption"></das-dashboard-widget-setting>
 
   <ng-content #widgetSetting select=".widget-setting"></ng-content>
-
-
 
 
 </div>

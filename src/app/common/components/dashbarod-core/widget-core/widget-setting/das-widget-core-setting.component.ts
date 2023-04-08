@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { filter, takeUntil } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Dialog } from 'primeng/dialog';
 import { DasComponentBase } from '../../../das-component-base.component';
-import { DasDashboardEventTypeEnum } from '../../services/das-dashboard-event-interface';
 import { DasDashboardCoreService } from '../../services/das-dashboard-core.service';
 import { DasWidgetOption } from '../../services/das-widget-option';
 
@@ -14,28 +14,33 @@ import { DasWidgetOption } from '../../services/das-widget-option';
 export class DasWidgetCoreSettingComponent extends DasComponentBase implements OnInit {
   @Input() widgetOption: DasWidgetOption;
 
-  isVisible = false;
+  @Input() isVisible = false;
+  @Output() isVisibleChange = new EventEmitter<boolean>();
 
-  constructor(public readonly dashboardService: DasDashboardCoreService) {
+  @ViewChild('settingModal', { static: true }) settingModel: Dialog;
+
+  formGroup: FormGroup;
+
+  constructor(public readonly dashboardService: DasDashboardCoreService,
+  private readonly formBuilder:FormBuilder) {
     super();
   }
 
+
   ngOnInit() {
-    this.dashboardService.dashboardEvent$
-      .pipe(
-        takeUntil(this.ngUnsubscribe),
-        filter(event =>
-          event.widgetOption.id === this.widgetOption.id &&
-          event.eventType === DasDashboardEventTypeEnum.WidgetShowSetting
-        )
-      )
-      .subscribe((event) => {
-        this.isVisible = true;
-      });
+    this.formGroup=this.formBuilder.group({
+      title: [this.widgetOption.title]
+    });
+
   }
 
   hide() {
     this.isVisible = false;
+    this.isVisibleChange.emit(false);
   }
 
+  save(){
+    this.widgetOption.title = this.formGroup.get('title')?.value;
+    this.hide();
+  }
 }

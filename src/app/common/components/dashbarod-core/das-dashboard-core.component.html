@@ -1,5 +1,5 @@
 <div class="toolbar dashboard-setting-toolbar ">
-  <span class="toolbar-button" (click)="showHideDashboardSetting()">
+  <span class="toolbar-button dashboard-setting-btn" (click)="showHideDashboardSetting()">
     <i-feather name="settings"></i-feather>
     <span class="ps-1">Dashboard Settings</span>
   </span>
@@ -11,7 +11,7 @@
 <gridster [options]="gridsterOptions" class="p-0 m-0 gridster" #gridsterComponent>
   <gridster-item *ngFor="let widgetOption of dashboardService.widgetOptions;"
                  [item]="widgetOption"
-                 class="gridster-item rounded">
+                 class="gridster-item rounded d-flex flex-column">
     <ng-container das-dashboard-widget-dynamic-loader [widgetOption]="widgetOption"></ng-container>
 
   </gridster-item>

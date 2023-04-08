@@ -1,10 +1,11 @@
-<das-widget-core class="h-100" [widgetOption]="widgetOption">
-  <div class="widget-front h-100">
-    {{widgetOption.id}} Front
+<das-widget-core class="h-100"
+                 [widgetOption]="widgetOption">
+  <div class="widget-front h-100 d-flex justify-content-center align-items-center">
+    <h1 >Front - {{widgetOption.id}}</h1>
   </div>
 
-  <div class="widget-back h-100">
-    {{widgetOption.id}} back
+  <div class="widget-back h-100 d-flex justify-content-center align-items-center">
+    <h1>Back - {{widgetOption.id}}</h1>
   </div>
 
 </das-widget-core>

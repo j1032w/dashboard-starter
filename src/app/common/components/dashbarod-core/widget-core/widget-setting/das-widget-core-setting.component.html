@@ -1,16 +1,22 @@
-<p-dialog [header]="widgetOption.title"
+<p-dialog #settingModal
           [(visible)]="isVisible"
+          [header]="'Widget Setting - '+ widgetOption.title"
           [modal]="true" [resizable]="false"
-          [style]="{width: '50rem'}"
+          [style]="{width: '50rem', height:'20rem'}"
+          (onHide)="hide()"
           appendTo="body">
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
+
+  <ng-scrollbar class="content">
+    <form class="col-md-6 col-sm-12" [formGroup]="formGroup">
+      <label for="title" class="form-label">Title</label>
+      <input type="email" class="form-control" id="title" placeholder="Widget title"
+             formControlName="title">
+    </form>
+  </ng-scrollbar>
+
 
   <ng-template pTemplate="footer">
-    <button class="btn btn-primary">Save</button>
-    <button class="btn btn-secondary"
-            (click)="hide()">Cancel</button>
+    <button class="btn btn-primary" (click)="save()">Save</button>
+    <button class="btn btn-secondary" (click)="hide()">Cancel</button>
   </ng-template>
 </p-dialog>
