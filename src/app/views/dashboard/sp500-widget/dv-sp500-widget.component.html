@@ -1,7 +1,15 @@
 <das-widget-core class="h-100" [widgetOption]="widgetOption">
-  <das-chart-sp500 class="widget-front h-100 w-100"></das-chart-sp500>
 
-  <div class="widget-back"></div>
-  <div class="widget-setting"></div>
+  <ng-template #frontTemplate>
+    <das-chart-sp500 class="h-100"></das-chart-sp500>
+  </ng-template>
+
+  <ng-template #backTemplate>
+    <div class="h-100">back1</div>
+  </ng-template>
+
+  <ng-template #settingTemplate>
+    <das-dv-sp500-widget-setting></das-dv-sp500-widget-setting>
+  </ng-template>
 </das-widget-core>
 

@@ -18,25 +18,31 @@
 
   </div>
 
-  <!--  widget content-->
-  <div class="h-100">
-    <div class="h-100" [hidden]="!widgetOption.isShowFront"
-         [@flip]="widgetOption.isShowFront?'front':'back'">
-      <ng-content select=".widget-front" class="h-100"></ng-content>
+  <div   class="h-100 content-container">
+    <div class="h-100 front"
+         [@flip]="widgetOption.isFrontShown? 'shown':'hidden'"
+         [ngClass]="{'d-flex justify-content-center align-items-center': widgetOption.isFrontShown}"
+         [hidden]="!widgetOption.isFrontShown" >
+      <ng-container *ngTemplateOutlet="frontTemplate"></ng-container>
+
     </div>
 
-    <div class="h-100" [hidden]="widgetOption.isShowFront"
-         [@flip]="widgetOption.isShowFront?'front':'back'">
-      <ng-content select=".widget-back" class="h-100"></ng-content>
+
+    <div class="h-100 back"
+         [@flip]="widgetOption.isFrontShown? 'hidden':'shown'"
+         [ngClass]="{'d-flex justify-content-center align-items-center': !widgetOption.isFrontShown}"
+         [hidden]="widgetOption.isFrontShown">
+      <ng-container *ngTemplateOutlet="backTemplate"></ng-container>
     </div>
 
   </div>
 
+  <!--  <div class="h-100"-->
+  <!--       *ngTemplateOutlet="settingTemplate"-->
+  <!--       [hidden]="!isSettingVisible"-->
+  <!--       [@flip]="widgetOption.isShowFront?'front':'back'"-->
 
-  <das-dashboard-widget-setting [(isVisible)]="isSettingVisible"
-                                [widgetOption]="widgetOption"></das-dashboard-widget-setting>
-
-  <ng-content #widgetSetting select=".widget-setting"></ng-content>
+  <!--  ></div>-->
 
 
 </div>

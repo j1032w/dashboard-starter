@@ -10,7 +10,7 @@ export class DasWidgetOption {
   isMinimized: boolean;
   isShowFlipButton: boolean;
   isShowRefreshButton: boolean;
-  isShowFront: boolean;
+  isFrontShown: boolean;
   widgetComponentClass: any;
 
   originalRows = 1;
@@ -27,7 +27,7 @@ export class DasWidgetOption {
     this.isMinimized = data?.isMinimized ?? false;
     this.isShowRefreshButton = data?.isShowRefreshButton ?? false;
     this.isShowFlipButton = data?.isShowFlipButton ?? false;
-    this.isShowFront = data?.isShowFront ?? true;
+    this.isFrontShown = data?.isFrontShown ?? true;
     this.originalRows = this.rows;
 
   }

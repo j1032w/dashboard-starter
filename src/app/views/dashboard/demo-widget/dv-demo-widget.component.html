@@ -1,11 +1,11 @@
 <das-widget-core class="h-100"
                  [widgetOption]="widgetOption">
-  <div class="widget-front h-100 d-flex justify-content-center align-items-center">
+  <ng-template #frontTemplate>
     <h1 >Front - {{widgetOption.id}}</h1>
-  </div>
+  </ng-template>
 
-  <div class="widget-back h-100 d-flex justify-content-center align-items-center">
+  <ng-template #backTemplate class="widget-back h-100 d-flex justify-content-center align-items-center">
     <h1>Back - {{widgetOption.id}}</h1>
-  </div>
+  </ng-template>
 
 </das-widget-core>

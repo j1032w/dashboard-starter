@@ -31,7 +31,6 @@ import { DasWidgetCoreSettingComponent } from './widget-core/widget-setting/das-
     CdkDragHandle,
     DialogModule,
     NgScrollbarModule,
-    ReactiveFormsModule
   ],
 
   exports: [
