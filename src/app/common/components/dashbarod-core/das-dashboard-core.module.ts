@@ -1,6 +1,5 @@
 import { CdkDrag, CdkDragHandle } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { GridsterModule } from 'angular-gridster2';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { DialogModule } from 'primeng/dialog';
@@ -10,7 +9,6 @@ import { DashboardSettingComponent } from './dashboard-setting/dashboard-setting
 import { DashboardWidgetDynamicLoaderDirective } from './dynamic-loader/dashboard-widget-dynamic-loader.directive';
 import { DasWidgetCoreBase } from './services/das-widget-core-base.component';
 import { DasWidgetCoreComponent } from './widget-core/das-widget-core.component';
-import { DasWidgetCoreSettingComponent } from './widget-core/widget-setting/das-widget-core-setting.component';
 
 
 @NgModule({
@@ -19,8 +17,7 @@ import { DasWidgetCoreSettingComponent } from './widget-core/widget-setting/das-
     DashboardSettingComponent,
     DashboardWidgetDynamicLoaderDirective,
     DasWidgetCoreComponent,
-    DasWidgetCoreBase,
-    DasWidgetCoreSettingComponent
+    DasWidgetCoreBase
   ],
 
 
@@ -30,7 +27,7 @@ import { DasWidgetCoreSettingComponent } from './widget-core/widget-setting/das-
     CdkDrag,
     CdkDragHandle,
     DialogModule,
-    NgScrollbarModule,
+    NgScrollbarModule
   ],
 
   exports: [

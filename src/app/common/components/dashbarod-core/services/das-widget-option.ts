@@ -15,6 +15,8 @@ export class DasWidgetOption {
 
   originalRows = 1;
 
+  isSettingModalVisible = false;
+
   constructor(data?: Partial<DasWidgetOption>) {
     this.cols = data?.cols ?? 1;
     this.rows = data?.rows ?? 1;

@@ -4,8 +4,13 @@
     <h1 >Front - {{widgetOption.id}}</h1>
   </ng-template>
 
-  <ng-template #backTemplate class="widget-back h-100 d-flex justify-content-center align-items-center">
+  <ng-template #backTemplate>
     <h1>Back - {{widgetOption.id}}</h1>
+  </ng-template>
+
+
+  <ng-template #settingTemplate let-ctx>
+    <dv-demo-widget-setting [widgetOption]="ctx.widgetOption"></dv-demo-widget-setting>
   </ng-template>
 
 </das-widget-core>

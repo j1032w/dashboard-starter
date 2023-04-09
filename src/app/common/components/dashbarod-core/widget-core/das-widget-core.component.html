@@ -2,7 +2,7 @@
   <div class="fw-semibold bg-light d-flex flex-row">
     <div class="title drag-handler p-2 fw-bold flex-grow-1">{{widgetOption.title}}</div>
     <div class="toolbar p-2">
-      <i-feather name="repeat" class="toolbar-button rotate-90" title="Flip"
+      <i-feather name="repeat" class="toolbar-button" title="Flip"
                  (click)="flip()"></i-feather>
 
       <i-feather name="rotate-cw" class="toolbar-button" title="Refresh"></i-feather>
@@ -18,31 +18,26 @@
 
   </div>
 
-  <div   class="h-100 content-container">
-    <div class="h-100 front"
-         [@flip]="widgetOption.isFrontShown? 'shown':'hidden'"
-         [ngClass]="{'d-flex justify-content-center align-items-center': widgetOption.isFrontShown}"
-         [hidden]="!widgetOption.isFrontShown" >
-      <ng-container *ngTemplateOutlet="frontTemplate"></ng-container>
-
-    </div>
-
-
-    <div class="h-100 back"
-         [@flip]="widgetOption.isFrontShown? 'hidden':'shown'"
-         [ngClass]="{'d-flex justify-content-center align-items-center': !widgetOption.isFrontShown}"
-         [hidden]="widgetOption.isFrontShown">
-      <ng-container *ngTemplateOutlet="backTemplate"></ng-container>
-    </div>
+  <div class="h-100"
+       [@flip]="widgetOption.isFrontShown? 'shown':'hidden'"
+       [ngClass]="{'d-flex justify-content-center align-items-center': widgetOption.isFrontShown}"
+       [hidden]="!widgetOption.isFrontShown">
+    <ng-container *ngTemplateOutlet="frontTemplate"></ng-container>
 
   </div>
 
-  <!--  <div class="h-100"-->
-  <!--       *ngTemplateOutlet="settingTemplate"-->
-  <!--       [hidden]="!isSettingVisible"-->
-  <!--       [@flip]="widgetOption.isShowFront?'front':'back'"-->
 
-  <!--  ></div>-->
+  <div class="h-100"
+       [@flip]="widgetOption.isFrontShown? 'hidden':'shown'"
+       [ngClass]="{'d-flex justify-content-center align-items-center': !widgetOption.isFrontShown}"
+       [hidden]="widgetOption.isFrontShown">
+    <ng-container *ngTemplateOutlet="backTemplate"></ng-container>
+  </div>
+
+
+  <div [hidden]="!isSettingVisible">
+    <ng-template *ngTemplateOutlet="settingTemplate; context:{$implicit: {widgetOption}}"></ng-template>
+  </div>
 
 
 </div>

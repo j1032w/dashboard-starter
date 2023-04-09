@@ -1,9 +1,10 @@
-import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FeatherModule } from 'angular-feather';
 import { GridsterModule } from 'angular-gridster2';
+import { NgScrollbarModule } from 'ngx-scrollbar';
+import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
 import { DasIconsModule } from './das-icons.module';
 
@@ -13,20 +14,22 @@ import { DasIconsModule } from './das-icons.module';
     CommonModule,
     GridsterModule,
     DasIconsModule,
-    ScrollingModule,
     ToastModule,
     FeatherModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DialogModule,
+    NgScrollbarModule
   ],
 
   exports: [
     CommonModule,
     GridsterModule,
     DasIconsModule,
-    ScrollingModule,
     ToastModule,
     FeatherModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DialogModule,
+    NgScrollbarModule
   ]
 
 

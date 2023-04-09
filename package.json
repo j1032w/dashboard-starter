@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "start:dev": "ng serve --configuration development --host 0.0.0.0",
-    "start:dev-4201": "yarn start-dev --port 4201",
+    "start:dev-4201": "yarn start:dev --port 4201",
     "start:prod": "ng serve --configuration production --host 0.0.0.0",
     "start:hmr": "ng serve --configuration hmr --host 0.0.0.0",
     "build": "ng build",
