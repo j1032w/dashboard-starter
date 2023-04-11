@@ -8,10 +8,5 @@ export interface DasDashboardEventInterface {
 
 
 export enum DasDashboardEventTypeEnum {
-  WidgetFlip,
-  WidgetRefresh,
-  WidgetResize,
-  WidgetShowSetting,
-  WidgetHideSetting
-
+  WidgetResized
 }

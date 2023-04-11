@@ -1,0 +1,34 @@
+<dx-data-grid
+  #gridComponent
+  class="m-2"
+  [height]="height"
+  [dataSource]="data"
+  [showBorders]="true"
+
+>
+  <dxo-filter-row
+    [visible]="true"
+  ></dxo-filter-row>
+
+  <dxi-column
+    dataField="year"
+    caption="Year"
+    dataType="number"
+
+  ></dxi-column>
+
+  <dxi-column
+    dataField="averageClosingPrice"
+    caption="Average Closing"
+    dataType="number"
+
+  ></dxi-column>
+
+  <dxi-column
+    dataField="annualChangePercent"
+    caption="Annual Change"
+    dataType="number"
+
+  ></dxi-column>
+
+</dx-data-grid>

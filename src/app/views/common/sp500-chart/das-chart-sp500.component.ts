@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { DxChartComponent } from 'devextreme-angular';
 import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.serv
   styleUrls: ['./das-chart-sp500.component.scss']
 })
 export class DasChartSp500Component {
+
+  @ViewChild('chartComponent') chartComponent: DxChartComponent;
 
   dataSource: Sp500AnnualHistory[];
 
@@ -29,4 +32,8 @@ export class DasChartSp500Component {
   });
 
   customizeLabelText = (info: any) => `${info.valueText}%`;
+
+  refresh() {
+    this.chartComponent.instance.refresh();
+  }
 }

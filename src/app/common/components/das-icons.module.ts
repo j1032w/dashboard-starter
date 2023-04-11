@@ -26,18 +26,21 @@ import {
   Move,
   Package,
   Settings,
+  Save,
   Tag,
   X,
   TrendingUp,
   Minimize2,
   RotateCw,
-  Repeat
+  Repeat,
+  Server
 } from 'angular-feather/icons';
+
 
 
 const icons = {
 
-
+  Server,
   Airplay,
   Bell,
   Bold,
@@ -59,6 +62,7 @@ const icons = {
   Package,
   TrendingUp,
   Layout,
+  Save,
   Menu,
   MessageSquare,
   Tag,

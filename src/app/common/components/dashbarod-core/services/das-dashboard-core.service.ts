@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DasDashboardEventInterface, DasDashboardEventTypeEnum } from './das-dashboard-event-interface';
+import { DasWidgetCoreBase } from './das-widget-core-base.component';
 import { DasWidgetOption } from './das-widget-option';
-
 
 
 @Injectable({ providedIn: 'root' })
 export class DasDashboardCoreService {
+
+  widgetMap: Map<string, Type<DasWidgetCoreBase>> = new Map();
+
 
   widgetOptions: DasWidgetOption[];
 
@@ -25,18 +28,11 @@ export class DasDashboardCoreService {
     this.widgetOptions.splice(this.widgetOptions.indexOf(widgetOption), 1);
   }
 
-  showWidgetSettingPopup(widgetOption: DasWidgetOption){
+
+  emitWidgetResize(widgetOption: DasWidgetOption) {
     this.dashboardEventSubject$.next({
       widgetOption,
-      eventType: DasDashboardEventTypeEnum.WidgetShowSetting
-
-    });
-  }
-
-  hideWidgetSettingPopup(widgetOption: DasWidgetOption){
-    this.dashboardEventSubject$.next({
-      widgetOption,
-      eventType: DasDashboardEventTypeEnum.WidgetHideSetting
+      eventType: DasDashboardEventTypeEnum.WidgetResized
 
     });
   }

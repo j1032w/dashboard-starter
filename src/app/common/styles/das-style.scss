@@ -1,6 +1,6 @@
 @import "variables";
 
-.rotate-90{
+.rotate-90 {
   transform: rotate(90deg);
 }
 
@@ -8,6 +8,7 @@
 .toolbar-button {
   height: 2rem;
   width: 2rem;
+  font-weight: $font-weight-semibold;
 
   padding: 0.4rem;
   border-radius: 50%;

@@ -1,18 +1,31 @@
-<div class="toolbar dashboard-setting-toolbar ">
+<div class="toolbar dashboard-setting-toolbar fw-semibold">
+    <span class="toolbar-button dashboard-setting-btn" (click)="saveSetting()">
+    <i-feather name="save"></i-feather>
+    <span class="ps-1">Save</span>
+  </span>
+
+  <span class="toolbar-button dashboard-setting-btn" (click)="resetSetting()">
+    <i-feather name="server"></i-feather>
+    <span class="ps-1">Reset</span>
+  </span>
+
   <span class="toolbar-button dashboard-setting-btn" (click)="showHideDashboardSetting()">
     <i-feather name="settings"></i-feather>
-    <span class="ps-1">Dashboard Settings</span>
+    <span class="ps-1">Widget List</span>
   </span>
+
 
 </div>
 <das-dashboard-setting></das-dashboard-setting>
 
 
-<gridster [options]="gridsterOptions" class="p-0 m-0 gridster" #gridsterComponent>
-  <gridster-item *ngFor="let widgetOption of dashboardService.widgetOptions;"
+<gridster #gridsterComponent [options]="gridsterOptions" class="p-0  me-5 gridster">
+  <gridster-item class="gridster-item rounded d-flex flex-column"
+                 *ngFor="let widgetOption of dashboardCoreService.widgetOptions;"
                  [item]="widgetOption"
-                 class="gridster-item rounded d-flex flex-column">
-    <ng-container das-dashboard-widget-dynamic-loader [widgetOption]="widgetOption"></ng-container>
+
+  >
+    <ng-container das-widget-dynamic-loader [widgetOption]="widgetOption"></ng-container>
 
   </gridster-item>
 

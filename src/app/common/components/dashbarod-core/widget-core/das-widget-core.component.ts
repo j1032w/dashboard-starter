@@ -49,6 +49,7 @@ export class DasWidgetCoreComponent {
     this.widgetOption.isFrontShown = !this.widgetOption.isFrontShown;
   }
 
+
   showSettingModal() {
     this.widgetOption.isSettingModalVisible = true;
   }

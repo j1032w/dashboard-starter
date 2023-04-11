@@ -2,34 +2,39 @@
   <div class="fw-semibold bg-light d-flex flex-row">
     <div class="title drag-handler p-2 fw-bold flex-grow-1">{{widgetOption.title}}</div>
     <div class="toolbar p-2">
-      <i-feather name="repeat" class="toolbar-button" title="Flip"
+      <i-feather name="repeat" class="toolbar-button"
+                 pTooltip="Flip" tooltipPosition="bottom"
                  (click)="flip()"></i-feather>
 
-      <i-feather name="rotate-cw" class="toolbar-button" title="Refresh"></i-feather>
+      <i-feather name="rotate-cw" class="toolbar-button"
+                 pTooltip="Refresh" tooltipPosition="bottom"
+                 (click)="dashboardService.emitWidgetResize(widgetOption)"></i-feather>
 
-      <i-feather name="settings" class="toolbar-button" title="Open Setting"
+      <i-feather name="settings" class="toolbar-button"
+                 pTooltip="Setting" tooltipPosition="bottom"
                  (click)="showSettingModal()">
       </i-feather>
 
 
-      <i-feather name="x" class="toolbar-button" title="Remove"
+      <i-feather name="x" class="toolbar-button"
+                 pTooltip="Remove" tooltipPosition="bottom"
                  (click)="dashboardService.removeWidget(widgetOption)"></i-feather>
     </div>
 
   </div>
 
-  <div class="h-100"
+  <div class="flex-grow-1"
        [@flip]="widgetOption.isFrontShown? 'shown':'hidden'"
-       [ngClass]="{'d-flex justify-content-center align-items-center': widgetOption.isFrontShown}"
+       [ngClass]="{'d-flex flex-column justify-content-center align-items-center': widgetOption.isFrontShown}"
        [hidden]="!widgetOption.isFrontShown">
     <ng-container *ngTemplateOutlet="frontTemplate"></ng-container>
 
   </div>
 
 
-  <div class="h-100"
+  <div class="flex-grow-1"
        [@flip]="widgetOption.isFrontShown? 'hidden':'shown'"
-       [ngClass]="{'d-flex justify-content-center align-items-center': !widgetOption.isFrontShown}"
+       [ngClass]="{'d-flex flex-column justify-content-center align-items-center': !widgetOption.isFrontShown}"
        [hidden]="widgetOption.isFrontShown">
     <ng-container *ngTemplateOutlet="backTemplate"></ng-container>
   </div>

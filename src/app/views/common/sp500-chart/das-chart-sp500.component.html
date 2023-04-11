@@ -1,5 +1,5 @@
 <div class="bg-white h-100 w-100 d-flex">
-  <dx-chart
+  <dx-chart #chartComponent
     class="chart p-3 flex-grow-1"
     id="chart"
     [dataSource]="dataSource"
@@ -47,7 +47,7 @@
       type="bar"
       valueField="averageClosingPrice"
       axis="averageClosingPrice"
-      name="Average Closing Price"
+      name="Average Closing"
       color="#fac29a"
     >
     </dxi-series>
