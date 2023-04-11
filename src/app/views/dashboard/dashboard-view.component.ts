@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DasComponentBase } from '../../common/components/das-component-base.component';
 import { DasDashboardCoreService } from '../../common/components/dashbarod-core/services/das-dashboard-core.service';
 import { DasWidgetOption } from '../../common/components/dashbarod-core/services/das-widget-option';
-import { DvDemoWidgetComponent } from './demo-widget/dv-demo-widget.component';
+import { DvDemoAWidgetComponent } from './demo-widget-a/dv-demo-a-widget.component';
+import { DvDemoBWidgetComponent } from './demo-widget-b/dv-demo-b-widget.component';
+import { DvDemoCWidgetComponent } from './demo-widget-c/dv-demo-c-widget.component';
+import { DvDemoDWidgetComponent } from './demo-widget-d/dv-demo-d-widget.component';
 import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component';
 
 
@@ -21,8 +24,26 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
   ) {
     super();
 
-    dasDashboardService.widgetMap.set('DvSp500WidgetComponent', DvSp500WidgetComponent);
-    dasDashboardService.widgetMap.set('DvDemoWidgetComponent', DvDemoWidgetComponent);
+    dasDashboardService.widgetMap.set(
+      'DvSp500WidgetComponent',
+      {name: 'Sp500 Annual Returns', type: DvSp500WidgetComponent});
+
+    dasDashboardService.widgetMap.set(
+      'DvDemoAWidgetComponent',
+      {name:'Widget A', type: DvDemoAWidgetComponent});
+
+
+    dasDashboardService.widgetMap.set(
+      'DvDemoBWidgetComponent',
+      {name:'Widget B', type: DvDemoBWidgetComponent});
+
+    dasDashboardService.widgetMap.set(
+      'DvDemoCWidgetComponent',
+      {name:'Widget C', type: DvDemoCWidgetComponent});
+
+    dasDashboardService.widgetMap.set(
+      'DvDemoDWidgetComponent',
+      {name:'Widget D', type: DvDemoDWidgetComponent});
 
 
     const widgetData = [{
@@ -32,7 +53,6 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
       'rows': 7,
       'x': 0,
       'y': 0,
-      'id': 11,
       'widgetClassName': 'DvSp500WidgetComponent',
       'title': 'Sp500 Annual Returns',
       'isMinimized': false,
@@ -47,9 +67,8 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
         'rows': 9,
         'x': 5,
         'y': 0,
-        'id': 1,
-        'widgetClassName': 'DvDemoWidgetComponent',
-        'title': 'Id: 1',
+        'widgetClassName': 'DvDemoAWidgetComponent',
+        'title': 'Widget A',
         'isMinimized': false,
         'isShowRefreshButton': false,
         'isShowFlipButton': false,
@@ -62,9 +81,8 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
         'rows': 7,
         'x': 0,
         'y': 7,
-        'id': 4,
-        'widgetClassName': 'DvDemoWidgetComponent',
-        'title': 'Id: 4',
+        'widgetClassName': 'DvDemoBWidgetComponent',
+        'title': 'Widget B',
         'isMinimized': false,
         'isShowRefreshButton': false,
         'isShowFlipButton': false,
@@ -77,9 +95,8 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
         'rows': 5,
         'x': 5,
         'y': 9,
-        'id': 6,
-        'widgetClassName': 'DvDemoWidgetComponent',
-        'title': 'Id: 6',
+        'widgetClassName': 'DvDemoCWidgetComponent',
+        'title': 'Demo C',
         'isMinimized': false,
         'isShowRefreshButton': false,
         'isShowFlipButton': false,
@@ -92,9 +109,8 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
         'rows': 7,
         'x': 3,
         'y': 7,
-        'id': 7,
-        'widgetClassName': 'DvDemoWidgetComponent',
-        'title': 'Id: 7',
+        'widgetClassName': 'DvDemoDWidgetComponent',
+        'title': 'Demo D',
         'isMinimized': false,
         'isShowRefreshButton': false,
         'isShowFlipButton': false,
@@ -102,10 +118,10 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
       }];
 
 
-
-
-    for (const widgetDatum of widgetData) {
-      this.defaultWidgetOptions.push(new DasWidgetOption(widgetDatum));
+    for (let i = 0; i < widgetData.length; i++) {
+      const widgetOption = new DasWidgetOption(widgetData[i])
+      widgetOption.id=i;
+      this.defaultWidgetOptions.push(widgetOption);
     }
 
   }

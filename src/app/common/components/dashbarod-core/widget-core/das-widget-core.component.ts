@@ -24,7 +24,7 @@ import { DasWidgetOption } from '../services/das-widget-option';
           transform: 'rotateY(90deg)',
           border: '1px solid gray',
           margin: '2px',
-          backgroundColor: '#f8f9fa' // $gray-100
+          backgroundColor: '#e9ecef' // $gray-200
         })
       ),
 

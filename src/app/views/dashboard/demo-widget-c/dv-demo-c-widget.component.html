@@ -1,0 +1,16 @@
+<das-widget-core class="h-100"
+                 [widgetOption]="widgetOption">
+  <ng-template #frontTemplate>
+    <h1 >C</h1>
+  </ng-template>
+
+  <ng-template #backTemplate>
+    <h1>C Back</h1>
+  </ng-template>
+
+
+  <ng-template #settingTemplate let-ctx>
+    <dv-demo-widget-setting [widgetOption]="ctx.widgetOption"></dv-demo-widget-setting>
+  </ng-template>
+
+</das-widget-core>

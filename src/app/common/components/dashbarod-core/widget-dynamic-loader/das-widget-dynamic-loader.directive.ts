@@ -1,5 +1,6 @@
-import { Directive, Input, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import { ComponentRef, Directive, Input, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
 import { DasDashboardCoreService } from '../services/das-dashboard-core.service';
+import { DasWidgetCoreBase } from '../services/das-widget-core-base.component';
 import { DasWidgetOption } from '../services/das-widget-option';
 
 
@@ -23,13 +24,13 @@ export class DasWidgetDynamicLoaderDirective implements OnInit, OnDestroy {
     // Though since Angular v13, ComponentFactory and ComponentFactoryResolver were deprecated.
     // https://angular.io/api/core/ComponentFactoryResolver
     const componentType =
-      this.dashboardCoreService.widgetMap.get(this.widgetOption.widgetClassName);
+      this.dashboardCoreService.widgetMap.get(this.widgetOption.widgetClassName)?.type;
 
     if (!componentType) {
       return;
     }
 
-    const component = this.viewContainerRef.createComponent(componentType);
+    const component: ComponentRef<DasWidgetCoreBase> = this.viewContainerRef.createComponent(componentType);
     component.setInput('widgetOption', this.widgetOption);
 
   }

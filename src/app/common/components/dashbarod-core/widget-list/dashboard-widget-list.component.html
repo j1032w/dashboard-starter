@@ -1,0 +1,29 @@
+<div *ngIf="dashboardService.isSettingVisible"
+     cdkDrag
+     class="widget-setting card d-flex flex-column">
+  <div class="header  p-2 border-bottom d-flex flex-row">
+    <div class="fs-6 fw-bold flex-grow-1">Widget List</div>
+
+    <div class="toolbar">
+      <div class="toolbar-button" (click)="hide()">
+        <i-feather name="x"></i-feather>
+      </div>
+    </div>
+
+  </div>
+  <div class="p-2 flex-grow-1"
+       cdkDropList
+       cdkDropListSortingDisabled>
+    <div class="card m-3 p-2 fs-5 widget-item"
+         cdkDrag
+         [cdkDragData]="widgetMap.key"
+         *ngFor="let widgetMap of dashboardService.widgetMap | keyvalue">
+      {{widgetMap.value.name}}
+    </div>
+
+  </div>
+
+</div>
+
+
+

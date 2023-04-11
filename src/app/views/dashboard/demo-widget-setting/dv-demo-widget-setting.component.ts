@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Dialog } from 'primeng/dialog';
-import { DasComponentBase } from '../../../../common/components/das-component-base.component';
-import { DasWidgetOption } from '../../../../common/components/dashbarod-core/services/das-widget-option';
+import { DasComponentBase } from '../../../common/components/das-component-base.component';
+import { DasWidgetOption } from '../../../common/components/dashbarod-core/services/das-widget-option';
 
 
 @Component({

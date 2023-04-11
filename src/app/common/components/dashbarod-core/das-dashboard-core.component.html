@@ -4,32 +4,34 @@
     <span class="ps-1">Save</span>
   </span>
 
-  <span class="toolbar-button dashboard-setting-btn" (click)="resetSetting()">
+  <span class="toolbar-button dashboard-setting-btn ps-2" (click)="resetSetting()">
     <i-feather name="server"></i-feather>
     <span class="ps-1">Reset</span>
   </span>
 
-  <span class="toolbar-button dashboard-setting-btn" (click)="showHideDashboardSetting()">
+  <span class="toolbar-button dashboard-setting-btn ps-2" (click)="showHideDashboardSetting()">
     <i-feather name="settings"></i-feather>
     <span class="ps-1">Widget List</span>
   </span>
+</div>
+
+
+<div class="flex-grow-1"
+     cdkDropListGroup>
+  <das-dashboard-widget-list></das-dashboard-widget-list>
+
+
+  <gridster #gridsterComponent
+            cdkDropList (cdkDropListDropped)="drop($event)"
+            [options]="gridsterOptions" class="p-0 gridster">
+    <gridster-item class="gridster-item rounded d-flex flex-column"
+                   *ngFor="let widgetOption of dashboardCoreService.widgetOptions;"
+                   [item]="widgetOption">
+      <ng-container das-widget-dynamic-loader [widgetOption]="widgetOption"></ng-container>
+
+    </gridster-item>
+
+  </gridster>
 
 
 </div>
-<das-dashboard-setting></das-dashboard-setting>
-
-
-<gridster #gridsterComponent [options]="gridsterOptions" class="p-0  me-5 gridster">
-  <gridster-item class="gridster-item rounded d-flex flex-column"
-                 *ngFor="let widgetOption of dashboardCoreService.widgetOptions;"
-                 [item]="widgetOption"
-
-  >
-    <ng-container das-widget-dynamic-loader [widgetOption]="widgetOption"></ng-container>
-
-  </gridster-item>
-
-</gridster>
-
-
-

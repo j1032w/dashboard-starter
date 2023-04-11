@@ -5,7 +5,7 @@
 }
 
 
-.dashboard-setting{
+.widget-setting{
   width: 18rem;
   height: 35rem;
 
@@ -25,5 +25,14 @@
 
   .header{
     cursor: default;
+  }
+
+  .widget-item{
+    background-color: $gray-100;
+    cursor: default;
+
+    &:hover{
+      background-color: $gray-300;
+    }
   }
 }
