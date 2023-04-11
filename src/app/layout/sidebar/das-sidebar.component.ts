@@ -33,15 +33,15 @@ export class DasSidebarComponent extends DasComponentBase {
   toggleAccordionItem(accordionItemComponent: CdkAccordionItem, sidebarItem: DasSidebarItem) {
 
     // Menu item itself doesn't trigger navigation
-    if(sidebarItem.type !== SidebarItemTypeEnum.WithChildTemplate){
+    if (sidebarItem.type !== SidebarItemTypeEnum.WithChildTemplate) {
       accordionItemComponent.toggle();
       return;
     }
 
-    if(this.router.url !== sidebarItem.path){
+    if (this.router.url !== sidebarItem.path) {
       sidebarItem.expanded = true;
       this.router.navigate([sidebarItem.path]).then();
-    }else{
+    } else {
       sidebarItem.expanded = !sidebarItem.expanded;
     }
 

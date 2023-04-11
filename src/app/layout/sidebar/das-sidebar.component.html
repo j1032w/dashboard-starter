@@ -80,20 +80,21 @@
 <ng-template #expandableItem let-ctx>
   <div class="align-items-center item-label user-select-none"
        routerLinkActive="is-active"
+       [routerLink]="ctx.sidebarItem.path"
        (click)="toggleAccordionItem(ctx.accordionItemComponent, ctx.sidebarItem)">
     <span>
       <i-feather [name]="ctx.sidebarItem.icon"></i-feather>
       {{ ctx.sidebarItem.text }}
     </span>
 
-    <ng-container class="float-end">
-      <ng-container *ngIf="ctx.accordionItemComponent.expanded">
-        <i-feather name="chevron-down" class="float-end"></i-feather>
-      </ng-container>
+    <ng-container *ngIf="ctx.accordionItemComponent.expanded">
+      <i-feather name="chevron-down" class="float-end"
+      ></i-feather>
+    </ng-container>
 
-      <ng-container *ngIf="!ctx.accordionItemComponent.expanded">
-        <i-feather name="chevron-left" class="float-end"></i-feather>
-      </ng-container>
+    <ng-container *ngIf="!ctx.accordionItemComponent.expanded">
+      <i-feather name="chevron-left" class="float-end"
+      ></i-feather>
     </ng-container>
   </div>
 </ng-template>
