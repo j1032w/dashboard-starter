@@ -9,10 +9,16 @@ import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { TooltipModule } from 'primeng/tooltip';
+
 import { DasIconsModule } from './das-icons.module';
+import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
 
 
 @NgModule({
+  declarations:[
+    DefaultOrderKeyvaluePipe
+  ],
+
   imports: [
     CommonModule,
     DasIconsModule,
@@ -38,7 +44,8 @@ import { DasIconsModule } from './das-icons.module';
     ReactiveFormsModule,
     ToastModule,
     TooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    DefaultOrderKeyvaluePipe
   ]
 
 

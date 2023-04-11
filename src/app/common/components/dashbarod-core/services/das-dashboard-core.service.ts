@@ -28,15 +28,23 @@ export class DasDashboardCoreService {
     this.widgetOptions.splice(this.widgetOptions.indexOf(widgetOption), 1);
   }
 
+  emitRefresh(widgetOption: DasWidgetOption) {
+    this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetRefresh);
+  }
 
-  emitWidgetResize(widgetOption: DasWidgetOption) {
+
+  emitResize(widgetOption: DasWidgetOption) {
+    this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetResized);
+  }
+
+
+  private emitDashboardEvent(widgetOption: DasWidgetOption, eventType: DasDashboardEventTypeEnum) {
     this.dashboardEventSubject$.next({
       widgetOption,
-      eventType: DasDashboardEventTypeEnum.WidgetResized
+      eventType
 
     });
   }
-
 }
 
 

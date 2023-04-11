@@ -12,9 +12,6 @@ export class DashboardWidgetListComponent {
   constructor(public readonly dashboardService:DasDashboardCoreService) {
   }
 
-  save(){
-    this.hide();
-  }
 
   hide(){
     this.dashboardService.isSettingVisible = false;

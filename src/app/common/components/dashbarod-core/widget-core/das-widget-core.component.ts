@@ -45,6 +45,8 @@ export class DasWidgetCoreComponent {
   constructor(public readonly dashboardService: DasDashboardCoreService) {
   }
 
+
+
   flip() {
     this.widgetOption.isFrontShown = !this.widgetOption.isFrontShown;
   }

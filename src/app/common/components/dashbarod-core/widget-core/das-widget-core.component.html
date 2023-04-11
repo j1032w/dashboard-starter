@@ -1,6 +1,6 @@
 <div class="h-100 d-flex flex-column ">
   <div class="fw-semibold bg-light d-flex flex-row">
-    <div class="title drag-handler p-2 fw-bold flex-grow-1">{{widgetOption.title}}</div>
+    <div class="title drag-handler p-2 fw-bold user-select-none flex-grow-1">{{widgetOption.title}}</div>
     <div class="toolbar p-2">
       <i-feather name="repeat" class="toolbar-button"
                  pTooltip="Flip" tooltipPosition="bottom"
@@ -8,7 +8,7 @@
 
       <i-feather name="rotate-cw" class="toolbar-button"
                  pTooltip="Refresh" tooltipPosition="bottom"
-                 (click)="dashboardService.emitWidgetResize(widgetOption)"></i-feather>
+                 (click)="dashboardService.emitRefresh(widgetOption)"></i-feather>
 
       <i-feather name="settings" class="toolbar-button"
                  pTooltip="Setting" tooltipPosition="bottom"
