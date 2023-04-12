@@ -35,7 +35,8 @@ export class DasWidgetCoreBase extends DasComponentBase implements OnInit {
       )
       .subscribe(() => {
         this.refresh();
-        this.toastService.showSuccess(`Widget: ${this.widgetOption.title} refreshed`);
+        this.toastService.showSuccess(
+          `Widget: ${this.widgetOption.title} refreshed`);
       });
 
   }

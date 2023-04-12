@@ -1,15 +1,15 @@
 import { CdkDrag, CdkDragHandle, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
 import { GridsterModule } from 'angular-gridster2';
-import { NgScrollbarModule } from 'ngx-scrollbar';
-import { DialogModule } from 'primeng/dialog';
-import { TooltipModule } from 'primeng/tooltip';
 import { DasCommonModule } from '../das-common.module';
 import { DasDashboardCoreComponent } from './das-dashboard-core.component';
-import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-list.component';
-import { DasWidgetDynamicLoaderDirective } from './widget-dynamic-loader/das-widget-dynamic-loader.directive';
+import { DasWidgetSettingComponent } from './das-widget-setting/das-widget-setting.component';
+
+
 import { DasWidgetCoreBase } from './services/das-widget-core-base.component';
 import { DasWidgetCoreComponent } from './widget-core/das-widget-core.component';
+import { DasWidgetDynamicLoaderDirective } from './widget-dynamic-loader/das-widget-dynamic-loader.directive';
+import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-list.component';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { DasWidgetCoreComponent } from './widget-core/das-widget-core.component'
     DashboardWidgetListComponent,
     DasWidgetDynamicLoaderDirective,
     DasWidgetCoreComponent,
-    DasWidgetCoreBase
+    DasWidgetCoreBase,
+    DasWidgetSettingComponent
   ],
 
 
@@ -34,7 +35,8 @@ import { DasWidgetCoreComponent } from './widget-core/das-widget-core.component'
 
   exports: [
     DasDashboardCoreComponent,
-    DasWidgetCoreComponent
+    DasWidgetCoreComponent,
+    DasWidgetSettingComponent
   ]
 })
 export class DasDashboardCoreModule {

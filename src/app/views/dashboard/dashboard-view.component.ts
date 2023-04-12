@@ -26,24 +26,29 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
 
     dasDashboardService.widgetMap.set(
       'DvSp500WidgetComponent',
-      {name: 'Sp500 Annual Returns', type: DvSp500WidgetComponent});
+      { name: 'Sp500 Annual Returns', type: DvSp500WidgetComponent }
+    );
 
     dasDashboardService.widgetMap.set(
       'DvDemoAWidgetComponent',
-      {name:'Widget A', type: DvDemoAWidgetComponent});
+      { name: 'Widget A', type: DvDemoAWidgetComponent }
+    );
 
 
     dasDashboardService.widgetMap.set(
       'DvDemoBWidgetComponent',
-      {name:'Widget B', type: DvDemoBWidgetComponent});
+      { name: 'Widget B', type: DvDemoBWidgetComponent }
+    );
 
     dasDashboardService.widgetMap.set(
       'DvDemoCWidgetComponent',
-      {name:'Widget C', type: DvDemoCWidgetComponent});
+      { name: 'Widget C', type: DvDemoCWidgetComponent }
+    );
 
     dasDashboardService.widgetMap.set(
       'DvDemoDWidgetComponent',
-      {name:'Widget D', type: DvDemoDWidgetComponent});
+      { name: 'Widget D', type: DvDemoDWidgetComponent }
+    );
 
 
     const widgetData = [{
@@ -58,7 +63,8 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
       'isMinimized': false,
       'isShowRefreshButton': false,
       'isShowFlipButton': false,
-      'isFrontShown': true
+      'isFrontShown': true,
+      settingData: { isTitleVisible: false }
     },
       {
         'originalRows': 4,
@@ -119,8 +125,8 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
 
 
     for (let i = 0; i < widgetData.length; i++) {
-      const widgetOption = new DasWidgetOption(widgetData[i])
-      widgetOption.id=i;
+      const widgetOption = new DasWidgetOption(widgetData[i]);
+      widgetOption.id = i;
       this.defaultWidgetOptions.push(widgetOption);
     }
 

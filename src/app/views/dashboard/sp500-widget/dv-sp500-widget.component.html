@@ -9,8 +9,9 @@
 
   </ng-template>
 
-  <ng-template #settingTemplate>
-    <das-dv-sp500-widget-setting></das-dv-sp500-widget-setting>
+
+  <ng-template #settingTemplate let-ctx>
+    <das-dv-sp500-widget-setting [widgetOption]="ctx.widgetOption"></das-dv-sp500-widget-setting>
   </ng-template>
 </das-widget-core>
 

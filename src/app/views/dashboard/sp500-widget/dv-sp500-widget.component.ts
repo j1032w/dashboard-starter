@@ -8,11 +8,13 @@ import {
 import { DasWidgetCoreBase } from '../../../common/components/dashbarod-core/services/das-widget-core-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DasChartSp500Component } from '../../common/sp500-chart/das-chart-sp500.component';
+import { DasChartSp500Service } from '../../common/sp500-chart/das-chart-sp500.service';
 
 @Component({
   selector: 'das-dv-widget-sp500',
   templateUrl: './dv-sp500-widget.component.html',
-  styleUrls: ['./dv-sp500-widget.component.scss']
+  styleUrls: ['./dv-sp500-widget.component.scss'],
+  providers: [DasChartSp500Service]
 })
 export class DvSp500WidgetComponent extends DasWidgetCoreBase {
 

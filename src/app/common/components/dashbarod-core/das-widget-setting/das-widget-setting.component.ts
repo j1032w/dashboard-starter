@@ -1,16 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Dialog } from 'primeng/dialog';
-import { DasComponentBase } from '../../../common/components/das-component-base.component';
-import { DasWidgetOption } from '../../../common/components/dashbarod-core/services/das-widget-option';
+import { DasWidgetOption } from '../services/das-widget-option';
+
 
 
 @Component({
-  selector: 'dv-demo-widget-setting',
-  templateUrl: './dv-demo-widget-setting.component.html',
-  styleUrls: ['./dv-demo-widget-setting.component.scss']
+  selector: 'das-widget-setting-base',
+  templateUrl: './das-widget-setting.component.html',
+  styleUrls: ['./das-widget-setting.component.scss']
 })
-export class DvDemoWidgetSettingComponent extends DasComponentBase implements OnInit {
+export class DasWidgetSettingComponent implements OnInit {
   @Input() widgetOption: DasWidgetOption;
 
   @Input() isVisible = false;
@@ -20,8 +20,8 @@ export class DvDemoWidgetSettingComponent extends DasComponentBase implements On
 
   formGroup: FormGroup;
 
-  constructor(private readonly formBuilder: FormBuilder) {
-    super();
+  constructor(protected readonly formBuilder: FormBuilder) {
+
   }
 
 
@@ -37,7 +37,7 @@ export class DvDemoWidgetSettingComponent extends DasComponentBase implements On
     this.isVisibleChange.emit(false);
   }
 
-  save() {
+  apply() {
     this.widgetOption.title = this.formGroup.get('title')?.value;
     this.hide();
   }

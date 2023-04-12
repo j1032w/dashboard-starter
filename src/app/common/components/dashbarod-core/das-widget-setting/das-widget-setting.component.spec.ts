@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DvDemoWidgetSettingComponent } from './dv-demo-widget-setting.component';
+import { DasWidgetSettingComponentBase } from './dv-widget-setting-component-base.component';
 
 describe('WidgetSettingComponent', () => {
-  let component: DvDemoWidgetSettingComponent;
-  let fixture: ComponentFixture<DvDemoWidgetSettingComponent>;
+  let component: DasWidgetSettingComponentBase;
+  let fixture: ComponentFixture<DasWidgetSettingComponentBase>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DvDemoWidgetSettingComponent ]
+      declarations: [ DasWidgetSettingComponentBase ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DvDemoWidgetSettingComponent);
+    fixture = TestBed.createComponent(DasWidgetSettingComponentBase);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

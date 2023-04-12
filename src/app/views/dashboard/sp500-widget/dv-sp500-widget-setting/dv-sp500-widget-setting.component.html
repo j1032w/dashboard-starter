@@ -1,1 +1,49 @@
-<p>dv-sp500-widget-setting works!</p>
+<p-dialog #settingModal
+          [(visible)]="widgetOption.isSettingModalVisible"
+          [header]="'Widget Setting - '+ widgetOption.title"
+          [modal]="true" [resizable]="false"
+          [style]="{width: '50rem', height:'23rem'}"
+          (onHide)="hide()"
+          appendTo="body">
+
+  <ng-scrollbar class="content">
+    <form class="col-md-6 col-sm-12" [formGroup]="formGroup">
+      <div class="mb-3 row">
+        <label for="title" class="form-label">Title</label>
+        <input type="email" class="form-control" id="title" placeholder="Widget title"
+               formControlName="title">
+      </div>
+
+      <div class="mb-3 row">
+        <div class="col-12 d-flex flex-row">
+          <p-inputSwitch class="me-2"
+                         formControlName="isTitleVisible"
+                         id="showTitleSwitch"></p-inputSwitch>
+
+          <!-- the id property of p-input should not be set, otherwise clicking label couldn't trigger p-input
+               p-input works only with inputId. -->
+          <label class="input-label fw-semibold" for="showTitleSwitch">Show Title</label>
+        </div>
+      </div>
+
+
+      <div class="mb-3 row">
+        <div class="col-12 d-flex flex-row">
+          <p-inputSwitch class="me-2"
+                         formControlName="isLegendVisible"
+                         Id="showLegendSwitch">
+          </p-inputSwitch>
+
+          <label class="input-label fw-semibold" for="showLegendSwitch">Show Legend</label>
+        </div>
+      </div>
+
+    </form>
+  </ng-scrollbar>
+
+
+  <ng-template pTemplate="footer">
+    <button class="btn btn-primary" (click)="apply()">Apply</button>
+    <button class="btn btn-secondary" (click)="hide()">Cancel</button>
+  </ng-template>
+</p-dialog>
