@@ -12,8 +12,8 @@ export class UiQueryBuilderComponent {
   query = {
     condition: 'and',
     rules: [
-      { field: 'age', operator: '<=', value: 'Bob' },
-      { field: 'gender', operator: '>=', value: 'm' }
+      { field: 'age', operator: '<=', value: 30 },
+      { field: 'gender', operator: '=', value: 'm' }
     ]
   };
 
