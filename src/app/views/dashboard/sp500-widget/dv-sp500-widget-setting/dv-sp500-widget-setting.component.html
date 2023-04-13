@@ -6,35 +6,39 @@
           (onHide)="hide()"
           appendTo="body">
 
-  <ng-scrollbar class="content">
-    <form class="col-md-6 col-sm-12" [formGroup]="formGroup">
-      <div class="mb-3 row">
-        <label for="title" class="form-label">Title</label>
-        <input type="email" class="form-control" id="title" placeholder="Widget title"
-               formControlName="title">
-      </div>
+  <ng-scrollbar>
+    <form class="container-fluid" [formGroup]="formGroup">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <div class="mb-3 row">
+            <label for="title" class="form-label">Title</label>
+            <input type="email" class="form-control" id="title" placeholder="Widget title"
+                   formControlName="title">
+          </div>
 
-      <div class="mb-3 row">
-        <div class="col-12 d-flex flex-row">
-          <p-inputSwitch class="me-2"
-                         formControlName="isTitleVisible"
-                         id="showTitleSwitch"></p-inputSwitch>
+          <div class="mb-3 row">
+            <div class="col-12 d-flex flex-row">
+              <p-inputSwitch class="me-2"
+                             formControlName="isTitleVisible"
+                             id="showTitleSwitch"></p-inputSwitch>
 
-          <!-- the id property of p-input should not be set, otherwise clicking label couldn't trigger p-input
-               p-input works only with inputId. -->
-          <label class="input-label fw-semibold" for="showTitleSwitch">Show Title</label>
-        </div>
-      </div>
+              <!-- the id property of p-input should not be set, otherwise clicking label couldn't trigger p-input
+                   p-input works only with inputId. -->
+              <label class="input-label fw-semibold" for="showTitleSwitch">Show Chart Title</label>
+            </div>
+          </div>
 
 
-      <div class="mb-3 row">
-        <div class="col-12 d-flex flex-row">
-          <p-inputSwitch class="me-2"
-                         formControlName="isLegendVisible"
-                         Id="showLegendSwitch">
-          </p-inputSwitch>
+          <div class="mb-3 row">
+            <div class="col-12 d-flex flex-row">
+              <p-inputSwitch class="me-2"
+                             formControlName="isLegendVisible"
+                             Id="showLegendSwitch">
+              </p-inputSwitch>
 
-          <label class="input-label fw-semibold" for="showLegendSwitch">Show Legend</label>
+              <label class="input-label fw-semibold" for="showLegendSwitch">Show Chart Legend</label>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { DxChartComponent } from 'devextreme-angular';
 import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.service';
 
@@ -8,6 +8,7 @@ import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.serv
   styleUrls: ['./das-chart-sp500.component.scss']
 })
 export class DasChartSp500Component {
+
 
   @ViewChild('chartComponent') chartComponent: DxChartComponent;
 

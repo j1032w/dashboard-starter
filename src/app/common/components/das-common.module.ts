@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeatherModule } from 'angular-feather';
 import { GridsterModule } from 'angular-gridster2';
 import { NgScrollbarModule } from 'ngx-scrollbar';
@@ -30,7 +30,8 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     ReactiveFormsModule,
     ToastModule,
     TooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
 
   exports: [
@@ -45,7 +46,8 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     ToastModule,
     TooltipModule,
     HttpClientModule,
-    DefaultOrderKeyvaluePipe
+    DefaultOrderKeyvaluePipe,
+    FormsModule
   ]
 
 

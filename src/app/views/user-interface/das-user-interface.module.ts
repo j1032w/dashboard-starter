@@ -2,12 +2,15 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { QueryBuilderModule } from 'angular2-query-builder';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MessagesModule } from 'primeng/messages';
 import { DasCommonModule } from '../../common/components/das-common.module';
+import { DasQueryBuilderModule } from '../common/query-builder/das-query-builder.module';
+
 
 import { DasComponentFormModule } from '../component/form/das-component-form.module';
 import { UiAnimationComponent } from './animation/ui-animation.component';
@@ -18,6 +21,7 @@ import { DasUserInterfaceMainComponent } from './user-interface-main.component';
 
 
 import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.component';
+import { UiQueryBuilderComponent } from './query-builder/ui-query-builder.component';
 
 
 @NgModule({
@@ -26,13 +30,15 @@ import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.com
     UiAnimationComponent,
     UiDragDropComponent,
     UiVirtualScrollComponent,
-    UiResponsiveComponent
+    UiResponsiveComponent,
+    UiQueryBuilderComponent
 
   ],
   imports: [
-    DasCommonModule,
     CardModule,
+    DasCommonModule,
     DasComponentFormModule,
+    DasQueryBuilderModule,
     DasUserInterfaceRoutingModule,
     DialogModule,
     DragDropModule,
@@ -40,7 +46,8 @@ import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.com
     InputNumberModule,
     MessagesModule,
     NgScrollbarModule,
-    ScrollingModule
+    QueryBuilderModule,
+    ScrollingModule,
 
   ],
   providers: []

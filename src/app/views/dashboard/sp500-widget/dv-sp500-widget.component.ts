@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { filter, takeUntil } from 'rxjs';
 import { DasDashboardCoreService } from '../../../common/components/dashbarod-core/services/das-dashboard-core.service';
 import {
@@ -6,6 +6,7 @@ import {
   DasDashboardEventTypeEnum
 } from '../../../common/components/dashbarod-core/services/das-dashboard-event-interface';
 import { DasWidgetCoreBase } from '../../../common/components/dashbarod-core/services/das-widget-core-base.component';
+import { DasWidgetOption } from '../../../common/components/dashbarod-core/services/das-widget-option';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DasChartSp500Component } from '../../common/sp500-chart/das-chart-sp500.component';
 import { DasChartSp500Service } from '../../common/sp500-chart/das-chart-sp500.service';
@@ -17,19 +18,23 @@ import { DasChartSp500Service } from '../../common/sp500-chart/das-chart-sp500.s
   providers: [DasChartSp500Service]
 })
 export class DvSp500WidgetComponent extends DasWidgetCoreBase {
-
   @ViewChild('chartComponent') chartComponent: DasChartSp500Component;
 
 
   constructor(
     protected override readonly dashboardCoreService: DasDashboardCoreService,
-    protected override readonly toastService: DasToastService
+    protected override readonly toastService: DasToastService,
+    private readonly chartSp500Service:DasChartSp500Service
   ) {
     super(dashboardCoreService, toastService);
   }
 
   override ngOnInit() {
     super.ngOnInit();
+    const isTitleVisible = this.widgetOption.settingData?.isTitleVisible ?? true;
+    const isLegendVisible = this.widgetOption.settingData?.isLegendVisible ?? true;
+    this.chartSp500Service.isTitleVisible = isTitleVisible;
+    this.chartSp500Service.isLegendVisible = isLegendVisible;
 
     this.dashboardCoreService.dashboardEvent$
       .pipe(

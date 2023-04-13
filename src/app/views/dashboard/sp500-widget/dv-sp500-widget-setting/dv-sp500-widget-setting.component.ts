@@ -18,22 +18,22 @@ export class DvSp500WidgetSettingComponent extends DasWidgetSettingComponent {
     private readonly chartService: DasChartSp500Service
   ) {
     super(formBuilder);
-  }
 
+
+
+
+  }
 
   override ngOnInit() {
     super.ngOnInit();
-
     const isTitleVisible = this.widgetOption.settingData?.isTitleVisible ?? true;
     const isLegendVisible = this.widgetOption.settingData?.isLegendVisible ?? true;
 
     this.formGroup.addControl('isTitleVisible', new FormControl(isTitleVisible));
     this.formGroup.addControl('isLegendVisible', new FormControl(isLegendVisible));
 
-    this.chartService.isTitleVisible = isTitleVisible;
-    this.chartService.isLegendVisible = isLegendVisible;
-  }
 
+  }
 
 
   override apply() {

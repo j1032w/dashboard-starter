@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row h-100">
+    <div class="col-lg-6 col-sm-12">
+      <ng-scrollbar class="flex-grow-1">
+        <query-builder class="query-builder pe-3"
+                       [(ngModel)]="query"
+                       [config]="config"></query-builder>
+      </ng-scrollbar>
+    </div>
+    <div class="col-lg-6 col-sm-12 d-flex flex-column ">
+      JSON Query
+      <ng-scrollbar class="flex-grow-1 card mb-4">
+        <pre class="p-2 fs-6">{{query | json}}</pre>
+      </ng-scrollbar>
+
+      Mongo Query
+      <ng-scrollbar class="flex-grow-1 card">
+        <pre class="p-2 fs-6">{{queryBuilderMongoConverter.mapRuleSet(query) | json}}</pre>
+      </ng-scrollbar>
+    </div>
+  </div>
+
+</div>
+
+
+

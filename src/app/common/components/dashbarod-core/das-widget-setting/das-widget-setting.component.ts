@@ -21,14 +21,14 @@ export class DasWidgetSettingComponent implements OnInit {
   formGroup: FormGroup;
 
   constructor(protected readonly formBuilder: FormBuilder) {
-
+    this.formGroup = this.formBuilder.group({
+      title: ['']
+    });
   }
 
 
   ngOnInit() {
-    this.formGroup = this.formBuilder.group({
-      title: [this.widgetOption.title]
-    });
+    this.formGroup.patchValue({'title': this.widgetOption.title});
 
   }
 
