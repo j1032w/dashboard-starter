@@ -16,7 +16,7 @@
        cdkDropListSortingDisabled>
     <div class="card m-3 p-2 fs-5 widget-item"
          cdkDrag
-         [cdkDragData]="widgetMap.key"
+         [cdkDragData]="widgetMap"
          *ngFor="let widgetMap of dashboardService.widgetMap | defaultOrderKeyvalue">
       {{widgetMap.value.name}}
     </div>

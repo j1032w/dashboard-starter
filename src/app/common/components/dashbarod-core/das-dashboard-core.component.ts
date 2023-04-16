@@ -40,7 +40,7 @@ export class DasDashboardCoreComponent implements OnInit {
   }
 
   itemResizeCallback = (gridsterItem: any, _gridsterItemComponent: any) => {
-    this.dashboardCoreService.emitResize(gridsterItem);
+    this.dashboardCoreService.emitWidgetResized(gridsterItem);
   };
 
 
@@ -65,29 +65,28 @@ export class DasDashboardCoreComponent implements OnInit {
 
   }
 
-  drop($event: any) {
+  dropped($event: any) {
     const componentType =
-      this.dashboardCoreService.widgetMap.get($event.item.data);
+      this.dashboardCoreService.widgetMap.get($event.item.data.key);
 
-    if (componentType) {
-      const originalWidgetOptions = _.cloneDeep(this.widgetOptions);
-      this.widgetOptions.length = 0;
+    if(!componentType) return;
 
-      this.widgetOptions.push(
-        new DasWidgetOption({
-          widgetClassName: $event.item.data.toString(),
-          title: 'New widget',
-          'x': 0,
-          'y': 0,
-          id: 0
-        }));
+    const originalWidgetOptions = _.cloneDeep(this.widgetOptions);
+    this.widgetOptions.length = 0;
 
-      for (let i = 0; i < originalWidgetOptions.length; i++) {
-        const widgetOption = originalWidgetOptions[i];
-        widgetOption.id = i + 1;
-        this.widgetOptions.push(widgetOption);
-      }
+    this.widgetOptions.push(
+      new DasWidgetOption({
+        widgetClassName: $event.item.data.key.toString(),
+        title: $event.item.data.value.name,
+        'x': 0,
+        'y': 0,
+        id: 0
+      }));
 
+    for (let i = 0; i < originalWidgetOptions.length; i++) {
+      const widgetOption = originalWidgetOptions[i];
+      widgetOption.id = i + 1;
+      this.widgetOptions.push(widgetOption);
     }
   }
 

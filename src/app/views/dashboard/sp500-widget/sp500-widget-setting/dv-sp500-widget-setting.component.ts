@@ -3,6 +3,9 @@ import { FormBuilder, FormControl } from '@angular/forms';
 import {
   DasWidgetSettingComponent
 } from '../../../../common/components/dashbarod-core/das-widget-setting/das-widget-setting.component';
+import {
+  DasDashboardCoreService
+} from '../../../../common/components/dashbarod-core/services/das-dashboard-core.service';
 import { DasChartSp500Service } from '../../../common/sp500-chart/das-chart-sp500.service';
 
 @Component({
@@ -14,12 +17,11 @@ export class DvSp500WidgetSettingComponent extends DasWidgetSettingComponent {
 
 
   constructor(
+    protected override readonly dashboardCoreService: DasDashboardCoreService,
     protected override readonly formBuilder: FormBuilder,
     private readonly chartService: DasChartSp500Service
   ) {
-    super(formBuilder);
-
-
+    super(formBuilder, dashboardCoreService);
 
 
   }

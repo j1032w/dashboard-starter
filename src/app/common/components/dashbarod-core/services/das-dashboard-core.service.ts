@@ -28,12 +28,16 @@ export class DasDashboardCoreService {
     this.widgetOptions.splice(this.widgetOptions.indexOf(widgetOption), 1);
   }
 
-  emitRefresh(widgetOption: DasWidgetOption) {
+  emitWidgedRefresh(widgetOption: DasWidgetOption) {
     this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetRefresh);
   }
 
 
-  emitResize(widgetOption: DasWidgetOption) {
+  emitWidgetSettingChanged(widgetOption: DasWidgetOption) {
+    this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetSettingChanged);
+  }
+
+  emitWidgetResized(widgetOption: DasWidgetOption) {
     this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetResized);
   }
 

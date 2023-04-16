@@ -4,6 +4,7 @@ import { DevExtremeModule, DxButtonModule } from 'devextreme-angular';
 import { DasChartSp500Component } from './sp500-chart/das-chart-sp500.component';
 
 
+
 @NgModule({
   declarations: [DasChartSp500Component],
   imports: [

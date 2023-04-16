@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DasQueryBuilderComponent } from './das-query-builder.component';
+import { DasRealtorQueryBuilderComponent } from './das-realtor-query-builder.component';
 
 describe('QueryBuilderComponent', () => {
-  let component: DasQueryBuilderComponent;
-  let fixture: ComponentFixture<DasQueryBuilderComponent>;
+  let component: DasRealtorQueryBuilderComponent;
+  let fixture: ComponentFixture<DasRealtorQueryBuilderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DasQueryBuilderComponent ]
+      declarations: [ DasRealtorQueryBuilderComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DasQueryBuilderComponent);
+    fixture = TestBed.createComponent(DasRealtorQueryBuilderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

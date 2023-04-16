@@ -6,6 +6,7 @@ import { DvDemoAWidgetComponent } from './demo-widget-a/dv-demo-a-widget.compone
 import { DvDemoBWidgetComponent } from './demo-widget-b/dv-demo-b-widget.component';
 import { DvDemoCWidgetComponent } from './demo-widget-c/dv-demo-c-widget.component';
 import { DvDemoDWidgetComponent } from './demo-widget-d/dv-demo-d-widget.component';
+import { DvRealtorWidgetComponent } from './realtor-widget/dv-realtor-widget.component';
 import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component';
 
 
@@ -23,6 +24,11 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
   constructor(private readonly dasDashboardService: DasDashboardCoreService
   ) {
     super();
+
+    dasDashboardService.widgetMap.set(
+      'RealtorWidgetComponent',
+      { name: 'Realtor', type: DvRealtorWidgetComponent }
+    );
 
     dasDashboardService.widgetMap.set(
       'DvSp500WidgetComponent',

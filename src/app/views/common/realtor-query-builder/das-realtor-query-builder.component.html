@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="row h-100">
-    <div class="col-lg-6 col-sm-12">
-      <ng-scrollbar class="flex-grow-1">
-        <query-builder class="query-builder pe-3"
+    <div class="col-lg-6 col-sm-12 card ">
+      <ng-scrollbar class="h-100">
+        <query-builder class="query-builder p-3"
                        [(ngModel)]="query"
                        [config]="config"></query-builder>
       </ng-scrollbar>
     </div>
     <div class="col-lg-6 col-sm-12 d-flex flex-column ">
-      JSON Result
+      JSON
       <ng-scrollbar class="flex-grow-1 card mb-4">
         <pre class="p-2 fs-6">{{query | json}}</pre>
       </ng-scrollbar>

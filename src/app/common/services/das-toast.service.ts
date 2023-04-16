@@ -14,4 +14,12 @@ export class DasToastService {
       detail
     });
   };
+
+  showError = (detail: string) => {
+    this.messageService.add({
+      severity: 'error',
+      summary: '',
+      detail
+    });
+  };
 }
