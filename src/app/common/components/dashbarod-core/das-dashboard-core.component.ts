@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GridsterComponent } from 'angular-gridster2';
 import * as _ from 'lodash';
 import { isArray } from 'lodash';
+import { ConfirmationService, ConfirmEventType } from 'primeng/api';
 import { DasConfig } from '../../services/das-config';
 import { DasLocalStorageService } from '../../services/das-local-storage.service';
 import { DasToastService } from '../../services/das-toast.service';
@@ -14,7 +15,8 @@ import { DasWidgetOption } from './services/das-widget-option';
 @Component({
   selector: 'das-dashboard-core',
   templateUrl: './das-dashboard-core.component.html',
-  styleUrls: ['./das-dashboard-core.component.scss']
+  styleUrls: ['./das-dashboard-core.component.scss'],
+  providers: [ConfirmationService]
 })
 
 export class DasDashboardCoreComponent implements OnInit {
@@ -30,9 +32,10 @@ export class DasDashboardCoreComponent implements OnInit {
 
   constructor(
     public readonly dashboardCoreService: DasDashboardCoreService,
-    private readonly toastService: DasToastService,
+    private readonly confirmationService: ConfirmationService,
     private readonly dasConfig: DasConfig,
-    private readonly dasLocalStorage: DasLocalStorageService
+    private readonly dasLocalStorage: DasLocalStorageService,
+    private readonly toastService: DasToastService,
   ) {
     this.gridsterOptions.itemResizeCallback = this.itemResizeCallback;
     this.localStorageWidgetOptionsKey = this.dasConfig.localStorageWidgetOptionsKey;
@@ -56,18 +59,44 @@ export class DasDashboardCoreComponent implements OnInit {
 
   saveSetting() {
     this.dasLocalStorage.setItem(this.localStorageWidgetOptionsKey, this.dashboardCoreService.widgetOptions);
-    this.toastService.showSuccess('Dashboard settings saved into browser local storage successfully.');
+    this.toastService.showSuccess('Dashboard settings saved into browser local storage.');
   }
 
-  resetSetting(isShowToast = true) {
-    this.dasLocalStorage.removeItem(this.localStorageWidgetOptionsKey);
+  removeAll() {
+    this.confirmationService.confirm({
+      message: 'Do you want to remove all widgets?',
+      header: 'Remove All',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.widgetOptions.length = 0;
+        this.toastService.showSuccess('All widget has been removed.');
+      }
 
-    this.widgetOptions.length = 0;
-    this.widgetOptions.push(...(_.cloneDeep(this.defaultWidgetOptions)));
-    if (isShowToast) {
-      this.toastService.showSuccess('Dashboard settings reset to default successfully.');
+    });
+  }
+
+
+  resetSetting(isShowConfirmation = true) {
+    if (!isShowConfirmation) {
+      this.setToDefault();
+      return;
     }
 
+    this.confirmationService.confirm({
+      message: 'Do you want to reset the dashboard to default?',
+      header: 'Reset',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.setToDefault();
+      }
+
+    });
+  }
+
+  private readonly setToDefault=()=>{
+    this.dasLocalStorage.removeItem(this.localStorageWidgetOptionsKey);
+    this.widgetOptions.length = 0;
+    this.widgetOptions.push(...(_.cloneDeep(this.defaultWidgetOptions)));
   }
 
   dropped($event: any) {

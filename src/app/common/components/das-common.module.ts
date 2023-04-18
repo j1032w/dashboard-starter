@@ -9,6 +9,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { TooltipModule } from 'primeng/tooltip';
+import { DasGridModule } from './das-grid/das-grid.module';
 
 import { DasIconsModule } from './das-icons.module';
 import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
@@ -38,7 +39,8 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     }),
     TooltipModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
 
   exports: [
@@ -54,7 +56,7 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     TooltipModule,
     HttpClientModule,
     DefaultOrderKeyvaluePipe,
-    FormsModule
+    FormsModule,
   ]
 
 

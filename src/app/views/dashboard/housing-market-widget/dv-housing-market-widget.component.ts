@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
-import { filter, switchMap, takeUntil } from 'rxjs';
+import { Component, ViewChild } from '@angular/core';
+import { takeUntil } from 'rxjs';
 import { DasDashboardCoreService } from '../../../common/components/dashbarod-core/services/das-dashboard-core.service';
-import {
-  DasDashboardEventInterface,
-  DasDashboardEventTypeEnum
-} from '../../../common/components/dashbarod-core/services/das-dashboard-event-interface';
-import { DasWidgetCoreBase } from '../../../common/components/dashbarod-core/services/das-widget-core-base.component';
+import { DasWidgetBase } from '../../../common/components/dashbarod-core/services/das-widget-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
-import { DvHousingMarketRepository } from './services/dv-housing-market-repository.service';
+import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/dv-housing-market-widget-pie.component';
+import { BuildingTypePercentageInterface, DvHousingMarketService } from './services/dv-housing-market.service';
 
 
 @Component({
@@ -15,12 +12,15 @@ import { DvHousingMarketRepository } from './services/dv-housing-market-reposito
   templateUrl: './dv-housing-market-widget.component.html',
   styleUrls: ['./dv-housing-market-widget.component.scss']
 })
-export class DvHousingMarketWidgetComponent extends DasWidgetCoreBase {
+export class DvHousingMarketWidgetComponent extends DasWidgetBase {
+  @ViewChild('pieComponent', { static: true }) pieComponent: DvHousingMarketWidgetPieComponent;
+
+  dataSource: BuildingTypePercentageInterface[] = [];
 
   constructor(
     protected override readonly dashboardCoreService: DasDashboardCoreService,
     protected override readonly toastService: DasToastService,
-    protected readonly housingMarketRepository: DvHousingMarketRepository
+    protected readonly housingMarketService: DvHousingMarketService
   ) {
     super(dashboardCoreService, toastService);
   }
@@ -29,38 +29,24 @@ export class DvHousingMarketWidgetComponent extends DasWidgetCoreBase {
   override ngOnInit() {
     super.ngOnInit();
 
-
-    this.dashboardCoreService.dashboardEvent$
-      .pipe(
-        takeUntil(this.ngUnsubscribe),
-        filter((data: DasDashboardEventInterface) =>
-            data.widgetOption.id === this.widgetOption.id &&
-            data.eventType in [
-              DasDashboardEventTypeEnum.WidgetSettingChanged,
-              DasDashboardEventTypeEnum.WidgetRefresh
-            ]
-        ),
-        switchMap(() => {
-          return this.housingMarketRepository.query$(this.widgetOption.settingData);
-        })
-      )
-      .subscribe((data) => {
-        this.toastService.showSuccess('abc');
-      });
-
-
-    this.dashboardCoreService.dashboardEvent$
-      .pipe(
-        takeUntil(this.ngUnsubscribe),
-        filter((data: DasDashboardEventInterface) =>
-          data.widgetOption.id === this.widgetOption.id &&
-          data.eventType === DasDashboardEventTypeEnum.WidgetResized)
-      )
-      .subscribe(() => {
-        this.refresh();
-      });
+    this.housingMarketService.getHomeTypePercentages$(this.widgetOption.settingData)
+      .pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => {
+        this.dataSource = data;
+      }
+    );
 
   }
+
+  protected override readonly refresh = () => {
+    this.housingMarketService.getHomeTypePercentages$(this.widgetOption.settingData)
+      .pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => {
+      this.dataSource = data;
+    });
+  };
+
+  protected override readonly repaint = () => {
+    this.pieComponent.repaint();
+  };
 
 
 }

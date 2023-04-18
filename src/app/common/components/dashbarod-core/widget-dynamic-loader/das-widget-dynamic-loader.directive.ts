@@ -1,6 +1,6 @@
 import { ComponentRef, Directive, Input, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
 import { DasDashboardCoreService } from '../services/das-dashboard-core.service';
-import { DasWidgetCoreBase } from '../services/das-widget-core-base.component';
+import { DasWidgetBase } from '../services/das-widget-base.component';
 import { DasWidgetOption } from '../services/das-widget-option';
 
 
@@ -30,7 +30,7 @@ export class DasWidgetDynamicLoaderDirective implements OnInit, OnDestroy {
       return;
     }
 
-    const component: ComponentRef<DasWidgetCoreBase> = this.viewContainerRef.createComponent(componentType);
+    const component: ComponentRef<DasWidgetBase> = this.viewContainerRef.createComponent(componentType);
     component.setInput('widgetOption', this.widgetOption);
 
   }

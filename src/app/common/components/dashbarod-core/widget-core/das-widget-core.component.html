@@ -9,7 +9,7 @@
 
       <i-feather name="rotate-cw" class="toolbar-button"
                  pTooltip="Refresh" tooltipPosition="bottom"
-                 (click)="dashboardService.emitWidgetRefresh(widgetOption)"></i-feather>
+                 (click)="dashboardService.emitWidgetSettingChanged(widgetOption)"></i-feather>
 
       <i-feather name="settings" class="toolbar-button"
                  pTooltip="Setting" tooltipPosition="bottom"
@@ -28,7 +28,7 @@
        [@flip]="widgetOption.isFrontShown? 'shown':'hidden'"
        [ngClass]="{'d-flex flex-column justify-content-center align-items-center': widgetOption.isFrontShown}"
        [hidden]="!widgetOption.isFrontShown">
-    <ng-container *ngTemplateOutlet="frontTemplate"></ng-container>
+    <ng-container *ngTemplateOutlet="frontTemplate; context:{$implicit: {widgetOption}}"></ng-container>
 
   </div>
 
@@ -37,7 +37,7 @@
        [@flip]="widgetOption.isFrontShown? 'hidden':'shown'"
        [ngClass]="{'d-flex flex-column justify-content-center align-items-center': !widgetOption.isFrontShown}"
        [hidden]="widgetOption.isFrontShown">
-    <ng-container *ngTemplateOutlet="backTemplate"></ng-container>
+    <ng-container *ngTemplateOutlet="backTemplate; context:{$implicit: {widgetOption}}"></ng-container>
   </div>
 
 

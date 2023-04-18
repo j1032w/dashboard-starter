@@ -1,14 +1,14 @@
 import { Injectable, Type } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DasDashboardEventInterface, DasDashboardEventTypeEnum } from './das-dashboard-event-interface';
-import { DasWidgetCoreBase } from './das-widget-core-base.component';
+import { DasWidgetBase } from './das-widget-base.component';
 import { DasWidgetOption } from './das-widget-option';
 
 
 @Injectable({ providedIn: 'root' })
 export class DasDashboardCoreService {
 
-  widgetMap: Map<string, { name: string, type: Type<DasWidgetCoreBase> }> = new Map();
+  widgetMap: Map<string, { name: string, type: Type<DasWidgetBase> }> = new Map();
 
 
   widgetOptions: DasWidgetOption[];
@@ -26,10 +26,6 @@ export class DasDashboardCoreService {
 
   readonly removeWidget = (widgetOption: DasWidgetOption) => {
     this.widgetOptions.splice(this.widgetOptions.indexOf(widgetOption), 1);
-  };
-
-  readonly emitWidgetRefresh = (widgetOption: DasWidgetOption) => {
-    this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetRefresh);
   };
 
 

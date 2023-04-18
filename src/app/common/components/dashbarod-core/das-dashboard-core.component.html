@@ -4,6 +4,11 @@
     <span class="ps-1">Save</span>
   </span>
 
+  <span class="toolbar-button dashboard-setting-btn ps-2" (click)="removeAll()">
+    <i-feather name="file"></i-feather>
+    <span class="ps-1">Remove All</span>
+  </span>
+
   <span class="toolbar-button dashboard-setting-btn ps-2" (click)="resetSetting()">
     <i-feather name="server"></i-feather>
     <span class="ps-1">Reset</span>
@@ -35,3 +40,4 @@
 
 
 </div>
+<p-confirmDialog [style]="{width: '30rem'}"></p-confirmDialog>

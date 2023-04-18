@@ -70,7 +70,7 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
       'isShowRefreshButton': false,
       'isShowFlipButton': false,
       'isFrontShown': true,
-      settingData: { isTitleVisible: false }
+       settingData: { isTitleVisible: false }
     },
       {
         'originalRows': 4,

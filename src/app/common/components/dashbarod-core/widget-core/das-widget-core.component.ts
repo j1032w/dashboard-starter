@@ -49,6 +49,7 @@ export class DasWidgetCoreComponent {
 
   flip() {
     this.widgetOption.isFrontShown = !this.widgetOption.isFrontShown;
+    this.dashboardService.emitWidgetResized(this.widgetOption);
   }
 
 

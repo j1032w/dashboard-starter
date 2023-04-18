@@ -1,11 +1,11 @@
-export enum BuildTypeEnum {
-  Apartment = 'Condo Apartment',
+export enum BuildingTypeEnum {
+  Apartment = 'Apartment',
   Duplex= 'Duplex',
   Fourplex= 'Fourplex',
-  House= 'Detached',
-  ManufacturedHome= 'ManufacturedHome',
+  House= 'House',
+  ManufacturedHome= 'Manufactured Home/Mobile',
   MobileHome= 'Mobile Home',
-  MultiFamily= 'Multi Family',
+  MultiFamily= 'Multi-Family',
   Parking= 'Parking',
   Townhouse= 'Row / Townhouse',
   Triplex= 'Triplex',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DasDashboardCoreService } from '../../../common/components/dashbarod-core/services/das-dashboard-core.service';
-import { DasWidgetCoreBase } from '../../../common/components/dashbarod-core/services/das-widget-core-base.component';
+import { DasWidgetBase } from '../../../common/components/dashbarod-core/services/das-widget-base.component';
 import {DasToastService } from '../../../common/services/das-toast.service';
 
 @Component({
@@ -8,7 +8,7 @@ import {DasToastService } from '../../../common/services/das-toast.service';
   templateUrl: './dv-demo-b-widget.component.html',
   styleUrls: ['./dv-demo-b-widget.component.scss']
 })
-export class DvDemoBWidgetComponent extends DasWidgetCoreBase {
+export class DvDemoBWidgetComponent extends DasWidgetBase {
   constructor(protected override readonly dashboardCoreService: DasDashboardCoreService,
               protected override readonly toastService:DasToastService) {
     super(dashboardCoreService, toastService);

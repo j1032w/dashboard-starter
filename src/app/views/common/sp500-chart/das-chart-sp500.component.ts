@@ -1,5 +1,7 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { DxChartComponent } from 'devextreme-angular';
+import { DasWidgetContentBase } from '../../../common/components/dashbarod-core/services/das-widget-content-base';
+import { DasWidgetOption } from '../../../common/components/dashbarod-core/services/das-widget-option';
 import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.service';
 
 @Component({
@@ -7,15 +9,21 @@ import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.serv
   templateUrl: './das-chart-sp500.component.html',
   styleUrls: ['./das-chart-sp500.component.scss']
 })
-export class DasChartSp500Component {
+export class DasChartSp500Component extends DasWidgetContentBase implements OnInit{
+  @ViewChild('chartComponent', {static:true}) chartComponent: DxChartComponent;
 
-
-  @ViewChild('chartComponent') chartComponent: DxChartComponent;
 
   dataSource: Sp500AnnualHistory[];
 
-  constructor(public readonly chartService: DasChartSp500Service) {
+  constructor(
+    protected override readonly elementRef: ElementRef,
+    public readonly chartService: DasChartSp500Service) {
+    super(elementRef);
     this.dataSource = chartService.getSp500Data();
+  }
+
+  ngOnInit(): void {
+    this.repaintComponent = this.chartComponent.instance.refresh;
   }
 
   customizeTooltip = (info: any) => ({
@@ -34,7 +42,5 @@ export class DasChartSp500Component {
 
   customizeLabelText = (info: any) => `${info.valueText}%`;
 
-  refresh() {
-    this.chartComponent.instance.refresh();
-  }
+
 }

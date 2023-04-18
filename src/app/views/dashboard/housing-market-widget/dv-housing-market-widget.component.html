@@ -1,10 +1,13 @@
-<das-widget-core class="h-100"
-                 [widgetOption]="widgetOption">
+<das-widget-core #widgetCoreComponent class="h-100" [widgetOption]="widgetOption">
+
   <ng-template #frontTemplate>
+    <das-dv-housing-market-widget-pie #pieComponent
+      [dataSource]="dataSource"></das-dv-housing-market-widget-pie>
 
   </ng-template>
 
-  <ng-template #backTemplate>
+  <ng-template #backTemplate let-ctx>
+
 
   </ng-template>
 
@@ -12,5 +15,5 @@
   <ng-template #settingTemplate let-ctx>
     <das-dv-housing-market-widget-setting [widgetOption]="ctx.widgetOption"></das-dv-housing-market-widget-setting>
   </ng-template>
-
 </das-widget-core>
+

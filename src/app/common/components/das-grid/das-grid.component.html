@@ -1,0 +1,19 @@
+<dx-data-grid #gridComponent
+              class="m-2"
+              [height]="height"
+              [dataSource]="dataSource"
+              [showBorders]="true"
+>
+  <dxo-filter-row
+    [visible]="true"
+  ></dxo-filter-row>
+
+  <dxi-column *ngFor="let column of columns"
+              [dataField]="column.dataField"
+              [caption]="column.caption"
+              [width]="column.width"
+              [dataType]="column.dataType"
+  ></dxi-column>
+
+
+</dx-data-grid>
