@@ -1,25 +1,18 @@
 import { Injectable } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { ToastrService } from 'ngx-toastr';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class DasToastService {
 
-  constructor(private readonly messageService: MessageService) {
+  // option is set in das-common.module.ts, ToastrModule.forRoot({
+  constructor(private toastr: ToastrService) {
   }
 
-  showSuccess = (detail: string) => {
-    this.messageService.add({
-      severity: 'success',
-      summary: '',
-      detail
-    });
+  showSuccess = (message: string) => {
+    this.toastr.success(message);
   };
 
-  showError = (detail: string) => {
-    this.messageService.add({
-      severity: 'error',
-      summary: '',
-      detail
-    });
+  showError = (message: string) => {
+    this.toastr.error(message);
   };
 }

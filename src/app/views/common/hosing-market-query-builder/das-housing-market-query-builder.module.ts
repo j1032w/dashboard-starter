@@ -3,12 +3,12 @@ import { QueryBuilderModule } from 'angular2-query-builder';
 import { DasCommonModule } from '../../../common/components/das-common.module';
 
 
-import { DasRealtorQueryBuilderComponent } from './das-realtor-query-builder.component';
+import { DasHousingMarketQueryBuilderComponent } from './das-housing-market-query-builder.component';
 
 
 @NgModule({
   declarations: [
-    DasRealtorQueryBuilderComponent
+    DasHousingMarketQueryBuilderComponent
   ],
 
   imports: [
@@ -17,10 +17,11 @@ import { DasRealtorQueryBuilderComponent } from './das-realtor-query-builder.com
   ],
 
   exports: [
-    DasRealtorQueryBuilderComponent
+    DasHousingMarketQueryBuilderComponent
   ]
 
 
 })
-export class DasRealtorQueryBuilderModule {
+export class DasHousingMarketQueryBuilderModule
+{
 }

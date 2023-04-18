@@ -1,11 +1,9 @@
 {
-  "/api": {
-    "target": "wss://ws.finnhub.io",
+  "/api/das-data": {
+    "target": "http://192.168.11.101:3000",
     "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug",
     "pathRewrite": {
-      "^/api": ""
+      "^/api/das-data": "/"
     }
   }
 }

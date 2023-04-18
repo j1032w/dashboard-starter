@@ -8,6 +8,7 @@ import { DevExtremeModule, DxChartModule, DxDataGridModule } from 'devextreme-an
 
 const providers: any[] = [
   { provide: APP_BASE_HREF, useValue: '/' }
+
 ];
 
 const imports: any[] = [

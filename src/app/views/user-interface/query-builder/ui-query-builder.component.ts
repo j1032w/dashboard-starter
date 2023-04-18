@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {
-  REALTOR_DEMO_QUERY,
-  REALTOR_QUERY_CONFIG
-} from '../../common/realtor-query-builder/services/das-query-builder.constant';
+  HOUSING_MARKET_DEMO_QUERY,
+  HOUSING_MARKET_QUERY_CONFIG
+} from '../../common/hosing-market-query-builder/services/das-query-builder.constant';
 
 @Component({
   selector: 'das-ui-query-builder',
@@ -11,7 +11,7 @@ import {
 })
 export class UiQueryBuilderComponent {
 
-  query = REALTOR_DEMO_QUERY;
+  query = HOUSING_MARKET_DEMO_QUERY;
 
 }
 

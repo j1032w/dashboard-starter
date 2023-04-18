@@ -6,15 +6,15 @@ import {
 import {
   DasDashboardCoreService
 } from '../../../../common/components/dashbarod-core/services/das-dashboard-core.service';
-import { REALTOR_DEMO_QUERY } from '../../../common/realtor-query-builder/services/das-query-builder.constant';
+import { HOUSING_MARKET_DEMO_QUERY } from '../../../common/hosing-market-query-builder/services/das-query-builder.constant';
 
 @Component({
-  selector: 'das-dv-realtor-widget-setting',
-  templateUrl: './dv-realtor-widget-setting.component.html',
-  styleUrls: ['./dv-realtor-widget-setting.component.scss']
+  selector: 'das-dv-housing-market-widget-setting',
+  templateUrl: './dv-housing-market-widget-setting.component.html',
+  styleUrls: ['./dv-housing-market-widget-setting.component.scss']
 })
-export class DvRealtorWidgetSettingComponent extends DasWidgetSettingComponent {
-  query = REALTOR_DEMO_QUERY;
+export class DvHousingMarketWidgetSettingComponent extends DasWidgetSettingComponent {
+  query = HOUSING_MARKET_DEMO_QUERY;
 
   constructor(
     protected override readonly formBuilder: FormBuilder,

@@ -24,31 +24,31 @@ export class DasDashboardCoreService {
     this.dashboardEvent$ = this.dashboardEventSubject$.asObservable();
   }
 
-  removeWidget(widgetOption: DasWidgetOption) {
+  readonly removeWidget = (widgetOption: DasWidgetOption) => {
     this.widgetOptions.splice(this.widgetOptions.indexOf(widgetOption), 1);
-  }
+  };
 
-  emitWidgedRefresh(widgetOption: DasWidgetOption) {
+  readonly emitWidgetRefresh = (widgetOption: DasWidgetOption) => {
     this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetRefresh);
-  }
+  };
 
 
-  emitWidgetSettingChanged(widgetOption: DasWidgetOption) {
+  readonly emitWidgetSettingChanged = (widgetOption: DasWidgetOption) => {
     this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetSettingChanged);
-  }
+  };
 
-  emitWidgetResized(widgetOption: DasWidgetOption) {
+  readonly emitWidgetResized = (widgetOption: DasWidgetOption) => {
     this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetResized);
-  }
+  };
 
 
-  private emitDashboardEvent(widgetOption: DasWidgetOption, eventType: DasDashboardEventTypeEnum) {
+  private readonly emitDashboardEvent =
+    (widgetOption: DasWidgetOption, eventType: DasDashboardEventTypeEnum) => {
     this.dashboardEventSubject$.next({
       widgetOption,
       eventType
-
     });
-  }
+  };
 }
 
 

@@ -18,6 +18,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "devextreme",
+              "ngx-scrollbar"
+            ],
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -41,6 +46,7 @@
               }
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
@@ -59,6 +65,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.production.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",

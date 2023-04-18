@@ -12,7 +12,7 @@ export enum FieldTypeEnum{
 
 
 
-export const REALTOR_QUERY_CONFIG: QueryBuilderConfig = {
+export const HOUSING_MARKET_QUERY_CONFIG: QueryBuilderConfig = {
   fields: {
     buildingBedroom: { name: 'Beds', type: FieldTypeEnum.number },
 
@@ -75,41 +75,11 @@ export const REALTOR_QUERY_CONFIG: QueryBuilderConfig = {
         { name: 'Vacant Land', value: 'Vacant Land' }
       ]},
 
-
-
-
-
-    gender: {
-      name: 'Gender',
-      type: 'category',
-      options: [
-        { name: 'Male', value: 'm' },
-        { name: 'Female', value: 'f' }
-      ]
-    },
-    name: { name: 'Name', type: 'string' },
-    notes: { name: 'Notes', type: 'textarea', operators: ['=', '!='] },
-    educated: { name: 'College Degree?', type: 'boolean' },
-    birthday: {
-      name: 'Birthday', type: 'date', operators: ['=', '<=', '>'],
-      defaultValue: (() => new Date())
-    },
-    school: { name: 'School', type: 'string', nullable: true },
-    occupation: {
-      name: 'Occupation',
-      type: 'category',
-      options: [
-        { name: 'Student', value: 'student' },
-        { name: 'Teacher', value: 'teacher' },
-        { name: 'Unemployed', value: 'unemployed' },
-        { name: 'Scientist', value: 'scientist' }
-      ]
-    }
   }
 };
 
 
-export const REALTOR_DEMO_QUERY = {
+export const HOUSING_MARKET_DEMO_QUERY = {
   "condition": "or",
   "rules": [
     {

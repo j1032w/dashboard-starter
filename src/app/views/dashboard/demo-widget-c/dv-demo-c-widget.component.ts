@@ -3,6 +3,8 @@ import { DasDashboardCoreService } from '../../../common/components/dashbarod-co
 import { DasWidgetCoreBase } from '../../../common/components/dashbarod-core/services/das-widget-core-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 
+
+
 @Component({
   selector: 'das-dv-demo-c-widget',
   templateUrl: './dv-demo-c-widget.component.html',
@@ -10,7 +12,7 @@ import { DasToastService } from '../../../common/services/das-toast.service';
 })
 export class DvDemoCWidgetComponent extends DasWidgetCoreBase {
   constructor(protected override readonly dashboardCoreService: DasDashboardCoreService,
-              protected override readonly toastService: DasToastService) {
+              protected override readonly toastService:DasToastService) {
     super(dashboardCoreService, toastService);
   }
 

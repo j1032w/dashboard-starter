@@ -9,7 +9,10 @@ import { DialogModule } from 'primeng/dialog';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MessagesModule } from 'primeng/messages';
 import { DasCommonModule } from '../../common/components/das-common.module';
-import { DasRealtorQueryBuilderModule } from '../common/realtor-query-builder/das-realtor-query-builder.module';
+import {
+  DasHousingMarketQueryBuilderModule
+} from '../common/hosing-market-query-builder/das-housing-market-query-builder.module';
+
 
 
 import { DasComponentFormModule } from '../component/form/das-component-form.module';
@@ -38,7 +41,7 @@ import { UiQueryBuilderComponent } from './query-builder/ui-query-builder.compon
     CardModule,
     DasCommonModule,
     DasComponentFormModule,
-    DasRealtorQueryBuilderModule,
+    DasHousingMarketQueryBuilderModule,
     DasUserInterfaceRoutingModule,
     DialogModule,
     DragDropModule,

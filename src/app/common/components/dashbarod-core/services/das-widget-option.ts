@@ -6,7 +6,6 @@ export class DasWidgetOption {
   readonly hasContent = true;
 
   id: number;
-
   isMinimized: boolean;
   isShowFlipButton: boolean;
   isShowRefreshButton: boolean;
@@ -17,7 +16,7 @@ export class DasWidgetOption {
 
   isSettingModalVisible = false;
 
-  title='';
+  title = '';
   settingData: any;
 
   constructor(data?: Partial<DasWidgetOption>) {
@@ -29,7 +28,7 @@ export class DasWidgetOption {
     this.id = data?.id ?? 0;
     this.widgetClassName = data?.widgetClassName ?? '';
     this.title = data?.title ?? '';
-    this.settingData = data?.settingData??{};
+    this.settingData = data?.settingData ?? {};
     this.isMinimized = data?.isMinimized ?? false;
     this.isShowRefreshButton = data?.isShowRefreshButton ?? false;
     this.isShowFlipButton = data?.isShowFlipButton ?? false;

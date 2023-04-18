@@ -1,6 +1,9 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { CompactType, GridsterComponent } from 'angular-gridster2';
+import { GridsterComponent } from 'angular-gridster2';
 import * as _ from 'lodash';
+import { isArray } from 'lodash';
+import { DasConfig } from '../../services/das-config';
+import { DasLocalStorageService } from '../../services/das-local-storage.service';
 import { DasToastService } from '../../services/das-toast.service';
 
 import { GRIDSTER_OPTIONS } from './services/das-dashbaord-constant';
@@ -11,8 +14,7 @@ import { DasWidgetOption } from './services/das-widget-option';
 @Component({
   selector: 'das-dashboard-core',
   templateUrl: './das-dashboard-core.component.html',
-  styleUrls: ['./das-dashboard-core.component.scss'],
-  providers: [DasToastService]
+  styleUrls: ['./das-dashboard-core.component.scss']
 })
 
 export class DasDashboardCoreComponent implements OnInit {
@@ -24,13 +26,16 @@ export class DasDashboardCoreComponent implements OnInit {
 
   @ViewChild('gridsterComponent', { static: true }) gridsterComponent: GridsterComponent;
 
-  private readonly localStorageWidgetOptionsKey = 'widgetOptions';
+  private readonly localStorageWidgetOptionsKey;
 
   constructor(
     public readonly dashboardCoreService: DasDashboardCoreService,
-    private readonly toastService: DasToastService
+    private readonly toastService: DasToastService,
+    private readonly dasConfig: DasConfig,
+    private readonly dasLocalStorage: DasLocalStorageService
   ) {
     this.gridsterOptions.itemResizeCallback = this.itemResizeCallback;
+    this.localStorageWidgetOptionsKey = this.dasConfig.localStorageWidgetOptionsKey;
   }
 
 
@@ -50,13 +55,13 @@ export class DasDashboardCoreComponent implements OnInit {
 
 
   saveSetting() {
-      const data = JSON.stringify(this.dashboardCoreService.widgetOptions);
-      localStorage.setItem(this.localStorageWidgetOptionsKey, data);
-      this.toastService.showSuccess('Dashboard settings saved into browser local storage successfully.');
+    this.dasLocalStorage.setItem(this.localStorageWidgetOptionsKey, this.dashboardCoreService.widgetOptions);
+    this.toastService.showSuccess('Dashboard settings saved into browser local storage successfully.');
   }
 
   resetSetting(isShowToast = true) {
-    localStorage.removeItem(this.localStorageWidgetOptionsKey);
+    this.dasLocalStorage.removeItem(this.localStorageWidgetOptionsKey);
+
     this.widgetOptions.length = 0;
     this.widgetOptions.push(...(_.cloneDeep(this.defaultWidgetOptions)));
     if (isShowToast) {
@@ -69,7 +74,7 @@ export class DasDashboardCoreComponent implements OnInit {
     const componentType =
       this.dashboardCoreService.widgetMap.get($event.item.data.key);
 
-    if(!componentType) return;
+    if (!componentType) return;
 
     const originalWidgetOptions = _.cloneDeep(this.widgetOptions);
     this.widgetOptions.length = 0;
@@ -91,42 +96,17 @@ export class DasDashboardCoreComponent implements OnInit {
   }
 
   private getSetting() {
-    const data = localStorage.getItem(this.localStorageWidgetOptionsKey);
-    if (!data) {
-      this.resetSetting(false);
+    const savedWidgetOptions = this.dasLocalStorage.getItem(this.localStorageWidgetOptionsKey);
+
+    if (isArray(savedWidgetOptions)) {
+      this.widgetOptions = savedWidgetOptions;
       return;
     }
+    this.resetSetting(false);
 
-    this.widgetOptions = JSON.parse(data);
-  }
-
-  toggleMinimizeItem($event: any, gristerItemComponet: any, item: DasWidgetOption): void {
-    $event.preventDefault();
-    $event.stopPropagation();
-    item.isMinimized = !item.isMinimized;
-
-    if (item.isMinimized) {
-      item.rows = 1;
-      gristerItemComponet.$item.rows = 1;
-      gristerItemComponet.setSize();
-
-    } else {
-      item.rows = 4;
-      gristerItemComponet.$item.rows = 4;
-      gristerItemComponet.setSize();
-    }
-
-    // this.gridsterComponent.updateGrid();
-    //this.gridsterComponent.optionsChanged();
-    // this.gridsterComponent.gridRenderer.updateGridster();
-    //this.gridsterComponent.setGridSize();
-    // this.gridsterComponent['calculateLayout']();
-    //this.gridsterComponent.gridRenderer.updateGridster();
-
-    this.gridsterComponent.calculateLayout$.next();
-
-    //this.dashboardService.widgets = _.cloneDeep(this.dashboardService.widgets);
 
   }
+
+
 }
 

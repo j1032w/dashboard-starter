@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { filter, takeUntil } from 'rxjs';
 import { DasDashboardCoreService } from '../../../common/components/dashbarod-core/services/das-dashboard-core.service';
 import {
@@ -6,8 +6,8 @@ import {
   DasDashboardEventTypeEnum
 } from '../../../common/components/dashbarod-core/services/das-dashboard-event-interface';
 import { DasWidgetCoreBase } from '../../../common/components/dashbarod-core/services/das-widget-core-base.component';
-import { DasWidgetOption } from '../../../common/components/dashbarod-core/services/das-widget-option';
 import { DasToastService } from '../../../common/services/das-toast.service';
+
 import { DasChartSp500Component } from '../../common/sp500-chart/das-chart-sp500.component';
 import { DasChartSp500Service } from '../../common/sp500-chart/das-chart-sp500.service';
 
@@ -24,7 +24,7 @@ export class DvSp500WidgetComponent extends DasWidgetCoreBase {
   constructor(
     protected override readonly dashboardCoreService: DasDashboardCoreService,
     protected override readonly toastService: DasToastService,
-    private readonly chartSp500Service:DasChartSp500Service
+    private readonly chartSp500Service: DasChartSp500Service
   ) {
     super(dashboardCoreService, toastService);
   }

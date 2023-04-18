@@ -1,11 +1,11 @@
 # Dashboard Starter
 **A dashboard boilerplate project.**\
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-<a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.laobi.icu/badge?page_id=j1032w/dashboard-starter"></a>
-[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8) \
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)\
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.laobi.icu/badge?page_id=j1032w/dashboard-starter"></a>
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)
 
 [![Demo](documentation/dashboard.png)](https://www.j1032.com/dashboard)
 
@@ -46,25 +46,27 @@ yarn test
 
 # Docker
 ### Deployment
-Fetch container image form Google cloud Artifact Registry.\
-If container is created, you can access api on http://localhost:4200
+1. Running container, fetch image form Google cloud Artifact Registry.
 ```
-docker run -d --pull=always -p 4200:80 --name=dashboard-starter-ui  northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
+docker run -d --pull=always -p 4201:80 --name=dashboard-starter-ui  northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
 ```
+2. Navigate to http://localhost:4201
+
 
 ### Build container with docker-compose
-Run followed command in project directory.
+1. Run followed command in project directory.
 ```
 docker compose build
 docker compose up -d
 ```
+2. Navigate to http://localhost:4201
 
 ### Build container with Docker cli
 
 ```
 docker image build --progress=plain --tag dashboard-starter-ui:develop 
 
-docker container run -d -p 4200:80 --rm dashboard-starter-ui:develop
+docker container run -d -p 4201:80 --rm dashboard-starter-ui:develop
 ```  
 
 

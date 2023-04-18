@@ -1,8 +1,19 @@
 @import "variables";
 
+.toast-container{
+  width: 100%;
+}
+
+.ngx-toastr {
+  width:500px !important;  // Specify toastr-dialog width for all devices
+}
+
+
 .rotate-90 {
   transform: rotate(90deg);
 }
+
+
 
 
 .toolbar-button {

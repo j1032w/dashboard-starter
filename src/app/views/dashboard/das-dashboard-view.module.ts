@@ -4,7 +4,10 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { DasCommonModule } from '../../common/components/das-common.module';
 import { DasDashboardCoreModule } from '../../common/components/dashbarod-core/das-dashboard-core.module';
 import { DasViewCommonModule } from '../common/das-view-common.module';
-import { DasRealtorQueryBuilderModule } from '../common/realtor-query-builder/das-realtor-query-builder.module';
+import {
+  DasHousingMarketQueryBuilderModule
+} from '../common/hosing-market-query-builder/das-housing-market-query-builder.module';
+
 
 import { DashboardViewComponent } from './dashboard-view.component';
 
@@ -18,8 +21,8 @@ import {
   DvSp500WidgetSettingComponent
 } from './sp500-widget/sp500-widget-setting/dv-sp500-widget-setting.component';
 import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component';
-import { DvRealtorWidgetComponent } from './realtor-widget/dv-realtor-widget.component';
-import { DvRealtorWidgetSettingComponent } from './realtor-widget/realtor-widget-setting/dv-realtor-widget-setting.component';
+import { DvHousingMarketWidgetComponent } from './housing-market-widget/dv-housing-market-widget.component';
+import { DvHousingMarketWidgetSettingComponent } from './housing-market-widget/housing-market-widget-setting/dv-housing-market-widget-setting.component';
 
 
 @NgModule({
@@ -32,8 +35,8 @@ import { DvRealtorWidgetSettingComponent } from './realtor-widget/realtor-widget
     DvSp500WidgetBackComponent,
     DvSp500WidgetComponent,
     DvSp500WidgetSettingComponent,
-    DvRealtorWidgetComponent,
-    DvRealtorWidgetSettingComponent
+    DvHousingMarketWidgetComponent,
+    DvHousingMarketWidgetSettingComponent
   ],
 
   exports: [
@@ -46,7 +49,7 @@ import { DvRealtorWidgetSettingComponent } from './realtor-widget/realtor-widget
     DasDashboardCoreModule,
     DxDataGridModule,
     InputSwitchModule,
-    DasRealtorQueryBuilderModule
+    DasHousingMarketQueryBuilderModule
 
   ],
   providers: []

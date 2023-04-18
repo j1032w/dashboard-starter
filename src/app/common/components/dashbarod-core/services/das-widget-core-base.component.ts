@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { filter, takeUntil } from 'rxjs';
-import { DasToastService } from '../../../services/das-toast.service';
+import {DasToastService } from '../../../services/das-toast.service';
 import { DasComponentBase } from '../../das-component-base.component';
 import { DasWidgetCoreComponent } from '../widget-core/das-widget-core.component';
 import { DasDashboardCoreService } from './das-dashboard-core.service';
@@ -17,10 +17,9 @@ export class DasWidgetCoreBase extends DasComponentBase implements OnInit {
   @ViewChild('widgetCoreComponent') widgetCoreComponent: DasWidgetCoreComponent;
 
 
-
   constructor(
     protected readonly dashboardCoreService: DasDashboardCoreService,
-    protected readonly toastService: DasToastService
+    protected readonly toastService:DasToastService
   ) {
     super();
   }
@@ -35,8 +34,7 @@ export class DasWidgetCoreBase extends DasComponentBase implements OnInit {
       )
       .subscribe(() => {
         this.refresh();
-        this.toastService.showSuccess(
-          `Widget: ${this.widgetOption.title} refreshed`);
+        this.toastService.showSuccess(`${this.widgetOption.title} refreshed`);
       });
 
   }

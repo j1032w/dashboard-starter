@@ -5,9 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeatherModule } from 'angular-feather';
 import { GridsterModule } from 'angular-gridster2';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { ToastrModule } from 'ngx-toastr';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
-import { ToastModule } from 'primeng/toast';
 import { TooltipModule } from 'primeng/tooltip';
 
 import { DasIconsModule } from './das-icons.module';
@@ -15,7 +15,7 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
 
 
 @NgModule({
-  declarations:[
+  declarations: [
     DefaultOrderKeyvaluePipe
   ],
 
@@ -28,10 +28,17 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     MessagesModule,
     NgScrollbarModule,
     ReactiveFormsModule,
-    ToastModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      newestOnTop: false,
+      positionClass: 'toast-bottom-center',
+      progressBar: true,
+      tapToDismiss: false,
+      timeOut: 4000
+    }),
     TooltipModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
 
   exports: [
@@ -43,7 +50,7 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     MessagesModule,
     NgScrollbarModule,
     ReactiveFormsModule,
-    ToastModule,
+    ToastrModule,
     TooltipModule,
     HttpClientModule,
     DefaultOrderKeyvaluePipe,
