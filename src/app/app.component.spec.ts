@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
-import { CommonTestConfig } from './common/services/common-test-config';
+import { CommonTestConfig } from './common/test-services/common-test-config';
+
 
 
 jest.setTimeout(30000);

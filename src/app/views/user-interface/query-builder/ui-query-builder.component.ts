@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  HOUSING_MARKET_DEMO_QUERY,
-  HOUSING_MARKET_QUERY_CONFIG
+  HOUSING_MARKET_DEMO_QUERY
 } from '../../common/hosing-market-query-builder/services/das-query-builder.constant';
 
 @Component({

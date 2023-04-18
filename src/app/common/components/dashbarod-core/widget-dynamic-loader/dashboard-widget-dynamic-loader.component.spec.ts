@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DasDashboardViewModule } from '../../../../views/dashboard/das-dashboard-view.module';
+import { CommonTestConfig } from '../../../test-services/common-test-config';
 
 import { DasWidgetDynamicLoaderDirective } from './das-widget-dynamic-loader.directive';
 
@@ -8,9 +10,9 @@ describe('WidgetContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DasWidgetDynamicLoaderDirective ]
+      imports: [CommonTestConfig.imports, DasDashboardViewModule]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(DasWidgetDynamicLoaderDirective);
     component = fixture.componentInstance;

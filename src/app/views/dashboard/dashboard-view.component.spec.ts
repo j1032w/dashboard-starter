@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CommonTestConfig } from '../../common/services/common-test-config';
+import { CommonTestConfig } from '../../common/test-services/common-test-config';
+
 
 import { DashboardViewComponent } from './dashboard-view.component';
 import { DasDashboardViewModule } from './das-dashboard-view.module';

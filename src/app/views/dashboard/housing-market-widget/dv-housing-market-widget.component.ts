@@ -38,7 +38,7 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
   }
 
   protected override readonly refresh = () => {
-    this.housingMarketService.getHomeTypePercentages$(this.widgetOption.settingData)
+    this.housingMarketService.getHomeTypePercentages$({ filter: this.widgetOption.settingData })
       .pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => {
       this.dataSource = data;
     });

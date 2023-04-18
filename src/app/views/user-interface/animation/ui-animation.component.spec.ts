@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonTestConfig } from '../../../common/services/common-test-config';
+import { CommonTestConfig } from '../../../common/test-services/common-test-config';
+
 import { DasUserInterfaceModule } from '../das-user-interface.module';
 
 import { UiAnimationComponent } from './ui-animation.component';

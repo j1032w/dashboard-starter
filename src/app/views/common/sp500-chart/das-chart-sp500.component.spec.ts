@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CommonTestConfig } from '../../../common/test-services/common-test-config';
+import { DvSP500WidgetModule } from '../../dashboard/sp500-widget/dv-sp500-widget.module';
 import { DasChartSp500Component } from './das-chart-sp500.component';
 
 describe('Sp500HistoryReturnComponent', () => {
@@ -8,7 +9,7 @@ describe('Sp500HistoryReturnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DasChartSp500Component ]
+      imports: [...CommonTestConfig.imports, DvSP500WidgetModule]
     })
     .compileComponents();
 

@@ -14,7 +14,6 @@ export class DvSp500WidgetTableComponent extends DasWidgetContentBase implements
 
 
   data: Sp500AnnualHistory[] = [];
-
   height = 300;
 
   columns = [
@@ -28,11 +27,13 @@ export class DvSp500WidgetTableComponent extends DasWidgetContentBase implements
     private readonly sp500Service: DasChartSp500Service
   ) {
     super(elementRef);
+    this.repaintComponent = () => {
+      this.gridComponent?.repaint();
+    };
   }
 
   ngOnInit() {
     this.data = this.sp500Service.getSp500Data();
-    this.repaintComponent = this.gridComponent.repaint;
   }
 
 }

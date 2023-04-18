@@ -1,5 +1,4 @@
-<p-dialog #settingModal
-          [(visible)]="widgetOption.isSettingModalVisible"
+<p-dialog [(visible)]="widgetOption.isSettingModalVisible"
           [header]="'Widget Setting - '+ widgetOption.title"
           [modal]="true" [resizable]="false"
           [style]="{width: '50rem', height:'20rem'}"
@@ -8,9 +7,9 @@
 
   <ng-scrollbar class="content">
     <form class="col-md-6 col-sm-12" [formGroup]="formGroup">
-      <label for="title" class="form-label">Title</label>
-      <input type="email" class="form-control" id="title" placeholder="Widget title"
-             formControlName="title">
+      <ng-template *gTemplateOutlet="contentTemplate || defaultTemplate">
+
+      </ng-template>
     </form>
   </ng-scrollbar>
 
@@ -21,3 +20,9 @@
   </ng-template>
 </p-dialog>
 
+
+<ng-template #defaultTemplate>
+  <label for="title" class="form-label">Title</label>
+  <input type="email" class="form-control" id="title" placeholder="Widget title"
+         formControlName="title">
+</ng-template>

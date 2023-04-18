@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeatherModule } from 'angular-feather';
 import { GridsterModule } from 'angular-gridster2';
 import { NgScrollbarModule } from 'ngx-scrollbar';
@@ -21,11 +22,14 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
   ],
 
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     DasIconsModule,
     DialogModule,
     FeatherModule,
+    FormsModule,
     GridsterModule,
+    HttpClientModule,
     MessagesModule,
     NgScrollbarModule,
     ReactiveFormsModule,
@@ -38,25 +42,24 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
       timeOut: 4000
     }),
     TooltipModule,
-    HttpClientModule,
-    FormsModule,
 
   ],
 
   exports: [
+    BrowserAnimationsModule,
     CommonModule,
     DasIconsModule,
+    DefaultOrderKeyvaluePipe,
     DialogModule,
     FeatherModule,
+    FormsModule,
     GridsterModule,
+    HttpClientModule,
     MessagesModule,
     NgScrollbarModule,
     ReactiveFormsModule,
     ToastrModule,
     TooltipModule,
-    HttpClientModule,
-    DefaultOrderKeyvaluePipe,
-    FormsModule,
   ]
 
 

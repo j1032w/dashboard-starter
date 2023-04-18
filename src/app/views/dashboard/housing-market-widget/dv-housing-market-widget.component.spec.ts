@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DasDashboardCoreModule } from '../../../common/components/dashbarod-core/das-dashboard-core.module';
+import { CommonTestConfig } from '../../../common/test-services/common-test-config';
 
 import { DvHousingMarketWidgetComponent } from './dv-housing-market-widget.component';
+import { DvHousingMarketWidgetModule } from './dv-housing-market-widget.module';
 
 describe('DvHousingMarketWidgetComponent', () => {
   let component: DvHousingMarketWidgetComponent;
@@ -8,7 +11,7 @@ describe('DvHousingMarketWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DvHousingMarketWidgetComponent ]
+      imports: [...CommonTestConfig.imports, DvHousingMarketWidgetModule],
     })
     .compileComponents();
 

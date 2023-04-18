@@ -6,7 +6,6 @@ import { Component, ElementRef } from '@angular/core';
 export class DasWidgetContentBase {
 
   constructor(protected readonly elementRef: ElementRef) {
-
   }
 
   readonly repaint = () => {

@@ -29,7 +29,6 @@ export class DvSp500WidgetComponent extends DasWidgetBase {
   override ngOnInit() {
     super.ngOnInit();
     this.setChartOption();
-
   }
 
   protected override refresh = () => {

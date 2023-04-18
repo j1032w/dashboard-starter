@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CommonTestConfig } from '../../common/services/common-test-config';
+import { CommonTestConfig } from '../../common/test-services/common-test-config';
+
 
 import { DasBreadcrumbComponent } from './das-breadcrumb.component';
 import { DasBreadcrumbModule } from './das-breadcrumb.module';

@@ -10,4 +10,5 @@ export interface DasDashboardEventInterface {
 export enum DasDashboardEventTypeEnum {
   WidgetResized,
   WidgetSettingChanged,
+  WidgetSettingModalVisibleChanged
 }
