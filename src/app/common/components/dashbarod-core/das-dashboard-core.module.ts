@@ -9,6 +9,8 @@ import { DasWidgetSettingCoreComponent } from './das-widget-setting/das-widget-s
 
 import { DasWidgetBase } from './services/das-widget-base.component';
 import { DasWidgetContentBase } from './services/das-widget-content-base';
+import { DasWidgetSettingBase } from './services/das-widget=setting-base';
+
 import { DasWidgetCoreComponent } from './widget-core/das-widget-core.component';
 import { DasWidgetDynamicLoaderDirective } from './widget-dynamic-loader/das-widget-dynamic-loader.directive';
 import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-list.component';
@@ -22,7 +24,8 @@ import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-lis
     DasWidgetContentBase,
     DasWidgetCoreComponent,
     DasWidgetDynamicLoaderDirective,
-    DasWidgetSettingCoreComponent
+    DasWidgetSettingCoreComponent,
+    DasWidgetSettingBase
   ],
 
 
@@ -42,7 +45,9 @@ import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-lis
     DasDashboardCoreComponent,
     DasWidgetCoreComponent,
     DasWidgetSettingCoreComponent,
-    DasWidgetContentBase
+    DasWidgetContentBase,
+    DasWidgetSettingBase
+
   ]
 })
 export class DasDashboardCoreModule {

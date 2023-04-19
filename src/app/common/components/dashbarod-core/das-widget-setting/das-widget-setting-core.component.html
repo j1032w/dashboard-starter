@@ -1,11 +1,11 @@
 <p-dialog [(visible)]="widgetOption.isSettingModalVisible"
           [header]="'Widget Setting - '+ widgetOption.title"
           [modal]="true" [resizable]="false"
-          [style]="{width: '50rem', height:'20rem'}"
+          [style]="style"
           (onHide)="hide()"
           appendTo="body">
 
-  <ng-scrollbar class="content">
+  <ng-scrollbar>
 
     <ng-template *ngTemplateOutlet="contentTemplate || defaultTemplate">
 
@@ -15,14 +15,14 @@
 
 
   <ng-template pTemplate="footer">
-    <button class="btn btn-primary" (click)="apply()">Save</button>
+    <button class="btn btn-primary" (click)="applySetting()">Apply</button>
     <button class="btn btn-secondary" (click)="hide()">Cancel</button>
   </ng-template>
 </p-dialog>
 
 
 <ng-template #defaultTemplate>
-  <form class="col-md-6 col-sm-12" [formGroup]="formGroup">
+  <form class="col-md-6 col-sm-12 h-100" [formGroup]="formGroup">
     <label for="title" class="form-label">Title</label>
     <input type="email" class="form-control" id="title" placeholder="Widget title"
            formControlName="title">

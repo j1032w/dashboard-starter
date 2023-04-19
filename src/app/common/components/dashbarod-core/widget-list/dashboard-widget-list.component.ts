@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { DasDashboardCoreService } from '../services/das-dashboard-core.service';
 
 @Component({
@@ -9,11 +9,11 @@ import { DasDashboardCoreService } from '../services/das-dashboard-core.service'
 export class DashboardWidgetListComponent {
 
 
-  constructor(public readonly dashboardService:DasDashboardCoreService) {
+  constructor(public readonly dashboardService: DasDashboardCoreService) {
   }
 
 
-  hide(){
+  hide() {
     this.dashboardService.isSettingVisible = false;
   }
 }

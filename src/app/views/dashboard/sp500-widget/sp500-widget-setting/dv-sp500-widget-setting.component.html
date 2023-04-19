@@ -1,12 +1,7 @@
-<p-dialog #settingModal
-          [(visible)]="widgetOption.isSettingModalVisible"
-          [header]="'Widget Setting - '+ widgetOption.title"
-          [modal]="true" [resizable]="false"
-          [style]="{width: '50rem', height:'23rem'}"
-          (onHide)="hide()"
-          appendTo="body">
-
-  <ng-scrollbar>
+<das-widget-setting-core [style]="{width: '50rem', height:'23rem'}"
+                         (apply)="onApply()"
+                         [widgetOption]="widgetOption">
+  <ng-template #contentTemplate>
     <form class="container-fluid" [formGroup]="formGroup">
       <div class="row">
         <div class="col-sm-12 col-lg-6">
@@ -43,11 +38,7 @@
       </div>
 
     </form>
-  </ng-scrollbar>
-
-
-  <ng-template pTemplate="footer">
-    <button class="btn btn-primary" (click)="apply()">Apply</button>
-    <button class="btn btn-secondary" (click)="hide()">Cancel</button>
   </ng-template>
-</p-dialog>
+
+</das-widget-setting-core>
+

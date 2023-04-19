@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import {
-  DasWidgetSettingCoreComponent
-} from '../../../../common/components/dashbarod-core/das-widget-setting/das-widget-setting-core.component';
-import {
   DasDashboardCoreService
 } from '../../../../common/components/dashbarod-core/services/das-dashboard-core.service';
+import { DasWidgetSettingBase } from '../../../../common/components/dashbarod-core/services/das-widget=setting-base';
 import { DasChartSp500Service } from '../../../common/sp500-chart/das-chart-sp500.service';
 
 @Component({
@@ -13,21 +11,21 @@ import { DasChartSp500Service } from '../../../common/sp500-chart/das-chart-sp50
   templateUrl: './dv-sp500-widget-setting.component.html',
   styleUrls: ['./dv-sp500-widget-setting.component.scss']
 })
-export class DvSp500WidgetSettingComponent extends DasWidgetSettingCoreComponent {
-
+export class DvSp500WidgetSettingComponent extends DasWidgetSettingBase {
 
   constructor(
-    protected override readonly dashboardCoreService: DasDashboardCoreService,
+    private readonly dashboardCoreService: DasDashboardCoreService,
     protected override readonly formBuilder: FormBuilder,
     private readonly chartService: DasChartSp500Service
   ) {
-    super(formBuilder, dashboardCoreService);
-
-
+    super(formBuilder);
   }
+
 
   override ngOnInit() {
     super.ngOnInit();
+
+
     const isTitleVisible = this.widgetOption.settingData?.isTitleVisible ?? true;
     const isLegendVisible = this.widgetOption.settingData?.isLegendVisible ?? true;
 
@@ -38,7 +36,7 @@ export class DvSp500WidgetSettingComponent extends DasWidgetSettingCoreComponent
   }
 
 
-  override apply() {
+  onApply() {
     const isTitleVisible = this.formGroup.get('isTitleVisible')?.value;
     const isLegendVisible = this.formGroup.get('isLegendVisible')?.value;
 
@@ -48,6 +46,6 @@ export class DvSp500WidgetSettingComponent extends DasWidgetSettingCoreComponent
     this.chartService.isTitleVisible = isTitleVisible;
     this.chartService.isLegendVisible = isLegendVisible;
 
-    super.apply();
+
   }
 }
