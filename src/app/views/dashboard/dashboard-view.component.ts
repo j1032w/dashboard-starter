@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DasComponentBase } from '../../common/components/das-component-base.component';
 import { DasDashboardCoreService } from '../../common/components/dashbarod-core/services/das-dashboard-core.service';
 import { DasWidgetOption } from '../../common/components/dashbarod-core/services/das-widget-option';
@@ -16,48 +16,24 @@ import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component
   styleUrls: ['./dashboard-view.component.scss'],
   providers: [DasDashboardCoreService]
 })
-export class DashboardViewComponent extends DasComponentBase implements OnInit {
+export class DashboardViewComponent extends DasComponentBase {
 
   defaultWidgetOptions: DasWidgetOption[] = [];
 
 
-  constructor(private readonly dasDashboardService: DasDashboardCoreService
+  constructor(private readonly dashboardCoreService: DasDashboardCoreService
   ) {
     super();
 
-    dasDashboardService.widgetMap.set(
-      'DvHousingMarketWidgetComponent',
-      { name: 'Housing Market', type: DvHousingMarketWidgetComponent }
-    );
-
-    dasDashboardService.widgetMap.set(
-      'DvSp500WidgetComponent',
-      { name: 'Sp500 Annual Returns', type: DvSp500WidgetComponent }
-    );
-
-    dasDashboardService.widgetMap.set(
-      'DvDemoAWidgetComponent',
-      { name: 'Widget A', type: DvDemoAWidgetComponent }
-    );
+    dashboardCoreService.widgetMap.set('DvHousingMarketWidgetComponent', DvHousingMarketWidgetComponent);
+    dashboardCoreService.widgetMap.set('DvSp500WidgetComponent', DvSp500WidgetComponent);
+    dashboardCoreService.widgetMap.set('DvDemoAWidgetComponent', DvDemoAWidgetComponent);
+    dashboardCoreService.widgetMap.set('DvDemoBWidgetComponent', DvDemoBWidgetComponent);
+    dashboardCoreService.widgetMap.set('DvDemoCWidgetComponent', DvDemoCWidgetComponent);
+    dashboardCoreService.widgetMap.set('DvDemoDWidgetComponent', DvDemoDWidgetComponent);
 
 
-    dasDashboardService.widgetMap.set(
-      'DvDemoBWidgetComponent',
-      { name: 'Widget B', type: DvDemoBWidgetComponent }
-    );
-
-    dasDashboardService.widgetMap.set(
-      'DvDemoCWidgetComponent',
-      { name: 'Widget C', type: DvDemoCWidgetComponent }
-    );
-
-    dasDashboardService.widgetMap.set(
-      'DvDemoDWidgetComponent',
-      { name: 'Widget D', type: DvDemoDWidgetComponent }
-    );
-
-
-    const widgetData = [{
+    const widgetOptionData = [{
       'originalRows': 8,
       'isSettingModalVisible': false,
       'cols': 5,
@@ -70,7 +46,7 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
       'isShowRefreshButton': false,
       'isShowFlipButton': false,
       'isFrontShown': true,
-       settingData: { isTitleVisible: false }
+      settingData: { isTitleVisible: false }
     },
       {
         'originalRows': 4,
@@ -130,18 +106,14 @@ export class DashboardViewComponent extends DasComponentBase implements OnInit {
       }];
 
 
-    for (let i = 0; i < widgetData.length; i++) {
-      const widgetOption = new DasWidgetOption(widgetData[i]);
+    for (let i = 0; i < widgetOptionData.length; i++) {
+      const widgetOption = new DasWidgetOption(widgetOptionData[i]);
       widgetOption.id = i;
       this.defaultWidgetOptions.push(widgetOption);
     }
 
   }
 
-
-  ngOnInit() {
-
-  }
 
 }
 

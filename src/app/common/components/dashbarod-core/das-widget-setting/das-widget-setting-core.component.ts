@@ -1,4 +1,3 @@
-import { contentTemplate } from '@angular-devkit/schematics';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { filter, takeUntil } from 'rxjs';
@@ -10,11 +9,11 @@ import { DasWidgetOption } from '../services/das-widget-option';
 
 @Component({
   selector: 'das-widget-setting',
-  templateUrl: './das-widget-setting.component.html',
-  styleUrls: ['./das-widget-setting.component.scss']
+  templateUrl: './das-widget-setting-core.component.html',
+  styleUrls: ['./das-widget-setting-core.component.scss']
 })
-export class DasWidgetSettingComponent extends DasComponentBase implements OnInit {
-  @Input() widgetOption: DasWidgetOption;
+export class DasWidgetSettingCoreComponent extends DasComponentBase implements OnInit {
+  @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
 
   formGroup: FormGroup;
 
@@ -57,9 +56,10 @@ export class DasWidgetSettingComponent extends DasComponentBase implements OnIni
     this.hide();
   }
 
-  protected settingModelVisibleChange(_isVisible: boolean) {
+  // will be overridden by child
+  protected readonly settingModelVisibleChange = (_isVisible: boolean) => {
 
-  }
+  };
 
-  protected readonly contentTemplate = contentTemplate;
+
 }

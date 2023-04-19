@@ -10,7 +10,6 @@ import { DasWidgetOption } from '../services/das-widget-option';
 export class DasWidgetDynamicLoaderDirective implements OnInit, OnDestroy {
   @Input() widgetOption: DasWidgetOption;
 
-
   constructor(
     private readonly viewContainerRef: ViewContainerRef,
     private readonly dashboardCoreService: DasDashboardCoreService
@@ -24,7 +23,7 @@ export class DasWidgetDynamicLoaderDirective implements OnInit, OnDestroy {
     // Though since Angular v13, ComponentFactory and ComponentFactoryResolver were deprecated.
     // https://angular.io/api/core/ComponentFactoryResolver
     const componentType =
-      this.dashboardCoreService.widgetMap.get(this.widgetOption.widgetClassName)?.type;
+      this.dashboardCoreService.widgetMap.get(this.widgetOption.widgetClassName);
 
     if (!componentType) {
       return;

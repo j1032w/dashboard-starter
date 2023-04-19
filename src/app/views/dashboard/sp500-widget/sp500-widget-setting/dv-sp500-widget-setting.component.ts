@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import {
-  DasWidgetSettingComponent
-} from '../../../../common/components/dashbarod-core/das-widget-setting/das-widget-setting.component';
+  DasWidgetSettingCoreComponent
+} from '../../../../common/components/dashbarod-core/das-widget-setting/das-widget-setting-core.component';
 import {
   DasDashboardCoreService
 } from '../../../../common/components/dashbarod-core/services/das-dashboard-core.service';
@@ -13,7 +13,7 @@ import { DasChartSp500Service } from '../../../common/sp500-chart/das-chart-sp50
   templateUrl: './dv-sp500-widget-setting.component.html',
   styleUrls: ['./dv-sp500-widget-setting.component.scss']
 })
-export class DvSp500WidgetSettingComponent extends DasWidgetSettingComponent {
+export class DvSp500WidgetSettingComponent extends DasWidgetSettingCoreComponent {
 
 
   constructor(

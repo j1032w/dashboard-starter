@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { QueryBuilderConfig, Rule, RuleSet } from 'angular2-query-builder';
 
 @Injectable({ providedIn: 'root' })
-export class DasQueryBuilderConverter {
+export class DasQueryBuilderMongoConvertor {
 
   config: QueryBuilderConfig = { fields: {} };
 

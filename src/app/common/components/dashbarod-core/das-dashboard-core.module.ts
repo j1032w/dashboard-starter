@@ -4,7 +4,7 @@ import { GridsterModule } from 'angular-gridster2';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DasCommonModule } from '../das-common.module';
 import { DasDashboardCoreComponent } from './das-dashboard-core.component';
-import { DasWidgetSettingComponent } from './das-widget-setting/das-widget-setting.component';
+import { DasWidgetSettingCoreComponent } from './das-widget-setting/das-widget-setting-core.component';
 
 
 import { DasWidgetBase } from './services/das-widget-base.component';
@@ -22,7 +22,7 @@ import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-lis
     DasWidgetContentBase,
     DasWidgetCoreComponent,
     DasWidgetDynamicLoaderDirective,
-    DasWidgetSettingComponent
+    DasWidgetSettingCoreComponent
   ],
 
 
@@ -38,9 +38,10 @@ import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-lis
   ],
 
   exports: [
+    DasWidgetDynamicLoaderDirective,
     DasDashboardCoreComponent,
     DasWidgetCoreComponent,
-    DasWidgetSettingComponent,
+    DasWidgetSettingCoreComponent,
     DasWidgetContentBase
   ]
 })

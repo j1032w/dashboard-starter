@@ -8,7 +8,8 @@ import { DasWidgetOption } from './das-widget-option';
 @Injectable({ providedIn: 'root' })
 export class DasDashboardCoreService {
 
-  widgetMap: Map<string, { name: string, type: Type<DasWidgetBase> }> = new Map();
+
+  widgetMap: Map<string, Type<DasWidgetBase>> = new Map();
 
 
   widgetOptions: DasWidgetOption[];
