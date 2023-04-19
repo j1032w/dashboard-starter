@@ -67,7 +67,12 @@ describe('DasWidgetDynamicLoaderDirective', () => {
 
     dashboardCoreService = TestBed.inject(DasDashboardCoreService);
     dashboardCoreService.widgetMap.set(
-      'TestWidgetComponent', TestWidgetComponent
+      'TestWidgetComponent', {
+        name:'test widget',
+        type: TestWidgetComponent,
+        cols: 3,
+        rows: 5
+      }
     );
 
 

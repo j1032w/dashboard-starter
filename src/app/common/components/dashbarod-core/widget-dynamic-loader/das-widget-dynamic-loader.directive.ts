@@ -23,7 +23,7 @@ export class DasWidgetDynamicLoaderDirective implements OnInit, OnDestroy {
     // Though since Angular v13, ComponentFactory and ComponentFactoryResolver were deprecated.
     // https://angular.io/api/core/ComponentFactoryResolver
     const componentType =
-      this.dashboardCoreService.widgetMap.get(this.widgetOption.widgetClassName);
+      this.dashboardCoreService.widgetMap.get(this.widgetOption.widgetClassName)?.type;
 
     if (!componentType) {
       return;

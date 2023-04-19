@@ -9,7 +9,8 @@ import { DasWidgetOption } from './das-widget-option';
 export class DasDashboardCoreService {
 
 
-  widgetMap: Map<string, Type<DasWidgetBase>> = new Map();
+  // name is used in the widget list
+  widgetMap: Map<string, WidgetDefinitionInterface  > = new Map();
 
 
   widgetOptions: DasWidgetOption[];
@@ -52,4 +53,9 @@ export class DasDashboardCoreService {
   };
 }
 
-
+export interface WidgetDefinitionInterface {
+  name: string;
+  type: Type<DasWidgetBase>;
+  cols: number,
+  rows: number,
+}

@@ -21,18 +21,67 @@ export class DashboardViewComponent extends DasComponentBase {
   defaultWidgetOptions: DasWidgetOption[] = [];
 
 
-  constructor(private readonly dashboardCoreService: DasDashboardCoreService
+  constructor(private readonly dasDashboardService: DasDashboardCoreService
   ) {
     super();
 
-    dashboardCoreService.widgetMap.set('DvHousingMarketWidgetComponent', DvHousingMarketWidgetComponent);
-    dashboardCoreService.widgetMap.set('DvSp500WidgetComponent', DvSp500WidgetComponent);
-    dashboardCoreService.widgetMap.set('DvDemoAWidgetComponent', DvDemoAWidgetComponent);
-    dashboardCoreService.widgetMap.set('DvDemoBWidgetComponent', DvDemoBWidgetComponent);
-    dashboardCoreService.widgetMap.set('DvDemoCWidgetComponent', DvDemoCWidgetComponent);
-    dashboardCoreService.widgetMap.set('DvDemoDWidgetComponent', DvDemoDWidgetComponent);
+    dasDashboardService.widgetMap.set(
+      'DvHousingMarketWidgetComponent',
+      {
+        name: 'Housing Market',
+        type: DvHousingMarketWidgetComponent,
+        cols: 4,
+        rows: 9
+      }
+    );
 
+    dasDashboardService.widgetMap.set(
+      'DvSp500WidgetComponent',
+      {
+        name: 'Sp500 Annual Returns',
+        type: DvSp500WidgetComponent,
+        cols: 5,
+        rows: 7
+      }
+    );
 
+    dasDashboardService.widgetMap.set(
+      'DvDemoAWidgetComponent',
+      {
+        name: 'Widget A',
+        type: DvDemoAWidgetComponent,
+        cols: 3,
+        rows: 5
+      }
+    );
+
+    dasDashboardService.widgetMap.set(
+      'DvDemoBWidgetComponent',
+      {
+        name: 'Widget B',
+        type: DvDemoBWidgetComponent,
+        cols: 3,
+        rows: 5
+      }
+    );
+    dasDashboardService.widgetMap.set(
+      'DvDemoCWidgetComponent',
+      {
+        name: 'Widget C',
+        type: DvDemoCWidgetComponent,
+        cols: 3,
+        rows: 5
+      }
+    );
+    dasDashboardService.widgetMap.set(
+      'DvDemoDWidgetComponent',
+      {
+        name: 'Widget D',
+        type: DvDemoDWidgetComponent,
+        cols: 3,
+        rows: 5
+      }
+    );
     const widgetOptionData = [{
       'originalRows': 8,
       'isSettingModalVisible': false,

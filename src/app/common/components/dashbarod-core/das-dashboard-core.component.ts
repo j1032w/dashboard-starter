@@ -114,6 +114,8 @@ export class DasDashboardCoreComponent implements OnInit {
         title: $event.item.data.value.name,
         'x': 0,
         'y': 0,
+        cols: $event.item.data.value.cols,
+        rows: $event.item.data.value.rows,
         id: 0
       }));
 

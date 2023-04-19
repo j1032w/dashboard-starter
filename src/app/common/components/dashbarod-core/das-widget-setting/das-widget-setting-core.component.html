@@ -6,11 +6,11 @@
           appendTo="body">
 
   <ng-scrollbar class="content">
-    <form class="col-md-6 col-sm-12" [formGroup]="formGroup">
-      <ng-template *gTemplateOutlet="contentTemplate || defaultTemplate">
 
-      </ng-template>
-    </form>
+    <ng-template *ngTemplateOutlet="contentTemplate || defaultTemplate">
+
+    </ng-template>
+
   </ng-scrollbar>
 
 
@@ -22,7 +22,9 @@
 
 
 <ng-template #defaultTemplate>
-  <label for="title" class="form-label">Title</label>
-  <input type="email" class="form-control" id="title" placeholder="Widget title"
-         formControlName="title">
+  <form class="col-md-6 col-sm-12" [formGroup]="formGroup">
+    <label for="title" class="form-label">Title</label>
+    <input type="email" class="form-control" id="title" placeholder="Widget title"
+           formControlName="title">
+  </form>
 </ng-template>

@@ -14,7 +14,7 @@ export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBase {
 
   @Input() dataSource: BuildingTypePercentageInterface[] = [];
 
-  title = 'Housing Market by Building Type';
+  title = 'Sales by Building Type';
 
   constructor(protected override readonly elementRef: ElementRef) {
     super(elementRef);

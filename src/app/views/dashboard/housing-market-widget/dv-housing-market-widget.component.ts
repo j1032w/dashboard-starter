@@ -45,7 +45,7 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
   };
 
   protected override readonly repaint = () => {
-    this.pieComponent.repaint();
+    this.pieComponent?.repaint();
   };
 
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { filter, takeUntil } from 'rxjs';
 import { DasComponentBase } from '../../das-component-base.component';
@@ -15,6 +15,8 @@ import { DasWidgetOption } from '../services/das-widget-option';
 export class DasWidgetSettingCoreComponent extends DasComponentBase implements OnInit {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
 
+  @ContentChild('contentTemplate') contentTemplate: TemplateRef<any>;
+
   formGroup: FormGroup;
 
   constructor(
@@ -22,14 +24,16 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
     protected readonly dashboardCoreService: DasDashboardCoreService
   ) {
     super();
-    this.formGroup = this.formBuilder.group({
-      title: ['']
-    });
+
   }
 
 
   ngOnInit() {
-    this.formGroup.patchValue({ 'title': this.widgetOption.title });
+    this.formGroup = this.formBuilder.group({
+      title: [this.widgetOption.title]
+    });
+
+
 
     this.dashboardCoreService.dashboardEvent$
       .pipe(
@@ -40,7 +44,7 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
         )
       )
       .subscribe((data) => {
-        this.settingModelVisibleChange(data.widgetOption.isSettingModalVisible);
+        this.onModelShow(data.widgetOption.isSettingModalVisible);
       });
 
   }
@@ -57,7 +61,7 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
   }
 
   // will be overridden by child
-  protected readonly settingModelVisibleChange = (_isVisible: boolean) => {
+  protected readonly onModelShow = (_isVisible: boolean) => {
 
   };
 
