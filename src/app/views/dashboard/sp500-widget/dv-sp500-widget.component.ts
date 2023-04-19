@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { DasDashboardCoreService } from '../../../common/components/dashbarod-core/services/das-dashboard-core.service';
-import { DasWidgetBase } from '../../../common/components/dashbarod-core/services/das-widget-base.component';
+import { DasDashboardCoreService } from '../../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 
 import { DasChartSp500Component } from '../../common/sp500-chart/das-chart-sp500.component';

@@ -7,7 +7,7 @@ import { DasConfig } from '../../services/das-config';
 import { DasLocalStorageService } from '../../services/das-local-storage.service';
 import { DasToastService } from '../../services/das-toast.service';
 
-import { GRIDSTER_OPTIONS } from './services/das-dashbaord-constant';
+import { GRIDSTER_OPTIONS } from './services/das-dashboard-constant';
 import { DasDashboardCoreService } from './services/das-dashboard-core.service';
 import { DasWidgetOption } from './services/das-widget-option';
 

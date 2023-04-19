@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { DasWidgetSettingBase } from '../../../../common/components/dashbarod-core/services/das-widget=setting-base';
+import { DasWidgetSettingBase } from '../../../../common/components/dashboard-core/services/das-widget=setting-base';
 import {
   HOUSING_MARKET_DEMO_QUERY
 } from '../../../common/hosing-market-query-builder/services/das-query-builder.constant';

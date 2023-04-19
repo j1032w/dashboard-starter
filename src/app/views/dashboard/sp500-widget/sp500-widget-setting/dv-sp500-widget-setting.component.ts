@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import {
   DasDashboardCoreService
-} from '../../../../common/components/dashbarod-core/services/das-dashboard-core.service';
-import { DasWidgetSettingBase } from '../../../../common/components/dashbarod-core/services/das-widget=setting-base';
+} from '../../../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasWidgetSettingBase } from '../../../../common/components/dashboard-core/services/das-widget=setting-base';
 import { DasChartSp500Service } from '../../../common/sp500-chart/das-chart-sp500.service';
 
 @Component({

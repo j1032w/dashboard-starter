@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DasComponentBase } from '../../common/components/das-component-base.component';
-import { DasDashboardCoreService } from '../../common/components/dashbarod-core/services/das-dashboard-core.service';
-import { DasWidgetOption } from '../../common/components/dashbarod-core/services/das-widget-option';
+import { DasDashboardCoreService } from '../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasWidgetOption } from '../../common/components/dashboard-core/services/das-widget-option';
 import { DvDemoAWidgetComponent } from './demo-widget-a/dv-demo-a-widget.component';
 import { DvDemoBWidgetComponent } from './demo-widget-b/dv-demo-b-widget.component';
 import { DvDemoCWidgetComponent } from './demo-widget-c/dv-demo-c-widget.component';

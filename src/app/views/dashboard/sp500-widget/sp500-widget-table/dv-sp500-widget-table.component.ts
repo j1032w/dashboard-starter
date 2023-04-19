@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DasGridComponent } from '../../../../common/components/das-grid/das-grid.component';
 import { DasGridColumnTypeEnum } from '../../../../common/components/das-grid/services/das-grid-column-interface';
-import { DasWidgetContentBase } from '../../../../common/components/dashbarod-core/services/das-widget-content-base';
+import { DasWidgetContentBase } from '../../../../common/components/dashboard-core/services/das-widget-content-base';
 import { DasChartSp500Service, Sp500AnnualHistory } from '../../../common/sp500-chart/das-chart-sp500.service';
 
 @Component({

@@ -3,7 +3,7 @@ import { DevExtremeModule } from 'devextreme-angular';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DasCommonModule } from '../../../common/components/das-common.module';
 import { DasGridModule } from '../../../common/components/das-grid/das-grid.module';
-import { DasDashboardCoreModule } from '../../../common/components/dashbarod-core/das-dashboard-core.module';
+import { DasDashboardCoreModule } from '../../../common/components/dashboard-core/das-dashboard-core.module';
 import { DasViewCommonModule } from '../../common/das-view-common.module';
 import {
   DasHousingMarketQueryBuilderModule

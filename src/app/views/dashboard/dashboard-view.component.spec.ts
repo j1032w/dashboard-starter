@@ -5,7 +5,7 @@ import { CommonTestConfig } from '../../common/test-services/common-test-config'
 import { DashboardViewComponent } from './dashboard-view.component';
 import { DasDashboardViewModule } from './das-dashboard-view.module';
 
-describe('DasDashbaordComponent', () => {
+describe('DasDashboardComponent', () => {
   let component: DashboardViewComponent;
   let fixture: ComponentFixture<DashboardViewComponent>;
 

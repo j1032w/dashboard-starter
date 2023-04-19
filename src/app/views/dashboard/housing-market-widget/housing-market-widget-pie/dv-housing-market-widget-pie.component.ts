@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { DxPieChartComponent } from 'devextreme-angular';
-import { DasWidgetContentBase } from '../../../../common/components/dashbarod-core/services/das-widget-content-base';
+import { DasWidgetContentBase } from '../../../../common/components/dashboard-core/services/das-widget-content-base';
 import { BuildingTypePercentageInterface } from '../services/dv-housing-market.service';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { takeUntil } from 'rxjs';
-import { DasDashboardCoreService } from '../../../common/components/dashbarod-core/services/das-dashboard-core.service';
-import { DasWidgetBase } from '../../../common/components/dashbarod-core/services/das-widget-base.component';
+import { DasDashboardCoreService } from '../../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/dv-housing-market-widget-pie.component';
 import { BuildingTypePercentageInterface, DvHousingMarketService } from './services/dv-housing-market.service';

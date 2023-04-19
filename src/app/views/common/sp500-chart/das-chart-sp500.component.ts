@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DxChartComponent } from 'devextreme-angular';
-import { DasWidgetContentBase } from '../../../common/components/dashbarod-core/services/das-widget-content-base';
+import { DasWidgetContentBase } from '../../../common/components/dashboard-core/services/das-widget-content-base';
 import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DasWidgetOption } from '../../../common/components/dashbarod-core/services/das-widget-option';
+import { DasWidgetOption } from '../../../common/components/dashboard-core/services/das-widget-option';
 import { CommonTestConfig } from '../../../common/test-services/common-test-config';
 
 import { DvSp500WidgetComponent } from './dv-sp500-widget.component';
