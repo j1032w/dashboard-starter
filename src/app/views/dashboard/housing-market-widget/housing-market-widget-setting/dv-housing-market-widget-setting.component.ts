@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import * as _ from 'lodash';
 import { DasWidgetSettingBase } from '../../../../common/components/dashboard-core/services/das-widget=setting-base';
 import {
   DasHousingMarketQueryBuilderComponent
@@ -8,15 +9,16 @@ import {
   HOUSING_MARKET_DEMO_QUERY
 } from '../../../common/hosing-market-query-builder/services/das-query-builder.constant';
 
+
 @Component({
   selector: 'das-dv-housing-market-widget-setting',
   templateUrl: './dv-housing-market-widget-setting.component.html',
   styleUrls: ['./dv-housing-market-widget-setting.component.scss']
 })
 export class DvHousingMarketWidgetSettingComponent extends DasWidgetSettingBase {
-  @ViewChild('queryBuilderComponent') queryBuilderComponent: DasHousingMarketQueryBuilderComponent
+  @ViewChild('queryBuilderComponent') queryBuilderComponent: DasHousingMarketQueryBuilderComponent;
 
-  query :any = {};
+  query: any = {};
 
 
   constructor(protected override readonly formBuilder: FormBuilder) {
@@ -29,9 +31,6 @@ export class DvHousingMarketWidgetSettingComponent extends DasWidgetSettingBase 
     this.formGroup = this.formBuilder.group({
       title: [this.widgetOption.title]
     });
-
-    this.query = this.widgetOption.settingData?.query || HOUSING_MARKET_DEMO_QUERY;
-
   }
 
   onApply() {
@@ -41,4 +40,7 @@ export class DvHousingMarketWidgetSettingComponent extends DasWidgetSettingBase 
     };
   }
 
+  onShow() {
+    this.query = _.cloneDeep(this.widgetOption.settingData?.query || HOUSING_MARKET_DEMO_QUERY);
+  }
 }

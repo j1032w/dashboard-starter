@@ -1,8 +1,9 @@
 <p-dialog [(visible)]="widgetOption.isSettingModalVisible"
+          (onShow)="onShow()"
           [header]="'Widget Setting - '+ widgetOption.title"
-          [modal]="true" [resizable]="false"
+          [modal]="true" [resizable]="true"
           [style]="style"
-          (onHide)="hide()"
+          (onHide)="onHide()"
           appendTo="body">
 
   <ng-scrollbar>
@@ -16,7 +17,7 @@
 
   <ng-template pTemplate="footer">
     <button class="btn btn-primary" (click)="applySetting()">Apply</button>
-    <button class="btn btn-secondary" (click)="hide()">Cancel</button>
+    <button class="btn btn-secondary" (click)="onHide()">Cancel</button>
   </ng-template>
 </p-dialog>
 

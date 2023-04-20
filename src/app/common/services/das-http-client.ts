@@ -24,6 +24,7 @@ export class DasHttpClient extends DasServiceBaes {
 
   post$(url: string, body?: any, isHandleError = true): Observable<any> {
     const cacheKey = `${url}-${JSON.stringify(body)}`;
+
     const cachedResponse = this.cache.get(cacheKey);
     if (cachedResponse) {
       return of(cachedResponse);
@@ -32,7 +33,7 @@ export class DasHttpClient extends DasServiceBaes {
     return this.httpClient.post(`${this.dasConfig.dasDataApi}${url}`, body).pipe(
       takeUntil(this.ngUnsubscribe),
       tap(response => {
-        this.setCache(cacheKey, response);
+        this.storeToCache(cacheKey, response);
       }),
       catchError((err: HttpErrorResponse) => {
         return this.handleError(err, isHandleError);
@@ -42,7 +43,7 @@ export class DasHttpClient extends DasServiceBaes {
 
 
 
-  private readonly setCache = (cacheKey: string, response: any) => {
+  private readonly storeToCache = (cacheKey: string, response: any) => {
     this.cache.set(cacheKey, response);
 
     timer(this.timeWindow)
@@ -53,7 +54,7 @@ export class DasHttpClient extends DasServiceBaes {
   };
 
 
-  handleError = (errResponse: HttpErrorResponse, isHandleError = true) => {
+  private readonly handleError = (errResponse: HttpErrorResponse, isHandleError = true) => {
     if (!isHandleError) {
       return throwError(errResponse);
     }

@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GridsterComponent } from 'angular-gridster2';
 import * as _ from 'lodash';
 import { isArray } from 'lodash';
-import { ConfirmationService, ConfirmEventType } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 import { DasConfig } from '../../services/das-config';
 import { DasLocalStorageService } from '../../services/das-local-storage.service';
 import { DasToastService } from '../../services/das-toast.service';
@@ -35,7 +35,7 @@ export class DasDashboardCoreComponent implements OnInit {
     private readonly confirmationService: ConfirmationService,
     private readonly dasConfig: DasConfig,
     private readonly dasLocalStorage: DasLocalStorageService,
-    private readonly toastService: DasToastService,
+    private readonly toastService: DasToastService
   ) {
     this.gridsterOptions.itemResizeCallback = this.itemResizeCallback;
     this.localStorageWidgetOptionsKey = this.dasConfig.localStorageWidgetOptionsKey;
@@ -93,11 +93,11 @@ export class DasDashboardCoreComponent implements OnInit {
     });
   }
 
-  private readonly setToDefault=()=>{
+  private readonly setToDefault = () => {
     this.dasLocalStorage.removeItem(this.localStorageWidgetOptionsKey);
     this.widgetOptions.length = 0;
     this.widgetOptions.push(...(_.cloneDeep(this.defaultWidgetOptions)));
-  }
+  };
 
   dropped($event: any) {
     const componentType =
@@ -106,24 +106,19 @@ export class DasDashboardCoreComponent implements OnInit {
     if (!componentType) return;
 
     const originalWidgetOptions = _.cloneDeep(this.widgetOptions);
-    this.widgetOptions.length = 0;
+
 
     this.widgetOptions.push(
       new DasWidgetOption({
         widgetClassName: $event.item.data.key.toString(),
         title: $event.item.data.value.name,
-        'x': 0,
-        'y': 0,
+        x: 0,
+        y: 0,
         cols: $event.item.data.value.cols,
         rows: $event.item.data.value.rows,
         id: 0
       }));
 
-    for (let i = 0; i < originalWidgetOptions.length; i++) {
-      const widgetOption = originalWidgetOptions[i];
-      widgetOption.id = i + 1;
-      this.widgetOptions.push(widgetOption);
-    }
   }
 
   private getSetting() {

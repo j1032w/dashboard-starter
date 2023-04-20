@@ -1,29 +1,28 @@
-<div *ngIf="dashboardService.isSettingVisible"
-     cdkDrag
-     class="widget-setting card d-flex flex-column">
-  <div class="header  p-2 border-bottom d-flex flex-row">
-    <div class="fs-6 fw-bold flex-grow-1">Widget List</div>
-
-    <div class="toolbar">
-      <div class="toolbar-button" (click)="hide()">
-        <i-feather name="x"></i-feather>
+<p-dialog [(visible)]="dashboardService.isSettingVisible"
+          [resizable]="true"
+          [draggable]="true"
+          header="Widgets"
+          [modal]="false"
+          position="right"
+          contentStyleClass="m-0 p-2"
+          [style]="{height:'30rem', width: '15rem'}"
+          class="d-flex flex-column">
+  <ng-scrollbar class="flex-grow-1 ">
+    <div class="h-25"
+         cdkDropList
+         cdkDropListSortingDisabled>
+      <div class="card m-2 p-2 fs-6 widget-item"
+           cdkDrag
+           [cdkDragData]="widgetMap"
+           *ngFor="let widgetMap of dashboardService.widgetMap | defaultOrderKeyvalue">
+        {{widgetMap.value.name}}
       </div>
+
     </div>
+  </ng-scrollbar>
 
-  </div>
-  <div class="p-2 flex-grow-1"
-       cdkDropList
-       cdkDropListSortingDisabled>
-    <div class="card m-3 p-2 fs-5 widget-item"
-         cdkDrag
-         [cdkDragData]="widgetMap"
-         *ngFor="let widgetMap of dashboardService.widgetMap | defaultOrderKeyvalue">
-      {{widgetMap.value.name}}
-    </div>
 
-  </div>
-
-</div>
+</p-dialog>
 
 
 

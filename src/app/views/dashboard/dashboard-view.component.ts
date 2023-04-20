@@ -31,7 +31,8 @@ export class DashboardViewComponent extends DasComponentBase {
         name: 'Housing Market',
         type: DvHousingMarketWidgetComponent,
         cols: 4,
-        rows: 9
+        rows: 9,
+
       }
     );
 
@@ -64,6 +65,7 @@ export class DashboardViewComponent extends DasComponentBase {
         rows: 5
       }
     );
+
     dasDashboardService.widgetMap.set(
       'DvDemoCWidgetComponent',
       {
@@ -82,6 +84,8 @@ export class DashboardViewComponent extends DasComponentBase {
         rows: 5
       }
     );
+
+
     const widgetOptionData = [{
       'originalRows': 8,
       'isSettingModalVisible': false,

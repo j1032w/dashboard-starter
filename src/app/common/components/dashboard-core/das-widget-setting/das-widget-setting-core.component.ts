@@ -16,7 +16,8 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
   @Input() style: any = { width: '50rem', height: '20rem' };
 
-  @Output() apply = new EventEmitter<any>();
+  @Output() apply = new EventEmitter();
+  @Output() show   = new EventEmitter();
 
   @ContentChild('contentTemplate') contentTemplate: TemplateRef<any>;
 
@@ -51,15 +52,19 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
 
   }
 
-  hide() {
+  onHide() {
     this.widgetOption.isSettingModalVisible = false;
+  }
+
+  onShow() {
+    this.show.emit();
   }
 
   applySetting() {
     this.widgetOption.title = this.formGroup.get('title')?.value;
     this.dashboardCoreService.emitWidgetSettingChanged(this.widgetOption);
     this.apply.emit();
-    this.hide();
+    this.onHide();
   }
 
   // will be overridden by child

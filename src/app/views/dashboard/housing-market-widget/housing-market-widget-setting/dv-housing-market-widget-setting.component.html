@@ -1,17 +1,17 @@
 <das-widget-setting-core [style]="{width: '90%', height:'90%'}"
                          [widgetOption]="widgetOption"
-                         (apply)="onApply()">
+                         (apply)="onApply()"
+                         (show)="onShow()">
   <ng-template #contentTemplate>
     <form class="container-fluid d-flex flex-column  h-100" [formGroup]="formGroup">
 
-      <div class="d-flex flex-row align-items-center ">
+      <div class="d-flex flex-row align-items-center mb-2">
         <label for="title" class="form-label me-2 fw-semibold">Title</label>
         <input type="email" class="form-control w-25" id="title" placeholder="Widget title"
                formControlName="title">
-
       </div>
 
-      <label for="title" class="form-label me-2 fw-semibold">Query Builder</label>
+      <label for="title" class="form-label fw-semibold">Query Builder</label>
       <das-house-market-query-builder #queryBuilderComponent
                                       class="h-100"
                                       [query]="query"></das-house-market-query-builder>
