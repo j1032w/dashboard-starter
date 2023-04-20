@@ -9,6 +9,7 @@ import { DasSpinnerInterceptorService } from './common/components/das-spinner/se
 import { DasLayoutModule } from './layout/layout.module';
 import { DasChartViewModule } from './views/chart/das-chart-view.module';
 import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.module';
+import { DasGridViewModule } from './views/grid/das-grid-view.module';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.mod
     DasChartViewModule,
     DasCommonModule,
     DasDashboardViewModule,
+    DasGridViewModule,
     DasLayoutModule,
     HttpClientModule
 

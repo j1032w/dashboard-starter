@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DasLayoutComponent } from './layout/das-layout.component';
 import { DasChartViewComponent } from './views/chart/das-chart-view.component';
 import { DashboardViewComponent } from './views/dashboard/dashboard-view.component';
-import { DvGridViewComponent } from './views/grid/dv-grid-view.component';
+import { DasGridViewComponent } from './views/grid/das-grid-view.component';
 
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
 
       { path: 'chart', component: DasChartViewComponent, data: { label: 'Chart' } },
 
-      { path: 'grid', component: DvGridViewComponent, data: { label: 'Grid' } },
+      { path: 'grid', component: DasGridViewComponent, data: { label: 'Grid' } },
 
       {
         path: 'user-interface',

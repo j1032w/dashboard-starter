@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { DasHttpClient } from '../../../../common/services/das-http-client';
-import { HOUSE_MARKET_WIDGET_SPINNER_ID } from './dv-housing-market.service';
+import { DasHttpClient } from '../../../common/services/das-http-client';
+
 
 @Injectable({ providedIn: 'root' })
 export class DvHousingMarketRepository {
@@ -10,11 +10,11 @@ export class DvHousingMarketRepository {
   }
 
 
-  query$(mongoFilter: any) {
+  query$(mongoFilter: any, spinnerId: string): any {
     return this.dasHttpClient.post$(
       `v1/housing-market/search`,
       mongoFilter,
-      HOUSE_MARKET_WIDGET_SPINNER_ID
+      spinnerId
     );
   }
 

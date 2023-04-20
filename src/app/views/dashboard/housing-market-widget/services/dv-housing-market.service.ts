@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { map, Observable, takeUntil } from 'rxjs';
 import { DasServiceBaes } from '../../../../common/services/das-service-baes';
 import { MongoQuery } from '../../../../common/services/mongo-query';
+import { DvHousingMarketRepository } from '../../../common/services/dv-housing-market.repository';
 import { BuildingTypeEnum } from './building-type.enum';
 
-import { DvHousingMarketRepository } from './dv-housing-market-repository.service';
+
 
 export const HOUSE_MARKET_WIDGET_SPINNER_ID = 'house-market-widget-spinner-id';
 
@@ -15,10 +16,10 @@ export class DvHousingMarketService extends DasServiceBaes {
   }
 
   readonly getHomeTypePercentages$ = (query: MongoQuery): Observable<any> => {
-    return this.housingMarketRepository.query$(query)
+    return this.housingMarketRepository.query$(query, HOUSE_MARKET_WIDGET_SPINNER_ID)
       .pipe(
         takeUntil(this.ngUnsubscribe),
-        map((data) => {
+        map((data: any[]) => {
           const apartmentPercentage: BuildingTypePercentageInterface =
             { buildingType: BuildingTypeEnum.Apartment, total: 0 };
 
