@@ -4,7 +4,11 @@ import { DasDashboardCoreService } from '../../../common/components/dashboard-co
 import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/dv-housing-market-widget-pie.component';
-import { BuildingTypePercentageInterface, DvHousingMarketService } from './services/dv-housing-market.service';
+import {
+  BuildingTypePercentageInterface,
+  DvHousingMarketService,
+  HOUSE_MARKET_WIDGET_SPINNER_ID
+} from './services/dv-housing-market.service';
 
 
 @Component({
@@ -14,6 +18,8 @@ import { BuildingTypePercentageInterface, DvHousingMarketService } from './servi
 })
 export class DvHousingMarketWidgetComponent extends DasWidgetBase {
   @ViewChild('pieComponent', { static: true }) pieComponent: DvHousingMarketWidgetPieComponent;
+
+  readonly SPINNER_ID = HOUSE_MARKET_WIDGET_SPINNER_ID;
 
   dataSource: BuildingTypePercentageInterface[] = [];
 
@@ -49,4 +55,5 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
   };
 
 
+  protected readonly HOUSE_MARKET_WIDGET_SPINNER_ID = HOUSE_MARKET_WIDGET_SPINNER_ID;
 }

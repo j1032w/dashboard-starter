@@ -6,6 +6,8 @@ import { BuildingTypeEnum } from './building-type.enum';
 
 import { DvHousingMarketRepository } from './dv-housing-market-repository.service';
 
+export const HOUSE_MARKET_WIDGET_SPINNER_ID = 'house-market-widget-spinner-id';
+
 @Injectable({ providedIn: 'root' })
 export class DvHousingMarketService extends DasServiceBaes {
   constructor(private readonly housingMarketRepository: DvHousingMarketRepository) {

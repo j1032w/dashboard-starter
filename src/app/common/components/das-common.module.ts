@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeatherModule } from 'angular-feather';
 import { GridsterModule } from 'angular-gridster2';
@@ -10,15 +12,16 @@ import { ToastrModule } from 'ngx-toastr';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { TooltipModule } from 'primeng/tooltip';
-import { DasGridModule } from './das-grid/das-grid.module';
 
 import { DasIconsModule } from './das-icons.module';
+import { DasSpinnerComponent } from './das-spinner/das-spinner.component';
 import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
 
 
 @NgModule({
   declarations: [
-    DefaultOrderKeyvaluePipe
+    DefaultOrderKeyvaluePipe,
+    DasSpinnerComponent
   ],
 
   imports: [
@@ -30,6 +33,7 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     FormsModule,
     GridsterModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     MessagesModule,
     NgScrollbarModule,
     ReactiveFormsModule,
@@ -42,6 +46,8 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
       timeOut: 4000
     }),
     TooltipModule,
+    MatProgressBarModule
+
 
   ],
 
@@ -49,6 +55,7 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     BrowserAnimationsModule,
     CommonModule,
     DasIconsModule,
+    DasSpinnerComponent,
     DefaultOrderKeyvaluePipe,
     DialogModule,
     FeatherModule,

@@ -14,6 +14,7 @@ export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBase {
 
   @Input() dataSource: BuildingTypePercentageInterface[] = [];
 
+
   title = 'Sales by Building Type';
 
   constructor(protected override readonly elementRef: ElementRef) {
@@ -28,4 +29,6 @@ export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBase {
   customizeLabel(arg: any) {
     return `${arg.argument} ${(arg.percent * 100).toFixed(1)}%`;
   }
+
+
 }
