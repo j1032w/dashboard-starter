@@ -1,6 +1,7 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
 import { flipInY } from 'ng-animate';
+import { delay, of } from 'rxjs';
 import { DasDashboardCoreService } from '../services/das-dashboard-core.service';
 import { DasWidgetOption } from '../services/das-widget-option';
 
@@ -49,7 +50,13 @@ export class DasWidgetCoreComponent {
 
   flip() {
     this.widgetOption.isFrontShown = !this.widgetOption.isFrontShown;
-    this.dashboardService.emitWidgetResized(this.widgetOption);
+
+    // wait for the animation to complete
+    of().pipe(delay(2000)).subscribe(() => {
+      this.dashboardService.emitWidgetResized(this.widgetOption);
+    });
+
+
   }
 
 

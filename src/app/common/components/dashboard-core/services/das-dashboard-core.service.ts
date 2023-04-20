@@ -40,10 +40,6 @@ export class DasDashboardCoreService {
   };
 
 
-  readonly emitWidgetSettingModalVisibleChanged = (widgetOption: DasWidgetOption) => {
-    this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetSettingModalVisibleChanged);
-  };
-
   private readonly emitDashboardEvent =
     (widgetOption: DasWidgetOption, eventType: DasDashboardEventTypeEnum) => {
     this.dashboardEventSubject$.next({

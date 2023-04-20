@@ -10,13 +10,16 @@ import { DasGridColumnInterface } from './services/das-grid-column-interface';
   templateUrl: './das-grid.component.html',
   styleUrls: ['./das-grid.component.scss']
 })
-export class DasGridComponent extends DasComponentBase implements OnInit{
+export class DasGridComponent extends DasComponentBase implements OnInit {
   @ViewChild('gridComponent', { static: true }) gridComponent: DxDataGridComponent;
 
   @Input()
   dataSource: any[] = [];
 
   @Input() columns: DasGridColumnInterface[] = [];
+
+  @Input() keyExpr: string;
+  @Input() isGroupPanelVisible = false;
 
   height = 300;
 
@@ -29,8 +32,8 @@ export class DasGridComponent extends DasComponentBase implements OnInit{
     this.calculateHeight$()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((height) => {
-      this.height = height;
-    });
+        this.height = height;
+      });
   }
 
   calculateHeight$ = (): Observable<number> => {
@@ -46,7 +49,7 @@ export class DasGridComponent extends DasComponentBase implements OnInit{
     );
   };
 
-  readonly repaint =()=> {
+  readonly repaint = () => {
     return this.calculateHeight$()
       .pipe(
         takeUntil(this.ngUnsubscribe),
@@ -55,5 +58,6 @@ export class DasGridComponent extends DasComponentBase implements OnInit{
           this.gridComponent.instance.repaint();
         })
       ).subscribe();
-  }
+  };
+
 }

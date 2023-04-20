@@ -3,7 +3,7 @@ import { DasHttpClient } from '../../../common/services/das-http-client';
 
 
 @Injectable({ providedIn: 'root' })
-export class DvHousingMarketRepository {
+export class DasHousingMarketRepository {
 
 
   constructor(private readonly dasHttpClient: DasHttpClient) {

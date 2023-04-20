@@ -48,7 +48,7 @@ export class DasDashboardCoreComponent implements OnInit {
   }
 
   itemResizeCallback = (gridsterItem: any, _gridsterItemComponent: any) => {
-    // this.dashboardCoreService.emitWidgetResized(gridsterItem);
+    this.dashboardCoreService.emitWidgetResized(gridsterItem);
   };
 
 

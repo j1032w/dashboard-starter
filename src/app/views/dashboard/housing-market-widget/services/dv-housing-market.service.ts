@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable, takeUntil } from 'rxjs';
 import { DasServiceBaes } from '../../../../common/services/das-service-baes';
 import { MongoQuery } from '../../../../common/services/mongo-query';
-import { DvHousingMarketRepository } from '../../../common/services/dv-housing-market.repository';
+import { DasHousingMarketRepository } from '../../../common/services/das-housing-market-repository.service';
 import { BuildingTypeEnum } from './building-type.enum';
 
 
@@ -11,7 +11,7 @@ export const HOUSE_MARKET_WIDGET_SPINNER_ID = 'house-market-widget-spinner-id';
 
 @Injectable({ providedIn: 'root' })
 export class DvHousingMarketService extends DasServiceBaes {
-  constructor(private readonly housingMarketRepository: DvHousingMarketRepository) {
+  constructor(private readonly housingMarketRepository: DasHousingMarketRepository) {
     super();
   }
 

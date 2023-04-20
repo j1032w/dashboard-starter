@@ -1,8 +1,22 @@
 <dx-data-grid #gridComponent
-              class="m-2"
+              width="auto"
               [height]="height"
               [dataSource]="dataSource"
+
+              [keyExpr]="keyExpr"
+              [allowColumnResizing]="true"
+              [cellHintEnabled]="true"
+              [columnAutoWidth]="true"
+              [columnHidingEnabled]="false"
+              [columnMinWidth]="20"
+              [hoverStateEnabled]="true"
+              [rowAlternationEnabled]="true"
               [showBorders]="true"
+              [showColumnHeaders]="true"
+              [showColumnLines]="true"
+              [allowColumnReordering]="true"
+              noDataText="No Data"
+
 >
   <dxo-filter-row
     [visible]="true"
@@ -32,5 +46,18 @@
     {{ data.value | currency }}
   </div>
 
+  <dxo-header-filter [visible]="true"></dxo-header-filter>
+  <dxo-scrolling [mode]="'virtual'" showScrollbar="always"></dxo-scrolling>
+  <dxo-state-storing [enabled]="false" type="localStorage" storageKey="storage"></dxo-state-storing>
+  <dxo-search-panel [visible]="false"></dxo-search-panel>
+  <dxo-group-panel [visible]="isGroupPanelVisible"></dxo-group-panel>
+  <dxo-sorting mode="multiple"></dxo-sorting>
 
+  <dxo-selection
+    [allowSelectAll]="true"
+    showCheckBoxesMode="none"
+    selectAllMode="allPages"
+    mode="multiple"
+  ></dxo-selection>
 </dx-data-grid>
+

@@ -34,7 +34,7 @@ export class DvHousingMarketWidgetTableComponent extends DasWidgetContentBase {
     {
       dataField: 'percentage',
       caption: 'Percentage',
-      width: 100,
+      width: 150,
       dataType: DasGridColumnTypeEnum.Number,
       cellTemplate: DasGridCellTemplateEnum.Percentage
     }
