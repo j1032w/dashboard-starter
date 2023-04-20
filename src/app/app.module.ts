@@ -9,11 +9,13 @@ import { DasSpinnerInterceptorService } from './common/components/das-spinner/se
 import { DasLayoutModule } from './layout/layout.module';
 import { DasChartViewModule } from './views/chart/das-chart-view.module';
 import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.module';
+import { DvGridViewComponent } from './views/grid/dv-grid-view.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DvGridViewComponent
   ],
   imports: [
     AppRoutingModule,

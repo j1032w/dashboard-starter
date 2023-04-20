@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompGridComponent } from './comp-grid.component';
+import { DvGridViewComponent } from './dv-grid-view.component';
 
-describe('CompGridComponent', () => {
-  let component: CompGridComponent;
-  let fixture: ComponentFixture<CompGridComponent>;
+describe('GridComponent', () => {
+  let component: DvGridViewComponent;
+  let fixture: ComponentFixture<DvGridViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompGridComponent ]
+      declarations: [ DvGridViewComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CompGridComponent);
+    fixture = TestBed.createComponent(DvGridViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

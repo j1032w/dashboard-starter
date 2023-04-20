@@ -16,7 +16,6 @@ import { DasComponentViewRoutingModule } from './das-component-view-routing.modu
 
 import { DasComponentFormModule } from './form/das-component-form.module';
 import { DasComponentViewComponent } from './das-component-view.component';
-import { CompGridComponent } from './grid/comp-grid.component';
 import { CompMultiplePurposeComponent } from './multiple-purpose/comp-multiple-purpose.component';
 import { CompNotificationComponent } from './notification/comp-notification.component';
 
@@ -25,7 +24,6 @@ import { CompNotificationComponent } from './notification/comp-notification.comp
 @NgModule({
   declarations: [
     DasComponentViewComponent,
-    CompGridComponent,
     CompMultiplePurposeComponent,
     CompNotificationComponent
   ],

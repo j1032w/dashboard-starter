@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompMultiplePurposeComponent } from './multiple-purpose/comp-multiple-purpose.component';
 import { CompFormComponent } from './form/comp-form.component';
-import { CompGridComponent } from './grid/comp-grid.component';
 import { CompNotificationComponent } from './notification/comp-notification.component';
 
 
@@ -20,11 +19,6 @@ const routes: Routes = [
     data: { label: "Form"},
   },
 
-  {
-    path: "grid",
-    component: CompGridComponent,
-    data: { label: "Grid"},
-  },
 
   {
     path: "multiple-purpose",
