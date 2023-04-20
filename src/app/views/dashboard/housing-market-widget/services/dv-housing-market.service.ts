@@ -5,7 +5,6 @@ import { MongoQuery } from '../../../../common/services/mongo-query';
 import { BuildingTypeEnum } from './building-type.enum';
 
 import { DvHousingMarketRepository } from './dv-housing-market-repository.service';
-import * as _ from 'lodash';
 
 @Injectable({ providedIn: 'root' })
 export class DvHousingMarketService extends DasServiceBaes {
@@ -50,7 +49,6 @@ export class DvHousingMarketService extends DasServiceBaes {
 
           const unknownPercentage: BuildingTypePercentageInterface =
             { buildingType: BuildingTypeEnum.Unknown, total: 0 };
-
 
 
           data.forEach((item: any) => {
@@ -101,17 +99,17 @@ export class DvHousingMarketService extends DasServiceBaes {
           });
 
           const total = data.length;
-          apartmentPercentage.percentage= apartmentPercentage.total / total;
-          housePercentage.percentage= housePercentage.total / total;
-          duplexPercentage.percentage= duplexPercentage.total / total;
-          fourplexPercentage.percentage= fourplexPercentage.total / total;
-          manufacturedHomePercentage.percentage= manufacturedHomePercentage.total / total;
-          mobileHomePercentage.percentage= mobileHomePercentage.total / total;
-          multiFamilyPercentage.percentage= multiFamilyPercentage.total / total;
-          parkingPercentage.percentage= parkingPercentage.total / total;
-          townhousePercentage.percentage= townhousePercentage.total / total;
-          triplexPercentage.percentage= triplexPercentage.total / total;
-          unknownPercentage.percentage= unknownPercentage.total / total;
+          apartmentPercentage.percentage = apartmentPercentage.total / total;
+          housePercentage.percentage = housePercentage.total / total;
+          duplexPercentage.percentage = duplexPercentage.total / total;
+          fourplexPercentage.percentage = fourplexPercentage.total / total;
+          manufacturedHomePercentage.percentage = manufacturedHomePercentage.total / total;
+          mobileHomePercentage.percentage = mobileHomePercentage.total / total;
+          multiFamilyPercentage.percentage = multiFamilyPercentage.total / total;
+          parkingPercentage.percentage = parkingPercentage.total / total;
+          townhousePercentage.percentage = townhousePercentage.total / total;
+          triplexPercentage.percentage = triplexPercentage.total / total;
+          unknownPercentage.percentage = unknownPercentage.total / total;
 
 
           return [

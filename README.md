@@ -10,15 +10,15 @@
 [![Demo](documentation/dashboard.png)](https://www.j1032.com/dashboard)
 
 
-# Live Demo
+# Demo
 https://www.j1032.com/dashboard
 
 
 
 # What I've got here
-- Built on Angular, Typescript, SCSS, [Angular Material CDK](https://material.angular.io/cdk/categories) and [Bootstrap](https://getbootstrap.com/)
+- Built on Angular, Typescript, SCSS, RxJS, [Angular Material CDK](https://material.angular.io/cdk/categories) and [Bootstrap](https://getbootstrap.com/)
 - Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compile
-- SVG Icons
+- Module lazy loading, RxJS Http cache, Responsive design, SVG Icons
 - Unit testing with [Jest](https://jestjs.io/)
 - Dockerized application
 - Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)

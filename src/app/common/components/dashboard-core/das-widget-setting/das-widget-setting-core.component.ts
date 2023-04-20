@@ -53,7 +53,6 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
 
   hide() {
     this.widgetOption.isSettingModalVisible = false;
-    this.dashboardCoreService.emitWidgetSettingChanged(this.widgetOption);
   }
 
   applySetting() {

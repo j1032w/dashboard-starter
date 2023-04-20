@@ -1,30 +1,56 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY, Observable, of, takeUntil, throwError } from 'rxjs';
+import { catchError, Observable, of, takeUntil, tap, throwError, timer } from 'rxjs';
 import { DasConfig } from './das-config';
 import { DasServiceBaes } from './das-service-baes';
-import {DasToastService } from './das-toast.service';
+import { DasToastService } from './das-toast.service';
 
 @Injectable({ providedIn: 'root' })
 export class DasHttpClient extends DasServiceBaes {
 
+  private readonly timeWindow = 2000; // 2 seconds
+
+
+  private readonly cache: Map<string, any> = new Map<string, any>();
+
   constructor(
     private readonly httpClient: HttpClient,
-    private readonly toastService:DasToastService,
+    private readonly toastService: DasToastService,
     private readonly dasConfig: DasConfig
   ) {
     super();
   }
 
 
-  post$(uri: string, params = null, isHandleError = true): Observable<any> {
-    return this.httpClient.post(`${this.dasConfig.dasDataApi}${uri}`, params).pipe(
+  post$(url: string, body?: any, isHandleError = true): Observable<any> {
+    const cacheKey = `${url}-${JSON.stringify(body)}`;
+    const cachedResponse = this.cache.get(cacheKey);
+    if (cachedResponse) {
+      return of(cachedResponse);
+    }
+
+    return this.httpClient.post(`${this.dasConfig.dasDataApi}${url}`, body).pipe(
       takeUntil(this.ngUnsubscribe),
+      tap(response => {
+        this.setCache(cacheKey, response);
+      }),
       catchError((err: HttpErrorResponse) => {
         return this.handleError(err, isHandleError);
       })
     );
   }
+
+
+
+  private readonly setCache = (cacheKey: string, response: any) => {
+    this.cache.set(cacheKey, response);
+
+    timer(this.timeWindow)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(() => {
+        this.cache.delete(cacheKey);
+      });
+  };
 
 
   handleError = (errResponse: HttpErrorResponse, isHandleError = true) => {
