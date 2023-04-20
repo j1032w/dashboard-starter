@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UiAnimationComponent } from './animation/ui-animation.component';
-
 import { UiDragDropComponent } from './drag-drop/ui-drag-drop.component';
 import { UiQueryBuilderComponent } from './query-builder/ui-query-builder.component';
 import { UiResponsiveComponent } from './responsive/ui-responsive.component';
@@ -9,7 +8,6 @@ import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.com
 
 
 const routes: Routes = [
-
   {
     path: '',
     redirectTo: 'animation',

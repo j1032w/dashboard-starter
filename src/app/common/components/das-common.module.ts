@@ -12,7 +12,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { TooltipModule } from 'primeng/tooltip';
-
 import { DasIconsModule } from './das-icons.module';
 import { DasSpinnerComponent } from './das-spinner/das-spinner.component';
 import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
@@ -25,14 +24,12 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
   ],
 
   imports: [
-    BrowserAnimationsModule,
     CommonModule,
     DasIconsModule,
     DialogModule,
     FeatherModule,
     FormsModule,
     GridsterModule,
-    HttpClientModule,
     MatProgressSpinnerModule,
     MessagesModule,
     NgScrollbarModule,
@@ -52,7 +49,6 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
   ],
 
   exports: [
-    BrowserAnimationsModule,
     CommonModule,
     DasIconsModule,
     DasSpinnerComponent,
@@ -61,12 +57,11 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     FeatherModule,
     FormsModule,
     GridsterModule,
-    HttpClientModule,
     MessagesModule,
     NgScrollbarModule,
     ReactiveFormsModule,
     ToastrModule,
-    TooltipModule,
+    TooltipModule
   ]
 
 

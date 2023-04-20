@@ -14,22 +14,21 @@ import {
 } from '../common/hosing-market-query-builder/das-housing-market-query-builder.module';
 
 
-
 import { DasComponentFormModule } from '../component/form/das-component-form.module';
 import { UiAnimationComponent } from './animation/ui-animation.component';
 import { DasUserInterfaceRoutingModule } from './das-user-interface-routing.module';
 import { UiDragDropComponent } from './drag-drop/ui-drag-drop.component';
+import { UiQueryBuilderComponent } from './query-builder/ui-query-builder.component';
 import { UiResponsiveComponent } from './responsive/ui-responsive.component';
-import { DasUserInterfaceMainComponent } from './user-interface-main.component';
+import { UserInterfaceViewComponent } from './user-interface-view.component';
 
 
 import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.component';
-import { UiQueryBuilderComponent } from './query-builder/ui-query-builder.component';
 
 
 @NgModule({
   declarations: [
-    DasUserInterfaceMainComponent,
+    UserInterfaceViewComponent,
     UiAnimationComponent,
     UiDragDropComponent,
     UiVirtualScrollComponent,
@@ -50,9 +49,12 @@ import { UiQueryBuilderComponent } from './query-builder/ui-query-builder.compon
     MessagesModule,
     NgScrollbarModule,
     QueryBuilderModule,
-    ScrollingModule,
+    ScrollingModule
 
   ],
+
+  exports: [UserInterfaceViewComponent],
+
   providers: []
 
 })

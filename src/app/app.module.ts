@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,14 +9,16 @@ import { DasSpinnerInterceptorService } from './common/components/das-spinner/se
 import { DasLayoutModule } from './layout/layout.module';
 import { DasChartViewModule } from './views/chart/das-chart-view.module';
 import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.module';
-import { DvGridViewComponent } from './views/grid/dv-grid-view.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DvGridViewComponent
+    AppComponent
   ],
+
+
+  // Import BrowserModule, BrowserAnimationsModule, HttpModule only once
+  // preferably in root module
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -24,7 +26,8 @@ import { DvGridViewComponent } from './views/grid/dv-grid-view.component';
     DasChartViewModule,
     DasCommonModule,
     DasDashboardViewModule,
-    DasLayoutModule
+    DasLayoutModule,
+    HttpClientModule
 
 
   ],
