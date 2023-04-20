@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { DxDataGridComponent } from 'devextreme-angular';
 import { interval, map, Observable, take, takeUntil } from 'rxjs';
 import { DasComponentBase } from '../das-component-base.component';
@@ -13,6 +13,12 @@ import { DasGridColumnInterface } from './services/das-grid-column-interface';
 export class DasGridComponent extends DasComponentBase implements OnInit {
   @ViewChild('gridComponent', { static: true }) gridComponent: DxDataGridComponent;
 
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.repaint();
+  }
+
   @Input()
   dataSource: any[] = [];
 
@@ -21,40 +27,45 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
   @Input() keyExpr: string;
   @Input() isGroupPanelVisible = false;
 
-  height = 300;
-
+  height = 400;
+  width = 400;
 
   constructor(private readonly elementRef: ElementRef) {
     super();
   }
 
   ngOnInit() {
-    this.calculateHeight$()
+    this.setGridDimension$()
       .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe((height) => {
-        this.height = height;
-      });
+      .subscribe();
   }
 
-  calculateHeight$ = (): Observable<number> => {
+  // the parent component should be set as below, so that when grid component is hidden,
+  // the elementRef could return the correct height and width
+  // display: flex;
+  // flex-direction: column;
+  // height: 100%;
+  // width: 100%;
+
+  setGridDimension$ = (): Observable<void> => {
     // wait for host element initialized, so that the element height is available
+    this.gridComponent.visible = false;
     return interval(0).pipe(
       take(1),
       map(() => {
-        this.gridComponent.visible = false;
-        const theHeight = this.elementRef.nativeElement.clientHeight - 20;
+        this.width = this.elementRef.nativeElement.clientWidth - 4;
+        this.height = this.elementRef.nativeElement.clientHeight - 4;
         this.gridComponent.visible = true;
-        return theHeight;
+
       })
     );
   };
 
   readonly repaint = () => {
-    return this.calculateHeight$()
+    return this.setGridDimension$()
       .pipe(
         takeUntil(this.ngUnsubscribe),
         map((height) => {
-          this.height = height;
           this.gridComponent.instance.repaint();
         })
       ).subscribe();
