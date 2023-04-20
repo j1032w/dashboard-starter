@@ -12,7 +12,9 @@
       </div>
 
       <label for="title" class="form-label me-2 fw-semibold">Query Builder</label>
-      <das-house-market-query-builder class="h-100" [query]="query"></das-house-market-query-builder>
+      <das-house-market-query-builder #queryBuilderComponent
+                                      class="h-100"
+                                      [query]="query"></das-house-market-query-builder>
 
 
     </form>

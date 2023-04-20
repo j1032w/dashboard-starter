@@ -29,7 +29,7 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
   override ngOnInit() {
     super.ngOnInit();
 
-    this.housingMarketService.getHomeTypePercentages$(this.widgetOption.settingData)
+    this.housingMarketService.getHomeTypePercentages$(this.widgetOption.settingData.mongoQuery)
       .pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => {
         this.dataSource = data;
       }
@@ -38,7 +38,7 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
   }
 
   protected override readonly refresh = () => {
-    this.housingMarketService.getHomeTypePercentages$({ filter: this.widgetOption.settingData })
+    this.housingMarketService.getHomeTypePercentages$({ filter: this.widgetOption.settingData.mongoQuery })
       .pipe(takeUntil(this.ngUnsubscribe)).subscribe(data => {
       this.dataSource = data;
     });

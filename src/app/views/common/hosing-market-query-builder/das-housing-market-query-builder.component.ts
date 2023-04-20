@@ -13,13 +13,17 @@ import { HOUSING_MARKET_QUERY_CONFIG } from './services/das-query-builder.consta
 export class DasHousingMarketQueryBuilderComponent implements OnInit {
   @Input() query: any ={};
 
+
   config = HOUSING_MARKET_QUERY_CONFIG;
 
   constructor(public readonly queryBuilderMongoConvertor: DasQueryBuilderMongoConvertor) {
-
   }
 
   ngOnInit() {
     this.queryBuilderMongoConvertor.config = this.config;
+  }
+
+  getMongoQuery() {
+    return this.queryBuilderMongoConvertor.mapRuleSet(this.query);
   }
 }

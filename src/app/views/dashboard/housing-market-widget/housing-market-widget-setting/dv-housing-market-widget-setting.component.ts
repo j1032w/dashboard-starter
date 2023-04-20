@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DasWidgetSettingBase } from '../../../../common/components/dashboard-core/services/das-widget=setting-base';
+import {
+  DasHousingMarketQueryBuilderComponent
+} from '../../../common/hosing-market-query-builder/das-housing-market-query-builder.component';
 import {
   HOUSING_MARKET_DEMO_QUERY
 } from '../../../common/hosing-market-query-builder/services/das-query-builder.constant';
@@ -11,8 +14,9 @@ import {
   styleUrls: ['./dv-housing-market-widget-setting.component.scss']
 })
 export class DvHousingMarketWidgetSettingComponent extends DasWidgetSettingBase {
+  @ViewChild('queryBuilderComponent') queryBuilderComponent: DasHousingMarketQueryBuilderComponent
 
-  query = HOUSING_MARKET_DEMO_QUERY;
+  query :any = {};
 
 
   constructor(protected override readonly formBuilder: FormBuilder) {
@@ -26,10 +30,15 @@ export class DvHousingMarketWidgetSettingComponent extends DasWidgetSettingBase 
       title: [this.widgetOption.title]
     });
 
+    this.query = this.widgetOption.settingData?.query || HOUSING_MARKET_DEMO_QUERY;
+
   }
 
   onApply() {
-    this.widgetOption.settingData = this.query;
+    this.widgetOption.settingData = {
+      query: this.query,
+      mongoQuery: this.queryBuilderComponent.getMongoQuery()
+    };
   }
 
 }

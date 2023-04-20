@@ -42,7 +42,7 @@ export const HOUSING_MARKET_QUERY_CONFIG: QueryBuilderConfig = {
     city: { name: 'City',
       type: FieldTypeEnum.category,
       options: [
-        { name: 'Alberta', value: 'Alberta' },
+        { name: 'Calgary', value: 'Calgary' },
         { name: 'Montreal', value: 'Montreal' },
         { name: 'Toronto', value: 'Toronto' },
         { name: 'Vancouver', value: 'Vancouver' }
@@ -88,7 +88,7 @@ export const HOUSING_MARKET_DEMO_QUERY = {
         {
           "field": "city",
           "operator": "=",
-          "value": "Alberta"
+          "value": "Calgary"
         },
         {
           "field": "buildingBedroom",
