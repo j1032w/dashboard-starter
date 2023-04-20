@@ -48,7 +48,7 @@ export class DasDashboardCoreComponent implements OnInit {
   }
 
   itemResizeCallback = (gridsterItem: any, _gridsterItemComponent: any) => {
-    this.dashboardCoreService.emitWidgetResized(gridsterItem);
+    // this.dashboardCoreService.emitWidgetResized(gridsterItem);
   };
 
 
@@ -105,9 +105,9 @@ export class DasDashboardCoreComponent implements OnInit {
 
     if (!componentType) return;
 
-    const originalWidgetOptions = _.cloneDeep(this.widgetOptions);
 
 
+    const maxId = _.maxBy(this.widgetOptions, 'id')?.id ?? 0
     this.widgetOptions.push(
       new DasWidgetOption({
         widgetClassName: $event.item.data.key.toString(),
@@ -116,7 +116,7 @@ export class DasDashboardCoreComponent implements OnInit {
         y: 0,
         cols: $event.item.data.value.cols,
         rows: $event.item.data.value.rows,
-        id: 0
+        id: maxId + 1,
       }));
 
   }

@@ -11,6 +11,7 @@ import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.serv
 })
 export class DasChartSp500Component extends DasWidgetContentBase {
   @ViewChild('chartComponent', { static: true }) chartComponent: DxChartComponent;
+
   dataSource: Sp500AnnualHistory[] = [];
 
   constructor(

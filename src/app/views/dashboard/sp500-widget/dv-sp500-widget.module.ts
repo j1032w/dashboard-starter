@@ -8,13 +8,15 @@ import { DasViewCommonModule } from '../../common/das-view-common.module';
 import { DvSp500WidgetComponent } from './dv-sp500-widget.component';
 import { DvSp500WidgetSettingComponent } from './sp500-widget-setting/dv-sp500-widget-setting.component';
 import { DvSp500WidgetTableComponent } from './sp500-widget-table/dv-sp500-widget-table.component';
+import { DvSp500WidgetPieComponent } from './dv-sp500-widget-pie/dv-sp500-widget-pie.component';
 
 
 @NgModule({
   declarations: [
     DvSp500WidgetTableComponent,
     DvSp500WidgetComponent,
-    DvSp500WidgetSettingComponent
+    DvSp500WidgetSettingComponent,
+    DvSp500WidgetPieComponent
   ],
 
   exports: [
