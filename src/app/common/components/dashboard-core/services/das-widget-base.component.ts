@@ -36,24 +36,10 @@ export class DasWidgetBase extends DasComponentBase implements OnInit {
       });
 
 
-    this.dashboardCoreService.dashboardEvent$
-      .pipe(
-        takeUntil(this.ngUnsubscribe),
-        filter((data: DasDashboardEventInterface) =>
-          data.widgetOption.id === this.widgetOption.id &&
-          data.eventType === DasDashboardEventTypeEnum.WidgetResized
-        )
-      )
-      .subscribe(() => {
-        this.repaint();
-      });
   }
 
   protected refresh = () => {
-    this.repaint();
     this.toastService.showSuccess(`${this.widgetOption.title} refreshed`);
   };
 
-  protected repaint = () => {
-  };
 }

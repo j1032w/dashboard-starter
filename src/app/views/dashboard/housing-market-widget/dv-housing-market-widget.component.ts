@@ -50,10 +50,7 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
     });
   };
 
-  protected override readonly repaint = () => {
-    this.pieComponent?.repaint();
-  };
 
 
-  protected readonly HOUSE_MARKET_WIDGET_SPINNER_ID = HOUSE_MARKET_WIDGET_SPINNER_ID;
+
 }

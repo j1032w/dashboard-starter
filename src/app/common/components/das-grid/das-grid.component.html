@@ -12,8 +12,25 @@
               [dataField]="column.dataField"
               [caption]="column.caption"
               [width]="column.width"
+              [cellTemplate]="column.cellTemplate"
               [dataType]="column.dataType"
   ></dxi-column>
+
+  <div *dxTemplate="let data of 'Percentage'" [title]="data.value | percent: '1.0-2'">
+    {{ data.value | percent: '1.0-2' }}
+  </div>
+
+  <div *dxTemplate="let data of 'Integer'" [title]="data.value | number: '1.0-0'">
+    {{ data.value | number: '1.0-0' }}
+  </div>
+
+  <div *dxTemplate="let data of 'DecimalOptionalTwo'" [title]="data.value | number: '1.0-2'">
+    {{ data.value | number: '1.0-2' }}
+  </div>
+
+  <div *dxTemplate="let data of 'Currency'" [title]="data.value | currency">
+    {{ data.value | currency }}
+  </div>
 
 
 </dx-data-grid>

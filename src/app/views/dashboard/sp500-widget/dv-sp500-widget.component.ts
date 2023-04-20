@@ -43,10 +43,7 @@ export class DvSp500WidgetComponent extends DasWidgetBase {
     this.chartSp500Service.isLegendVisible = isLegendVisible;
   };
 
-  protected override repaint = () => {
-    this.chartComponent.repaint();
-    this.tableComponent.repaint();
-  };
+
 
 
 }

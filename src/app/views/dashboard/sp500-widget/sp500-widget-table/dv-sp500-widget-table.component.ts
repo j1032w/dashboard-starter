@@ -1,6 +1,12 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DasGridComponent } from '../../../../common/components/das-grid/das-grid.component';
-import { DasGridColumnTypeEnum } from '../../../../common/components/das-grid/services/das-grid-column-interface';
+import {
+  DasGridCellTemplateEnum,
+  DasGridColumnTypeEnum
+} from '../../../../common/components/das-grid/services/das-grid-column-interface';
+import {
+  DasDashboardCoreService
+} from '../../../../common/components/dashboard-core/services/das-dashboard-core.service';
 import { DasWidgetContentBase } from '../../../../common/components/dashboard-core/services/das-widget-content-base';
 import { DasChartSp500Service, Sp500AnnualHistory } from '../../../common/sp500-chart/das-chart-sp500.service';
 
@@ -9,7 +15,7 @@ import { DasChartSp500Service, Sp500AnnualHistory } from '../../../common/sp500-
   templateUrl: './dv-sp500-widget-table.component.html',
   styleUrls: ['./dv-sp500-widget-table.component.scss']
 })
-export class DvSp500WidgetTableComponent extends DasWidgetContentBase implements OnInit {
+export class DvSp500WidgetTableComponent extends DasWidgetContentBase {
   @ViewChild('gridComponent', { static: true }) gridComponent: DasGridComponent;
 
 
@@ -18,21 +24,36 @@ export class DvSp500WidgetTableComponent extends DasWidgetContentBase implements
 
   columns = [
     { dataField: 'year', caption: 'Year', dataType: DasGridColumnTypeEnum.Number },
-    { dataField: 'averageClosingPrice', caption: 'Average Closing', dataType: DasGridColumnTypeEnum.Number },
-    { dataField: 'annualChangePercent', caption: 'Annual Change', width: 100, dataType: DasGridColumnTypeEnum.Number }
+
+    { dataField: 'averageClosingPrice',
+      caption: 'Average Closing',
+      dataType: DasGridColumnTypeEnum.Number,
+      cellTemplate: DasGridCellTemplateEnum.Currency
+    },
+
+    { dataField: 'annualChangePercent',
+      caption: 'Annual Change %',
+      width: 200,
+      dataType: DasGridColumnTypeEnum.Number,
+      cellTemplate: DasGridCellTemplateEnum.DecimalOptionalTwo
+    }
   ];
 
   constructor(
     protected override readonly elementRef: ElementRef,
+    protected override readonly dashboardCoreService: DasDashboardCoreService,
     private readonly sp500Service: DasChartSp500Service
   ) {
-    super(elementRef);
-    this.repaintComponent = () => {
-      this.gridComponent?.repaint();
-    };
+    super(elementRef, dashboardCoreService);
+
   }
 
-  ngOnInit() {
+  protected override readonly repaintComponent = () => {
+    this.gridComponent?.repaint();
+  };
+
+  override ngOnInit() {
+    super.ngOnInit();
     this.data = this.sp500Service.getSp500Data();
   }
 

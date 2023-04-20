@@ -1,5 +1,8 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { DxPieChartComponent } from 'devextreme-angular';
+import {
+  DasDashboardCoreService
+} from '../../../../common/components/dashboard-core/services/das-dashboard-core.service';
 import { DasWidgetContentBase } from '../../../../common/components/dashboard-core/services/das-widget-content-base';
 import { BuildingTypePercentageInterface } from '../services/dv-housing-market.service';
 
@@ -17,14 +20,16 @@ export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBase {
 
   title = 'Sales by Building Type';
 
-  constructor(protected override readonly elementRef: ElementRef) {
-    super(elementRef);
-
-    this.repaintComponent = () => {
-      this.pieChartComponent?.instance?.render();
-    };
+  constructor(
+    protected override readonly elementRef: ElementRef,
+    protected override readonly dashboardCoreService: DasDashboardCoreService
+  ) {
+    super(elementRef, dashboardCoreService);
   }
 
+  protected override readonly repaintComponent = () => {
+    this.pieChartComponent?.instance?.render();
+  };
 
   customizeLabel(arg: any) {
     return `${arg.argument} ${(arg.percent * 100).toFixed(1)}%`;

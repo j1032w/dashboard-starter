@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DxChartComponent } from 'devextreme-angular';
+import { DasDashboardCoreService } from '../../../common/components/dashboard-core/services/das-dashboard-core.service';
 import { DasWidgetContentBase } from '../../../common/components/dashboard-core/services/das-widget-content-base';
 import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.service';
 
@@ -10,22 +11,21 @@ import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.serv
 })
 export class DasChartSp500Component extends DasWidgetContentBase {
   @ViewChild('chartComponent', { static: true }) chartComponent: DxChartComponent;
-
-
   dataSource: Sp500AnnualHistory[] = [];
 
   constructor(
     protected override readonly elementRef: ElementRef,
+    protected override readonly dashboardCoreService: DasDashboardCoreService,
     public readonly chartService: DasChartSp500Service
   ) {
-    super(elementRef);
+    super(elementRef, dashboardCoreService);
     this.dataSource = chartService.getSp500Data();
-
-    this.repaintComponent = () => {
-      this.chartComponent?.instance?.refresh();
-    };
-
   }
+
+
+  protected override readonly repaintComponent = () => {
+    this.chartComponent?.instance?.refresh();
+  };
 
 
   customizeTooltip = (info: any) => ({
