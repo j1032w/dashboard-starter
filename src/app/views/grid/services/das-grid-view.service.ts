@@ -3,7 +3,9 @@ import { DasHousingMarketRepository } from '../../common/services/das-housing-ma
 import { GRID_VIEW_SPINNER_ID } from './das-grid-view.constant';
 
 
+import {Injectable} from '@angular/core';
 
+@Injectable({providedIn: 'root'})
 export class DasGridViewService{
   constructor(private readonly housingMarketRepository :DasHousingMarketRepository) {
   }

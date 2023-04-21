@@ -19,9 +19,7 @@
               noDataText="No Data"
 
 >
-  <dxo-filter-row
-    [visible]="true"
-  ></dxo-filter-row>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
 
   <dxi-column *ngFor="let column of columns"
               [dataField]="column.dataField"
@@ -29,6 +27,7 @@
               [width]="column.width"
               [cellTemplate]="column.cellTemplate"
               [dataType]="column.dataType"
+              [visible]="column.visible"
   ></dxi-column>
 
   <div *dxTemplate="let data of 'Percentage'" [title]="data.value | percent: '1.0-2'">
@@ -55,10 +54,10 @@
   <dxo-sorting mode="multiple"></dxo-sorting>
 
   <dxo-selection *ngIf="isAllowSelect"
-    [allowSelectAll]="true"
-    showCheckBoxesMode="always"
-    selectAllMode="allPages"
-    mode="multiple"
+                 [allowSelectAll]="true"
+                 showCheckBoxesMode="always"
+                 selectAllMode="allPages"
+                 mode="multiple"
   ></dxo-selection>
 </dx-data-grid>
 

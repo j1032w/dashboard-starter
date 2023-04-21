@@ -72,4 +72,7 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
       ).subscribe();
   };
 
+  showColumnChooser() {
+    this.gridComponent.instance.showColumnChooser();
+  }
 }

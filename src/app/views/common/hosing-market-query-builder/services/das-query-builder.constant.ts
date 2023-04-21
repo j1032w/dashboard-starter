@@ -93,7 +93,7 @@ export const HOUSING_MARKET_DEMO_QUERY = {
         {
           "field": "buildingBedroom",
           "operator": ">",
-          "value": 3
+          "value": 2
         },
         {
           "field": "listedTime",
@@ -101,14 +101,14 @@ export const HOUSING_MARKET_DEMO_QUERY = {
           "value": "2023-04-01"
         },
         {
-          "field": "buildingSizeInterior",
-          "operator": ">=",
-          "value": 500
+          "field": "priceUnformattedValue",
+          "operator": ">",
+          "value": 200000
         },
         {
-          "field": "buildingSizeInterior",
+          "field": "priceUnformattedValue",
           "operator": "<=",
-          "value": 1500
+          "value": 800000
         }
       ]
     },
@@ -120,7 +120,8 @@ export const HOUSING_MARKET_DEMO_QUERY = {
           "operator": "in",
           "value": [
             "Toronto",
-            "Vancouver"
+            "Vancouver",
+            "Montreal"
           ]
         },
         {

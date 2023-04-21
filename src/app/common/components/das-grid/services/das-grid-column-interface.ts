@@ -4,6 +4,7 @@ export interface DasGridColumnInterface {
   dataField: string;
   dataType: DasGridColumnTypeEnum;
   width?: number;
+  visible?: boolean;
 
 }
 

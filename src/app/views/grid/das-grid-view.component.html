@@ -1,9 +1,16 @@
 <div class="toolbar m-2">
-    <span class="toolbar-button with-label" (click)="toggleQueryBuilder()">
+  <span class="toolbar-button with-label" (click)="showSearchDialog()">
      <i-feather name="search"></i-feather>
     Search
   </span>
-  <span class="toolbar-button with-label">
+
+
+  <span class="toolbar-button with-label" (click)="refresh()">
+     <i-feather name="rotate-cw"></i-feather>
+    Refresh
+  </span>
+
+  <span class="toolbar-button with-label" (click)="showColumnChooser()">
      <i-feather name="server"></i-feather>
     Columns
   </span>
@@ -15,12 +22,17 @@
 
 </div>
 
-<das-grid
-  class="p-0 m-0"
-  [isGroupPanelVisible]="true"
-  [isAllowSelect]="true"
-  [columns]="columns"></das-grid>
+<das-grid #gridComponent
+          class="p-0 m-0"
+          [dataSource]="dataSource"
+          [isGroupPanelVisible]="true"
+          [isAllowSelect]="true"
+          [columns]="columns"></das-grid>
 
 
+<das-grid-view-search [(isVisible)]="isSearchDialogVisible"
+                      [query]="query"
+                      (apply)="apply($event)"
+></das-grid-view-search>
 
-<das-house-market-query-builder [hidden]="isShowQueryBuilder"></das-house-market-query-builder>
+<das-spinner [spinnerId]="spinnerId"></das-spinner>
