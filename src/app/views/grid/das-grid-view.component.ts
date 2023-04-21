@@ -10,7 +10,13 @@ import { GRID_VIEW_COLUMNS } from './services/das-grid-view.constant';
 export class DasGridViewComponent extends DasComponentBase{
     columns = GRID_VIEW_COLUMNS
 
+  isShowQueryBuilder = false;
+
   constructor() {
     super();
+  }
+
+  toggleQueryBuilder() {
+    this.isShowQueryBuilder = !this.isShowQueryBuilder
   }
 }

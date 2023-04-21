@@ -23,7 +23,7 @@ export class DasSpinnerComponent extends DasComponentBase implements OnInit {
   ngOnInit() {
     this.httpStateService.state$
       .pipe(
-        takeUntil(this.ngUnsubscribe),
+        takeUntil(this.ngUnsubscribe$),
         filter((httpState) => httpState.spinnerId === this.spinnerId)
       )
       .subscribe((progress: IHttpState) => {

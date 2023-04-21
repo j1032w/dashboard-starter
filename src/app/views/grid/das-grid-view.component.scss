@@ -1,5 +1,18 @@
+@import "../../common/styles/das-style";
+
+
 :host {
   display: flex;
   flex-direction: column;
   flex: 1;
+  position: relative;
+}
+
+
+.toolbar {
+  position: absolute;
+  z-index: $zindex-fixed;
+  top: 0;
+  right: 0;
+
 }

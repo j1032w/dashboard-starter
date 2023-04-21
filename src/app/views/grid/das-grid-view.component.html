@@ -1,3 +1,26 @@
+<div class="toolbar m-2">
+    <span class="toolbar-button with-label" (click)="toggleQueryBuilder()">
+     <i-feather name="search"></i-feather>
+    Search
+  </span>
+  <span class="toolbar-button with-label">
+     <i-feather name="server"></i-feather>
+    Columns
+  </span>
+
+  <span class="toolbar-button with-label">
+     <i-feather name="external-link"></i-feather>
+    Export
+  </span>
+
+</div>
+
 <das-grid
   class="p-0 m-0"
+  [isGroupPanelVisible]="true"
+  [isAllowSelect]="true"
   [columns]="columns"></das-grid>
+
+
+
+<das-house-market-query-builder [hidden]="isShowQueryBuilder"></das-house-market-query-builder>

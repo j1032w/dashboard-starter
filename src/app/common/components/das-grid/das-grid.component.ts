@@ -26,6 +26,7 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
 
   @Input() keyExpr: string;
   @Input() isGroupPanelVisible = false;
+  @Input() isAllowSelect = false;
 
   height = 400;
   width = 400;
@@ -36,7 +37,7 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
 
   ngOnInit() {
     this.setGridDimension$()
-      .pipe(takeUntil(this.ngUnsubscribe))
+      .pipe(takeUntil(this.ngUnsubscribe$))
       .subscribe();
   }
 
@@ -64,7 +65,7 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
   readonly repaint = () => {
     return this.setGridDimension$()
       .pipe(
-        takeUntil(this.ngUnsubscribe),
+        takeUntil(this.ngUnsubscribe$),
         map((height) => {
           this.gridComponent.instance.repaint();
         })

@@ -25,6 +25,10 @@
   border-radius: 50%;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 
+  &.with-label{
+    border-radius: 0;
+  }
+
   &:hover {
     cursor: pointer;
     border-color: transparent;

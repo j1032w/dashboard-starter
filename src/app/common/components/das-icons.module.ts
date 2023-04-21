@@ -34,7 +34,9 @@ import {
   Minimize2,
   RotateCw,
   Repeat,
-  Server
+  Server,
+  Search,
+  ExternalLink
 } from 'angular-feather/icons';
 
 
@@ -74,6 +76,8 @@ const icons = {
   Tag,
   TrendingUp,
   X,
+  Search,
+  ExternalLink
 
 };
 

@@ -54,9 +54,9 @@
   <dxo-group-panel [visible]="isGroupPanelVisible"></dxo-group-panel>
   <dxo-sorting mode="multiple"></dxo-sorting>
 
-  <dxo-selection
+  <dxo-selection *ngIf="isAllowSelect"
     [allowSelectAll]="true"
-    showCheckBoxesMode="none"
+    showCheckBoxesMode="always"
     selectAllMode="allPages"
     mode="multiple"
   ></dxo-selection>
