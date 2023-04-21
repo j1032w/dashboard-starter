@@ -7,7 +7,7 @@
   "compilerOptions": {
     "allowJs": true,
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./out-tsc/app",
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -30,6 +30,9 @@
     "paths": {
       "jszip": [
         "node_modules/jszip/dist/jszip.min.js"
+      ],
+      "exceljs": [
+        "node_modules/exceljs/dist/exceljs.min"
       ]
     },
     "lib": [

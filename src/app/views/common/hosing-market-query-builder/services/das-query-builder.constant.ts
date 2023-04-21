@@ -48,7 +48,7 @@ export const HOUSING_MARKET_QUERY_CONFIG: QueryBuilderConfig = {
         { name: 'Vancouver', value: 'Vancouver' }
       ]},
 
-    listedTime: { name: 'Listed Time', type: FieldTypeEnum.date },
+    listedTime: { name: 'Listed Date', type: FieldTypeEnum.date },
 
     buildingSizeInterior: { name: 'Land Size (sqft)', type: FieldTypeEnum.number },
 

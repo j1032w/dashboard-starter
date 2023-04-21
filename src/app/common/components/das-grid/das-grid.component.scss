@@ -3,3 +3,27 @@
   flex-direction: column;
   flex: 1;
 }
+
+::ng-deep {
+  .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-select {
+    width: 2.5rem;
+    max-width: 2.5rem;
+    min-width: 2.5rem;
+  }
+
+  .dx-scrollbar-vertical .dx-scrollable-scroll {
+    width: 12px;
+    min-height: 4rem;
+  }
+
+  .dx-scrollbar-horizontal.dx-scrollbar-hoverable{
+    height: 16px;
+  }
+
+  .dx-scrollbar-horizontal .dx-scrollable-scroll {
+    height: 12px;
+  }
+
+
+
+}

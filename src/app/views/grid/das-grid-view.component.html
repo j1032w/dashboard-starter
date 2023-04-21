@@ -15,7 +15,7 @@
     Columns
   </span>
 
-  <span class="toolbar-button with-label">
+  <span class="toolbar-button with-label" (click)="export()">
      <i-feather name="external-link"></i-feather>
     Export
   </span>
@@ -24,6 +24,7 @@
 
 <das-grid #gridComponent
           class="p-0 m-0"
+          keyExpr="rowId"
           [dataSource]="dataSource"
           [isGroupPanelVisible]="true"
           [isAllowSelect]="true"

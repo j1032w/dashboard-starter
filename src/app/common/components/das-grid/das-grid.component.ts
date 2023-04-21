@@ -1,8 +1,13 @@
 import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { DxDataGridComponent } from 'devextreme-angular';
+import { exportDataGrid } from 'devextreme/excel_exporter';
+import { Workbook } from 'exceljs';
+import * as fs from 'file-saver';
+
 import { interval, map, Observable, take, takeUntil } from 'rxjs';
 import { DasComponentBase } from '../das-component-base.component';
 import { DasGridColumnInterface } from './services/das-grid-column-interface';
+
 
 
 @Component({
@@ -88,5 +93,36 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
 
   showColumnChooser() {
     this.gridComponent.instance.showColumnChooser();
+  }
+
+  export() {
+    const workbook = new Workbook();
+    const worksheet = workbook.addWorksheet('Das Grid');
+
+    // Add new row
+    let titleRow = worksheet.addRow([]);
+
+    // Set font, size and style in title row.
+    titleRow.font = { name: 'Comic Sans MS', family: 4, size: 10, underline: 'double', bold: true };
+
+
+    let selectedRowsOnly = this.gridComponent.instance.getSelectedRowKeys().length > 0;
+
+    exportDataGrid({
+      component: this.gridComponent.instance,
+      worksheet,
+      selectedRowsOnly,
+
+    })
+      .then(() => {
+        workbook.xlsx
+          .writeBuffer()
+          .then((buffer: BlobPart) => {
+
+            fs.saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'das-export.xlsx');
+          })
+          .catch();
+      })
+      .catch();
   }
 }

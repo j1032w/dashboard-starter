@@ -50,7 +50,7 @@ export class DashboardViewComponent extends DasComponentBase {
     dasDashboardService.widgetMap.set(
       'DvLocWidgetComponent',
       {
-        name: 'Dashboard starter UI LOC',
+        name: 'Dashboard Starter UI LOC',
         type: DvLocWidgetComponent,
         cols: 3,
         rows: 5,
@@ -162,7 +162,7 @@ export class DashboardViewComponent extends DasComponentBase {
       'hasContent': true,
       'originalRows': 5,
       'isSettingModalVisible': false,
-      'title': 'Dashboard starter UI LOC',
+      'title': 'Dashboard Starter UI LOC',
       'cols': 3,
       'rows': 7,
       'x': 9,

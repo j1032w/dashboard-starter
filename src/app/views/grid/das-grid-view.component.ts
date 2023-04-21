@@ -58,5 +58,8 @@ export class DasGridViewComponent extends DasComponentBase implements OnInit{
     this.gridComponent.showColumnChooser();
   }
 
+  export(){
+    this.gridComponent.export();
+  }
 
 }

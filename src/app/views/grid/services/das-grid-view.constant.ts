@@ -125,7 +125,7 @@ export const GRID_VIEW_COLUMNS: DasGridColumnInterface[] = [
 
   {
     dataField: 'listedTime',
-    caption: 'Listed Time',
+    caption: 'Listed Date',
     dataType: DasGridColumnTypeEnum.Date
   }
 

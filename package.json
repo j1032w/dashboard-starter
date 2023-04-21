@@ -42,6 +42,9 @@
     "jszip": "^3.10.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
+    "file-saver-es": "^2.0.5",
+    "exceljs": "^4.3.0",
+    "file-saver": "^2.0.5",
     "moment-timezone": "^0.5.41",
     "ng-animate": "^2.0.1",
     "ngx-bootstrap": "^10.2.0",
@@ -55,7 +58,7 @@
     "socket.io-parser": "^4.2.2",
     "tslib": "^2.5.0",
     "web-animations-js": "^2.3.2",
-    "zone.js": "^0.12.0"   
+    "zone.js": "^0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.1",
@@ -73,9 +76,10 @@
     "@types/jest": "^29.5.0",
     "@types/jest-when": "^3.5.2",
     "@types/lodash": "^4.14.191",
-    "@types/node": "^18.15.5",
+    "@types/node": "^18.15.13",
     "@typescript-eslint/eslint-plugin": "5.56.0",
     "@typescript-eslint/parser": "5.56.0",
+    "@types/file-saver": "^2.0.5",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-import": "^2.27.5",

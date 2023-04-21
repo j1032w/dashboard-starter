@@ -1,9 +1,7 @@
 <dx-data-grid #gridComponent
               [width]="width"
               [height]="height"
-
               [dataSource]="dataSource"
-
               [keyExpr]="keyExpr"
               [allowColumnResizing]="true"
               [cellHintEnabled]="true"
@@ -16,9 +14,7 @@
               [showColumnHeaders]="true"
               [showColumnLines]="true"
               [allowColumnReordering]="true"
-              noDataText="No Data"
-
->
+              noDataText="No Data">
   <dxo-filter-row [visible]="true"></dxo-filter-row>
 
   <dxi-column *ngFor="let column of columns"
@@ -48,6 +44,8 @@
 
   <dxo-header-filter [visible]="isHeaderFilterVisible"></dxo-header-filter>
   <dxo-filter-row [visible]="isFilterRowVisible"></dxo-filter-row>
+  <dxo-filter-panel [visible]="isFilterRowVisible"></dxo-filter-panel>
+
   <dxo-scrolling [mode]="'virtual'" showScrollbar="always"></dxo-scrolling>
   <dxo-state-storing [enabled]="false" type="localStorage" storageKey="storage"></dxo-state-storing>
   <dxo-search-panel [visible]="false"></dxo-search-panel>
@@ -55,10 +53,6 @@
   <dxo-sorting mode="multiple"></dxo-sorting>
 
   <dxo-selection *ngIf="isAllowSelect"
-                 [allowSelectAll]="true"
-                 showCheckBoxesMode="always"
-                 selectAllMode="allPages"
-                 mode="multiple"
-  ></dxo-selection>
+                 mode="multiple"></dxo-selection>
 </dx-data-grid>
 
