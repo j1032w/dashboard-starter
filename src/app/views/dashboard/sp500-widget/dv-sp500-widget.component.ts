@@ -1,9 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { DasDashboardCoreService } from '../../../common/components/dashboard-core/services/das-dashboard-core.service';
 import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DasChartSp500Service } from '../../common/sp500-chart/das-chart-sp500.service';
-import { DvSp500WidgetPieComponent } from './dv-sp500-widget-pie/dv-sp500-widget-pie.component';
 
 @Component({
   selector: 'das-dv-widget-sp500',

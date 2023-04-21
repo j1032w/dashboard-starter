@@ -54,4 +54,5 @@ export interface WidgetDefinitionInterface {
   type: Type<DasWidgetBase>;
   cols: number,
   rows: number,
+  isShowFlipButton?: boolean;
 }

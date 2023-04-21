@@ -4,9 +4,10 @@
     id="chart"
     [dataSource]="dataSource"
     [title]="chartService.title"
-
     palette="Harmony Light"
   >
+    <dxo-export [enabled]="true"></dxo-export>
+
     <dxi-value-axis name="averageClosingPrice" position="left" [tickInterval]="300">
     </dxi-value-axis>
 

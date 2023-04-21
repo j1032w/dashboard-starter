@@ -11,8 +11,9 @@ export class DasHttpClient extends DasServiceBaes {
 
   private readonly timeWindow = 2000; // 2 seconds
 
-
   private readonly cache: Map<string, any> = new Map<string, any>();
+
+
 
   constructor(
     private readonly httpClient: HttpClient,
@@ -22,6 +23,29 @@ export class DasHttpClient extends DasServiceBaes {
     super();
   }
 
+  getExternal$(url: string, spinnerId = '', isHandleError = true): Observable<any> {
+    const cachedResponse = this.getCacheResponse(url );
+    if (cachedResponse) {
+      return of(cachedResponse);
+    }
+
+    const cacheKey = this.buildCacheKey(url);
+    const headers = this.buildSpinnerHeader(spinnerId);
+
+    return this.httpClient.get(url, headers)
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+
+        tap(response => {
+          this.storeToCache(cacheKey, response);
+        }),
+
+        catchError((err: HttpErrorResponse) => {
+          return this.handleError(err, isHandleError);
+        })
+      )
+  }
+
 
   post$(
     url: string,
@@ -29,13 +53,12 @@ export class DasHttpClient extends DasServiceBaes {
     spinnerId = '',
     isHandleError = true
   ): Observable<any> {
-    const cacheKey = `${url}-${JSON.stringify(body)}`;
-
-    const cachedResponse = this.cache.get(cacheKey);
+    const cachedResponse = this.getCacheResponse(url, body );
     if (cachedResponse) {
       return of(cachedResponse);
     }
 
+    const cacheKey = this.buildCacheKey(url, body);
     const headers = this.buildSpinnerHeader(spinnerId);
 
     return this.httpClient.post(`${this.dasConfig.dasDataApi}${url}`, body, headers)
@@ -52,6 +75,14 @@ export class DasHttpClient extends DasServiceBaes {
       );
   }
 
+  private readonly getCacheResponse=(url: string, body?: any): any=> {
+    const cacheKey=this.buildCacheKey(url, body)
+    return  this.cache.get(cacheKey);
+  }
+
+  private readonly buildCacheKey=(url: string, body?: any): string=> {
+    return `${url}-${JSON.stringify(body)}`;
+  }
 
   private readonly storeToCache = (cacheKey: string, response: any) => {
     this.cache.set(cacheKey, response);

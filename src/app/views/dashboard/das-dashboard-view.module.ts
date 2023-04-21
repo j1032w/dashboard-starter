@@ -14,6 +14,7 @@ import { DvDemoBWidgetComponent } from './demo-widget-b/dv-demo-b-widget.compone
 import { DvDemoCWidgetComponent } from './demo-widget-c/dv-demo-c-widget.component';
 import { DvDemoDWidgetComponent } from './demo-widget-d/dv-demo-d-widget.component';
 import { DvHousingMarketWidgetModule } from './housing-market-widget/dv-housing-market-widget.module';
+import { DvLocWidgetModule } from './line-of-code-widget/dv-loc-widget.module';
 import { DvSP500WidgetModule } from './sp500-widget/dv-sp500-widget.module';
 
 
@@ -35,8 +36,9 @@ import { DvSP500WidgetModule } from './sp500-widget/dv-sp500-widget.module';
     DasDashboardCoreModule,
     DasHousingMarketQueryBuilderModule,
     DevExtremeModule,
-    DvSP500WidgetModule,
-    DvHousingMarketWidgetModule
+    DvHousingMarketWidgetModule,
+    DvLocWidgetModule,
+    DvSP500WidgetModule
 
   ],
   providers: []

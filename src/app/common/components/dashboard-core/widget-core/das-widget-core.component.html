@@ -4,6 +4,7 @@
       {{widgetOption.title}}</div>
     <div class="toolbar">
       <i-feather name="repeat" class="toolbar-button"
+                 *ngIf="widgetOption.isShowFlipButton"
                  pTooltip="Flip" tooltipPosition="bottom"
                  (click)="flip()"></i-feather>
 

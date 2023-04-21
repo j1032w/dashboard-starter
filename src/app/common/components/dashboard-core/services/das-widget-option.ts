@@ -30,8 +30,8 @@ export class DasWidgetOption {
     this.title = data?.title ?? '';
     this.settingData = data?.settingData ?? {};
     this.isMinimized = data?.isMinimized ?? false;
-    this.isShowRefreshButton = data?.isShowRefreshButton ?? false;
-    this.isShowFlipButton = data?.isShowFlipButton ?? false;
+    this.isShowRefreshButton = data?.isShowRefreshButton ?? true;
+    this.isShowFlipButton = data?.isShowFlipButton ?? true;
     this.isFrontShown = data?.isFrontShown ?? true;
     this.originalRows = this.rows;
 

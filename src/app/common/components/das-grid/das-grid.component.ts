@@ -26,7 +26,14 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
 
   @Input() keyExpr: string;
   @Input() isGroupPanelVisible = false;
+  @Input() isHeaderFilterVisible = true;
+  @Input() isFilterRowVisible = true;
+
+
   @Input() isAllowSelect = false;
+
+  @Input() fixedHeight:number;
+
 
   height = 400;
   width = 400;
@@ -55,7 +62,14 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
       take(1),
       map(() => {
         this.width = this.elementRef.nativeElement.clientWidth - 4;
-        this.height = this.elementRef.nativeElement.clientHeight - 4;
+
+        if(this.fixedHeight){
+          this.height = this.fixedHeight;
+
+        }else{
+          this.height = this.elementRef.nativeElement.clientHeight - 4;
+        }
+
         this.gridComponent.visible = true;
 
       })

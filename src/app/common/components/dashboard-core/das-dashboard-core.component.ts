@@ -117,6 +117,7 @@ export class DasDashboardCoreComponent implements OnInit {
         cols: $event.item.data.value.cols,
         rows: $event.item.data.value.rows,
         id: maxId + 1,
+        isShowFlipButton: $event.item.data.value.isShowFlipButton,
       }));
 
   }

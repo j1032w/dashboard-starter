@@ -1,0 +1,19 @@
+<das-widget-core #widgetCoreComponent class="h-100" [widgetOption]="widgetOption">
+
+  <ng-template #frontTemplate let-ctx>
+    <das-dv-loc-widget-pie [widgetOption]="ctx.widgetOption"
+                           [pieData]="dataSource"
+                           [total]="total"
+    ></das-dv-loc-widget-pie>
+
+  </ng-template>
+
+
+
+  <ng-template #settingTemplate let-ctx>
+    <das-widget-setting-core [widgetOption]="ctx.widgetOption"></das-widget-setting-core>
+  </ng-template>
+
+</das-widget-core>
+
+<das-spinner [spinnerId]="spinnerId"></das-spinner>

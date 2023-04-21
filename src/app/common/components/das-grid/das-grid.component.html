@@ -46,7 +46,8 @@
     {{ data.value | currency }}
   </div>
 
-  <dxo-header-filter [visible]="true"></dxo-header-filter>
+  <dxo-header-filter [visible]="isHeaderFilterVisible"></dxo-header-filter>
+  <dxo-filter-row [visible]="isFilterRowVisible"></dxo-filter-row>
   <dxo-scrolling [mode]="'virtual'" showScrollbar="always"></dxo-scrolling>
   <dxo-state-storing [enabled]="false" type="localStorage" storageKey="storage"></dxo-state-storing>
   <dxo-search-panel [visible]="false"></dxo-search-panel>
