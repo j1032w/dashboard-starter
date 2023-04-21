@@ -3,7 +3,7 @@ export class DasWidgetOption {
   rows: number;
   x: number;
   y: number;
-  readonly hasContent = true;
+  hasContent:boolean = true;
 
   id: number;
   isMinimized: boolean;
