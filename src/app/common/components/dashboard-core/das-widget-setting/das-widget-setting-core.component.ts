@@ -1,7 +1,7 @@
 import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DasComponentBase } from '../../das-component-base.component';
-import { DasDashboardCoreService } from '../services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 import { DasWidgetOption } from '../services/das-widget-option';
 
 
@@ -23,7 +23,7 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
 
   constructor(
     protected readonly formBuilder: FormBuilder,
-    protected readonly dashboardCoreService: DasDashboardCoreService
+    protected readonly dashboardCoreService: DasDashboardCoreEventService
   ) {
     super();
 

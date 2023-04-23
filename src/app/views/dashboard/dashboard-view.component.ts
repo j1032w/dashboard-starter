@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DasComponentBase } from '../../common/components/das-component-base.component';
-import { DasDashboardCoreService } from '../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../../common/components/dashboard-core/services/das-dashboard-core-event.service';
+
 import { DasWidgetOption } from '../../common/components/dashboard-core/services/das-widget-option';
 import { DvDemoAWidgetComponent } from './demo-widget-a/dv-demo-a-widget.component';
 import { DvDemoBWidgetComponent } from './demo-widget-b/dv-demo-b-widget.component';
@@ -14,15 +15,14 @@ import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component
 @Component({
   selector: 'das-dashboard-view',
   templateUrl: './dashboard-view.component.html',
-  styleUrls: ['./dashboard-view.component.scss'],
-  providers: [DasDashboardCoreService]
+  styleUrls: ['./dashboard-view.component.scss']
 })
 export class DashboardViewComponent extends DasComponentBase {
 
   defaultWidgetOptions: DasWidgetOption[] = [];
 
 
-  constructor(private readonly dasDashboardService: DasDashboardCoreService
+  constructor(private readonly dasDashboardService: DasDashboardCoreEventService
   ) {
     super();
 
@@ -104,16 +104,17 @@ export class DashboardViewComponent extends DasComponentBase {
       'isSettingModalVisible': false,
       'title': 'Sp500 Annual Returns',
       'cols': 5,
-      'rows': 8,
+      'rows': 9,
       'x': 4,
       'y': 0,
       'id': 0,
       'widgetClassName': 'DvSp500WidgetComponent',
       'settingData': { 'isTitleVisible': false },
       'isMinimized': false,
+      'isShowRefreshButton': true,
+      'isShowFlipButton': true,
       'isFrontShown': true
-    },
-      {
+    }, {
       'hasContent': true,
       'originalRows': 5,
       'isSettingModalVisible': false,
@@ -121,29 +122,31 @@ export class DashboardViewComponent extends DasComponentBase {
       'cols': 2,
       'rows': 5,
       'x': 0,
-      'y': 8,
+      'y': 9,
       'id': 1,
       'widgetClassName': 'DvDemoAWidgetComponent',
       'settingData': {},
       'isMinimized': false,
+      'isShowRefreshButton': true,
+      'isShowFlipButton': true,
       'isFrontShown': true
-    },
-      {
+    }, {
       'hasContent': true,
-      'originalRows': 7,
+      'originalRows': 6,
       'isSettingModalVisible': false,
       'title': 'Widget C',
       'cols': 3,
-      'rows': 6,
+      'rows': 7,
       'x': 9,
       'y': 7,
-      'id': 4,
+      'id': 2,
       'widgetClassName': 'DvDemoCWidgetComponent',
       'settingData': {},
       'isMinimized': false,
+      'isShowRefreshButton': true,
+      'isShowFlipButton': true,
       'isFrontShown': true
-    },
-      {
+    }, {
       'hasContent': true,
       'originalRows': 5,
       'isSettingModalVisible': false,
@@ -151,45 +154,31 @@ export class DashboardViewComponent extends DasComponentBase {
       'cols': 3,
       'rows': 5,
       'x': 2,
-      'y': 8,
-      'id': 5,
+      'y': 9,
+      'id': 3,
       'widgetClassName': 'DvDemoAWidgetComponent',
       'settingData': {},
       'isMinimized': false,
+      'isShowRefreshButton': true,
+      'isShowFlipButton': true,
       'isFrontShown': true
-    },
-      {
+    }, {
       'hasContent': true,
-      'originalRows': 5,
+      'originalRows': 7,
       'isSettingModalVisible': false,
       'title': 'Dashboard Starter UI LOC',
       'cols': 3,
       'rows': 7,
       'x': 9,
       'y': 0,
-      'id': 7,
+      'id': 4,
       'widgetClassName': 'DvLocWidgetComponent',
+      'settingData': {},
+      'isMinimized': false,
+      'isShowRefreshButton': true,
       'isShowFlipButton': false,
-      'settingData': {},
-      'isMinimized': false,
       'isFrontShown': true
-    },
-      {
-      'hasContent': true,
-      'originalRows': 9,
-      'isSettingModalVisible': false,
-      'title': 'Housing Market',
-      'cols': 4,
-      'rows': 8,
-      'x': 0,
-      'y': 0,
-      'id': 8,
-      'widgetClassName': 'DvDemoBWidgetComponent',
-      'settingData': {},
-      'isMinimized': false,
-      'isFrontShown': true
-    },
-      {
+    }, {
       'hasContent': true,
       'originalRows': 5,
       'isSettingModalVisible': false,
@@ -197,13 +186,29 @@ export class DashboardViewComponent extends DasComponentBase {
       'cols': 4,
       'rows': 5,
       'x': 5,
-      'y': 8,
-      'id': 9,
+      'y': 9,
+      'id': 6,
       'widgetClassName': 'DvDemoAWidgetComponent',
       'settingData': {},
       'isMinimized': false,
-
-
+      'isShowRefreshButton': true,
+      'isShowFlipButton': true,
+      'isFrontShown': true
+    }, {
+      'hasContent': true,
+      'originalRows': 9,
+      'isSettingModalVisible': false,
+      'title': 'Housing Market',
+      'cols': 4,
+      'rows': 9,
+      'x': 0,
+      'y': 0,
+      'id': 7,
+      'widgetClassName': 'DvDemoCWidgetComponent',
+      'settingData': {},
+      'isMinimized': false,
+      'isShowRefreshButton': true,
+      'isShowFlipButton': true,
       'isFrontShown': true
     }];
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { takeUntil } from 'rxjs';
-import { DasDashboardCoreService } from '../../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasHttpClient } from '../../../common/services/das-http-client';
 import { DasToastService } from '../../../common/services/das-toast.service';
@@ -18,7 +18,7 @@ export class DvLocWidgetComponent extends DasWidgetBase{
 
   total:any={};
 
-  constructor( protected override readonly dashboardCoreService: DasDashboardCoreService,
+  constructor( protected override readonly dashboardCoreService: DasDashboardCoreEventService,
                protected override readonly toastService: DasToastService,
                private readonly dasHttpClient :DasHttpClient) {
     super(dashboardCoreService, toastService);
@@ -35,7 +35,7 @@ export class DvLocWidgetComponent extends DasWidgetBase{
       'github=j1032w/dashboard-starter&branch=main&ignored=.js';
 
     this.dasHttpClient.getExternal$(url, this.spinnerId)
-      .pipe(takeUntil(this.ngUnsubscribe$))
+      .pipe(takeUntil(this.destroy$))
       .subscribe(response => {
         this.total = response.find((item:any)=>item.language==='Total');
 

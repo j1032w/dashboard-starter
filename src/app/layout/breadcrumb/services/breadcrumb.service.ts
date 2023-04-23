@@ -22,7 +22,7 @@ export class BreadcrumbService extends DasServiceBaes {
 
     this.router.events
       .pipe(
-        takeUntil(this.ngUnsubscribe),
+        takeUntil(this.destroy$),
         filter((event) => event instanceof NavigationEnd)
       )
       .subscribe((event) => {

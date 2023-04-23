@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DasDashboardCoreService } from '../../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DasChartSp500Service } from '../../common/sp500-chart/das-chart-sp500.service';
@@ -13,7 +13,7 @@ import { DasChartSp500Service } from '../../common/sp500-chart/das-chart-sp500.s
 export class DvSp500WidgetComponent extends DasWidgetBase {
 
   constructor(
-    protected override readonly dashboardCoreService: DasDashboardCoreService,
+    protected override readonly dashboardCoreService: DasDashboardCoreEventService,
     protected override readonly toastService: DasToastService,
     private readonly chartSp500Service: DasChartSp500Service
   ) {

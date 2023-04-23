@@ -18,13 +18,18 @@ https://www.j1032.com/dashboard
 # What I've got here
 - Built on Angular, Typescript, SCSS, RxJS, [Angular Material CDK](https://material.angular.io/cdk/categories) and [Bootstrap](https://getbootstrap.com/)
 - Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compile
-- Module lazy loading, RxJS Http cache, Responsive design, SVG Icons
+- Module lazy loading, HTTP reqeust cache, Responsive design, SVG Icons
 - Unit testing with [Jest](https://jestjs.io/)
 - Dockerized application
 - Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)
 - MIT License
 
-You will need to adjust the code to fit your specific needs, and I hope that this project can give you a good starting point.
+
+I hope that this project can give you a good starting point. 
+If you find value in this project, \
+please consider supporting its development by making a donation.\
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)👈🏻👈🏻👈🏻
+
 
 
 # Quick start
@@ -48,7 +53,7 @@ yarn test
 ### Deployment
 1. Running container, fetch image form Google cloud Artifact Registry.
 ```
-docker run -d --pull=always -p 4201:80 --name=dashboard-starter-ui  northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/dashboard-starter-ui:develop
+docker run -d --pull=always -p 4201:80 --name=das-ui  northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/das-ui:develop
 ```
 2. Navigate to http://localhost:4201
 
@@ -64,9 +69,9 @@ docker compose up -d
 ### Build container with Docker cli
 
 ```
-docker image build --progress=plain --tag dashboard-starter-ui:develop 
+docker image build --progress=plain --tag das-ui:develop 
 
-docker container run -d -p 4201:80 --rm dashboard-starter-ui:develop
+docker container run -d -p 4201:80 --rm das-ui:develop
 ```  
 
 

@@ -6,14 +6,9 @@
           (onHide)="onHide()"
           appendTo="body">
 
-  <ng-scrollbar>
+  <ng-template *ngTemplateOutlet="contentTemplate || defaultTemplate">
 
-    <ng-template *ngTemplateOutlet="contentTemplate || defaultTemplate">
-
-    </ng-template>
-
-  </ng-scrollbar>
-
+  </ng-template>
 
   <ng-template pTemplate="footer">
     <button class="btn btn-primary" (click)="applySetting()">Apply</button>

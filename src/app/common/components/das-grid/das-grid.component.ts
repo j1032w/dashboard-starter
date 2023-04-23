@@ -49,7 +49,7 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
 
   ngOnInit() {
     this.setGridDimension$()
-      .pipe(takeUntil(this.ngUnsubscribe$))
+      .pipe(takeUntil(this.destroy$))
       .subscribe();
   }
 
@@ -84,7 +84,7 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
   readonly repaint = () => {
     return this.setGridDimension$()
       .pipe(
-        takeUntil(this.ngUnsubscribe$),
+        takeUntil(this.destroy$),
         map((height) => {
           this.gridComponent.instance.repaint();
         })

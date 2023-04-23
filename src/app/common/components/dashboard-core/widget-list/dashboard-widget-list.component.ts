@@ -1,6 +1,6 @@
 import { CDK_DRAG_CONFIG } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
-import { DasDashboardCoreService } from '../services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 
 @Component({
   selector: 'das-dashboard-widget-list',
@@ -11,7 +11,7 @@ import { DasDashboardCoreService } from '../services/das-dashboard-core.service'
 export class DashboardWidgetListComponent {
 
 
-  constructor(public readonly dashboardService: DasDashboardCoreService) {
+  constructor(public readonly dashboardService: DasDashboardCoreEventService) {
   }
 
 

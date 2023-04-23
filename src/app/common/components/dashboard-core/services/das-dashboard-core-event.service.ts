@@ -1,28 +1,28 @@
 import { Injectable, Type } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { DasDashboardEventInterface, DasDashboardEventTypeEnum } from './das-dashboard-event-interface';
+import { DasDashboardMessage, DasDashboardEventTypeEnum } from './das-dashboard-message';
 import { DasWidgetBase } from './das-widget-base.component';
 import { DasWidgetOption } from './das-widget-option';
 
 
 @Injectable({ providedIn: 'root' })
-export class DasDashboardCoreService {
+export class DasDashboardCoreEventService {
 
 
   // name is used in the widget list
-  widgetMap: Map<string, WidgetDefinitionInterface  > = new Map();
+  widgetMap: Map<string, WidgetDefinitionInterface> = new Map();
 
 
   widgetOptions: DasWidgetOption[];
 
   isSettingVisible = false;
 
-  dashboardEvent$: Observable<DasDashboardEventInterface>;
+  dashboardEvent$: Observable<DasDashboardMessage>;
 
-  private dashboardEventSubject$: Subject<DasDashboardEventInterface>;
+  private dashboardEventSubject$: Subject<DasDashboardMessage>;
 
   constructor() {
-    this.dashboardEventSubject$ = new Subject<DasDashboardEventInterface>();
+    this.dashboardEventSubject$ = new Subject<DasDashboardMessage>();
     this.dashboardEvent$ = this.dashboardEventSubject$.asObservable();
   }
 
@@ -32,16 +32,21 @@ export class DasDashboardCoreService {
 
 
   readonly emitWidgetSettingChanged = (widgetOption: DasWidgetOption) => {
-    this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetSettingChanged);
+    this.emitDashboardEvent( DasDashboardEventTypeEnum.WidgetSettingChanged, widgetOption);
   };
 
   readonly emitWidgetResized = (widgetOption: DasWidgetOption) => {
-    this.emitDashboardEvent(widgetOption, DasDashboardEventTypeEnum.WidgetResized);
+    this.emitDashboardEvent(DasDashboardEventTypeEnum.WidgetResized,widgetOption);
+  };
+
+
+  readonly emitResized = () => {
+    this.emitDashboardEvent(DasDashboardEventTypeEnum.Resized);
   };
 
 
   private readonly emitDashboardEvent =
-    (widgetOption: DasWidgetOption, eventType: DasDashboardEventTypeEnum) => {
+    (eventType: DasDashboardEventTypeEnum, widgetOption?: DasWidgetOption) => {
     this.dashboardEventSubject$.next({
       widgetOption,
       eventType

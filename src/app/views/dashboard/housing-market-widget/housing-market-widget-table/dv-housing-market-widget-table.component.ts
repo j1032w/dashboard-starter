@@ -6,8 +6,8 @@ import {
   DasGridColumnTypeEnum
 } from '../../../../common/components/das-grid/services/das-grid-column-interface';
 import {
-  DasDashboardCoreService
-} from '../../../../common/components/dashboard-core/services/das-dashboard-core.service';
+  DasDashboardCoreEventService
+} from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBase } from '../../../../common/components/dashboard-core/services/das-widget-content-base';
 import { BuildingTypePercentageInterface } from '../services/dv-housing-market.service';
 
@@ -42,7 +42,7 @@ export class DvHousingMarketWidgetTableComponent extends DasWidgetContentBase {
 
   constructor(
     protected override readonly elementRef: ElementRef,
-    protected override readonly dashboardCoreService: DasDashboardCoreService
+    protected override readonly dashboardCoreService: DasDashboardCoreEventService
   ) {
     super(elementRef, dashboardCoreService);
 

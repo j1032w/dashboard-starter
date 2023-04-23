@@ -1,6 +1,6 @@
-import { CompactType, DisplayGrid, GridType } from 'angular-gridster2';
+import { DisplayGrid, GridType } from 'angular-gridster2';
 
-export const GRIDSTER_OPTIONS={
+export const GRIDSTER_OPTIONS = {
   swap: true,
   pushItems: true,
   pushDirections: { north: true, east: true, south: true, west: true },
@@ -32,4 +32,4 @@ export const GRIDSTER_OPTIONS={
 
     }
   }
-}
+};

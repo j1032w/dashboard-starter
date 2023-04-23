@@ -1,7 +1,7 @@
 import { CdkAccordionItem } from '@angular/cdk/accordion';
 import { Component } from '@angular/core';
 import { matExpansionAnimations } from '@angular/material/expansion';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { DasComponentBase } from '../../common/components/das-component-base.component';
 
 import { DasSidebarItem, SidebarItemTypeEnum } from './services/das-sidebar-item';
@@ -23,15 +23,13 @@ export class DasSidebarComponent extends DasComponentBase {
 
   constructor(
     public readonly sidebarService: DasSidebarService,
-    public readonly router: Router,
-    private readonly activatedRoute: ActivatedRoute
+    public readonly router: Router
   ) {
     super();
   }
 
 
   toggleAccordionItem(accordionItemComponent: CdkAccordionItem, sidebarItem: DasSidebarItem) {
-
     // Menu item itself doesn't trigger navigation
     if (sidebarItem.type !== SidebarItemTypeEnum.WithChildTemplate) {
       accordionItemComponent.toggle();

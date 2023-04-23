@@ -5,11 +5,11 @@ import {Subject} from 'rxjs';
   template: ''
 })
 export abstract class DasComponentBase implements OnDestroy{
-  protected readonly ngUnsubscribe$ = new Subject();
+  protected readonly destroy$ = new Subject();
 
   ngOnDestroy() {
-    this.ngUnsubscribe$.next(null);
-    this.ngUnsubscribe$.complete();
+    this.destroy$.next(null);
+    this.destroy$.complete();
   }
 
 }

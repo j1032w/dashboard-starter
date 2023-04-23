@@ -1,14 +1,15 @@
 import { DasWidgetOption } from './das-widget-option';
 
 
-export interface DasDashboardEventInterface {
+export interface DasDashboardMessage {
   eventType: DasDashboardEventTypeEnum;
-  widgetOption: DasWidgetOption;
+  widgetOption?: DasWidgetOption;
 }
 
 
 export enum DasDashboardEventTypeEnum {
   WidgetResized,
   WidgetSettingChanged,
-  WidgetSettingModalVisibleChanged
+  WidgetSettingModalVisibleChanged,
+  Resized
 }

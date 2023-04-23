@@ -3,7 +3,7 @@ import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
 import { flipInY } from 'ng-animate';
 import { interval, take, takeUntil } from 'rxjs';
 import { DasComponentBase } from '../../das-component-base.component';
-import { DasDashboardCoreService } from '../services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 import { DasWidgetOption } from '../services/das-widget-option';
 
 
@@ -44,7 +44,7 @@ export class DasWidgetCoreComponent extends DasComponentBase {
 
   isSettingVisible = false;
 
-  constructor(public readonly dashboardService: DasDashboardCoreService) {
+  constructor(public readonly dashboardService: DasDashboardCoreEventService) {
     super();
   }
 
@@ -54,7 +54,7 @@ export class DasWidgetCoreComponent extends DasComponentBase {
 
     // wait for the animation to complete
     interval(2000).pipe(
-      takeUntil(this.ngUnsubscribe$),
+      takeUntil(this.destroy$),
       take(1)
     )
       .subscribe(() => {

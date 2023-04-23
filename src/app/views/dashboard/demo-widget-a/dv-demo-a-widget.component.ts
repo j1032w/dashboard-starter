@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DasDashboardCoreService } from '../../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import {DasToastService } from '../../../common/services/das-toast.service';
 
@@ -12,7 +12,7 @@ export class DvDemoAWidgetComponent extends DasWidgetBase {
   @Input() frontText = 'A';
   @Input() backText = 'A Back';
 
-  constructor(protected override readonly dashboardCoreService: DasDashboardCoreService,
+  constructor(protected override readonly dashboardCoreService: DasDashboardCoreEventService,
               protected override readonly toastService:DasToastService) {
     super(dashboardCoreService, toastService);
   }

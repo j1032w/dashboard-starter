@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DxChartComponent } from 'devextreme-angular';
-import { DasDashboardCoreService } from '../../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBase } from '../../../common/components/dashboard-core/services/das-widget-content-base';
 import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.service';
 
@@ -16,7 +16,7 @@ export class DasChartSp500Component extends DasWidgetContentBase {
 
   constructor(
     protected override readonly elementRef: ElementRef,
-    protected override readonly dashboardCoreService: DasDashboardCoreService,
+    protected override readonly dashboardCoreService: DasDashboardCoreEventService,
     public readonly chartService: DasChartSp500Service
   ) {
     super(elementRef, dashboardCoreService);

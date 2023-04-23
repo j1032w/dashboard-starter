@@ -1,14 +1,34 @@
-version: '3.4'
+version: '3.7'
 
 services:
-  dashboard-starter-ui:
-    container_name: dashboard-starter-ui
-    image: ${IMAGE:-dashboard-starter-ui}:${TAG:-develop}
+  das_ui:
+    container_name: das_ui
+    image: ${DAS_UI_IMAGE:-das-ui}:${TAG:-develop}
 
     build:
       context: .
       dockerfile: Dockerfile
 
+    volumes:
+      - nginx_config:/etc/nginx
+      - nginx_html:/usr/share/nginx/html
+
+    networks:
+        - das_network
 
     ports:
-      - 4201:80
+      - "4201:80"
+
+
+
+volumes:
+  nginx_config:
+  nginx_html:
+  mongodb_data:
+  mongodb_config:
+
+
+networks:
+  das_network:
+    name: das_network
+    driver: bridge

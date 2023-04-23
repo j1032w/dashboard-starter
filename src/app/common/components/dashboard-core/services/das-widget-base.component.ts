@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { filter, takeUntil } from 'rxjs';
 import { DasToastService } from '../../../services/das-toast.service';
 import { DasComponentBase } from '../../das-component-base.component';
-import { DasDashboardCoreService } from './das-dashboard-core.service';
-import { DasDashboardEventInterface, DasDashboardEventTypeEnum } from './das-dashboard-event-interface';
+import { DasDashboardCoreEventService } from './das-dashboard-core-event.service';
+import { DasDashboardMessage, DasDashboardEventTypeEnum } from './das-dashboard-message';
 import { DasWidgetOption } from './das-widget-option';
 
 
@@ -15,7 +15,7 @@ export class DasWidgetBase extends DasComponentBase implements OnInit {
 
 
   constructor(
-    protected readonly dashboardCoreService: DasDashboardCoreService,
+    protected readonly dashboardCoreService: DasDashboardCoreEventService,
     protected readonly toastService: DasToastService
   ) {
     super();
@@ -24,9 +24,9 @@ export class DasWidgetBase extends DasComponentBase implements OnInit {
   ngOnInit() {
     this.dashboardCoreService.dashboardEvent$
       .pipe(
-        takeUntil(this.ngUnsubscribe$),
-        filter((data: DasDashboardEventInterface) =>
-          data.widgetOption.id === this.widgetOption.id &&
+        takeUntil(this.destroy$),
+        filter((data: DasDashboardMessage) =>
+          data?.widgetOption?.id === this.widgetOption.id &&
           data.eventType === DasDashboardEventTypeEnum.WidgetSettingChanged
         )
       )

@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DasToastService } from '../../../services/das-toast.service';
 import { CommonTestConfig } from '../../../test-services/common-test-config';
 import { DasDashboardCoreModule } from '../das-dashboard-core.module';
-import { DasDashboardCoreService } from '../services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 import { DasWidgetBase } from '../services/das-widget-base.component';
 import { DasWidgetOption } from '../services/das-widget-option';
 
@@ -21,7 +21,7 @@ export class TestWidgetComponent extends DasWidgetBase {
   @Input() backText = 'A Back';
 
   constructor(
-    protected override readonly dashboardCoreService: DasDashboardCoreService,
+    protected override readonly dashboardCoreService: DasDashboardCoreEventService,
     protected override readonly toastService: DasToastService
   ) {
     super(dashboardCoreService, toastService);
@@ -55,7 +55,7 @@ class ParentComponent {
 
 describe('DasWidgetDynamicLoaderDirective', () => {
   let fixture: ComponentFixture<ParentComponent>;
-  let dashboardCoreService: DasDashboardCoreService;
+  let dashboardCoreService: DasDashboardCoreEventService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -65,7 +65,7 @@ describe('DasWidgetDynamicLoaderDirective', () => {
       .compileComponents();
 
 
-    dashboardCoreService = TestBed.inject(DasDashboardCoreService);
+    dashboardCoreService = TestBed.inject(DasDashboardCoreEventService);
     dashboardCoreService.widgetMap.set(
       'TestWidgetComponent', {
         name:'test widget',

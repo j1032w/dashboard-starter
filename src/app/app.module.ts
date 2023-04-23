@@ -30,9 +30,9 @@ import { DasGridViewModule } from './views/grid/das-grid-view.module';
     DasGridViewModule,
     DasLayoutModule,
     HttpClientModule
-
-
   ],
+
+
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: DasSpinnerInterceptorService,

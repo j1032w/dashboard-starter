@@ -41,7 +41,9 @@
     ]
   },
   "angularCompilerOptions": {
-    "compilationMode": "partial",
+    "enableIvy": false,
+    "fullTemplateTypeCheck": true,
+    "compilationMode": "full",
     "annotateForClosureCompiler": true,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

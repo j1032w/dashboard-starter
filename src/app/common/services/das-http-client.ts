@@ -34,7 +34,7 @@ export class DasHttpClient extends DasServiceBaes {
 
     return this.httpClient.get(url, headers)
       .pipe(
-        takeUntil(this.ngUnsubscribe),
+        takeUntil(this.destroy$),
 
         tap(response => {
           this.storeToCache(cacheKey, response);
@@ -63,7 +63,7 @@ export class DasHttpClient extends DasServiceBaes {
 
     return this.httpClient.post(`${this.dasConfig.dasDataApi}${url}`, body, headers)
       .pipe(
-        takeUntil(this.ngUnsubscribe),
+        takeUntil(this.destroy$),
 
         tap(response => {
           this.storeToCache(cacheKey, response);
@@ -88,7 +88,7 @@ export class DasHttpClient extends DasServiceBaes {
     this.cache.set(cacheKey, response);
 
     timer(this.timeWindow)
-      .pipe(takeUntil(this.ngUnsubscribe))
+      .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
         this.cache.delete(cacheKey);
       });

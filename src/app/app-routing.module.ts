@@ -37,10 +37,10 @@ const routes: Routes = [
 
       }
     ]
-  }
+  },
 
 
-  //{path: '**', redirectTo: '/dashboard', pathMatch: 'full', data: { label: "Home"}}
+  {path: '**', redirectTo: '/dashboard', pathMatch: 'full', data: { label: "Home"}}
 
 ];
 

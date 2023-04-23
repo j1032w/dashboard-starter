@@ -18,7 +18,7 @@ export class DvHousingMarketService extends DasServiceBaes {
   readonly getHomeTypePercentages$ = (query: MongoQuery): Observable<any> => {
     return this.housingMarketRepository.query$(query, HOUSE_MARKET_WIDGET_SPINNER_ID)
       .pipe(
-        takeUntil(this.ngUnsubscribe),
+        takeUntil(this.destroy$),
         map((data: any[]) => {
           const apartmentPercentage: BuildingTypePercentageInterface =
             { buildingType: BuildingTypeEnum.Apartment, total: 0 };

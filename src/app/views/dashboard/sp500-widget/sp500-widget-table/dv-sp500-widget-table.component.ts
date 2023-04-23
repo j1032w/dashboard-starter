@@ -5,8 +5,8 @@ import {
   DasGridColumnTypeEnum
 } from '../../../../common/components/das-grid/services/das-grid-column-interface';
 import {
-  DasDashboardCoreService
-} from '../../../../common/components/dashboard-core/services/das-dashboard-core.service';
+  DasDashboardCoreEventService
+} from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBase } from '../../../../common/components/dashboard-core/services/das-widget-content-base';
 import { DasChartSp500Service, Sp500AnnualHistory } from '../../../common/sp500-chart/das-chart-sp500.service';
 
@@ -41,7 +41,7 @@ export class DvSp500WidgetTableComponent extends DasWidgetContentBase {
 
   constructor(
     protected override readonly elementRef: ElementRef,
-    protected override readonly dashboardCoreService: DasDashboardCoreService,
+    protected override readonly dashboardCoreService: DasDashboardCoreEventService,
     private readonly sp500Service: DasChartSp500Service
   ) {
     super(elementRef, dashboardCoreService);

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { takeUntil } from 'rxjs';
-import { DasDashboardCoreService } from '../../../common/components/dashboard-core/services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/dv-housing-market-widget-pie.component';
@@ -24,7 +24,7 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
   dataSource: BuildingTypePercentageInterface[] = [];
 
   constructor(
-    protected override readonly dashboardCoreService: DasDashboardCoreService,
+    protected override readonly dashboardCoreService: DasDashboardCoreEventService,
     protected override readonly toastService: DasToastService,
     protected readonly housingMarketService: DvHousingMarketService
   ) {
@@ -36,7 +36,7 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
     super.ngOnInit();
 
     this.housingMarketService.getHomeTypePercentages$(this.widgetOption.settingData.mongoQuery)
-      .pipe(takeUntil(this.ngUnsubscribe$)).subscribe(data => {
+      .pipe(takeUntil(this.destroy$)).subscribe(data => {
         this.dataSource = data;
       }
     );
@@ -45,7 +45,7 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
 
   protected override readonly refresh = () => {
     this.housingMarketService.getHomeTypePercentages$({ filter: this.widgetOption.settingData.mongoQuery })
-      .pipe(takeUntil(this.ngUnsubscribe$)).subscribe(data => {
+      .pipe(takeUntil(this.destroy$)).subscribe(data => {
       this.dataSource = data;
     });
   };

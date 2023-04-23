@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import {
-  DasDashboardCoreService
-} from '../../../../common/components/dashboard-core/services/das-dashboard-core.service';
+  DasDashboardCoreEventService
+} from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetSettingBase } from '../../../../common/components/dashboard-core/services/das-widget=setting-base';
 import { DasChartSp500Service } from '../../../common/sp500-chart/das-chart-sp500.service';
 
@@ -14,7 +14,7 @@ import { DasChartSp500Service } from '../../../common/sp500-chart/das-chart-sp50
 export class DvSp500WidgetSettingComponent extends DasWidgetSettingBase {
 
   constructor(
-    private readonly dashboardCoreService: DasDashboardCoreService,
+    private readonly dashboardCoreService: DasDashboardCoreEventService,
     protected override readonly formBuilder: FormBuilder,
     private readonly chartService: DasChartSp500Service
   ) {

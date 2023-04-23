@@ -3,12 +3,15 @@ import { GridsterComponent } from 'angular-gridster2';
 import * as _ from 'lodash';
 import { isArray } from 'lodash';
 import { ConfirmationService } from 'primeng/api';
+import { filter, takeUntil } from 'rxjs';
 import { DasConfig } from '../../services/das-config';
 import { DasLocalStorageService } from '../../services/das-local-storage.service';
 import { DasToastService } from '../../services/das-toast.service';
+import { DasComponentBase } from '../das-component-base.component';
 
 import { GRIDSTER_OPTIONS } from './services/das-dashboard-constant';
-import { DasDashboardCoreService } from './services/das-dashboard-core.service';
+import { DasDashboardCoreEventService } from './services/das-dashboard-core-event.service';
+import { DasDashboardEventTypeEnum } from './services/das-dashboard-message';
 import { DasWidgetOption } from './services/das-widget-option';
 
 
@@ -19,7 +22,7 @@ import { DasWidgetOption } from './services/das-widget-option';
   providers: [ConfirmationService]
 })
 
-export class DasDashboardCoreComponent implements OnInit {
+export class DasDashboardCoreComponent extends DasComponentBase implements OnInit {
   @Input() defaultWidgetOptions: DasWidgetOption[] = [];
 
   widgetOptions: DasWidgetOption[] = [];
@@ -31,12 +34,13 @@ export class DasDashboardCoreComponent implements OnInit {
   private readonly localStorageWidgetOptionsKey;
 
   constructor(
-    public readonly dashboardCoreService: DasDashboardCoreService,
+    public readonly dashboardCoreService: DasDashboardCoreEventService,
     private readonly confirmationService: ConfirmationService,
     private readonly dasConfig: DasConfig,
     private readonly dasLocalStorage: DasLocalStorageService,
     private readonly toastService: DasToastService
   ) {
+    super();
     this.gridsterOptions.itemResizeCallback = this.itemResizeCallback;
     this.localStorageWidgetOptionsKey = this.dasConfig.localStorageWidgetOptionsKey;
   }
@@ -45,6 +49,17 @@ export class DasDashboardCoreComponent implements OnInit {
   ngOnInit() {
     this.getSetting();
     this.dashboardCoreService.widgetOptions = this.widgetOptions;
+
+    this.dashboardCoreService.dashboardEvent$
+      .pipe(
+        takeUntil(this.destroy$),
+        filter(event => event.eventType === DasDashboardEventTypeEnum.Resized)
+      )
+      .subscribe((event) => {
+        // Waiting for animation to complete, and then force gridster to recalculate the size
+        setTimeout(   this.gridsterComponent.optionsChanged, 500);
+
+      });
   }
 
   itemResizeCallback = (gridsterItem: any, _gridsterItemComponent: any) => {
@@ -106,8 +121,7 @@ export class DasDashboardCoreComponent implements OnInit {
     if (!componentType) return;
 
 
-
-    const maxId = _.maxBy(this.widgetOptions, 'id')?.id ?? 0
+    const maxId = _.maxBy(this.widgetOptions, 'id')?.id ?? 0;
     this.widgetOptions.push(
       new DasWidgetOption({
         widgetClassName: $event.item.data.key.toString(),
@@ -117,7 +131,7 @@ export class DasDashboardCoreComponent implements OnInit {
         cols: $event.item.data.value.cols,
         rows: $event.item.data.value.rows,
         id: maxId + 1,
-        isShowFlipButton: $event.item.data.value.isShowFlipButton,
+        isShowFlipButton: $event.item.data.value.isShowFlipButton
       }));
 
   }
