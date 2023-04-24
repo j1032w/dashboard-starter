@@ -1,58 +1,59 @@
-<dx-data-grid #gridComponent
-              [width]="width"
-              [height]="height"
-              [dataSource]="dataSource"
-              [keyExpr]="keyExpr"
-              [allowColumnResizing]="true"
-              [cellHintEnabled]="true"
-              [columnAutoWidth]="true"
-              [columnHidingEnabled]="false"
-              [columnMinWidth]="20"
-              [hoverStateEnabled]="true"
-              [rowAlternationEnabled]="true"
-              [showBorders]="true"
-              [showColumnHeaders]="true"
-              [showColumnLines]="true"
-              [allowColumnReordering]="true"
-              noDataText="No Data">
-  <dxo-filter-row [visible]="true"></dxo-filter-row>
+<div class="h-100 w-100" (resized)="onResized($event)">
+  <dx-data-grid #gridComponent
+                [height]="height"
+                [width]="width"
+                [dataSource]="dataSource"
+                [keyExpr]="keyExpr"
+                [allowColumnResizing]="true"
+                [cellHintEnabled]="true"
+                [columnAutoWidth]="true"
+                [columnHidingEnabled]="false"
+                [columnMinWidth]="20"
+                [hoverStateEnabled]="true"
+                [rowAlternationEnabled]="true"
+                [showBorders]="true"
+                [showColumnHeaders]="true"
+                [showColumnLines]="true"
+                [allowColumnReordering]="true"
+                noDataText="No Data">
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
 
-  <dxi-column *ngFor="let column of columns"
-              [dataField]="column.dataField"
-              [caption]="column.caption"
-              [width]="column.width"
-              [cellTemplate]="column.cellTemplate"
-              [dataType]="column.dataType"
-              [visible]="column.visible"
-  ></dxi-column>
+    <dxi-column *ngFor="let column of columns"
+                [dataField]="column.dataField"
+                [caption]="column.caption"
+                [width]="column.width"
+                [cellTemplate]="column.cellTemplate"
+                [dataType]="column.dataType"
+                [visible]="column.visible"
+    ></dxi-column>
 
-  <div *dxTemplate="let data of 'Percentage'" [title]="data.value | percent: '1.0-2'">
-    {{ data.value | percent: '1.0-2' }}
-  </div>
+    <div *dxTemplate="let data of 'Percentage'" [title]="data.value | percent: '1.0-2'">
+      {{ data.value | percent: '1.0-2' }}
+    </div>
 
-  <div *dxTemplate="let data of 'Integer'" [title]="data.value | number: '1.0-0'">
-    {{ data.value | number: '1.0-0' }}
-  </div>
+    <div *dxTemplate="let data of 'Integer'" [title]="data.value | number: '1.0-0'">
+      {{ data.value | number: '1.0-0' }}
+    </div>
 
-  <div *dxTemplate="let data of 'DecimalOptionalTwo'" [title]="data.value | number: '1.0-2'">
-    {{ data.value | number: '1.0-2' }}
-  </div>
+    <div *dxTemplate="let data of 'DecimalOptionalTwo'" [title]="data.value | number: '1.0-2'">
+      {{ data.value | number: '1.0-2' }}
+    </div>
 
-  <div *dxTemplate="let data of 'Currency'" [title]="data.value | currency">
-    {{ data.value | currency }}
-  </div>
+    <div *dxTemplate="let data of 'Currency'" [title]="data.value | currency">
+      {{ data.value | currency }}
+    </div>
 
-  <dxo-header-filter [visible]="isHeaderFilterVisible"></dxo-header-filter>
-  <dxo-filter-row [visible]="isFilterRowVisible"></dxo-filter-row>
-  <dxo-filter-panel [visible]="isFilterRowVisible"></dxo-filter-panel>
+    <dxo-header-filter [visible]="isHeaderFilterVisible"></dxo-header-filter>
+    <dxo-filter-row [visible]="isFilterRowVisible"></dxo-filter-row>
+    <dxo-filter-panel [visible]="isFilterRowVisible"></dxo-filter-panel>
 
-  <dxo-scrolling [mode]="'virtual'" showScrollbar="always"></dxo-scrolling>
-  <dxo-state-storing [enabled]="false" type="localStorage" storageKey="storage"></dxo-state-storing>
-  <dxo-search-panel [visible]="false"></dxo-search-panel>
-  <dxo-group-panel [visible]="isGroupPanelVisible"></dxo-group-panel>
-  <dxo-sorting mode="multiple"></dxo-sorting>
+    <dxo-scrolling [mode]="'virtual'" showScrollbar="always"></dxo-scrolling>
+    <dxo-state-storing [enabled]="false" type="localStorage" storageKey="storage"></dxo-state-storing>
+    <dxo-search-panel [visible]="false"></dxo-search-panel>
+    <dxo-group-panel [visible]="isGroupPanelVisible"></dxo-group-panel>
+    <dxo-sorting mode="multiple"></dxo-sorting>
 
-  <dxo-selection *ngIf="isAllowSelect"
-                 mode="multiple"></dxo-selection>
-</dx-data-grid>
-
+    <dxo-selection *ngIf="isAllowSelect"
+                   mode="multiple"></dxo-selection>
+  </dx-data-grid>
+</div>

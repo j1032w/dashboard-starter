@@ -1,7 +1,8 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
+import { Component, ContentChild, ElementRef, Input, OnInit, TemplateRef } from '@angular/core';
+import { ResizedEvent } from 'angular-resize-event';
 import { flipInY } from 'ng-animate';
-import { interval, take, takeUntil } from 'rxjs';
+import { debounceTime, interval, Subject, take, takeUntil } from 'rxjs';
 import { DasComponentBase } from '../../das-component-base.component';
 import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 import { DasWidgetOption } from '../services/das-widget-option';
@@ -35,7 +36,7 @@ import { DasWidgetOption } from '../services/das-widget-option';
     ])
   ]
 })
-export class DasWidgetCoreComponent extends DasComponentBase {
+export class DasWidgetCoreComponent extends DasComponentBase implements OnInit {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
 
   @ContentChild('frontTemplate') frontTemplate: TemplateRef<any>;
@@ -44,10 +45,48 @@ export class DasWidgetCoreComponent extends DasComponentBase {
 
   isSettingVisible = false;
 
-  constructor(public readonly dashboardService: DasDashboardCoreEventService) {
+  height = '400px';
+  width = '400px';
+
+  isContentHidden = false;
+
+  private readonly resizeSubject = new Subject<ResizedEvent>();
+
+  constructor(
+    public readonly dashboardEventService: DasDashboardCoreEventService,
+    private readonly elementRef: ElementRef
+  ) {
     super();
   }
 
+  ngOnInit() {
+    this.resizeSubject
+      .pipe(
+        takeUntil(this.destroy$),
+        debounceTime(300)
+      )
+      .subscribe(($event) => {
+        this.setDimension($event);
+      });
+
+  }
+
+  private setDimension($event: ResizedEvent) {
+    this.isContentHidden = true;
+    setTimeout(() => {
+      if (this.elementRef.nativeElement.offsetWidth && this.elementRef.nativeElement.offsetHeight) {
+        this.width = `${this.elementRef.nativeElement.offsetWidth}px`;
+        this.height = `${this.elementRef.nativeElement.offsetHeight}px`;
+        this.dashboardEventService.emitWidgetResized(this.widgetOption);
+      }
+
+      this.isContentHidden = false;
+    });
+  }
+
+  onResized($event: ResizedEvent) {
+    this.resizeSubject.next($event);
+  }
 
   flip() {
     this.widgetOption.isFrontShown = !this.widgetOption.isFrontShown;
@@ -58,7 +97,7 @@ export class DasWidgetCoreComponent extends DasComponentBase {
       take(1)
     )
       .subscribe(() => {
-        this.dashboardService.emitWidgetResized(this.widgetOption);
+        this.dashboardEventService.emitWidgetResized(this.widgetOption);
       });
 
 

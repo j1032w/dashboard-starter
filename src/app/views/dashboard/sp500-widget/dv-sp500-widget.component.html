@@ -1,14 +1,14 @@
-<das-widget-core #widgetCoreComponent class="h-100" [widgetOption]="widgetOption">
+<das-widget-core #widgetCoreComponent class="h-100 w-100" [widgetOption]="widgetOption">
 
   <ng-template #frontTemplate let-ctx>
-    <das-dv-sp500-widget-pie class="h-100"
+    <das-dv-sp500-widget-pie class="h-100 w-100"
                              [widgetOption]="ctx.widgetOption"></das-dv-sp500-widget-pie>
   </ng-template>
 
 
   <ng-template #backTemplate let-ctx>
-    <das-dv-sp500-widget-table class="h-100"
-                               [widgetOption]="ctx.widgetOption"></das-dv-sp500-widget-table>
+    <das-dv-sp500-widget-grid class="h-100 w-100"
+                               [widgetOption]="ctx.widgetOption"></das-dv-sp500-widget-grid>
   </ng-template>
 
 

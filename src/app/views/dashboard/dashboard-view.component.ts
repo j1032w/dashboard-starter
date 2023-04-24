@@ -9,6 +9,7 @@ import { DvDemoCWidgetComponent } from './demo-widget-c/dv-demo-c-widget.compone
 import { DvDemoDWidgetComponent } from './demo-widget-d/dv-demo-d-widget.component';
 import { DvHousingMarketWidgetComponent } from './housing-market-widget/dv-housing-market-widget.component';
 import { DvLocWidgetComponent } from './line-of-code-widget/dv-loc-widget.component';
+import { DEFAULT_WIDGET_OPTIONS } from './services/dashboard-view.contant';
 import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component';
 
 
@@ -31,8 +32,8 @@ export class DashboardViewComponent extends DasComponentBase {
       {
         name: 'Housing Market',
         type: DvHousingMarketWidgetComponent,
-        cols: 4,
-        rows: 9
+        cols: 5,
+        rows: 8
 
       }
     );
@@ -98,119 +99,7 @@ export class DashboardViewComponent extends DasComponentBase {
     );
 
 
-    const widgetOptionData = [{
-      'hasContent': true,
-      'originalRows': 8,
-      'isSettingModalVisible': false,
-      'title': 'Sp500 Annual Returns',
-      'cols': 5,
-      'rows': 9,
-      'x': 4,
-      'y': 0,
-      'id': 0,
-      'widgetClassName': 'DvSp500WidgetComponent',
-      'settingData': { 'isTitleVisible': false },
-      'isMinimized': false,
-      'isShowRefreshButton': true,
-      'isShowFlipButton': true,
-      'isFrontShown': true
-    }, {
-      'hasContent': true,
-      'originalRows': 5,
-      'isSettingModalVisible': false,
-      'title': 'Widget A',
-      'cols': 2,
-      'rows': 5,
-      'x': 0,
-      'y': 9,
-      'id': 1,
-      'widgetClassName': 'DvDemoAWidgetComponent',
-      'settingData': {},
-      'isMinimized': false,
-      'isShowRefreshButton': true,
-      'isShowFlipButton': true,
-      'isFrontShown': true
-    }, {
-      'hasContent': true,
-      'originalRows': 6,
-      'isSettingModalVisible': false,
-      'title': 'Widget C',
-      'cols': 3,
-      'rows': 7,
-      'x': 9,
-      'y': 7,
-      'id': 2,
-      'widgetClassName': 'DvDemoCWidgetComponent',
-      'settingData': {},
-      'isMinimized': false,
-      'isShowRefreshButton': true,
-      'isShowFlipButton': true,
-      'isFrontShown': true
-    }, {
-      'hasContent': true,
-      'originalRows': 5,
-      'isSettingModalVisible': false,
-      'title': 'Widget A',
-      'cols': 3,
-      'rows': 5,
-      'x': 2,
-      'y': 9,
-      'id': 3,
-      'widgetClassName': 'DvDemoAWidgetComponent',
-      'settingData': {},
-      'isMinimized': false,
-      'isShowRefreshButton': true,
-      'isShowFlipButton': true,
-      'isFrontShown': true
-    }, {
-      'hasContent': true,
-      'originalRows': 7,
-      'isSettingModalVisible': false,
-      'title': 'Dashboard Starter UI LOC',
-      'cols': 3,
-      'rows': 7,
-      'x': 9,
-      'y': 0,
-      'id': 4,
-      'widgetClassName': 'DvLocWidgetComponent',
-      'settingData': {},
-      'isMinimized': false,
-      'isShowRefreshButton': true,
-      'isShowFlipButton': false,
-      'isFrontShown': true
-    }, {
-      'hasContent': true,
-      'originalRows': 5,
-      'isSettingModalVisible': false,
-      'title': 'Widget A',
-      'cols': 4,
-      'rows': 5,
-      'x': 5,
-      'y': 9,
-      'id': 6,
-      'widgetClassName': 'DvDemoAWidgetComponent',
-      'settingData': {},
-      'isMinimized': false,
-      'isShowRefreshButton': true,
-      'isShowFlipButton': true,
-      'isFrontShown': true
-    }, {
-      'hasContent': true,
-      'originalRows': 9,
-      'isSettingModalVisible': false,
-      'title': 'Housing Market',
-      'cols': 4,
-      'rows': 9,
-      'x': 0,
-      'y': 0,
-      'id': 7,
-      'widgetClassName': 'DvDemoCWidgetComponent',
-      'settingData': {},
-      'isMinimized': false,
-      'isShowRefreshButton': true,
-      'isShowFlipButton': true,
-      'isFrontShown': true
-    }];
+    const widgetOptionData = DEFAULT_WIDGET_OPTIONS;
 
 
     for (let i = 0; i < widgetOptionData.length; i++) {

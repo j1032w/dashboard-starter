@@ -15,7 +15,7 @@ https://www.j1032.com/dashboard
 
 
 
-# What I've got here
+# What I have got here
 - Built on Angular, Typescript, SCSS, RxJS, [Angular Material CDK](https://material.angular.io/cdk/categories) and [Bootstrap](https://getbootstrap.com/)
 - Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compile
 - Module lazy loading, HTTP reqeust cache, Responsive design, SVG Icons
@@ -25,9 +25,8 @@ https://www.j1032.com/dashboard
 - MIT License
 
 
-I hope that this project can give you a good starting point. 
-If you find value in this project, \
-please consider supporting its development by making a donation.\
+It's designed to be easy to understand and use. Feel free to customize it to fit your needs.\
+Every donation is appreciated and will go towards the development of this project. Thank you for your support!
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)👈🏻👈🏻👈🏻
 
 

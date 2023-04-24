@@ -57,13 +57,13 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
       )
       .subscribe((event) => {
         // Waiting for animation to complete, and then force gridster to recalculate the size
-        setTimeout(   this.gridsterComponent.optionsChanged, 500);
+        setTimeout(this.gridsterComponent.optionsChanged, 500);
 
       });
   }
 
   itemResizeCallback = (gridsterItem: any, _gridsterItemComponent: any) => {
-    this.dashboardCoreService.emitWidgetResized(gridsterItem);
+    // this.dashboardCoreService.emitWidgetResized(gridsterItem);
   };
 
 

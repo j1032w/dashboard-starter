@@ -1,6 +1,6 @@
 import { Injectable, Type } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { DasDashboardMessage, DasDashboardEventTypeEnum } from './das-dashboard-message';
+import { DasDashboardEventTypeEnum, DasDashboardMessage } from './das-dashboard-message';
 import { DasWidgetBase } from './das-widget-base.component';
 import { DasWidgetOption } from './das-widget-option';
 
@@ -32,11 +32,11 @@ export class DasDashboardCoreEventService {
 
 
   readonly emitWidgetSettingChanged = (widgetOption: DasWidgetOption) => {
-    this.emitDashboardEvent( DasDashboardEventTypeEnum.WidgetSettingChanged, widgetOption);
+    this.emitDashboardEvent(DasDashboardEventTypeEnum.WidgetSettingChanged, widgetOption);
   };
 
   readonly emitWidgetResized = (widgetOption: DasWidgetOption) => {
-    this.emitDashboardEvent(DasDashboardEventTypeEnum.WidgetResized,widgetOption);
+    this.emitDashboardEvent(DasDashboardEventTypeEnum.WidgetResized, widgetOption);
   };
 
 
@@ -47,11 +47,11 @@ export class DasDashboardCoreEventService {
 
   private readonly emitDashboardEvent =
     (eventType: DasDashboardEventTypeEnum, widgetOption?: DasWidgetOption) => {
-    this.dashboardEventSubject$.next({
-      widgetOption,
-      eventType
-    });
-  };
+      this.dashboardEventSubject$.next({
+        widgetOption,
+        eventType
+      });
+    };
 }
 
 export interface WidgetDefinitionInterface {

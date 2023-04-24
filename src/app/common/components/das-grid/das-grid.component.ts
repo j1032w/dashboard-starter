@@ -1,13 +1,13 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ResizedEvent } from 'angular-resize-event';
 import { DxDataGridComponent } from 'devextreme-angular';
 import { exportDataGrid } from 'devextreme/excel_exporter';
 import { Workbook } from 'exceljs';
 import * as fs from 'file-saver';
 
-import { interval, map, Observable, take, takeUntil } from 'rxjs';
+import { debounceTime, Subject, takeUntil } from 'rxjs';
 import { DasComponentBase } from '../das-component-base.component';
 import { DasGridColumnInterface } from './services/das-grid-column-interface';
-
 
 
 @Component({
@@ -17,12 +17,6 @@ import { DasGridColumnInterface } from './services/das-grid-column-interface';
 })
 export class DasGridComponent extends DasComponentBase implements OnInit {
   @ViewChild('gridComponent', { static: true }) gridComponent: DxDataGridComponent;
-
-
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.repaint();
-  }
 
   @Input()
   dataSource: any[] = [];
@@ -37,59 +31,58 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
 
   @Input() isAllowSelect = false;
 
-  @Input() fixedHeight:number;
+  @Input() fixedHeight: string;
+  @Input() fixedWidth: string;
 
+  resizeSubject$ = new Subject<ResizedEvent>();
 
-  height = 400;
-  width = 400;
+  height = '400px';
+  width = '400px';
 
   constructor(private readonly elementRef: ElementRef) {
     super();
   }
 
   ngOnInit() {
-    this.setGridDimension$()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe();
-  }
-
-  // the parent component should be set as below, so that when grid component is hidden,
-  // the elementRef could return the correct height and width
-  // display: flex;
-  // flex-direction: column;
-  // height: 100%;
-  // width: 100%;
-
-  setGridDimension$ = (): Observable<void> => {
-    // wait for host element initialized, so that the element height is available
-    this.gridComponent.visible = false;
-    return interval(0).pipe(
-      take(1),
-      map(() => {
-        this.width = this.elementRef.nativeElement.clientWidth - 4;
-
-        if(this.fixedHeight){
-          this.height = this.fixedHeight;
-
-        }else{
-          this.height = this.elementRef.nativeElement.clientHeight - 4;
-        }
-
-        this.gridComponent.visible = true;
-
-      })
-    );
-  };
-
-  readonly repaint = () => {
-    return this.setGridDimension$()
+    this.resizeSubject$
       .pipe(
         takeUntil(this.destroy$),
-        map((height) => {
-          this.gridComponent.instance.repaint();
-        })
-      ).subscribe();
+        debounceTime(300)
+      )
+      .subscribe(() => {
+        this.repaint();
+      });
+  }
+
+
+  readonly repaint = () => {
+    // dx-data-grid stretches the host element,the resizedEvent could not get the correct height and width
+    // has to hide it, and get the size from nativeElement
+    this.gridComponent.visible = false;
+
+    // wait for host element refreshed, so that the element height is available
+    setTimeout(() => {
+      if (!this.elementRef.nativeElement.clientWidth ||
+        !this.elementRef.nativeElement.clientHeight) {
+        this.gridComponent.visible = true;
+        return;
+      }
+
+      this.height = this.fixedHeight ? this.fixedHeight :
+        `${this.elementRef.nativeElement.offsetHeight}px`;
+
+      this.width = this.fixedWidth ? this.fixedWidth :
+        `${this.elementRef.nativeElement.offsetWidth}px`;
+
+      this.gridComponent.visible = true;
+      this.gridComponent?.instance.repaint();
+    });
   };
+
+  onResized($event: ResizedEvent) {
+    this.resizeSubject$.next($event);
+  }
+
 
   showColumnChooser() {
     this.gridComponent.instance.showColumnChooser();
@@ -111,7 +104,7 @@ export class DasGridComponent extends DasComponentBase implements OnInit {
     exportDataGrid({
       component: this.gridComponent.instance,
       worksheet,
-      selectedRowsOnly,
+      selectedRowsOnly
 
     })
       .then(() => {

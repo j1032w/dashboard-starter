@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ResizedEvent } from 'angular-resize-event';
 import { DxChartComponent } from 'devextreme-angular';
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBase } from '../../../common/components/dashboard-core/services/das-widget-content-base';
@@ -14,6 +15,10 @@ export class DasChartSp500Component extends DasWidgetContentBase {
 
   dataSource: Sp500AnnualHistory[] = [];
 
+  height = '300px';
+  width = '500px';
+
+
   constructor(
     protected override readonly elementRef: ElementRef,
     protected override readonly dashboardCoreService: DasDashboardCoreEventService,
@@ -28,6 +33,11 @@ export class DasChartSp500Component extends DasWidgetContentBase {
     this.chartComponent?.instance?.refresh();
   };
 
+
+  onResized($event: ResizedEvent  ){
+    this.height = `${$event.newRect.height}px`;
+    this.width = `${$event.newRect.width}px`;
+  }
 
   customizeTooltip = (info: any) => ({
     html: `<div><div class="tooltip-header">${

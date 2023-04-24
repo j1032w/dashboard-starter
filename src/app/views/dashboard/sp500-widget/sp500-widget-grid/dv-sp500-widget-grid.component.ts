@@ -11,11 +11,11 @@ import { DasWidgetContentBase } from '../../../../common/components/dashboard-co
 import { DasChartSp500Service, Sp500AnnualHistory } from '../../../common/sp500-chart/das-chart-sp500.service';
 
 @Component({
-  selector: 'das-dv-sp500-widget-table',
-  templateUrl: './dv-sp500-widget-table.component.html',
-  styleUrls: ['./dv-sp500-widget-table.component.scss']
+  selector: 'das-dv-sp500-widget-grid',
+  templateUrl: './dv-sp500-widget-grid.component.html',
+  styleUrls: ['./dv-sp500-widget-grid.component.scss']
 })
-export class DvSp500WidgetTableComponent extends DasWidgetContentBase {
+export class DvSp500WidgetGridComponent extends DasWidgetContentBase {
   @ViewChild('gridComponent', { static: true }) gridComponent: DasGridComponent;
 
 
@@ -49,7 +49,7 @@ export class DvSp500WidgetTableComponent extends DasWidgetContentBase {
   }
 
   protected override readonly repaintComponent = () => {
-    this.gridComponent?.repaint();
+    // this.gridComponent?.repaint();
   };
 
   override ngOnInit() {

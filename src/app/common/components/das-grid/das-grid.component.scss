@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: 100%;
+  width: 100%;
 }
 
 ::ng-deep {
@@ -16,7 +18,7 @@
     min-height: 4rem;
   }
 
-  .dx-scrollbar-horizontal.dx-scrollbar-hoverable{
+  .dx-scrollbar-horizontal.dx-scrollbar-hoverable {
     height: 16px;
   }
 
@@ -24,6 +26,8 @@
     height: 12px;
   }
 
+}
 
-
+.grid-container {
+  overflow: auto;
 }
