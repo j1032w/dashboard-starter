@@ -11,7 +11,7 @@ import { DasGridViewService } from './services/das-grid-view.service';
   templateUrl: './das-grid-view.component.html',
   styleUrls: ['./das-grid-view.component.scss']
 })
-export class DasGridViewComponent extends DasComponentBase implements OnInit{
+export class DasGridViewComponent extends DasComponentBase {
   @ViewChild('gridComponent') gridComponent: DasGridComponent;
 
   spinnerId = GRID_VIEW_SPINNER_ID;
@@ -30,9 +30,7 @@ export class DasGridViewComponent extends DasComponentBase implements OnInit{
     super();
   }
 
-  ngOnInit() {
 
-  }
 
   showSearchDialog() {
     this.isSearchDialogVisible = true;

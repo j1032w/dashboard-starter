@@ -1,13 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DasToastService } from '../../../services/das-toast.service';
-import { CommonTestConfig } from '../../../test-services/common-test-config';
-import { DasDashboardCoreModule } from '../das-dashboard-core.module';
-import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
-import { DasWidgetBase } from '../services/das-widget-base.component';
-import { DasWidgetOption } from '../services/das-widget-option';
-
-import { DasWidgetDynamicLoaderDirective } from './das-widget-dynamic-loader.directive';
+import {Component, Input} from '@angular/core';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {DasToastService} from '../../../services/das-toast.service';
+import {CommonTestConfig} from '../../../test-services/common-test-config';
+import {DasDashboardCoreModule} from '../das-dashboard-core.module';
+import {DasDashboardCoreEventService} from '../services/das-dashboard-core-event.service';
+import {DasWidgetBase} from '../services/das-widget-base.component';
+import {DasWidgetOption} from '../services/das-widget-option';
 
 
 const testComponentTemplate = '<div class="test-widget">test</div>';
@@ -68,7 +66,7 @@ describe('DasWidgetDynamicLoaderDirective', () => {
     dashboardCoreService = TestBed.inject(DasDashboardCoreEventService);
     dashboardCoreService.widgetMap.set(
       'TestWidgetComponent', {
-        name:'test widget',
+        name: 'test widget',
         type: TestWidgetComponent,
         cols: 3,
         rows: 5
