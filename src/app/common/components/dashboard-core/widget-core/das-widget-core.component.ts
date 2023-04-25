@@ -2,7 +2,6 @@ import {state, style, transition, trigger, useAnimation} from '@angular/animatio
 import {Component, ContentChild, ElementRef, Input, TemplateRef} from '@angular/core';
 import {ResizedEvent} from 'angular-resize-event';
 import {flipInY} from 'ng-animate';
-import {interval, take, takeUntil} from 'rxjs';
 import {DasComponentBase} from '../../das-component-base.component';
 import {DasDashboardCoreEventService} from '../services/das-dashboard-core-event.service';
 import {DasWidgetOption} from '../services/das-widget-option';
@@ -75,17 +74,6 @@ export class DasWidgetCoreComponent extends DasComponentBase {
 
   flip() {
     this.widgetOption.isFrontShown = !this.widgetOption.isFrontShown;
-
-    // wait for the animation to complete
-    interval(2000).pipe(
-      takeUntil(this.destroyed$),
-      take(1)
-    )
-      .subscribe(() => {
-        // this.dashboardEventService.emitWidgetResized(this.widgetOption);
-      });
-
-
   }
 
 

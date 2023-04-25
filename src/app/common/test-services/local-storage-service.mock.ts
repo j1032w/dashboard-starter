@@ -1,8 +1,8 @@
-import { inject, Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class LocalStorageServiceMock {
-  store:any = {};
+  store: any = {};
 
   clear() {
     this.store = {};
@@ -12,11 +12,11 @@ export class LocalStorageServiceMock {
     return this.store[key] || null;
   }
 
-  setItem(key: string, value:string) {
+  setItem(key: string, value: string) {
     this.store[key] = value;
   }
 
-  removeItem(key:string) {
+  removeItem(key: string) {
     delete this.store[key];
   }
 }
