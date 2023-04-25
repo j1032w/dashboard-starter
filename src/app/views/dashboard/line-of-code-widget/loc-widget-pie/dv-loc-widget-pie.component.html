@@ -33,9 +33,10 @@
 
 <div class="grid-container">
 
-  <table class="table">
+  <table class="table" aria-label="loc data">
     <thead>
     <tr>
+      <td></td>
       <th scope="col">Files</th>
       <th scope="col">Lines</th>
       <th scope="col">Blanks</th>
@@ -44,10 +45,11 @@
     </thead>
     <tbody>
     <tr>
-      <th>{{total.files | number}}</th>
-      <td>{{total.lines | number}}</td>
-      <td>{{total.blanks | number}}</td>
-      <td>{{total.comments | number}}</td>
+      <td></td>
+      <th>{{total?.files | number}}</th>
+      <td>{{total?.lines | number}}</td>
+      <td>{{total?.blanks | number}}</td>
+      <td>{{total?.comments | number}}</td>
     </tr>
 
     </tbody>

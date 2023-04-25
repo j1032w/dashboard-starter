@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DasUserInterfaceViewComponent } from './user-interface-main.component';
+import {UserInterfaceViewComponent} from './user-interface-view.component';
+
 
 
 
 describe('UiInterfaceComponent', () => {
-  let component: DasUserInterfaceViewComponent;
-  let fixture: ComponentFixture<DasUserInterfaceViewComponent>;
+  let component: UserInterfaceViewComponent;
+  let fixture: ComponentFixture<UserInterfaceViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DasUserInterfaceViewComponent ]
+      declarations: [ UserInterfaceViewComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DasUserInterfaceViewComponent);
+    fixture = TestBed.createComponent(UserInterfaceViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

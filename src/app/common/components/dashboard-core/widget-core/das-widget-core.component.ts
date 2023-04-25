@@ -1,11 +1,11 @@
-import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, ContentChild, ElementRef, Input, OnInit, TemplateRef } from '@angular/core';
-import { ResizedEvent } from 'angular-resize-event';
-import { flipInY } from 'ng-animate';
-import { debounceTime, interval, Subject, take, takeUntil } from 'rxjs';
-import { DasComponentBase } from '../../das-component-base.component';
-import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
-import { DasWidgetOption } from '../services/das-widget-option';
+import {state, style, transition, trigger, useAnimation} from '@angular/animations';
+import {Component, ContentChild, ElementRef, Input, TemplateRef} from '@angular/core';
+import {ResizedEvent} from 'angular-resize-event';
+import {flipInY} from 'ng-animate';
+import {interval, take, takeUntil} from 'rxjs';
+import {DasComponentBase} from '../../das-component-base.component';
+import {DasDashboardCoreEventService} from '../services/das-dashboard-core-event.service';
+import {DasWidgetOption} from '../services/das-widget-option';
 
 
 @Component({
@@ -31,12 +31,12 @@ import { DasWidgetOption } from '../services/das-widget-option';
         })
       ),
 
-      transition('hidden => shown', useAnimation(flipInY, { params: { timing: 2 } })),
-      transition('shown => hidden', useAnimation(flipInY, { params: { timing: 2 } }))
+      transition('hidden => shown', useAnimation(flipInY, {params: {timing: 2}})),
+      transition('shown => hidden', useAnimation(flipInY, {params: {timing: 2}}))
     ])
   ]
 })
-export class DasWidgetCoreComponent extends DasComponentBase implements OnInit {
+export class DasWidgetCoreComponent extends DasComponentBase {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
 
   @ContentChild('frontTemplate') frontTemplate: TemplateRef<any>;
@@ -50,7 +50,6 @@ export class DasWidgetCoreComponent extends DasComponentBase implements OnInit {
 
   isContentHidden = false;
 
-  private readonly resizeSubject = new Subject<ResizedEvent>();
 
   constructor(
     public readonly dashboardEventService: DasDashboardCoreEventService,
@@ -59,17 +58,6 @@ export class DasWidgetCoreComponent extends DasComponentBase implements OnInit {
     super();
   }
 
-  ngOnInit() {
-    this.resizeSubject
-      .pipe(
-        takeUntil(this.destroyed$),
-        debounceTime(300)
-      )
-      .subscribe(($event) => {
-        // this.setDimension($event);
-      });
-
-  }
 
   private setDimension($event: ResizedEvent) {
     this.isContentHidden = true;
@@ -84,9 +72,6 @@ export class DasWidgetCoreComponent extends DasComponentBase implements OnInit {
     });
   }
 
-  onResized($event: ResizedEvent) {
-    this.resizeSubject.next($event);
-  }
 
   flip() {
     this.widgetOption.isFrontShown = !this.widgetOption.isFrontShown;

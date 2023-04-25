@@ -1,6 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {CommonTestConfig} from '../../../test-services/common-test-config';
+import {DasDashboardCoreModule} from '../das-dashboard-core.module';
 
-import { DashboardWidgetListComponent } from './dashboard-widget-list.component';
+import {DashboardWidgetListComponent} from './dashboard-widget-list.component';
 
 describe('SettingComponent', () => {
   let component: DashboardWidgetListComponent;
@@ -8,7 +10,8 @@ describe('SettingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardWidgetListComponent ]
+      imports: [...CommonTestConfig.imports, DasDashboardCoreModule],
+
     })
     .compileComponents();
 

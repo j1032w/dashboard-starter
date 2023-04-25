@@ -11,7 +11,7 @@ import { DasWidgetOption } from './das-widget-option';
   template: ''
 })
 export class DasWidgetBase extends DasComponentBase implements OnInit {
-  @Input() widgetOption: DasWidgetOption;
+  @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
 
 
   constructor(

@@ -1,18 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DasLocalStorageService } from '../../services/das-local-storage.service';
-import { CommonTestConfig } from '../../test-services/common-test-config';
-import { LocalStorageServiceMock } from '../../test-services/local-storage-service.mock';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {DasLocalStorageService} from '../../services/das-local-storage.service';
+import {CommonTestConfig} from '../../test-services/common-test-config';
+import {LocalStorageServiceMock} from '../../test-services/local-storage-service.mock';
 
-import { DasDashboardCoreComponent } from './das-dashboard-core.component';
-import { DasDashboardCoreModule } from './das-dashboard-core.module';
-import { DasWidgetOption } from './services/das-widget-option';
+import {DasDashboardCoreComponent} from './das-dashboard-core.component';
+import {DasDashboardCoreModule} from './das-dashboard-core.module';
+import {DasWidgetOption} from './services/das-widget-option';
 
 describe('DasDashboardComponent', () => {
   let component: DasDashboardCoreComponent;
   let fixture: ComponentFixture<DasDashboardCoreComponent>;
   let dasLocalStorageService: DasLocalStorageService;
   let widgetOptions: DasWidgetOption[];
-  const widgetOptionKey = 'das-widget-options';
+
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
