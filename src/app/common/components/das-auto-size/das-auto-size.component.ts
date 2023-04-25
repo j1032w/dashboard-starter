@@ -1,6 +1,6 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
 import {ResizedEvent} from 'angular-resize-event';
-import {debounceTime, Subject, takeUntil} from 'rxjs';
+import {debounceTime, filter, Subject, takeUntil} from 'rxjs';
 import {DasComponentBase} from '../das-component-base.component';
 
 @Component({
@@ -16,7 +16,7 @@ export class DasAutoSizeComponent extends DasComponentBase implements OnInit {
 
   isContentHidden = false;
 
-  private resizedSubject$ = new Subject();
+  private resizedSubject$ = new Subject<ResizedEvent>();
 
   constructor(private readonly elementRef: ElementRef) {
     super();
@@ -26,9 +26,11 @@ export class DasAutoSizeComponent extends DasComponentBase implements OnInit {
     this.resizedSubject$
       .pipe(
         takeUntil(this.destroyed$),
-        debounceTime(300)
+        debounceTime(100),
+        filter($event=>!!$event.newRect.width && !!$event.newRect.height )
       )
       .subscribe(($event) => {
+
         this.isContentHidden = true;
 
         setTimeout(() => {
@@ -45,7 +47,7 @@ export class DasAutoSizeComponent extends DasComponentBase implements OnInit {
           }
 
           this.isContentHidden = false;
-        }, 300);
+        }, );
       });
 
 
