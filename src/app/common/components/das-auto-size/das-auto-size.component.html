@@ -1,0 +1,6 @@
+<div class="h-100 w-100" (resized)="onResized($event)">
+  <div [ngStyle]="{height, width}"
+       [hidden]="isContentHidden">
+    <ng-content></ng-content>
+  </div>
+</div>

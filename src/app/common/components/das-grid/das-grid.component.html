@@ -1,7 +1,6 @@
-<div class="h-100 w-100" (resized)="onResized($event)">
+<das-auto-size (resized)="repaint()" class="h-100 w-100" >
   <dx-data-grid #gridComponent
-                [height]="height"
-                [width]="width"
+                class="h-100 w-100"
                 [dataSource]="dataSource"
                 [keyExpr]="keyExpr"
                 [allowColumnResizing]="true"
@@ -56,4 +55,4 @@
     <dxo-selection *ngIf="isAllowSelect"
                    mode="multiple"></dxo-selection>
   </dx-data-grid>
-</div>
+</das-auto-size>

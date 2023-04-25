@@ -41,7 +41,6 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
     private readonly toastService: DasToastService
   ) {
     super();
-    this.gridsterOptions.itemResizeCallback = this.itemResizeCallback;
     this.localStorageWidgetOptionsKey = this.dasConfig.localStorageWidgetOptionsKey;
   }
 
@@ -52,7 +51,7 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
 
     this.dashboardCoreService.dashboardEvent$
       .pipe(
-        takeUntil(this.destroy$),
+        takeUntil(this.destroyed$),
         filter(event => event.eventType === DasDashboardEventTypeEnum.Resized)
       )
       .subscribe((event) => {
@@ -62,9 +61,7 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
       });
   }
 
-  itemResizeCallback = (gridsterItem: any, _gridsterItemComponent: any) => {
-    // this.dashboardCoreService.emitWidgetResized(gridsterItem);
-  };
+
 
 
   showHideDashboardSetting() {

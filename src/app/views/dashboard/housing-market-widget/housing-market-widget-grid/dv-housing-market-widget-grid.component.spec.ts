@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DvHousingMarketWidgetTableComponent } from './dv-housing-market-widget-table.component';
+import { DvHousingMarketWidgetGridComponent } from './dv-housing-market-widget-grid.component';
 
 describe('HousingMarketTableComponent', () => {
-  let component: DvHousingMarketWidgetTableComponent;
-  let fixture: ComponentFixture<DvHousingMarketWidgetTableComponent>;
+  let component: DvHousingMarketWidgetGridComponent;
+  let fixture: ComponentFixture<DvHousingMarketWidgetGridComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DvHousingMarketWidgetTableComponent ]
+      declarations: [ DvHousingMarketWidgetGridComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DvHousingMarketWidgetTableComponent);
+    fixture = TestBed.createComponent(DvHousingMarketWidgetGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,26 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeatherModule } from 'angular-feather';
 import { GridsterModule } from 'angular-gridster2';
+import { AngularResizeEventModule } from 'angular-resize-event';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ToastrModule } from 'ngx-toastr';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { TooltipModule } from 'primeng/tooltip';
-import { DasIconsModule } from './das-icons.module';
+import { DasAutoSizeComponent } from './das-auto-size/das-auto-size.component';
+
 import { DasSpinnerComponent } from './das-spinner/das-spinner.component';
+import { DasIconsModule } from './modules/das-icons.module';
 import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
 
 
 @NgModule({
   declarations: [
     DefaultOrderKeyvaluePipe,
-    DasSpinnerComponent
+    DasSpinnerComponent,
+    DasAutoSizeComponent
   ],
 
   imports: [
@@ -43,13 +45,15 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
       timeOut: 4000
     }),
     TooltipModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    AngularResizeEventModule
 
 
   ],
 
   exports: [
     CommonModule,
+    DasAutoSizeComponent,
     DasIconsModule,
     DasSpinnerComponent,
     DefaultOrderKeyvaluePipe,

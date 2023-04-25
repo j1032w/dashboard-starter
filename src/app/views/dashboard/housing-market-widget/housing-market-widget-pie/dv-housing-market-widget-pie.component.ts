@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { DxPieChartComponent } from 'devextreme-angular';
+import {ElementSizeInterface} from '../../../../common/components/das-auto-size/das-auto-size.component';
 import {
   DasDashboardCoreEventService
 } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
@@ -14,11 +15,12 @@ import { BuildingTypePercentageInterface } from '../services/dv-housing-market.s
 export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBase {
   @ViewChild('pieChart') pieChartComponent: DxPieChartComponent;
 
-
   @Input() dataSource: BuildingTypePercentageInterface[] = [];
 
-
   title = 'Sales by Building Type';
+
+  size:any ={};
+
 
   constructor(
     protected override readonly elementRef: ElementRef,
@@ -30,6 +32,14 @@ export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBase {
   protected override readonly repaintComponent = () => {
     this.pieChartComponent?.instance?.render();
   };
+
+  onResized(e: ElementSizeInterface) {
+    this.size = {
+      height: e.height,
+      width: e.width
+    };
+    this.repaintComponent();
+  }
 
   customizeLabel(arg: any) {
     return `${arg.argument} ${(arg.percent * 100).toFixed(1)}%`;

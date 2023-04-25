@@ -1,9 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ResizedEvent } from 'angular-resize-event';
-import { DxChartComponent } from 'devextreme-angular';
-import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
-import { DasWidgetContentBase } from '../../../common/components/dashboard-core/services/das-widget-content-base';
-import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.service';
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {DxChartComponent} from 'devextreme-angular';
+import {ElementSizeInterface} from '../../../common/components/das-auto-size/das-auto-size.component';
+import {DasDashboardCoreEventService} from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
+import {DasWidgetContentBase} from '../../../common/components/dashboard-core/services/das-widget-content-base';
+import {DasChartSp500Service, Sp500AnnualHistory} from './das-chart-sp500.service';
 
 @Component({
   selector: 'das-chart-sp500',
@@ -11,13 +11,11 @@ import { DasChartSp500Service, Sp500AnnualHistory } from './das-chart-sp500.serv
   styleUrls: ['./das-chart-sp500.component.scss']
 })
 export class DasChartSp500Component extends DasWidgetContentBase {
-  @ViewChild('chartComponent', { static: true }) chartComponent: DxChartComponent;
+  @ViewChild('chartComponent', {static: true}) chartComponent: DxChartComponent;
 
   dataSource: Sp500AnnualHistory[] = [];
 
-  height = '300px';
-  width = '500px';
-
+  size: ElementSizeInterface;
 
   constructor(
     protected override readonly elementRef: ElementRef,
@@ -33,14 +31,15 @@ export class DasChartSp500Component extends DasWidgetContentBase {
     this.chartComponent?.instance?.refresh();
   };
 
+  onSized($event: ElementSizeInterface) {
+    this.size = $event;
 
-  onResized($event: ResizedEvent  ){
-    this.height = `${$event.newRect.height}px`;
-    this.width = `${$event.newRect.width}px`;
+    this.chartComponent.instance.refresh();
   }
 
+
   customizeTooltip = (info: any) => ({
-    html: `<div><div class="tooltip-header">${
+    html: `<div><div class="tooltip-header" style="z-index: 2000">${
         info.argumentText}</div>`
       + '<div class=\'tooltip-body\'><div class=\'series-name\'>'
       + `<span class="top-series-name">${info.points[0].seriesName}</span>`

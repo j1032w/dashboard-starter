@@ -12,11 +12,11 @@ import { DasWidgetContentBase } from '../../../../common/components/dashboard-co
 import { BuildingTypePercentageInterface } from '../services/dv-housing-market.service';
 
 @Component({
-  selector: 'das-dv-housing-market-widget-table',
-  templateUrl: './dv-housing-market-widget-table.component.html',
-  styleUrls: ['./dv-housing-market-widget-table.component.scss']
+  selector: 'das-dv-housing-market-widget-grid',
+  templateUrl: './dv-housing-market-widget-grid.component.html',
+  styleUrls: ['./dv-housing-market-widget-grid.component.scss']
 })
-export class DvHousingMarketWidgetTableComponent extends DasWidgetContentBase {
+export class DvHousingMarketWidgetGridComponent extends DasWidgetContentBase {
   @ViewChild('gridComponent') gridComponent: DasGridComponent;
 
   @Input() dataSource: BuildingTypePercentageInterface[] = [];

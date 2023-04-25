@@ -14,7 +14,7 @@ import {
   DvHousingMarketWidgetSettingComponent
 } from './housing-market-widget-setting/dv-housing-market-widget-setting.component';
 import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/dv-housing-market-widget-pie.component';
-import { DvHousingMarketWidgetTableComponent } from './housing-market-widget-table/dv-housing-market-widget-table.component';
+import { DvHousingMarketWidgetGridComponent } from './housing-market-widget-grid/dv-housing-market-widget-grid.component';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { DvHousingMarketWidgetTableComponent } from './housing-market-widget-tab
     DvHousingMarketWidgetComponent,
     DvHousingMarketWidgetSettingComponent,
     DvHousingMarketWidgetPieComponent,
-    DvHousingMarketWidgetTableComponent
+    DvHousingMarketWidgetGridComponent
   ],
 
   exports: [

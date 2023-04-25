@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AngularResizeEventModule } from 'angular-resize-event';
 import { DevExtremeModule, DxButtonModule } from 'devextreme-angular';
+import { DasCommonModule } from '../../common/components/das-common.module';
 import { DasChartSp500Component } from './sp500-chart/das-chart-sp500.component';
-
 
 
 @NgModule({
@@ -12,7 +11,7 @@ import { DasChartSp500Component } from './sp500-chart/das-chart-sp500.component'
     CommonModule,
     DxButtonModule,
     DevExtremeModule,
-    AngularResizeEventModule
+    DasCommonModule
 
 
   ],

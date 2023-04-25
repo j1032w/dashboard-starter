@@ -62,11 +62,11 @@ export class DasWidgetCoreComponent extends DasComponentBase implements OnInit {
   ngOnInit() {
     this.resizeSubject
       .pipe(
-        takeUntil(this.destroy$),
+        takeUntil(this.destroyed$),
         debounceTime(300)
       )
       .subscribe(($event) => {
-        this.setDimension($event);
+        // this.setDimension($event);
       });
 
   }
@@ -93,11 +93,11 @@ export class DasWidgetCoreComponent extends DasComponentBase implements OnInit {
 
     // wait for the animation to complete
     interval(2000).pipe(
-      takeUntil(this.destroy$),
+      takeUntil(this.destroyed$),
       take(1)
     )
       .subscribe(() => {
-        this.dashboardEventService.emitWidgetResized(this.widgetOption);
+        // this.dashboardEventService.emitWidgetResized(this.widgetOption);
       });
 
 

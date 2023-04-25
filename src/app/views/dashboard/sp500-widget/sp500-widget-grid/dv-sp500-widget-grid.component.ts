@@ -25,13 +25,15 @@ export class DvSp500WidgetGridComponent extends DasWidgetContentBase {
   columns = [
     { dataField: 'year', caption: 'Year', dataType: DasGridColumnTypeEnum.Number },
 
-    { dataField: 'averageClosingPrice',
+    {
+      dataField: 'averageClosingPrice',
       caption: 'Average Closing',
       dataType: DasGridColumnTypeEnum.Number,
       cellTemplate: DasGridCellTemplateEnum.Currency
     },
 
-    { dataField: 'annualChangePercent',
+    {
+      dataField: 'annualChangePercent',
       caption: 'Annual Change %',
       width: 200,
       dataType: DasGridColumnTypeEnum.Number,
@@ -49,7 +51,7 @@ export class DvSp500WidgetGridComponent extends DasWidgetContentBase {
   }
 
   protected override readonly repaintComponent = () => {
-    // this.gridComponent?.repaint();
+    this.gridComponent?.repaint();
   };
 
   override ngOnInit() {

@@ -24,7 +24,7 @@ export class DasWidgetBase extends DasComponentBase implements OnInit {
   ngOnInit() {
     this.dashboardCoreService.dashboardEvent$
       .pipe(
-        takeUntil(this.destroy$),
+        takeUntil(this.destroyed$),
         filter((data: DasDashboardMessage) =>
           data?.widgetOption?.id === this.widgetOption.id &&
           data.eventType === DasDashboardEventTypeEnum.WidgetSettingChanged

@@ -7,11 +7,11 @@ import {Subject} from 'rxjs';
 // error NG2007: Class is using Angular features but is not decorated. Please add an explicit Angular decorator.
 @Injectable()
 export abstract class DasServiceBaes implements OnDestroy{
-  protected readonly destroy$ = new Subject();
+  protected readonly destroyed$ = new Subject();
 
   ngOnDestroy() {
-    this.destroy$.next(null);
-    this.destroy$.complete();
+    this.destroyed$.next(null);
+    this.destroyed$.complete();
   }
 
 }

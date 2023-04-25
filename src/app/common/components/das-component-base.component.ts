@@ -5,11 +5,11 @@ import {Subject} from 'rxjs';
   template: ''
 })
 export abstract class DasComponentBase implements OnDestroy{
-  protected readonly destroy$ = new Subject();
+  protected readonly destroyed$ = new Subject();
 
   ngOnDestroy() {
-    this.destroy$.next(null);
-    this.destroy$.complete();
+    this.destroyed$.next(null);
+    this.destroyed$.complete();
   }
 
 }

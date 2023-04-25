@@ -1,11 +1,14 @@
-<div class="bg-white h-100 w-100 d-flex" (resized)="onResized($event)">
+<das-auto-size class="bg-white" (resized)="onSized($event)">
+
   <dx-chart #chartComponent
-            class="chart p-3 flex-grow-1"
+            class="chart"
             id="chart"
             [dataSource]="dataSource"
             [title]="chartService.title"
             palette="Harmony Light"
-            [ngStyle]="{height, width}"
+            [redrawOnResize]="false"
+            [size]="size"
+
   >
     <dxo-export [enabled]="true"></dxo-export>
 
@@ -39,6 +42,7 @@
       [enabled]="true"
       [shared]="true"
       [customizeTooltip]="customizeTooltip"
+      [zIndex]="2000"
     >
     </dxo-tooltip>
 
@@ -70,5 +74,5 @@
                 verticalAlignment="top" horizontalAlignment="center">
     </dxo-legend>
   </dx-chart>
+</das-auto-size>
 
-</div>

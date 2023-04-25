@@ -1,57 +1,51 @@
-<div class="h-100 w-100"
-     (resized)="onResized($event)">
-  <div class="d-flex flex-column"
-       [ngStyle]="{'height':height, 'width':width}">
-
-    <div class="fw-semibold bg-light d-flex flex-row w-100">
-      <div class="title drag-handler p-2 fw-bold user-select-none flex-grow-1">
-        {{widgetOption.title}}</div>
-      <div class="toolbar">
-        <i-feather name="repeat" class="toolbar-button"
-                   *ngIf="widgetOption.isShowFlipButton"
-                   pTooltip="Flip" tooltipPosition="bottom"
-                   (click)="flip()"></i-feather>
-
-        <i-feather name="rotate-cw" class="toolbar-button"
-                   pTooltip="Refresh" tooltipPosition="bottom"
-                   (click)="dashboardEventService.emitWidgetSettingChanged(widgetOption)"></i-feather>
-
-        <i-feather name="settings" class="toolbar-button"
-                   pTooltip="Setting" tooltipPosition="bottom"
-                   (click)="showSettingModal()">
-        </i-feather>
+<div class="h-100 w-100 d-flex flex-column">
 
 
-        <i-feather name="x" class="toolbar-button"
-                   pTooltip="Remove" tooltipPosition="bottom"
-                   (click)="dashboardEventService.removeWidget(widgetOption)"></i-feather>
-      </div>
+  <div class="fw-semibold bg-light d-flex flex-row w-100">
+    <div class="title drag-handler p-2 fw-bold user-select-none flex-grow-1">
+      {{widgetOption.title}}</div>
+    <div class="toolbar">
+      <i-feather name="repeat" class="toolbar-button"
+                 *ngIf="widgetOption.isShowFlipButton"
+                 pTooltip="Flip" tooltipPosition="bottom"
+                 (click)="flip()"></i-feather>
 
+      <i-feather name="rotate-cw" class="toolbar-button"
+                 pTooltip="Refresh" tooltipPosition="bottom"
+                 (click)="dashboardEventService.emitWidgetSettingChanged(widgetOption)"></i-feather>
+
+      <i-feather name="settings" class="toolbar-button"
+                 pTooltip="Setting" tooltipPosition="bottom"
+                 (click)="showSettingModal()">
+      </i-feather>
+
+
+      <i-feather name="x" class="toolbar-button"
+                 pTooltip="Remove" tooltipPosition="bottom"
+                 (click)="dashboardEventService.removeWidget(widgetOption)"></i-feather>
     </div>
-
-    <div class="flex-grow-1 d-flex flex-column" [hidden]="isContentHidden">
-      <div class="flex-grow-1  d-flex flex-column p-2"
-           [@flip]="widgetOption.isFrontShown? 'shown':'hidden'"
-           [ngClass]="{'d-flex flex-column justify-content-center align-items-center': widgetOption.isFrontShown}"
-           [hidden]="!widgetOption.isFrontShown">
-        <ng-container *ngTemplateOutlet="frontTemplate; context:{$implicit: {widgetOption}}"></ng-container>
-
-      </div>
-
-
-      <div class="flex-grow-1 d-flex flex-column p-2"
-           [@flip]="widgetOption.isFrontShown? 'hidden':'shown'"
-           [ngClass]="{'d-flex flex-column justify-content-center align-items-center': !widgetOption.isFrontShown}"
-           [hidden]="widgetOption.isFrontShown">
-        <ng-container *ngTemplateOutlet="backTemplate; context:{$implicit: {widgetOption}}"></ng-container>
-      </div>
-    </div>
-
-    <div [hidden]="!isSettingVisible">
-      <ng-template *ngTemplateOutlet="settingTemplate; context:{$implicit: {widgetOption}}"></ng-template>
-    </div>
-
 
   </div>
+
+  <div class="flex-grow-1  d-flex flex-column p-2"
+       [@flip]="widgetOption.isFrontShown? 'shown':'hidden'"
+       [ngClass]="{'d-flex flex-column justify-content-center align-items-center': widgetOption.isFrontShown}"
+       [hidden]="!widgetOption.isFrontShown">
+    <ng-container *ngTemplateOutlet="frontTemplate; context:{$implicit: {widgetOption}}"></ng-container>
+
+  </div>
+
+
+  <div class="flex-grow-1 d-flex flex-column p-2"
+       [@flip]="widgetOption.isFrontShown? 'hidden':'shown'"
+       [ngClass]="{'d-flex flex-column justify-content-center align-items-center': !widgetOption.isFrontShown}"
+       [hidden]="widgetOption.isFrontShown">
+    <ng-container *ngTemplateOutlet="backTemplate; context:{$implicit: {widgetOption}}"></ng-container>
+  </div>
+
+  <div [hidden]="!isSettingVisible">
+    <ng-template *ngTemplateOutlet="settingTemplate; context:{$implicit: {widgetOption}}"></ng-template>
+  </div>
+
 
 </div>

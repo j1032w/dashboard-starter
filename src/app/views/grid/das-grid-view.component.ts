@@ -47,7 +47,7 @@ export class DasGridViewComponent extends DasComponentBase implements OnInit{
     if(!this.mongoFilter.filter){return;}
 
     this.gridViewService.fetchHousingMarketData$(this.mongoFilter)
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntil(this.destroyed$))
       .subscribe((data) => {
           this.dataSource = data;
         }

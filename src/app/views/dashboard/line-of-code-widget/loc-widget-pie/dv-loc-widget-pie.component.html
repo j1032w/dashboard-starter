@@ -1,38 +1,57 @@
-<dx-pie-chart #pieChart
-              id="pie"
-              class="w-100 p-2 flex-grow-1"
-              palette="Soft blue"
-              paletteExtensionMode="Extrapolate"
-              [dataSource]="pieData"
-              resolveLabelOverlapping="hide"
->
-  <dxo-legend
-    [visible]="false"
-    orientation="vertical"
-    itemTextPosition="right"
-    horizontalAlignment="center"
-    verticalAlignment="bottom"
-    [columnCount]="4"
-  ></dxo-legend>
+<das-auto-size (resized)="onResized($event)">
+  <dx-pie-chart #pieChart
+                id="pie"
+                palette="Soft blue"
+                paletteExtensionMode="Extrapolate"
+                [dataSource]="pieData"
+                resolveLabelOverlapping="hide"
+                [redrawOnResize]="false"
+                [size]="size"
 
-  <dxo-export [enabled]="false"></dxo-export>
-  <dxi-series argumentField="language" valueField="lines">
-    <dxo-label
-      [visible]="true"
-      [customizeText]="customizeLabel"
-    >
-      <dxo-font [size]="16"></dxo-font>
-      <dxo-connector [visible]="true" [width]="0.5"></dxo-connector>
-    </dxo-label>
-  </dxi-series>
-</dx-pie-chart>
+  >
+    <dxo-legend
+      [visible]="false"
+      orientation="vertical"
+      itemTextPosition="right"
+      horizontalAlignment="center"
+      verticalAlignment="bottom"
+      [columnCount]="4"
+    ></dxo-legend>
+
+    <dxo-export [enabled]="false"></dxo-export>
+    <dxi-series argumentField="language" valueField="lines">
+      <dxo-label
+        [visible]="true"
+        [customizeText]="customizeLabel"
+      >
+        <dxo-font [size]="16"></dxo-font>
+        <dxo-connector [visible]="true" [width]="0.5"></dxo-connector>
+      </dxo-label>
+    </dxi-series>
+  </dx-pie-chart>
+</das-auto-size>
+
+<div class="grid-container">
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Files</th>
+      <th scope="col">Lines</th>
+      <th scope="col">Blanks</th>
+      <th scope="col">Comments</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>{{total.files | number}}</th>
+      <td>{{total.lines | number}}</td>
+      <td>{{total.blanks | number}}</td>
+      <td>{{total.comments | number}}</td>
+    </tr>
+
+    </tbody>
+  </table>
 
 
-<das-grid #gridComponent class="m-2"
-          [dataSource]="[total]"
-          [columns]="columns"
-          fixedHeight="3rem"
-          [isHeaderFilterVisible]="false"
-          [isFilterRowVisible]="false">
-
-</das-grid>
+</div>
