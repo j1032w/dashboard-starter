@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { GridsterModule } from 'angular-gridster2';
 import { AngularResizeEventModule } from 'angular-resize-event';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { DasCommonModule } from '../das-common.module';
+import {DasCommonModule} from '../../das-common.module';
+
 import { DasDashboardCoreComponent } from './das-dashboard-core.component';
 import { DasWidgetSettingCoreComponent } from './das-widget-setting/das-widget-setting-core.component';
 

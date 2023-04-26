@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { DevExtremeModule } from 'devextreme-angular';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { DasCommonModule } from '../../../common/components/das-common.module';
+
 import { DasGridModule } from '../../../common/components/das-grid/das-grid.module';
 import { DasDashboardCoreModule } from '../../../common/components/dashboard-core/das-dashboard-core.module';
+import {DasCommonModule} from '../../../common/das-common.module';
 import { DasViewCommonModule } from '../../common/das-view-common.module';
 import {
   DasHousingMarketQueryBuilderModule

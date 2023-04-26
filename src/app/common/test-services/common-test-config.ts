@@ -5,7 +5,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterTestingModule} from '@angular/router/testing';
 import {DevExtremeModule, DxChartModule, DxDataGridModule} from 'devextreme-angular';
-import {DasCommonModule} from '../components/das-common.module';
+import {DasCommonModule} from '../das-common.module';
+
 
 // The compoonet use angular-resize-event needs the mock to pass the test
 window.ResizeObserver =

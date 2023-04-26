@@ -8,7 +8,8 @@ import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MessagesModule } from 'primeng/messages';
-import { DasCommonModule } from '../../common/components/das-common.module';
+import {DasCommonModule} from '../../common/das-common.module';
+
 import {
   DasHousingMarketQueryBuilderModule
 } from '../common/hosing-market-query-builder/das-housing-market-query-builder.module';

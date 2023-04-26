@@ -9,9 +9,10 @@ import { DasLocalStorageService } from '../../services/das-local-storage.service
 import { DasToastService } from '../../services/das-toast.service';
 import { DasComponentBase } from '../das-component-base.component';
 
-import { GRIDSTER_OPTIONS } from './services/das-dashboard-constant';
+
 import { DasDashboardCoreEventService } from './services/das-dashboard-core-event.service';
 import { DasDashboardEventTypeEnum } from './services/das-dashboard-message';
+import {GRIDSTER_OPTIONS} from './services/das-dashboard.constant';
 import { DasWidgetOption } from './services/das-widget-option';
 
 

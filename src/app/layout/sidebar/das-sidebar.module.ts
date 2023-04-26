@@ -6,7 +6,8 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
-import { DasCommonModule } from '../../common/components/das-common.module';
+import {DasCommonModule} from '../../common/das-common.module';
+
 import { SidebarChartSettingComponent } from './chart-setting/sidebar-chart-setting.component';
 import { DasSidebarComponent } from './das-sidebar.component';
 

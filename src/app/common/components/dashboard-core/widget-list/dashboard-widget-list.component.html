@@ -14,7 +14,8 @@
       <div class="card m-2 p-2 fs-6 widget-item"
            cdkDrag
            [cdkDragData]="widgetMap"
-           *ngFor="let widgetMap of dashboardService.widgetMap | defaultOrderKeyvalue">
+           *ngFor="let widgetMap of dashboardService.widgetMap | defaultOrderKeyValue"
+           id="{{widgetMap.value.name | camelCase}}">
         {{widgetMap.value.name}}
       </div>
 

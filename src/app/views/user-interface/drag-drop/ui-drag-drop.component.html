@@ -1,4 +1,6 @@
-<div class="drag-around-box drag-item" cdkDrag (cdkDragEnded)="dragAroundBoxEnded($event)">
+<div class="drag-around-box drag-item" cdkDrag
+     id="dragBox"
+     (cdkDragEnded)="dragAroundBoxEnded($event)">
   <i-feather name="settings" class="me-2"></i-feather>
   Drag me around
   <br>
@@ -6,33 +8,44 @@
 </div>
 
 
-<div class="drop-list-container   mt-5 p-2 e">
+<div class="bg-white mt-5 p-2 e">
+  <div cdkDropListGroup>
+    <div class="drag-container">
+      <h2>To do</h2>
 
-  To do: <span class="me-3" *ngFor="let item of todoItems">#{{ item }}</span>
-  <br/>
-  Done: <span class="me-3" *ngFor="let item of doneItems">#{{ item }}</span>
-
-  <div class="d-flex flex-row">
-
-    <div #listOne="cdkDropList" cdkDropList  [cdkDropListConnectedTo]="[listTwo]"
-         [cdkDropListData]="todoItems"
-         (cdkDropListDropped)="dropped($event)"
-         class="drop-list m-2 p-2">
-      <div>To do</div>
-      <div cdkDrag *ngFor="let item of todoItems"
-           class="drag-item fs-5 m-2 user-select-none" >Item {{item}}</div>
+      <div
+        cdkDropList
+        [cdkDropListData]="todo"
+        class="drag-item-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="drag-item"
+             *ngFor="let item of todo" cdkDrag
+             id="{{item | camelCase}}"
+        >
+          {{item}}
+        </div>
+      </div>
     </div>
 
-    <div #listTwo="cdkDropList" cdkDropList  [cdkDropListConnectedTo]="[listOne]"
-         [cdkDropListData]="doneItems"
-         (cdkDropListDropped)="dropped($event)"
-         class="drop-list m-2 p-2">
-      <div>Done</div>
-      <div cdkDrag *ngFor="let item of doneItems"
-           class="drag-item fs-5 m-2 user-select-none" >Item {{item}}</div>
-    </div>
+    <div class="drag-container">
+      <h2>Done</h2>
 
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="drag-item-list"
+        id="doneList"
+        (cdkDropListDropped)="drop($event)">
+        <div class="drag-item"
+             *ngFor="let item of done" cdkDrag
+             id="{{item | camelCase}}"
+        >
+          {{item}}
+        </div>
+      </div>
+    </div>
   </div>
-
-
 </div>
+
+
+

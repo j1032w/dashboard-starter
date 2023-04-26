@@ -11,18 +11,20 @@ import { ToastrModule } from 'ngx-toastr';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { TooltipModule } from 'primeng/tooltip';
-import { DasAutoSizeComponent } from './das-auto-size/das-auto-size.component';
+import {DasAutoSizeComponent} from './components/das-auto-size/das-auto-size.component';
+import {DasSpinnerComponent} from './components/das-spinner/das-spinner.component';
+import {DasIconsModule} from './components/modules/das-icons.module';
+import {CamelCasePipe} from './pipes/camel-case.pipe';
+import {DefaultOrderKeyValuePipe} from './pipes/default-order-key-value.pipe ';
 
-import { DasSpinnerComponent } from './das-spinner/das-spinner.component';
-import { DasIconsModule } from './modules/das-icons.module';
-import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
 
 
 @NgModule({
   declarations: [
-    DefaultOrderKeyvaluePipe,
     DasSpinnerComponent,
-    DasAutoSizeComponent
+    DasAutoSizeComponent,
+    DefaultOrderKeyValuePipe,
+    CamelCasePipe
   ],
 
   imports: [
@@ -56,7 +58,6 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     DasAutoSizeComponent,
     DasIconsModule,
     DasSpinnerComponent,
-    DefaultOrderKeyvaluePipe,
     DialogModule,
     FeatherModule,
     FormsModule,
@@ -65,7 +66,9 @@ import { DefaultOrderKeyvaluePipe } from './pipes/DefaultOrderKeyvaluePipe ';
     NgScrollbarModule,
     ReactiveFormsModule,
     ToastrModule,
-    TooltipModule
+    TooltipModule,
+    CamelCasePipe,
+    DefaultOrderKeyValuePipe
   ]
 
 

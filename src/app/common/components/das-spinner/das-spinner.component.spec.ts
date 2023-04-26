@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {DasCommonModule} from '../../das-common.module';
 import { CommonTestConfig } from '../../test-services/common-test-config';
-import { DasCommonModule } from '../das-common.module';
+
 
 import { DasSpinnerComponent } from './das-spinner.component';
 
