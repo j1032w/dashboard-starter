@@ -49,6 +49,12 @@ yarn start:dev
 yarn test
 ```
 
+### Running e2e tests
+```
+yarn cypr
+```
+
+
 # Docker
 ### Deployment
 1. Running container, fetch image form Google cloud Artifact Registry.

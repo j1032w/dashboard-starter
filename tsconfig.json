@@ -23,7 +23,7 @@
     "importHelpers": true,
     "strictPropertyInitialization": false,
     "target": "ES2022",
-    "types": ["node", "jest", "cypress", "cypress-real-events"],
+    "types": ["node", "jest"],
     "module": "ES2022",
     "useDefineForClassFields": false,
     "allowSyntheticDefaultImports": true,

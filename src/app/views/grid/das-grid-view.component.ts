@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { takeUntil } from 'rxjs';
-import { DasComponentBase } from '../../common/components/das-component-base.component';
-import { DasGridComponent } from '../../common/components/das-grid/das-grid.component';
-import { HOUSING_MARKET_DEMO_QUERY } from '../common/hosing-market-query-builder/services/das-query-builder.constant';
-import { DEMO_MONGO_FILTER, GRID_VIEW_COLUMNS, GRID_VIEW_SPINNER_ID } from './services/das-grid-view.constant';
-import { DasGridViewService } from './services/das-grid-view.service';
+import {Component, ViewChild} from '@angular/core';
+import {takeUntil} from 'rxjs';
+import {DasComponentBase} from '../../common/components/das-component-base.component';
+import {DasGridComponent} from '../../common/components/das-grid/das-grid.component';
+import {HOUSING_MARKET_DEMO_QUERY} from '../common/hosing-market-query-builder/services/das-query-builder.constant';
+import {DEMO_MONGO_FILTER, GRID_VIEW_COLUMNS, GRID_VIEW_SPINNER_ID} from './services/das-grid-view.constant';
+import {DasGridViewService} from './services/das-grid-view.service';
 
 @Component({
   selector: 'das-grid-view',
@@ -31,7 +31,6 @@ export class DasGridViewComponent extends DasComponentBase {
   }
 
 
-
   showSearchDialog() {
     this.isSearchDialogVisible = true;
   }
@@ -42,7 +41,9 @@ export class DasGridViewComponent extends DasComponentBase {
   }
 
   refresh() {
-    if(!this.mongoFilter.filter){return;}
+    if (!this.mongoFilter.filter) {
+      return;
+    }
 
     this.gridViewService.fetchHousingMarketData$(this.mongoFilter)
       .pipe(takeUntil(this.destroyed$))
@@ -56,7 +57,7 @@ export class DasGridViewComponent extends DasComponentBase {
     this.gridComponent.showColumnChooser();
   }
 
-  export(){
+  export() {
     this.gridComponent.export();
   }
 
