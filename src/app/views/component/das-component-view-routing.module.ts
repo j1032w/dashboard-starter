@@ -9,7 +9,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'base',
+    redirectTo: 'form',
     pathMatch: 'full'
   },
 
