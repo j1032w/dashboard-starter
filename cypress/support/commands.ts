@@ -38,7 +38,7 @@
 
 
 import 'cypress-real-events/support';
-import {dragTo} from './drag-to-support';
+import {dragTo, resize} from './drag-to-support';
 
 // add new command to the existing Cypress interface
 declare global {
@@ -46,10 +46,12 @@ declare global {
 
     interface Chainable {
       dragTo(dropSelector: string): Chainable<JQuery<Element>>;
+      resize(x:number, y:number): Chainable<JQuery<Element>>;
     }
   }
 }
 
 
 Cypress.Commands.add('dragTo', {prevSubject: 'element'}, dragTo);
+Cypress.Commands.add('resize', {prevSubject: 'element'}, resize);
 

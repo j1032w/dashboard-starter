@@ -1,6 +1,7 @@
 import { DasWidgetOption } from '../../../common/components/dashboard-core/services/das-widget-option';
 
-export const DEFAULT_WIDGET_OPTIONS: DasWidgetOption[] = [{
+export const DEFAULT_WIDGET_OPTIONS: DasWidgetOption[] = [
+  {
   'hasContent': true,
   'originalRows': 9,
   'isSettingModalVisible': false,
@@ -96,7 +97,8 @@ export const DEFAULT_WIDGET_OPTIONS: DasWidgetOption[] = [{
   'isShowRefreshButton': true,
   'isShowFlipButton': true,
   'isFrontShown': true
-}, {
+},
+  {
   'hasContent': true,
   'originalRows': 9,
   'isSettingModalVisible': false,

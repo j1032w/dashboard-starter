@@ -1,68 +1,53 @@
-import '@4tw/cypress-drag-drop'
 
-const timeout = 2000;
-const actionWaitingTime = 1000;
+
+const shortWaitingTime = 1000;
+const longWaitingTime = 2000;
 
 describe('Dashboard demo', () => {
     before(() => {
-      cy.visit('http://localhost:4200/dashboard')
+      cy.visit('http://localhost:4200/dashboard');
+      cy.wait(longWaitingTime);
     });
 
 
 
     it('displays default widgets', () => {
       cy.get('.gridster-item').should('have.length', 7)
-      cy.wait(actionWaitingTime);
+      cy.wait(shortWaitingTime);
 
-      // cy.get('#dashSettingRemoveAllBtn').click();
-      // cy.wait(actionWaitingTime);
-      //
-      //
-      // cy.get('p-confirmdialog button[ng-reflect-label="Yes"]', {timeout}).click();
-      //
-      // cy.get('.gridster-item').should('have.length', 0)
-      // cy.wait(actionWaitingTime);
-      //
-      // cy.get('#dashSettingWidgetListBtn').click();
-      // cy.wait(actionWaitingTime);
-      //
-      // cy.get('das-dashboard-widget-list .p-dialog-content', {timeout}).should('be.visible');
-      // cy.wait(actionWaitingTime);
+      // toggle menu
+      cy.get('.header .menu.toolbar-button').click();
+      cy.wait(longWaitingTime);
+      cy.get('.header .menu.toolbar-button').click();
+      cy.wait(longWaitingTime);
 
-      //
-      // cy.get('das-dashboard-widget-list .widget-item[id="housingMarket"]').trigger("dragstart");
-      // cy.get('das-dashboard-view').trigger("drop");
+      // remove all widgets
+      cy.get('#dashSettingRemoveAllBtn').click();
+      cy.wait(shortWaitingTime);
+
+      cy.get('p-confirmdialog button[ng-reflect-label="Yes"]').click();
+      cy.wait(shortWaitingTime);
+      cy.get('.gridster-item').should('have.length', 0)
+      cy.wait(shortWaitingTime);
 
 
-      // cy.get('das-dashboard-widget-list .widget-item[id="housingMarket"]').drag(
-      //   'gridster',
-      //   {
-      //
-      //     source: { }, // applies to the element being dragged
-      //      target: { x:300, y:300 }, // applies to the drop target
-      //      force: true, // applied to both the source and target element
-      //   }
-      // )
 
-       movePiece('das-dv-widget-sp500 .title.drag-handler', 400, 400);
+      // save layout
+      cy.get('#dashSettingSaveBtn').click();
+      cy.wait(shortWaitingTime);
+      cy.reload();
 
-      // const widgetSelector = 'das-dashboard-widget-list .widget-item[id="housingMarket"]';
-      //
-      // cy.get(widgetSelector).first()
-      //   .trigger('dragstart')
-      //
-      // cy.get('gridster')
-      //   .trigger('drop')
+
+
+      // reset
+      cy.get('#dashSettingResetBtn').click();
+      cy.wait(shortWaitingTime);
+      cy.get('p-confirmdialog button[ng-reflect-label="Yes"]', {timeout: shortWaitingTime}).click();
+      cy.get('.gridster-item').should('have.length', 7)
+
     })
 
 
   }
 )
 
-
-function movePiece (selector:string, x:number, y:number) {
-  cy.get(selector)
-    .trigger('mousedown', { which: 1 })
-    .trigger('mousemove', { clientX: x, clientY: y })
-    .trigger('mouseup', { force: true })
-}

@@ -7,7 +7,7 @@
 <a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.laobi.icu/badge?page_id=j1032w/dashboard-starter"></a>
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)
 
-[![Demo](documentation/dashboard.png)](https://www.j1032.com/dashboard)
+[![Demo](documentation/dashboard-cypress.gif)](https://www.j1032.com/dashboard)
 
 
 # Demo
@@ -20,6 +20,7 @@ https://www.j1032.com/dashboard
 - Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compile
 - Module lazy loading, HTTP reqeust cache, Responsive design, SVG Icons
 - Unit testing with [Jest](https://jestjs.io/)
+- E2E automation testing with [Cypress](https://www.cypress.io/)
 - Dockerized application
 - Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)
 - MIT License

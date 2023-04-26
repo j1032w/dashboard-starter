@@ -4,7 +4,6 @@ import {DasLayoutComponent} from './layout/das-layout.component';
 import {DasChartViewComponent} from './views/chart/das-chart-view.component';
 import {DashboardViewComponent} from './views/dashboard/dashboard-view.component';
 import {DasGridViewComponent} from './views/grid/das-grid-view.component';
-import {DasUserInterfaceModule} from './views/user-interface/das-user-interface.module';
 
 
 const routes: Routes = [
@@ -46,7 +45,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), DasUserInterfaceModule],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {
