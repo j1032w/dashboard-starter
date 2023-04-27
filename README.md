@@ -18,12 +18,12 @@ https://www.j1032.com/dashboard
 
 
 # What I have got here
-- Built on Angular, Typescript, SCSS, RxJS, [Angular Material CDK](https://material.angular.io/cdk/categories) and [Bootstrap](https://getbootstrap.com/)
+- Built with [Angular 15](https://angular.io), [Typescript 4](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 15](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
 - Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compile
 - Module lazy loading, HTTP reqeust cache, Responsive design, SVG Icons
 - Unit testing with [Jest](https://jestjs.io/)
 - E2E automation testing with [Cypress](https://www.cypress.io/)
-- Dockerized application
+- [Dockerized application](https://www.docker.com/) hosted on [Google Cloud](https://cloud.google.com/)
 - Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)
 - MIT License
 
