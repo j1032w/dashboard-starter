@@ -9,9 +9,6 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    volumes:
-      - nginx_config:/etc/nginx
-      - nginx_html:/usr/share/nginx/html
 
     networks:
         - das_network

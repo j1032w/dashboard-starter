@@ -19,8 +19,9 @@ https://www.j1032.com/dashboard \
 
 # What I have got here
 - Built with [Angular 15](https://angular.io), [Typescript 4](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 15](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
-- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compile
-- Module lazy loading, HTTP reqeust cache, Responsive liquid layout, SVG Icons
+- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation
+- Module lazy loading, HTTP request decouncing and caching, 
+- Responsive liquid layout, SVG Icons
 - Unit testing with [Jest](https://jestjs.io/)
 - E2E automation testing with [Cypress](https://www.cypress.io/)
 - [Dockerized application](https://www.docker.com/) hosted on [Google Cloud](https://cloud.google.com/)
