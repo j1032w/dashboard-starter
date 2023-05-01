@@ -19,15 +19,24 @@ https://www.j1032.com/dashboard \
 
 # What I have got here
 - Built with [Angular 15](https://angular.io), [Typescript 4](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 15](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
-- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation
-- Module lazy loading, HTTP request decouncing and caching, 
+- Container and presentational components architecture
+- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation, Module lazy loading, HTTP request throttling and caching, 
 - Responsive liquid layout, SVG Icons
 - Unit testing with [Jest](https://jestjs.io/)
 - E2E automation testing with [Cypress](https://www.cypress.io/)
 - [Dockerized application](https://www.docker.com/) hosted on [Google Cloud](https://cloud.google.com/)
 - Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)
-- MIT License
 
+
+# Roadmap: 
+* [ ] Update to Nx workspace and monorepo architecture
+* [ ] Turn dashboard module to standalone npm package
+* [ ] Increase unit tests coverage
+* [ ] Add more e2e automation tests
+* [ ] Setup CI/CD with CodeQL scanning
+
+
+&nbsp;
 
 It's designed to be easy to understand and use. Feel free to customize it to fit your needs.\
 Every donation is appreciated and will go towards the development of this project. Thank you for your support!
