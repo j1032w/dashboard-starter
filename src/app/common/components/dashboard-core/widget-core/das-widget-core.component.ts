@@ -1,10 +1,9 @@
-import {state, style, transition, trigger, useAnimation} from '@angular/animations';
-import {Component, ContentChild, ElementRef, Input, TemplateRef} from '@angular/core';
-import {ResizedEvent} from 'angular-resize-event';
-import {flipInY} from 'ng-animate';
-import {DasComponentBase} from '../../das-component-base.component';
-import {DasDashboardCoreEventService} from '../services/das-dashboard-core-event.service';
-import {DasWidgetOption} from '../services/das-widget-option';
+import { state, style, transition, trigger, useAnimation } from '@angular/animations';
+import { Component, ContentChild, ElementRef, Input, TemplateRef } from '@angular/core';
+import { flipInY } from 'ng-animate';
+import { DasComponentBase } from '../../das-component-base.component';
+import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
+import { DasWidgetOption } from '../services/das-widget-option';
 
 
 @Component({
@@ -30,8 +29,8 @@ import {DasWidgetOption} from '../services/das-widget-option';
         })
       ),
 
-      transition('hidden => shown', useAnimation(flipInY, {params: {timing: 2}})),
-      transition('shown => hidden', useAnimation(flipInY, {params: {timing: 2}}))
+      transition('hidden => shown', useAnimation(flipInY, { params: { timing: 2 } })),
+      transition('shown => hidden', useAnimation(flipInY, { params: { timing: 2 } }))
     ])
   ]
 })
@@ -42,12 +41,11 @@ export class DasWidgetCoreComponent extends DasComponentBase {
   @ContentChild('backTemplate') backTemplate: TemplateRef<any>;
   @ContentChild('settingTemplate') settingTemplate: TemplateRef<any>;
 
+  isToolbarHidden = true;
   isSettingVisible = false;
 
   height = '400px';
   width = '400px';
-
-  isContentHidden = false;
 
 
   constructor(
@@ -55,20 +53,6 @@ export class DasWidgetCoreComponent extends DasComponentBase {
     private readonly elementRef: ElementRef
   ) {
     super();
-  }
-
-
-  private setDimension($event: ResizedEvent) {
-    this.isContentHidden = true;
-    setTimeout(() => {
-      if (this.elementRef.nativeElement.offsetWidth && this.elementRef.nativeElement.offsetHeight) {
-        this.width = `${this.elementRef.nativeElement.offsetWidth}px`;
-        this.height = `${this.elementRef.nativeElement.offsetHeight}px`;
-        this.dashboardEventService.emitWidgetResized(this.widgetOption);
-      }
-
-      this.isContentHidden = false;
-    });
   }
 
 
@@ -80,6 +64,9 @@ export class DasWidgetCoreComponent extends DasComponentBase {
   showSettingModal() {
     this.widgetOption.isSettingModalVisible = true;
   }
+
+
+  protected readonly onmouseenter = onmouseenter;
 
 
 }

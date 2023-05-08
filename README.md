@@ -24,7 +24,7 @@ https://www.j1032.com/dashboard \
 - Responsive liquid layout, SVG Icons
 - Unit testing with [Jest](https://jestjs.io/)
 - E2E automation testing with [Cypress](https://www.cypress.io/)
-- [Dockerized application](https://www.docker.com/) hosted on [Google Cloud](https://cloud.google.com/)
+- [Containerized application](https://www.docker.com/) hosted on [Google Cloud](https://cloud.google.com/)
 - Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)
 
 

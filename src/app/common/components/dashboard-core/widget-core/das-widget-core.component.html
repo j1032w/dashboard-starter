@@ -1,10 +1,12 @@
-<div class="h-100 w-100 d-flex flex-column">
+<div class="h-100 w-100 d-flex flex-column"
+     (mouseenter)="isToolbarHidden=false"
+     (mouseleave)="isToolbarHidden=true">
 
 
   <div class="fw-semibold bg-light d-flex flex-row w-100">
     <div class="title drag-handler p-2 fw-bold user-select-none flex-grow-1">
       {{widgetOption.title}}</div>
-    <div class="toolbar">
+    <div class="toolbar" [hidden]="isToolbarHidden">
       <i-feather name="repeat" class="toolbar-button"
                  *ngIf="widgetOption.isShowFlipButton"
                  pTooltip="Flip" tooltipPosition="bottom"
