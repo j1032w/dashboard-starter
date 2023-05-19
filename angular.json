@@ -91,6 +91,7 @@
               "namedChunks": false,
               "optimization": true,
               "outputHashing": "all",
+              "subresourceIntegrity": true,
               "sourceMap": false,
               "vendorChunk": false
             },
