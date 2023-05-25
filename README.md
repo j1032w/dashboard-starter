@@ -13,6 +13,8 @@ https://www.j1032.com/dashboard \
 &nbsp;
 
 [![Demo](documentation/dashboard-cypress.gif)](https://www.j1032.com/dashboard)
+[![](https://j1032.com/assets/images/demo.gif)](https://www.j1032.com/dashboard)
+
 
 
 

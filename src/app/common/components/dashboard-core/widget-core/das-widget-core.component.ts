@@ -1,9 +1,9 @@
-import { state, style, transition, trigger, useAnimation } from '@angular/animations';
-import { Component, ContentChild, ElementRef, Input, TemplateRef } from '@angular/core';
-import { flipInY } from 'ng-animate';
-import { DasComponentBase } from '../../das-component-base.component';
-import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
-import { DasWidgetOption } from '../services/das-widget-option';
+import {state, style, transition, trigger, useAnimation} from '@angular/animations';
+import {Component, ContentChild, ElementRef, Input, TemplateRef} from '@angular/core';
+import {flipInY} from 'ng-animate';
+import {DasComponentBase} from '../../das-component-base.component';
+import {DasDashboardCoreEventService} from '../services/das-dashboard-core-event.service';
+import {DasWidgetOption} from '../services/das-widget-option';
 
 
 @Component({
@@ -29,8 +29,8 @@ import { DasWidgetOption } from '../services/das-widget-option';
         })
       ),
 
-      transition('hidden => shown', useAnimation(flipInY, { params: { timing: 2 } })),
-      transition('shown => hidden', useAnimation(flipInY, { params: { timing: 2 } }))
+      transition('hidden => shown', useAnimation(flipInY, {params: {timing: 2}})),
+      transition('shown => hidden', useAnimation(flipInY, {params: {timing: 2}}))
     ])
   ]
 })
@@ -70,3 +70,6 @@ export class DasWidgetCoreComponent extends DasComponentBase {
 
 
 }
+
+
+
