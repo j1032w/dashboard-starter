@@ -27,6 +27,7 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
     "paths": {
       "jszip": [
         "node_modules/jszip/dist/jszip.min.js"
