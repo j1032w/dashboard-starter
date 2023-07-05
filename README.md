@@ -3,6 +3,7 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)\
+[![GitLabPipeline](https://gitlab.com/j1032w/dashboard-starter/badges/main/pipeline.svg)](https://gitlab.com/j1032w/dashboard-starter/-/pipelines)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.laobi.icu/badge?page_id=j1032w/dashboard-starter"></a>
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)
@@ -26,10 +27,11 @@ https://www.j1032.com/dashboard \
 - Container and presentational components architecture
 - Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation, Module lazy loading, HTTP request throttling and caching, 
 - Responsive liquid layout, SVG Icons
-- Unit testing with [Jest](https://jestjs.io/)
-- E2E automation testing with [Cypress](https://www.cypress.io/)
+- Unit testing with [Jest](https://jestjs.io/) and E2E automation testing with [Cypress](https://www.cypress.io/)
 - [Containerized application](https://www.docker.com/) hosted on [Google Cloud](https://cloud.google.com/)
 - Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)
+- [Eslint](https://eslint.org/) and [Prettier](https://prettier.io/) integration
+- [Gitlab CI/CD](https://gitlab.com/j1032w/dashboard-starter/-/pipelines) pipeline
 
 
 # Roadmap: 
@@ -37,7 +39,7 @@ https://www.j1032.com/dashboard \
 * [ ] Turn dashboard module to standalone npm package
 * [ ] Increase unit tests coverage
 * [ ] Add more e2e automation tests
-* [ ] Setup CI/CD with CodeQL scanning
+
 
 
 &nbsp;
@@ -97,12 +99,19 @@ docker container run -d -p 4201:80 --rm das-ui:develop
 ```  
 
 
+## GitLab CI/CD
+https://gitlab.com/j1032w/dashboard-starter/-/pipelines
+
+[![Gitlab](documentation/gitlab.png)](https://gitlab.com/j1032w/dashboard-starter/-/pipelines)
+
 
 
 
 
 
 ## SonarQube scan result
+https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)  
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
