@@ -1,21 +1,17 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, finalize, Observable } from 'rxjs';
+
 import { DasHttpProgressStateEnum } from './das-http-progress-state.enum';
 import { DAS_SPINNER_KEY, DasHttpStateService } from './das-http-state.service';
-
 
 // https://dev.to/elasticrash/angular-display-a-spinner-on-any-component-that-does-an-http-request-2gm2
 
 @Injectable({ providedIn: 'root' })
 export class DasSpinnerInterceptorService implements HttpInterceptor {
+  private exceptions: string[] = ['login'];
 
-  private exceptions: string[] = [
-    'login'
-  ];
-
-  constructor(private readonly httpStateService: DasHttpStateService) {
-  }
+  constructor(private readonly httpStateService: DasHttpStateService) {}
 
   /**
    * Intercepts all requests
@@ -41,18 +37,17 @@ export class DasSpinnerInterceptorService implements HttpInterceptor {
       state: DasHttpProgressStateEnum.start
     });
 
-
     const headers = request.headers.delete(DAS_SPINNER_KEY);
     const newRequest = request.clone({ headers });
 
-    return next.handle(newRequest)
-      .pipe(
-        delay(1000),
-        finalize(() => {
+    return next.handle(newRequest).pipe(
+      delay(1000),
+      finalize(() => {
         this.httpStateService.state$.next({
           spinnerId,
           state: DasHttpProgressStateEnum.end
         });
-      }));
+      })
+    );
   }
 }

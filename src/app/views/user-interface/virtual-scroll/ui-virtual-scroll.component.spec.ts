@@ -8,9 +8,8 @@ describe('VirtualScrollComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiVirtualScrollComponent ]
-    })
-    .compileComponents();
+      declarations: [UiVirtualScrollComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UiVirtualScrollComponent);
     component = fixture.componentInstance;

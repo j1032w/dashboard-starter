@@ -1,10 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {DasCommonModule} from '../../das-common.module';
+
+import { DasCommonModule } from '../../das-common.module';
 import { CommonTestConfig } from '../../test-services/common-test-config';
-
-
 import { DasSpinnerComponent } from './das-spinner.component';
-
 
 describe('DasSpinnerComponent', () => {
   let component: DasSpinnerComponent;
@@ -13,8 +11,7 @@ describe('DasSpinnerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [...CommonTestConfig.imports, DasCommonModule]
-    })
-      .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DasSpinnerComponent);
     component = fixture.componentInstance;

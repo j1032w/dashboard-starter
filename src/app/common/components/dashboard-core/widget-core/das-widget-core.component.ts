@@ -1,10 +1,10 @@
-import {state, style, transition, trigger, useAnimation} from '@angular/animations';
-import {Component, ContentChild, ElementRef, Input, TemplateRef} from '@angular/core';
-import {flipInY} from 'ng-animate';
-import {DasComponentBase} from '../../das-component-base.component';
-import {DasDashboardCoreEventService} from '../services/das-dashboard-core-event.service';
-import {DasWidgetOption} from '../services/das-widget-option';
+import { state, style, transition, trigger, useAnimation } from '@angular/animations';
+import { Component, ContentChild, ElementRef, Input, TemplateRef } from '@angular/core';
+import { flipInY } from 'ng-animate';
 
+import { DasBaseComponent } from '../../das-component-base.component';
+import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
+import { DasWidgetOption } from '../services/das-widget-option';
 
 @Component({
   selector: 'das-widget-core',
@@ -29,12 +29,12 @@ import {DasWidgetOption} from '../services/das-widget-option';
         })
       ),
 
-      transition('hidden => shown', useAnimation(flipInY, {params: {timing: 2}})),
-      transition('shown => hidden', useAnimation(flipInY, {params: {timing: 2}}))
+      transition('hidden => shown', useAnimation(flipInY, { params: { timing: 2 } })),
+      transition('shown => hidden', useAnimation(flipInY, { params: { timing: 2 } }))
     ])
   ]
 })
-export class DasWidgetCoreComponent extends DasComponentBase {
+export class DasWidgetCoreComponent extends DasBaseComponent {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
 
   @ContentChild('frontTemplate') frontTemplate: TemplateRef<any>;
@@ -47,7 +47,6 @@ export class DasWidgetCoreComponent extends DasComponentBase {
   height = '400px';
   width = '400px';
 
-
   constructor(
     public readonly dashboardEventService: DasDashboardCoreEventService,
     private readonly elementRef: ElementRef
@@ -55,21 +54,11 @@ export class DasWidgetCoreComponent extends DasComponentBase {
     super();
   }
 
-
   flip() {
     this.widgetOption.isFrontShown = !this.widgetOption.isFrontShown;
   }
 
-
   showSettingModal() {
     this.widgetOption.isSettingModalVisible = true;
   }
-
-
-  protected readonly onmouseenter = onmouseenter;
-
-
 }
-
-
-

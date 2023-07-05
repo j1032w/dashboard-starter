@@ -1,21 +1,21 @@
 import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { DasComponentBase } from '../../das-component-base.component';
+
+import { DasBaseComponent } from '../../das-component-base.component';
 import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 import { DasWidgetOption } from '../services/das-widget-option';
-
 
 @Component({
   selector: 'das-widget-setting-core',
   templateUrl: './das-widget-setting-core.component.html',
   styleUrls: ['./das-widget-setting-core.component.scss']
 })
-export class DasWidgetSettingCoreComponent extends DasComponentBase implements OnInit {
+export class DasWidgetSettingCoreComponent extends DasBaseComponent implements OnInit {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
   @Input() style: any = { width: '50rem', height: '20rem' };
 
   @Output() apply = new EventEmitter();
-  @Output() show = new EventEmitter();
+  @Output() showModal = new EventEmitter();
 
   @ContentChild('contentTemplate') contentTemplate: TemplateRef<any>;
 
@@ -26,9 +26,7 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
     protected readonly dashboardCoreService: DasDashboardCoreEventService
   ) {
     super();
-
   }
-
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
@@ -41,7 +39,7 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
   }
 
   onShow() {
-    this.show.emit();
+    this.showModal.emit();
   }
 
   applySetting() {
@@ -50,6 +48,4 @@ export class DasWidgetSettingCoreComponent extends DasComponentBase implements O
     this.apply.emit();
     this.onHide();
   }
-
-
 }

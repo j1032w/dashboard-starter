@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { FeatherModule } from 'angular-feather';
 import {
@@ -10,12 +9,13 @@ import {
   ChevronRight,
   ChevronsLeft,
   Edit,
+  ExternalLink,
   Eye,
   Facebook,
   Feather,
+  File,
   FileText,
   Film,
-  File,
   Flag,
   Github,
   Grid,
@@ -23,26 +23,22 @@ import {
   Layout,
   Menu,
   MessageSquare,
+  Minimize2,
   Monitor,
   Move,
   Package,
-  Settings,
-  Save,
-  Tag,
-  X,
-  TrendingUp,
-  Minimize2,
-  RotateCw,
   Repeat,
-  Server,
+  RotateCw,
+  Save,
   Search,
-  ExternalLink
+  Server,
+  Settings,
+  Tag,
+  TrendingUp,
+  X
 } from 'angular-feather/icons';
 
-
-
 const icons = {
-
   Airplay,
   Bell,
   Bold,
@@ -78,13 +74,9 @@ const icons = {
   X,
   Search,
   ExternalLink
-
 };
 
 @NgModule({
-  imports: [
-    FeatherModule.pick(icons)
-  ]
+  imports: [FeatherModule.pick(icons)]
 })
-export class DasIconsModule {
-}
+export class DasIconsModule {}

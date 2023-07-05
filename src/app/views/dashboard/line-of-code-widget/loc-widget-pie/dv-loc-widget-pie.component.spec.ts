@@ -8,9 +8,8 @@ describe('LineOfCodeWidgetPieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DvLocWidgetPieComponent ]
-    })
-    .compileComponents();
+      declarations: [DvLocWidgetPieComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DvLocWidgetPieComponent);
     component = fixture.componentInstance;

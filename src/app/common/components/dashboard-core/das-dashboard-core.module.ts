@@ -3,33 +3,28 @@ import { NgModule } from '@angular/core';
 import { GridsterModule } from 'angular-gridster2';
 import { AngularResizeEventModule } from 'angular-resize-event';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import {DasCommonModule} from '../../das-common.module';
 
+import { DasCommonModule } from '../../das-common.module';
 import { DasDashboardCoreComponent } from './das-dashboard-core.component';
 import { DasWidgetSettingCoreComponent } from './das-widget-setting/das-widget-setting-core.component';
-
-
-import { DasWidgetBase } from './services/das-widget-base.component';
-import { DasWidgetContentBase } from './services/das-widget-content-base';
-import { DasWidgetSettingBase } from './services/das-widget=setting-base';
-
+import { DasWidgetBaseComponent } from './services/das-widget-base.component';
+import { DasWidgetContentBaseComponent } from './services/das-widget-content-base.component';
+import { DasWidgetSettingBaseComponent } from './services/das-widget-setting-base.component';
 import { DasWidgetCoreComponent } from './widget-core/das-widget-core.component';
 import { DasWidgetDynamicLoaderDirective } from './widget-dynamic-loader/das-widget-dynamic-loader.directive';
 import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-list.component';
-
 
 @NgModule({
   declarations: [
     DasDashboardCoreComponent,
     DashboardWidgetListComponent,
-    DasWidgetBase,
-    DasWidgetContentBase,
+    DasWidgetBaseComponent,
+    DasWidgetContentBaseComponent,
     DasWidgetCoreComponent,
     DasWidgetDynamicLoaderDirective,
     DasWidgetSettingCoreComponent,
-    DasWidgetSettingBase
+    DasWidgetSettingBaseComponent
   ],
-
 
   imports: [
     DasCommonModule,
@@ -47,10 +42,8 @@ import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-lis
     DasDashboardCoreComponent,
     DasWidgetCoreComponent,
     DasWidgetSettingCoreComponent,
-    DasWidgetContentBase,
-    DasWidgetSettingBase
-
+    DasWidgetContentBaseComponent,
+    DasWidgetSettingBaseComponent
   ]
 })
-export class DasDashboardCoreModule {
-}
+export class DasDashboardCoreModule {}

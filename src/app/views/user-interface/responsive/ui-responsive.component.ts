@@ -6,16 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./ui-responsive.component.scss']
 })
 export class UiResponsiveComponent {
-
   visible = true;
 
   colClass = 'col-lg-12';
 
-  dialogSize = 'Large';
-
   header = 'large';
 
-  width='1200px';
+  width = '1200px';
   constructor() {
     this.setSize('large');
   }
@@ -41,8 +38,5 @@ export class UiResponsiveComponent {
     }
 
     this.visible = true;
-
-
   }
-
 }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
-import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
+import { DasWidgetBaseComponent } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DasChartSp500Service } from '../../common/sp500-chart/das-chart-sp500.service';
 
@@ -10,7 +11,10 @@ import { DasChartSp500Service } from '../../common/sp500-chart/das-chart-sp500.s
   styleUrls: ['./dv-sp500-widget.component.scss'],
   providers: [DasChartSp500Service]
 })
-export class DvSp500WidgetComponent extends DasWidgetBase {
+export class DvSp500WidgetComponent extends DasWidgetBaseComponent implements OnInit {
+  @ViewChild('frontTemplate') widgetFrontComponent: ElementRef;
+  @ViewChild('backTemplate') widgetBackComponent: ElementRef;
+  @ViewChild('settingTemplate') widgetSettingComponent: ElementRef;
 
   constructor(
     protected override readonly dashboardCoreService: DasDashboardCoreEventService,
@@ -31,6 +35,4 @@ export class DvSp500WidgetComponent extends DasWidgetBase {
     this.chartSp500Service.isTitleVisible = isTitleVisible;
     this.chartSp500Service.isLegendVisible = isLegendVisible;
   };
-
-
 }

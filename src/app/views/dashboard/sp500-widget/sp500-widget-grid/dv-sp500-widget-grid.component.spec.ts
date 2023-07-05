@@ -8,9 +8,8 @@ describe('DvSp500WidgetBackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DvSp500WidgetGridComponent ]
-    })
-    .compileComponents();
+      declarations: [DvSp500WidgetGridComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DvSp500WidgetGridComponent);
     component = fixture.componentInstance;

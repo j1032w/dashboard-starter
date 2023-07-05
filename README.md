@@ -117,5 +117,5 @@ docker container run -d -p 4201:80 --rm das-ui:develop
 
 
 
-<a title="Web Analytics Made Easy - Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12895563/0/906c012a/1/" alt="Web Analytics Made Easy - Statcounter" referrerPolicy="no-referrer-when-downgrade"></a>
+<a href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12895563/0/906c012a/1/" data-canonical-src="https://c.statcounter.com/12895563/0/906c012a/1/" referrerPolicy="no-referrer-when-downgrade"></a>
 

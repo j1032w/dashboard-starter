@@ -8,9 +8,8 @@ describe('CompButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompMultiplePurposeComponent ]
-    })
-    .compileComponents();
+      declarations: [CompMultiplePurposeComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CompMultiplePurposeComponent);
     component = fixture.componentInstance;

@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { CommonTestConfig } from '../../common/test-services/common-test-config';
-
-
-import { DashboardViewComponent } from './dashboard-view.component';
 import { DasDashboardViewModule } from './das-dashboard-view.module';
+import { DashboardViewComponent } from './dashboard-view.component';
 
 describe('DasDashboardComponent', () => {
   let component: DashboardViewComponent;
@@ -13,9 +12,7 @@ describe('DasDashboardComponent', () => {
     await TestBed.configureTestingModule({
       imports: [...CommonTestConfig.imports, DasDashboardViewModule],
       providers: [...CommonTestConfig.providers]
-
-    })
-      .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardViewComponent);
     component = fixture.componentInstance;

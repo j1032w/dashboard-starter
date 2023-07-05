@@ -1,14 +1,15 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
-import {ResizedEvent} from 'angular-resize-event';
-import {debounceTime, filter, Subject, takeUntil} from 'rxjs';
-import {DasComponentBase} from '../das-component-base.component';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
+import { ResizedEvent } from 'angular-resize-event';
+import { debounceTime, filter, Subject, takeUntil } from 'rxjs';
+
+import { DasBaseComponent } from '../das-component-base.component';
 
 @Component({
   selector: 'das-auto-size',
   templateUrl: './das-auto-size.component.html',
   styleUrls: ['./das-auto-size.component.scss']
 })
-export class DasAutoSizeComponent extends DasComponentBase implements OnInit {
+export class DasAutoSizeComponent extends DasBaseComponent implements OnInit {
   @Output() resized = new EventEmitter<ElementSizeInterface>();
 
   height = '300px';
@@ -27,18 +28,15 @@ export class DasAutoSizeComponent extends DasComponentBase implements OnInit {
       .pipe(
         takeUntil(this.destroyed$),
         debounceTime(100),
-        filter($event=>!!$event.newRect.width && !!$event.newRect.height )
+        filter($event => !!$event.newRect.width && !!$event.newRect.height)
       )
-      .subscribe(($event) => {
-
+      .subscribe(() => {
         this.isContentHidden = true;
 
         setTimeout(() => {
-          if (this.elementRef.nativeElement.clientHeight &&
-            this.elementRef.nativeElement.clientWidth) {
-
+          if (this.elementRef.nativeElement.clientHeight && this.elementRef.nativeElement.clientWidth) {
             this.height = `${this.elementRef.nativeElement.clientHeight - 1}px`;
-            this.width = `${this.elementRef.nativeElement.clientWidth - 1 }px`;
+            this.width = `${this.elementRef.nativeElement.clientWidth - 1}px`;
 
             this.resized.emit({
               height: this.elementRef.nativeElement.clientHeight - 2,
@@ -47,10 +45,8 @@ export class DasAutoSizeComponent extends DasComponentBase implements OnInit {
           }
 
           this.isContentHidden = false;
-        }, );
+        });
       });
-
-
   }
 
   onResized($event: ResizedEvent) {
@@ -62,6 +58,3 @@ export interface ElementSizeInterface {
   height: number;
   width: number;
 }
-
-
-

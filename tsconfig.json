@@ -2,7 +2,10 @@
   "compileOnSave": false,
   "exclude": [
     "/node_modules/**",
-    "/dist/**"
+    "/dist/**",
+    "/cypress.config.ts",
+    "cypress",
+    "**/*.cy.tsx"
   ],
   "compilerOptions": {
     "allowJs": true,

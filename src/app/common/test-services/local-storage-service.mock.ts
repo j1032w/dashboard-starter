@@ -1,12 +1,8 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LocalStorageServiceMock {
   store: any = {};
-
-  clear() {
-    this.store = {};
-  }
 
   getItem(key: string) {
     return this.store[key] || null;

@@ -1,5 +1,6 @@
 import { CDK_DRAG_CONFIG } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
+
 import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 
 @Component({
@@ -9,13 +10,5 @@ import { DasDashboardCoreEventService } from '../services/das-dashboard-core-eve
   providers: [{ provide: CDK_DRAG_CONFIG, useValue: { zIndex: 2000 } }]
 })
 export class DashboardWidgetListComponent {
-
-
-  constructor(public readonly dashboardService: DasDashboardCoreEventService) {
-  }
-
-
-  hide() {
-    this.dashboardService.isSettingVisible = false;
-  }
+  constructor(public readonly dashboardService: DasDashboardCoreEventService) {}
 }

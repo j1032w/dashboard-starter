@@ -1,13 +1,12 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
 import { DasGridComponent } from '../../../../common/components/das-grid/das-grid.component';
 import {
   DasGridCellTemplateEnum,
   DasGridColumnTypeEnum
 } from '../../../../common/components/das-grid/services/das-grid-column-interface';
-import {
-  DasDashboardCoreEventService
-} from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
-import { DasWidgetContentBase } from '../../../../common/components/dashboard-core/services/das-widget-content-base';
+import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
+import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
 import { DasChartSp500Service, Sp500AnnualHistory } from '../../../common/sp500-chart/das-chart-sp500.service';
 
 @Component({
@@ -15,14 +14,13 @@ import { DasChartSp500Service, Sp500AnnualHistory } from '../../../common/sp500-
   templateUrl: './dv-sp500-widget-grid.component.html',
   styleUrls: ['./dv-sp500-widget-grid.component.scss']
 })
-export class DvSp500WidgetGridComponent extends DasWidgetContentBase {
+export class DvSp500WidgetGridComponent extends DasWidgetContentBaseComponent implements OnInit {
   @ViewChild('gridComponent', { static: true }) gridComponent: DasGridComponent;
-
 
   data: Sp500AnnualHistory[] = [];
   height = 300;
 
-  columns = [
+  columns: any[] = [
     { dataField: 'year', caption: 'Year', dataType: DasGridColumnTypeEnum.Number },
 
     {
@@ -47,7 +45,6 @@ export class DvSp500WidgetGridComponent extends DasWidgetContentBase {
     private readonly sp500Service: DasChartSp500Service
   ) {
     super(elementRef, dashboardCoreService);
-
   }
 
   protected override readonly repaintComponent = () => {
@@ -58,5 +55,4 @@ export class DvSp500WidgetGridComponent extends DasWidgetContentBase {
     super.ngOnInit();
     this.data = this.sp500Service.getSp500Data();
   }
-
 }

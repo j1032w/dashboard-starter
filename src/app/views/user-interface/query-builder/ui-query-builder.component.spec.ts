@@ -8,9 +8,8 @@ describe('QueryBuilderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiQueryBuilderComponent ]
-    })
-    .compileComponents();
+      declarations: [UiQueryBuilderComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UiQueryBuilderComponent);
     component = fixture.componentInstance;

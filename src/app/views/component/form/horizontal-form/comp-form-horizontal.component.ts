@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './comp-form-horizontal.component.html',
   styleUrls: ['./comp-form-horizontal.component.scss']
 })
-export class CompFormHorizontalComponent {
-
-}
+export class CompFormHorizontalComponent {}

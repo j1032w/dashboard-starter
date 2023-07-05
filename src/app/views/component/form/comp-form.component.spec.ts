@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { CompFormComponent } from './comp-form.component';
-
-
 
 describe('FormComponent', () => {
   let component: CompFormComponent;
@@ -9,9 +8,8 @@ describe('FormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompFormComponent ]
-    })
-    .compileComponents();
+      declarations: [CompFormComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CompFormComponent);
     component = fixture.componentInstance;

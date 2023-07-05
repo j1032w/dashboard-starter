@@ -8,9 +8,8 @@ describe('ChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DasChartViewComponent ]
-    })
-    .compileComponents();
+      declarations: [DasChartViewComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DasChartViewComponent);
     component = fixture.componentInstance;

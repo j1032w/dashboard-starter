@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'das-comp-floating-label-form',
@@ -7,17 +7,15 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./comp-floating-label-form.component.scss']
 })
 export class CompFloatingLabelFormComponent {
-
-  @Input() colClass= 'col-xl-6 col-lg-12  col-xxl-4';
+  @Input() colClass = 'col-xl-6 col-lg-12  col-xxl-4';
 
   hidePassword = true;
 
   email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
 
   dateRange = new FormGroup({
     start: new FormControl<Date | null>(null),
-    end: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null)
   });
 
   getEmailErrorMessage() {

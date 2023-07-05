@@ -8,9 +8,8 @@ describe('GridViewSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GridViewSearchComponent ]
-    })
-    .compileComponents();
+      declarations: [GridViewSearchComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(GridViewSearchComponent);
     component = fixture.componentInstance;

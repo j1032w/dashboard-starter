@@ -1,5 +1,5 @@
-import {CdkDragDrop, CdkDragEnd, moveItemInArray, Point, transferArrayItem} from '@angular/cdk/drag-drop';
-import {Component} from '@angular/core';
+import { CdkDragDrop, CdkDragEnd, moveItemInArray, Point, transferArrayItem } from '@angular/cdk/drag-drop';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'das-ui-drag-drop',
@@ -7,66 +7,22 @@ import {Component} from '@angular/core';
   styleUrls: ['./ui-drag-drop.component.scss']
 })
 export class UiDragDropComponent {
-  todoItems = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
-  doneItems = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
-
-  dragAroundPosition: Point = {x: 0, y: 0};
+  dragAroundPosition: Point = { x: 0, y: 0 };
 
   dragAroundBoxEnded($event: CdkDragEnd) {
     this.dragAroundPosition = $event.source.getFreeDragPosition();
   }
 
-  dropped($event: CdkDragDrop<string[]>) {
-    if ($event.previousContainer === $event.container) {
-      moveItemInArray($event.container.data, $event.previousIndex, $event.currentIndex);
-    } else {
-      transferArrayItem(
-        $event.previousContainer.data,
-        $event.container.data,
-        $event.previousIndex,
-        $event.currentIndex,
-      );
-    }
-  }
+  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
 
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
-
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
+  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
 
   drop(event: CdkDragDrop<string[]>) {
     console.log('drop');
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
     }
   }
-
 }

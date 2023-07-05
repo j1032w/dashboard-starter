@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { DasDashboardCoreModule } from '../../../common/components/dashboard-core/das-dashboard-core.module';
 import { CommonTestConfig } from '../../../common/test-services/common-test-config';
-
 import { DvDemoCWidgetComponent } from './dv-demo-c-widget.component';
 
 describe('DemoWidgetComponent', () => {
@@ -10,9 +10,8 @@ describe('DemoWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [...CommonTestConfig.imports, DasDashboardCoreModule],
-    })
-    .compileComponents();
+      imports: [...CommonTestConfig.imports, DasDashboardCoreModule]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DvDemoCWidgetComponent);
     component = fixture.componentInstance;

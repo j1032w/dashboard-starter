@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './das-component-view.component.html',
   styleUrls: ['./das-component-view.component.scss']
 })
-export class DasComponentViewComponent {
-
-}
+export class DasComponentViewComponent {}

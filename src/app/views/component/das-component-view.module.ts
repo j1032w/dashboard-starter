@@ -12,21 +12,15 @@ import { RatingModule } from 'primeng/rating';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TabViewModule } from 'primeng/tabview';
 import { ToastModule } from 'primeng/toast';
-import { DasComponentViewRoutingModule } from './das-component-view-routing.module';
 
-import { DasComponentFormModule } from './form/das-component-form.module';
 import { DasComponentViewComponent } from './das-component-view.component';
+import { DasComponentViewRoutingModule } from './das-component-view-routing.module';
+import { DasComponentFormModule } from './form/das-component-form.module';
 import { CompMultiplePurposeComponent } from './multiple-purpose/comp-multiple-purpose.component';
 import { CompNotificationComponent } from './notification/comp-notification.component';
 
-
-
 @NgModule({
-  declarations: [
-    DasComponentViewComponent,
-    CompMultiplePurposeComponent,
-    CompNotificationComponent
-  ],
+  declarations: [DasComponentViewComponent, CompMultiplePurposeComponent, CompNotificationComponent],
   imports: [
     CommonModule,
     DasComponentViewRoutingModule,
@@ -43,10 +37,7 @@ import { CompNotificationComponent } from './notification/comp-notification.comp
     FormsModule,
     AvatarModule,
     BadgeModule
-
   ],
   providers: [DasComponentViewComponent]
-
 })
-export class DasComponentViewModule {
-}
+export class DasComponentViewModule {}

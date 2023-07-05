@@ -2,12 +2,8 @@ import { Injectable } from '@angular/core';
 
 import sp500AnnualReturns from './mock-data/sp500-annual-returns.json';
 
-
 @Injectable({ providedIn: 'root' })
 export class DasChartSp500Service {
-
-
-
   set isTitleVisible(value: boolean) {
     this._isTitleVisible = value;
     this.title = value ? this.defaultTitle : '';
@@ -29,8 +25,6 @@ export class DasChartSp500Service {
     this.isTitleVisible = true;
   }
 
-
-
   getSp500Data(): Sp500AnnualHistory[] {
     const data: Sp500AnnualHistory[] = [];
     for (const sp500AnnualReturn of sp500AnnualReturns.data) {
@@ -45,7 +39,6 @@ export class DasChartSp500Service {
   }
 }
 
-
 export interface Sp500AnnualHistory {
   year: string;
 
@@ -53,7 +46,3 @@ export interface Sp500AnnualHistory {
 
   annualChangePercent: number;
 }
-
-
-
-

@@ -3,7 +3,7 @@ export class DasWidgetOption {
   rows: number;
   x: number;
   y: number;
-  hasContent:boolean = true;
+  hasContent = true;
 
   id: number;
   isMinimized: boolean;
@@ -34,7 +34,5 @@ export class DasWidgetOption {
     this.isShowFlipButton = data?.isShowFlipButton ?? true;
     this.isFrontShown = data?.isFrontShown ?? true;
     this.originalRows = this.rows;
-
   }
 }
-

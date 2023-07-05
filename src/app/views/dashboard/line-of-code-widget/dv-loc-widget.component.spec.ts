@@ -1,10 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {CommonTestConfig} from '../../../common/test-services/common-test-config';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {DvLocWidgetComponent} from './dv-loc-widget.component';
-import {DvLocWidgetModule} from './dv-loc-widget.module';
-
-
+import { CommonTestConfig } from '../../../common/test-services/common-test-config';
+import { DvLocWidgetComponent } from './dv-loc-widget.component';
+import { DvLocWidgetModule } from './dv-loc-widget.module';
 
 describe('LineOfCodeWidgetComponent', () => {
   let component: DvLocWidgetComponent;
@@ -13,8 +11,7 @@ describe('LineOfCodeWidgetComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [...CommonTestConfig.imports, DvLocWidgetModule]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DvLocWidgetComponent);
     component = fixture.componentInstance;

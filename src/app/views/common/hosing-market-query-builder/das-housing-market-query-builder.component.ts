@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DasQueryBuilderMongoConvertor } from './services/das-query-builder-mongo-convertor.service';
-
 
 import { HOUSING_MARKET_QUERY_CONFIG } from './services/das-query-builder.constant';
-
+import { DasQueryBuilderMongoConvertor } from './services/das-query-builder-mongo-convertor.service';
 
 @Component({
   selector: 'das-house-market-query-builder',
@@ -11,13 +9,11 @@ import { HOUSING_MARKET_QUERY_CONFIG } from './services/das-query-builder.consta
   styleUrls: ['./das-housing-market-query-builder.component.scss']
 })
 export class DasHousingMarketQueryBuilderComponent implements OnInit {
-  @Input() query: any ={};
+  @Input() query: any = {};
 
   config = HOUSING_MARKET_QUERY_CONFIG;
 
-
-  constructor(public readonly queryBuilderMongoConvertor: DasQueryBuilderMongoConvertor) {
-  }
+  constructor(public readonly queryBuilderMongoConvertor: DasQueryBuilderMongoConvertor) {}
 
   ngOnInit() {
     this.queryBuilderMongoConvertor.config = this.config;

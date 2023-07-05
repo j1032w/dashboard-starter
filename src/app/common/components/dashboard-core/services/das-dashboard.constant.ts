@@ -16,7 +16,6 @@ export const GRIDSTER_OPTIONS = {
   fixedRowHeight: 45,
   minItemCols: 2,
 
-
   draggable: {
     enabled: true,
     disableScrollHorizontal: true,
@@ -29,7 +28,6 @@ export const GRIDSTER_OPTIONS = {
       n: false,
       nw: false,
       ne: false
-
     }
   }
 };

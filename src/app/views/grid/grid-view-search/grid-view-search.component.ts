@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import {
-  DasHousingMarketQueryBuilderComponent
-} from '../../common/hosing-market-query-builder/das-housing-market-query-builder.component';
+
+import { DasHousingMarketQueryBuilderComponent } from '../../common/hosing-market-query-builder/das-housing-market-query-builder.component';
 
 @Component({
   selector: 'das-grid-view-search',
@@ -9,7 +8,7 @@ import {
   styleUrls: ['./grid-view-search.component.scss']
 })
 export class GridViewSearchComponent {
-  @ViewChild('queryBuilderComponent') queryBuilderComponent: DasHousingMarketQueryBuilderComponent
+  @ViewChild('queryBuilderComponent') queryBuilderComponent: DasHousingMarketQueryBuilderComponent;
 
   @Input() isVisible = false;
   @Output() isVisibleChange = new EventEmitter<boolean>();
@@ -17,8 +16,6 @@ export class GridViewSearchComponent {
   @Input() query: any;
 
   @Output() apply = new EventEmitter<any>();
-
-
 
   onHide() {
     this.isVisible = false;

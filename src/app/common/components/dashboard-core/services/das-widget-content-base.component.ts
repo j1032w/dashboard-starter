@@ -1,19 +1,21 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { debounce, filter, takeUntil, timer } from 'rxjs';
-import { DasComponentBase } from '../../das-component-base.component';
+
+import { DasBaseComponent } from '../../das-component-base.component';
 import { DasDashboardCoreEventService } from './das-dashboard-core-event.service';
-import { DasDashboardMessage, DasDashboardEventTypeEnum } from './das-dashboard-message';
+import { DasDashboardEventTypeEnum, DasDashboardMessage } from './das-dashboard-message';
 import { DasWidgetOption } from './das-widget-option';
 
 @Component({
   template: ''
 })
-export class DasWidgetContentBase extends DasComponentBase implements OnInit{
+export class DasWidgetContentBaseComponent extends DasBaseComponent implements OnInit {
   @Input() widgetOption: DasWidgetOption;
 
-
-  constructor(protected readonly elementRef: ElementRef,
-              protected readonly dashboardCoreService: DasDashboardCoreEventService) {
+  constructor(
+    protected readonly elementRef: ElementRef,
+    protected readonly dashboardCoreService: DasDashboardCoreEventService
+  ) {
     super();
   }
 
@@ -21,16 +23,16 @@ export class DasWidgetContentBase extends DasComponentBase implements OnInit{
     this.dashboardCoreService.dashboardEvent$
       .pipe(
         takeUntil(this.destroyed$),
-        filter((data: DasDashboardMessage) =>
-          data?.widgetOption?.id === this.widgetOption.id &&
-          data.eventType === DasDashboardEventTypeEnum.WidgetResized
+        filter(
+          (data: DasDashboardMessage) =>
+            data?.widgetOption?.id === this.widgetOption.id &&
+            data.eventType === DasDashboardEventTypeEnum.WidgetResized
         ),
-        debounce(()=>timer(300))
+        debounce(() => timer(300))
       )
       .subscribe(() => {
         this.repaint();
       });
-
   }
   readonly repaint = () => {
     setTimeout(() => {
@@ -42,8 +44,5 @@ export class DasWidgetContentBase extends DasComponentBase implements OnInit{
   };
 
   // override this method in the child component
-  protected readonly repaintComponent = () => {
-
-  };
-
+  protected readonly repaintComponent: () => void;
 }

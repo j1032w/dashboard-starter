@@ -42,8 +42,8 @@ import {dragTo, resize} from './drag-to-support';
 
 // add new command to the existing Cypress interface
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Cypress {
-
     interface Chainable {
       dragTo(dropSelector: string): Chainable<JQuery<Element>>;
       resize(x:number, y:number): Chainable<JQuery<Element>>;

@@ -1,7 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { takeUntil } from 'rxjs';
+
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
-import { DasWidgetBase } from '../../../common/components/dashboard-core/services/das-widget-base.component';
+import { DasWidgetBaseComponent } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/dv-housing-market-widget-pie.component';
 import {
@@ -10,14 +11,16 @@ import {
   HOUSE_MARKET_WIDGET_SPINNER_ID
 } from './services/dv-housing-market.service';
 
-
 @Component({
   selector: 'das-dv-housing-market-widget',
   templateUrl: './dv-housing-market-widget.component.html',
   styleUrls: ['./dv-housing-market-widget.component.scss']
 })
-export class DvHousingMarketWidgetComponent extends DasWidgetBase {
+export class DvHousingMarketWidgetComponent extends DasWidgetBaseComponent implements OnInit {
   @ViewChild('pieComponent', { static: true }) pieComponent: DvHousingMarketWidgetPieComponent;
+  @ViewChild('frontTemplate') widgetFrontComponent: ElementRef;
+  @ViewChild('backTemplate') widgetBackComponent: ElementRef;
+  @ViewChild('settingTemplate') widgetSettingComponent: ElementRef;
 
   readonly SPINNER_ID = HOUSE_MARKET_WIDGET_SPINNER_ID;
 
@@ -31,26 +34,23 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBase {
     super(dashboardCoreService, toastService);
   }
 
-
   override ngOnInit() {
     super.ngOnInit();
 
-    this.housingMarketService.getHomeTypePercentages$(this.widgetOption.settingData.mongoQuery)
-      .pipe(takeUntil(this.destroyed$)).subscribe(data => {
+    this.housingMarketService
+      .getHomeTypePercentages$(this.widgetOption.settingData.mongoQuery)
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(data => {
         this.dataSource = data;
-      }
-    );
-
+      });
   }
 
   protected override readonly refresh = () => {
-    this.housingMarketService.getHomeTypePercentages$({ filter: this.widgetOption.settingData.mongoQuery })
-      .pipe(takeUntil(this.destroyed$)).subscribe(data => {
-      this.dataSource = data;
-    });
+    this.housingMarketService
+      .getHomeTypePercentages$({ filter: this.widgetOption.settingData.mongoQuery })
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(data => {
+        this.dataSource = data;
+      });
   };
-
-
-
-
 }

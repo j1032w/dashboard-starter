@@ -5,13 +5,11 @@ export enum SidebarItemTypeEnum {
   WithChildTemplate
 }
 
-
 export class DasSidebarItem {
   text = '';
   icon = '';
-  selected = false;
-  path: string|null = null;
-  childItems: DasSidebarItem [] = [];
+  path: string | null = null;
+  childItems: DasSidebarItem[] = [];
   childTemplate: string;
 
   expanded = false;

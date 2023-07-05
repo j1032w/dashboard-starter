@@ -1,27 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { CardModule } from 'primeng/card';
+
 import { CompFormComponent } from './comp-form.component';
+import { CompFloatingLabelFormComponent } from './floating-label-form/comp-floating-label-form.component';
 import { CompFormHorizontalComponent } from './horizontal-form/comp-form-horizontal.component';
 
-import { CompFloatingLabelFormComponent } from './floating-label-form/comp-floating-label-form.component';
-
-
-
 @NgModule({
-  declarations: [
-    CompFloatingLabelFormComponent,
-    CompFormComponent,
-    CompFormHorizontalComponent,
-  ],
+  declarations: [CompFloatingLabelFormComponent, CompFormComponent, CompFormHorizontalComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -34,9 +28,6 @@ import { CompFloatingLabelFormComponent } from './floating-label-form/comp-float
     CardModule,
     NgScrollbarModule
   ],
-  exports: [
-    CompFormComponent,
-    CompFloatingLabelFormComponent
-  ]
+  exports: [CompFormComponent, CompFloatingLabelFormComponent]
 })
-export class DasComponentFormModule { }
+export class DasComponentFormModule {}

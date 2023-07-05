@@ -8,7 +8,6 @@ import { MessageService } from 'primeng/api';
   providers: [MessageService]
 })
 export class UiVirtualScrollComponent {
-
   amount = 10000;
   items: number[] = [];
 
@@ -18,7 +17,6 @@ export class UiVirtualScrollComponent {
 
   setAmount() {
     this.items = Array.from({ length: this.amount }).map((_, i) => i);
-    this.messageService.add({ severity: 'success',  detail: 'The list has be reloaded' });
-
+    this.messageService.add({ severity: 'success', detail: 'The list has be reloaded' });
   }
 }

@@ -4,25 +4,20 @@ export interface DasGridColumnInterface {
   dataField: string;
   dataType: DasGridColumnTypeEnum;
   width?: number;
-  visible?: boolean;
-
+  visible: boolean;
 }
 
 // dxDataGrid requires lower case
 export enum DasGridColumnTypeEnum {
   String = 'string',
   Number = 'number',
-  Date = 'date',
-
+  Date = 'date'
 }
 
-
-export enum DasGridCellTemplateEnum{
+export enum DasGridCellTemplateEnum {
   Currency = 'Currency',
   Date = 'Date',
-  DecimalOptionalTwo= 'DecimalOptionalTwo',
+  DecimalOptionalTwo = 'DecimalOptionalTwo',
   Integer = 'Integer',
-  Percentage = 'Percentage',
-  String = 'String',
-
+  Percentage = 'Percentage'
 }

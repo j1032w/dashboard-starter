@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './comp-form.component.html',
   styleUrls: ['./comp-form.component.scss']
 })
-export class CompFormComponent {
-
-}
+export class CompFormComponent {}

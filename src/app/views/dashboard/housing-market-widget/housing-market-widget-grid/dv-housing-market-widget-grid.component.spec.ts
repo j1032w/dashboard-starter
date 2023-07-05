@@ -8,9 +8,8 @@ describe('HousingMarketTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DvHousingMarketWidgetGridComponent ]
-    })
-    .compileComponents();
+      declarations: [DvHousingMarketWidgetGridComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DvHousingMarketWidgetGridComponent);
     component = fixture.componentInstance;

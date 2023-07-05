@@ -36,7 +36,7 @@
     <gridster-item class="gridster-item rounded d-flex flex-column"
                    *ngFor="let widgetOption of dashboardCoreService.widgetOptions;"
                    [item]="widgetOption">
-      <ng-container das-widget-dynamic-loader [widgetOption]="widgetOption"></ng-container>
+      <ng-container dasWidgetDynamicLoader [widgetOption]="widgetOption"></ng-container>
 
     </gridster-item>
 

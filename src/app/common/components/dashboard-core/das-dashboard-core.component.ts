@@ -4,17 +4,15 @@ import * as _ from 'lodash';
 import { isArray } from 'lodash';
 import { ConfirmationService } from 'primeng/api';
 import { filter, takeUntil } from 'rxjs';
+
 import { DasConfig } from '../../services/das-config';
 import { DasLocalStorageService } from '../../services/das-local-storage.service';
 import { DasToastService } from '../../services/das-toast.service';
-import { DasComponentBase } from '../das-component-base.component';
-
-
+import { DasBaseComponent } from '../das-component-base.component';
+import { GRIDSTER_OPTIONS } from './services/das-dashboard.constant';
 import { DasDashboardCoreEventService } from './services/das-dashboard-core-event.service';
 import { DasDashboardEventTypeEnum } from './services/das-dashboard-message';
-import {GRIDSTER_OPTIONS} from './services/das-dashboard.constant';
 import { DasWidgetOption } from './services/das-widget-option';
-
 
 @Component({
   selector: 'das-dashboard-core',
@@ -22,8 +20,7 @@ import { DasWidgetOption } from './services/das-widget-option';
   styleUrls: ['./das-dashboard-core.component.scss'],
   providers: [ConfirmationService]
 })
-
-export class DasDashboardCoreComponent extends DasComponentBase implements OnInit {
+export class DasDashboardCoreComponent extends DasBaseComponent implements OnInit {
   @Input() defaultWidgetOptions: DasWidgetOption[] = [];
 
   widgetOptions: DasWidgetOption[] = [];
@@ -45,7 +42,6 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
     this.localStorageWidgetOptionsKey = this.dasConfig.localStorageWidgetOptionsKey;
   }
 
-
   ngOnInit() {
     this.getSetting();
     this.dashboardCoreService.widgetOptions = this.widgetOptions;
@@ -55,20 +51,15 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
         takeUntil(this.destroyed$),
         filter(event => event.eventType === DasDashboardEventTypeEnum.Resized)
       )
-      .subscribe((event) => {
+      .subscribe(() => {
         // Waiting for animation to complete, and then force gridster to recalculate the size
         setTimeout(this.gridsterComponent.optionsChanged, 500);
-
       });
   }
-
-
-
 
   showHideDashboardSetting() {
     this.dashboardCoreService.isSettingVisible = !this.dashboardCoreService.isSettingVisible;
   }
-
 
   saveSetting() {
     this.dasLocalStorage.setItem(this.localStorageWidgetOptionsKey, this.dashboardCoreService.widgetOptions);
@@ -84,10 +75,8 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
         this.widgetOptions.length = 0;
         this.toastService.showSuccess('All widget has been removed.');
       }
-
     });
   }
-
 
   resetSetting(isShowConfirmation = true) {
     if (!isShowConfirmation) {
@@ -102,22 +91,19 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
       accept: () => {
         this.setToDefault();
       }
-
     });
   }
 
   private readonly setToDefault = () => {
     this.dasLocalStorage.removeItem(this.localStorageWidgetOptionsKey);
     this.widgetOptions.length = 0;
-    this.widgetOptions.push(...(_.cloneDeep(this.defaultWidgetOptions)));
+    this.widgetOptions.push(..._.cloneDeep(this.defaultWidgetOptions));
   };
 
   dropped($event: any) {
-    const componentType =
-      this.dashboardCoreService.widgetMap.get($event.item.data.key);
+    const componentType = this.dashboardCoreService.widgetMap.get($event.item.data.key);
 
     if (!componentType) return;
-
 
     const maxId = _.maxBy(this.widgetOptions, 'id')?.id ?? 0;
     this.widgetOptions.push(
@@ -130,8 +116,8 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
         rows: $event.item.data.value.rows,
         id: maxId + 1,
         isShowFlipButton: $event.item.data.value.isShowFlipButton
-      }));
-
+      })
+    );
   }
 
   private getSetting() {
@@ -142,10 +128,5 @@ export class DasDashboardCoreComponent extends DasComponentBase implements OnIni
       return;
     }
     this.resetSetting(false);
-
-
   }
-
-
 }
-

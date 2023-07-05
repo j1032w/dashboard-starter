@@ -8,9 +8,8 @@ describe('HorizontalFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompFormHorizontalComponent ]
-    })
-    .compileComponents();
+      declarations: [CompFormHorizontalComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CompFormHorizontalComponent);
     component = fixture.componentInstance;

@@ -1,0 +1,71 @@
+services:
+  - docker:dind
+
+
+stages:
+  - dependencies
+  - test
+  - build
+  - deploy
+
+
+install_dependencies:
+  image: node:18-alpine3.17
+  stage: dependencies
+  script:
+    - yarn install
+
+  only:
+    - main
+  cache:
+    key:
+      files:
+        - yarn.lock
+    paths:
+      - node_modules
+
+
+unit_test:
+  image: node:18-alpine3.17
+  stage: test
+  script:
+    - yarn test
+  cache:
+    key:
+      files:
+        - yarn.lock
+    paths:
+      - node_modules
+    policy: pull
+
+
+lint:
+  image: node:18-alpine3.17
+  stage: test
+  script:
+    - yarn lint
+  cache:
+    key:
+      files:
+        - yarn.lock
+    paths:
+      - node_modules
+    policy: pull
+
+
+build:
+  image: node:18-alpine3.17
+  stage: build
+  script:
+    - yarn build
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/dist
+  cache:
+    key:
+      files:
+        - yarn.lock
+    paths:
+      - node_modules
+    policy: pull
+

@@ -6,12 +6,17 @@ import {
   bounce,
   flash,
   flipInX,
-  flipInY, hinge, jackInTheBox,
-  shakeX, shakeY, slideInDown,
-  slideInLeft, slideInRight, slideInUp,
+  flipInY,
+  hinge,
+  jackInTheBox,
+  shakeX,
+  shakeY,
+  slideInDown,
+  slideInLeft,
+  slideInRight,
+  slideInUp,
   slideOutLeft
 } from 'ng-animate';
-
 
 const animationParams = { params: { timing: 0.3 } };
 
@@ -41,22 +46,13 @@ const animationParams = { params: { timing: 0.3 } };
       transition('* => slideInUp', useAnimation(slideInUp)),
 
       transition('* => hinge', useAnimation(hinge)),
-      transition('* => jackInTheBox', useAnimation(jackInTheBox)),
-
-
-
-
-
+      transition('* => jackInTheBox', useAnimation(jackInTheBox))
     ])
-
   ],
   selector: 'das-ui-animation',
   styleUrls: ['./ui-animation.component.scss'],
   templateUrl: './ui-animation.component.html'
 })
 export class UiAnimationComponent {
-
-  animator: string = 'none';
-
-
+  animator = 'none';
 }

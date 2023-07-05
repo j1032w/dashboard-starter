@@ -8,14 +8,10 @@ import { ConfirmationService, ConfirmEventType, MessageService } from 'primeng/a
   providers: [MessageService, ConfirmationService]
 })
 export class CompNotificationComponent {
-
-
   constructor(
     private readonly messageService: MessageService,
     private readonly confirmationService: ConfirmationService
-  ) {
-  }
-
+  ) {}
 
   sendToast(severity: string) {
     this.messageService.add({ severity, detail: 'message content' });

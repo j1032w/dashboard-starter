@@ -1,15 +1,15 @@
 <das-widget-core class="h-100"
                  [widgetOption]="widgetOption">
-  <ng-template #frontTemplate>
+  <ng-template>
     <div class="fs-1" >B</div>
   </ng-template>
 
-  <ng-template #backTemplate>
+  <ng-template>
     <div class="fs-1">B Back</div>
   </ng-template>
 
 
-  <ng-template #settingTemplate let-ctx>
+  <ng-template let-ctx>
     <das-widget-setting-core [widgetOption]="ctx.widgetOption"></das-widget-setting-core>
   </ng-template>
 

@@ -2,32 +2,23 @@ import { CdkAccordionItem } from '@angular/cdk/accordion';
 import { Component } from '@angular/core';
 import { matExpansionAnimations } from '@angular/material/expansion';
 import { Router } from '@angular/router';
-import { DasComponentBase } from '../../common/components/das-component-base.component';
 
-import { DasSidebarItem, SidebarItemTypeEnum } from './services/das-sidebar-item';
+import { DasBaseComponent } from '../../common/components/das-component-base.component';
 import { DasSidebarService } from './services/das-sidebar.service';
-
+import { DasSidebarItem, SidebarItemTypeEnum } from './services/das-sidebar-item';
 
 @Component({
   selector: 'das-sidebar',
   templateUrl: './das-sidebar.component.html',
   styleUrls: ['./das-sidebar.component.scss'],
-  animations: [
-    matExpansionAnimations.bodyExpansion
-  ]
+  animations: [matExpansionAnimations.bodyExpansion]
 })
-export class DasSidebarComponent extends DasComponentBase {
-
+export class DasSidebarComponent extends DasBaseComponent {
   sidebarItemTypeEnum = SidebarItemTypeEnum;
 
-
-  constructor(
-    public readonly sidebarService: DasSidebarService,
-    public readonly router: Router
-  ) {
+  constructor(public readonly sidebarService: DasSidebarService, public readonly router: Router) {
     super();
   }
-
 
   toggleAccordionItem(accordionItemComponent: CdkAccordionItem, sidebarItem: DasSidebarItem) {
     // Menu item itself doesn't trigger navigation
@@ -42,8 +33,5 @@ export class DasSidebarComponent extends DasComponentBase {
     } else {
       sidebarItem.expanded = !sidebarItem.expanded;
     }
-
   }
-
-
 }

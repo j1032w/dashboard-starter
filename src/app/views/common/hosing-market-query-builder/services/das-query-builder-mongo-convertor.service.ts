@@ -3,7 +3,6 @@ import { QueryBuilderConfig, Rule, RuleSet } from 'angular2-query-builder';
 
 @Injectable({ providedIn: 'root' })
 export class DasQueryBuilderMongoConvertor {
-
   config: QueryBuilderConfig = { fields: {} };
 
   private readonly conditions = new Map<string, string>([
@@ -27,22 +26,18 @@ export class DasQueryBuilderMongoConvertor {
     return this.config.fields[field].type;
   };
 
-
   private mapRule = (rule: Rule) => {
-
-    let field = rule.field;
+    const field = rule.field;
     let value = rule.value;
 
     if (!value) {
       value = null;
     }
 
-
     const schemaType = this.getSchemaType(rule.field);
     if (schemaType === 'Date' && value) {
       value = new Date(value);
     }
-
 
     // Set operator
     const operator = this.operators.get(rule.operator ?? '=') ?? '$eq';
@@ -56,7 +51,7 @@ export class DasQueryBuilderMongoConvertor {
       mongoDBQuery = {
         [field]: {
           [operator]: value,
-          '$options': 'i'
+          $options: 'i'
         }
       };
     } else {
@@ -64,19 +59,15 @@ export class DasQueryBuilderMongoConvertor {
     }
 
     return mongoDBQuery;
-
   };
-
 
   mapRuleSet = (ruleSet: RuleSet | Rule): any => {
     let rules = [];
     if (!('rules' in ruleSet) || ruleSet.rules.length < 1) {
       return;
-
     } else {
       rules = ruleSet.rules;
     }
-
 
     let condition = '$and';
     if ('condition' in ruleSet) {
@@ -85,13 +76,7 @@ export class DasQueryBuilderMongoConvertor {
 
     // Iterate Rule Set conditions recursively to build database query
     return {
-      [condition]: rules.map(
-        rule => 'operator' in rule && rule.operator ?
-          this.mapRule(rule) :
-          this.mapRuleSet(rule)
-      )
+      [condition]: rules.map(rule => ('operator' in rule && rule.operator ? this.mapRule(rule) : this.mapRuleSet(rule)))
     };
   };
-
-
 }

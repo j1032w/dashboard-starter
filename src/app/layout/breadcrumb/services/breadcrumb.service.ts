@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, takeUntil } from 'rxjs';
+
 import { DasServiceBaes } from '../../../common/services/das-service-baes';
 
 @Injectable({ providedIn: 'root' })
 export class BreadcrumbService extends DasServiceBaes {
-
   // private breadcrumbItemsSubject$: BehaviorSubject<BreadcrumbItemInterface[]> =
   //   new BehaviorSubject<BreadcrumbItemInterface[]>(new Array<BreadcrumbItemInterface>());
   //
@@ -13,30 +13,25 @@ export class BreadcrumbService extends DasServiceBaes {
 
   breadcrumbItems: BreadcrumbItemInterface[] = [];
 
-  constructor(
-    private readonly router: Router,
-    private readonly activatedRoute: ActivatedRoute
-  ) {
+  constructor(readonly router: Router, readonly activatedRoute: ActivatedRoute) {
     super();
 
-
-    this.router.events
+    router.events
       .pipe(
         takeUntil(this.destroyed$),
-        filter((event) => event instanceof NavigationEnd)
+        filter(event => event instanceof NavigationEnd)
       )
-      .subscribe((event) => {
+      .subscribe(() => {
         this.breadcrumbItems = [];
 
         let url = '';
-        let currentRoute: ActivatedRoute | null = this.activatedRoute.root;
+        let currentRoute: ActivatedRoute | null = activatedRoute.root;
 
         do {
           const childrenRoutes = currentRoute.children;
           currentRoute = null;
 
           childrenRoutes.forEach(route => {
-
             if (route.outlet === 'primary') {
               const routeSnapshot = route.snapshot;
               url += '/' + routeSnapshot.url.map(segment => segment.path).join('/');
@@ -49,15 +44,11 @@ export class BreadcrumbService extends DasServiceBaes {
             }
           });
         } while (currentRoute);
-
       });
-
   }
 }
-
 
 export interface BreadcrumbItemInterface {
   label: string;
   path?: string;
-
 }

@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./comp-multiple-purpose.component.scss']
 })
 export class CompMultiplePurposeComponent {
-
-  selectButtonStateOptions = [{ label: 'Off', value: 'off' }, { label: 'On', value: 'on' }];
-
-
+  selectButtonStateOptions = [
+    { label: 'Off', value: 'off' },
+    { label: 'On', value: 'on' }
+  ];
 }

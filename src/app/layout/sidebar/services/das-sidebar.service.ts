@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
+
 import { DasSidebarItem, SidebarItemTypeEnum } from './das-sidebar-item';
 
 @Injectable({ providedIn: 'root' })
 export class DasSidebarService {
-
   sidebarItems = [
     new DasSidebarItem({ text: 'Dashboard', icon: 'monitor', path: '/dashboard' }),
-
 
     new DasSidebarItem({
       text: 'Chart',
@@ -19,7 +18,7 @@ export class DasSidebarService {
     new DasSidebarItem({
       text: 'Grid',
       icon: 'grid',
-      path: '/grid',
+      path: '/grid'
     }),
 
     new DasSidebarItem({
@@ -35,7 +34,6 @@ export class DasSidebarService {
       ]
     }),
 
-
     new DasSidebarItem({
       text: 'Components',
       icon: 'package',
@@ -46,7 +44,6 @@ export class DasSidebarService {
         new DasSidebarItem({ text: 'Notification', path: '/component/notification' })
       ]
     })
-
 
     // new DasSidebarItem({
     //   text: 'Icons',
@@ -60,10 +57,5 @@ export class DasSidebarService {
     //
     //   ]
     // })
-
   ];
-
-
 }
-
-

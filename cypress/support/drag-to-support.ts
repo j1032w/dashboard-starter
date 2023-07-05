@@ -23,7 +23,7 @@ export function dragTo (subject:any, targetEl:string):Chainable<JQuery<Element>>
   /*
    * workaround for a problem where the original drag selector did work only once
    */
-  cy.wait(1000); // eslint-disable-line cypress/no-unnecessary-waiting
+  cy.wait(1000);
 
   return cy.get(targetEl);
 }
@@ -56,7 +56,7 @@ export function resize (subject:any, x:number, y:number):Chainable<JQuery<Elemen
   /*
    * workaround for a problem where the original drag selector did work only once
    */
-  cy.wait(1000); // eslint-disable-line cypress/no-unnecessary-waiting
+  cy.wait(1000);
 
   return cy.wrap(subject);
 }

@@ -8,9 +8,8 @@ describe('ResponsiveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UiResponsiveComponent ]
-    })
-    .compileComponents();
+      declarations: [UiResponsiveComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UiResponsiveComponent);
     component = fixture.componentInstance;

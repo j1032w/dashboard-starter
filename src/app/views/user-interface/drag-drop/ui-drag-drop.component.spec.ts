@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DasUserInterfaceModule } from '../das-user-interface.module';
 
+import { DasUserInterfaceModule } from '../das-user-interface.module';
 import { UiDragDropComponent } from './ui-drag-drop.component';
 
 describe('DragDropComponent', () => {
@@ -9,9 +9,8 @@ describe('DragDropComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ DasUserInterfaceModule ]
-    })
-    .compileComponents();
+      imports: [DasUserInterfaceModule]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UiDragDropComponent);
     component = fixture.componentInstance;

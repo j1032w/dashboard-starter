@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './user-interface-view.component.html',
   styleUrls: ['./user-interface-view.component.scss']
 })
-export class UserInterfaceViewComponent {
-
-}
+export class UserInterfaceViewComponent {}

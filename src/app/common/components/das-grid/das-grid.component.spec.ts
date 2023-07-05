@@ -8,9 +8,8 @@ describe('DasGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DasGridComponent ]
-    })
-    .compileComponents();
+      declarations: [DasGridComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DasGridComponent);
     component = fixture.componentInstance;

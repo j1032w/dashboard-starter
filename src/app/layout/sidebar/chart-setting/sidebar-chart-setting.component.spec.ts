@@ -8,9 +8,8 @@ describe('ChartSettingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SidebarChartSettingComponent ]
-    })
-    .compileComponents();
+      declarations: [SidebarChartSettingComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SidebarChartSettingComponent);
     component = fixture.componentInstance;
