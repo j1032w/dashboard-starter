@@ -61,17 +61,27 @@ yarn install
 yarn start:dev
 ```
 3. Navigate to [http://localhost:4200/](http://localhost:4200/)
+<br/>
+<br/>
 
-### Running unit tests
+#### Running unit tests
 ```
 yarn test
 ```
 
-### Running e2e tests
+#### Running e2e tests
 ```
 yarn cypr
 ```
+#### Running eslint
+```
+yarn lint
+```
 
+#### Running build
+``` 
+yarn build
+``` 
 
 # Docker
 ### Deployment
@@ -99,7 +109,7 @@ docker container run -d -p 4201:80 --rm das-ui:develop
 ```  
 
 
-## GitLab CI/CD
+# GitLab CI/CD
 https://gitlab.com/j1032w/dashboard-starter/-/pipelines
 
 [![Gitlab](documentation/gitlab.png)](https://gitlab.com/j1032w/dashboard-starter/-/pipelines)
@@ -109,7 +119,7 @@ https://gitlab.com/j1032w/dashboard-starter/-/pipelines
 
 
 
-## SonarQube scan result
+# SonarQube scan result
 https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
