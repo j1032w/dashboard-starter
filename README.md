@@ -1,5 +1,5 @@
 # Dashboard Starter
-**A dashboard boilerplate project.**\
+**A dashboard starer pack build with Angular**\
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)\
@@ -9,7 +9,7 @@
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)
 
 
-#### The React edition of Dashboard Starter can be found at https://github.com/j1032w/react-dashboard-starter
+#### The ReactJS and NestJS edition can be found at https://github.com/j1032w/react-dashboard-starter
 
 # Demo
 https://www.j1032.com/dashboard \
