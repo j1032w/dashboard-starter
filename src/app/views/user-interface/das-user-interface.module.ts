@@ -2,7 +2,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { QueryBuilderModule } from 'angular2-query-builder';
+import {NgxAngularQueryBuilderModule} from 'ngx-angular-query-builder';
+
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
@@ -41,7 +42,7 @@ import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.com
     InputNumberModule,
     MessagesModule,
     NgScrollbarModule,
-    QueryBuilderModule,
+    NgxAngularQueryBuilderModule ,
     ScrollingModule
   ],
 

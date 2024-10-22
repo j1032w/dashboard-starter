@@ -1,7 +1,6 @@
 import { CdkDrag, CdkDragHandle, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
 import { GridsterModule } from 'angular-gridster2';
-import { AngularResizeEventModule } from 'angular-resize-event';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 import { DasCommonModule } from '../../das-common.module';
@@ -33,8 +32,7 @@ import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-lis
     CdkDragHandle,
     CdkDropList,
     CdkDropListGroup,
-    ConfirmDialogModule,
-    AngularResizeEventModule
+    ConfirmDialogModule
   ],
 
   exports: [

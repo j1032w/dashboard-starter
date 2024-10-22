@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { QueryBuilderConfig, Rule, RuleSet } from 'angular2-query-builder';
+import {
+  QueryBuilderConfig,
+  Rule,
+  RuleSet
+} from 'ngx-angular-query-builder';
+
 
 @Injectable({ providedIn: 'root' })
 export class DasQueryBuilderMongoConvertor {

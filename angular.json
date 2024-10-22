@@ -108,15 +108,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dashboard-starter:build",
+            "buildTarget": "dashboard-starter:build",
             "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dashboard-starter:build:production"
+              "buildTarget": "dashboard-starter:build:production"
             },
             "development": {
-              "browserTarget": "dashboard-starter:build:development"
+              "buildTarget": "dashboard-starter:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -124,7 +124,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dashboard-starter:build"
+            "buildTarget": "dashboard-starter:build"
           }
         },
         "test": {

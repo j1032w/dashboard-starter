@@ -1,6 +1,9 @@
-import { QueryBuilderConfig } from 'angular2-query-builder';
+
 
 // query builder requires lowercase type name
+import {QueryBuilderConfig} from 'ngx-angular-query-builder';
+
+
 export enum FieldTypeEnum {
   date = 'date',
   string = 'string',
