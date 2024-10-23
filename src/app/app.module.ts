@@ -2,6 +2,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  provideCharts,
+  withDefaultRegisterables
+} from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -34,7 +38,8 @@ import { DasGridViewModule } from './views/grid/das-grid-view.module';
       provide: HTTP_INTERCEPTORS,
       useClass: DasSpinnerInterceptorService,
       multi: true
-    }
+    },
+    provideCharts(withDefaultRegisterables())
   ],
   bootstrap: [AppComponent]
 })

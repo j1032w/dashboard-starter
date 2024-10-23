@@ -1,78 +1,12 @@
-<das-auto-size class="bg-white" (resized)="onSized($event)">
+<das-auto-size class="bg-white p-2" (resized)="onResized()" >
 
-  <dx-chart #chartComponent
-            class="chart"
-            id="chart"
-            [dataSource]="dataSource"
-            [title]="chartService.title"
-            palette="Harmony Light"
-            [redrawOnResize]="false"
-            [size]="size"
-
-  >
-    <dxo-export [enabled]="true"></dxo-export>
-
-    <dxi-value-axis name="averageClosingPrice" position="left" [tickInterval]="300">
-    </dxi-value-axis>
-
-    <dxi-value-axis
-      name="annualChangePercent"
-      position="right"
-      [showZero]="true"
-      [tickInterval]="5"
-      [valueMarginsEnabled]="false"
-    >
-      <dxo-label [customizeText]="customizeLabelText"></dxo-label>
-      <dxi-constant-line
-        [value]="80"
-        color="#fc3535"
-        dashStyle="dash"
-        [width]="2"
-      >
-        <dxo-label [visible]="false"></dxo-label>
-      </dxi-constant-line>
-    </dxi-value-axis>
-
-    <dxo-argument-axis>
-      <dxo-label overlappingBehavior="stagger"></dxo-label>
-    </dxo-argument-axis>
+  <canvas
+    baseChart
+    [data]="chartService.chartData"
+    [options]="chartOptions"
+    [legend]="chartService.isLegendVisible"
 
 
-    <dxo-tooltip
-      [enabled]="true"
-      [shared]="true"
-      [customizeTooltip]="customizeTooltip"
-      [zIndex]="2000"
-    >
-    </dxo-tooltip>
-
-
-    <dxo-common-series-settings argumentField="year"></dxo-common-series-settings>
-
-
-    <dxi-series
-      type="bar"
-      valueField="averageClosingPrice"
-      axis="averageClosingPrice"
-      name="Average Closing"
-      color="#fac29a"
-      [showInLegend]="chartService.isLegendVisible"
-    >
-    </dxi-series>
-
-    <dxi-series
-      type="spline"
-      valueField="annualChangePercent"
-      axis="annualChangePercent"
-      name="Annual Change Percent"
-      color="#6b71c3"
-      [showInLegend]="chartService.isLegendVisible"
-    >
-    </dxi-series>
-
-    <dxo-legend *ngIf="chartService.isLegendVisible"
-                verticalAlignment="top" horizontalAlignment="center">
-    </dxo-legend>
-  </dx-chart>
+></canvas>
 </das-auto-size>
 

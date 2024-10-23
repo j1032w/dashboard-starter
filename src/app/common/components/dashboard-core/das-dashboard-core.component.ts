@@ -4,8 +4,9 @@ import * as _ from 'lodash';
 import { isArray } from 'lodash';
 import { ConfirmationService } from 'primeng/api';
 import { filter, takeUntil } from 'rxjs';
+import {AppConfig} from '../../../app-config';
 
-import { DasConfig } from '../../services/das-config';
+
 import { DasLocalStorageService } from '../../services/das-local-storage.service';
 import { DasToastService } from '../../services/das-toast.service';
 import { DasBaseComponent } from '../das-component-base.component';
@@ -34,12 +35,12 @@ export class DasDashboardCoreComponent extends DasBaseComponent implements OnIni
   constructor(
     public readonly dashboardCoreService: DasDashboardCoreEventService,
     private readonly confirmationService: ConfirmationService,
-    private readonly dasConfig: DasConfig,
+    private readonly appConfig: AppConfig,
     private readonly dasLocalStorage: DasLocalStorageService,
     private readonly toastService: DasToastService
   ) {
     super();
-    this.localStorageWidgetOptionsKey = this.dasConfig.localStorageWidgetOptionsKey;
+    this.localStorageWidgetOptionsKey = this.appConfig.localStorageWidgetOptionsKey;
   }
 
   ngOnInit() {

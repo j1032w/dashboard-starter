@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import {AppConfig} from '../../app-config';
 
-import { DasConfig } from './das-config';
+
 
 @Injectable({ providedIn: 'root' })
 export class DasLocalStorageService {
   private storage: any;
 
-  constructor(private readonly dasConfig: DasConfig) {
+  constructor(private readonly appConfig: AppConfig) {
     this.storage = localStorage;
   }
 
@@ -24,5 +25,5 @@ export class DasLocalStorageService {
     this.storage.removeItem(this.getStorageKey(key));
   };
 
-  private readonly getStorageKey = (key: string) => `${key}-${this.dasConfig.version}`;
+  private readonly getStorageKey = (key: string) => `${key}-${this.appConfig.version}`;
 }
