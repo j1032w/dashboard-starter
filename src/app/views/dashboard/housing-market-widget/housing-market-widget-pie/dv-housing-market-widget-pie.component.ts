@@ -1,10 +1,10 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { DxPieChartComponent } from 'devextreme-angular';
+import { BubbleDataPoint, ChartConfiguration, ChartData, ChartType, Point } from 'chart.js';
+import {BaseChartDirective} from 'ng2-charts';
 
 import { ElementSizeInterface } from '../../../../common/components/das-auto-size/das-auto-size.component';
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
-import { BuildingTypePercentageInterface } from '../services/dv-housing-market.service';
 
 @Component({
   selector: 'das-dv-housing-market-widget-pie',
@@ -12,11 +12,49 @@ import { BuildingTypePercentageInterface } from '../services/dv-housing-market.s
   styleUrls: ['./dv-housing-market-widget-pie.component.scss']
 })
 export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBaseComponent {
-  @ViewChild('pieChart') pieChartComponent: DxPieChartComponent;
+  @ViewChild('pieChart') pieChartComponent: BaseChartDirective | undefined;
 
-  @Input() dataSource: BuildingTypePercentageInterface[] = [];
+  @Input() pieChartData: ChartData<'pie', number[], string>;
 
-  title = 'Sales by Building Type';
+  public pieChartType: ChartType = 'pie';
+
+  public pieChartOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+        position: 'top'
+      },
+
+      datalabels: {
+        display: true,
+        formatter: (value, ctx) => {
+          let sum = 0;
+          const dataArr = ctx.chart.data.datasets[0].data;
+          dataArr.forEach((data: number | [number, number] | Point | BubbleDataPoint | null) => {
+            if (typeof data === 'number') {
+              sum += data;
+            }
+          });
+
+          const percentage: number = (value * 100) / sum;
+
+          if (!ctx.chart.data.labels || percentage < 5) {
+            return '';
+          }
+
+          return ctx.chart.data.labels[ctx.dataIndex];
+        },
+        color: 'black'
+      },
+
+      title: {
+        display: true,
+        text: 'Sales by Building Type',
+        color: 'black'
+      }
+    }
+  };
 
   size: any = {};
 
@@ -28,7 +66,7 @@ export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBaseCompo
   }
 
   protected override readonly repaintComponent = () => {
-    this.pieChartComponent?.instance?.render();
+    this.pieChartComponent?.render();
   };
 
   onResized(e: ElementSizeInterface) {

@@ -15,6 +15,7 @@ import { DasLayoutModule } from './layout/layout.module';
 import { DasChartViewModule } from './views/chart/das-chart-view.module';
 import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.module';
 import { DasGridViewModule } from './views/grid/das-grid-view.module';
+import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,7 +40,17 @@ import { DasGridViewModule } from './views/grid/das-grid-view.module';
       useClass: DasSpinnerInterceptorService,
       multi: true
     },
-    provideCharts(withDefaultRegisterables())
+    provideCharts(
+      withDefaultRegisterables(
+        DataLabelsPlugin,
+      ),
+      {
+        defaults: {
+          // For consistent rendering across CI and local envs
+          font: { family: 'Arial' },
+        },
+      },
+    )
   ],
   bootstrap: [AppComponent]
 })

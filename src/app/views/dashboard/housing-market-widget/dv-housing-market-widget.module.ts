@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { DevExtremeModule } from 'devextreme-angular';
+
+import {BaseChartDirective} from 'ng2-charts';
 import { InputSwitchModule } from 'primeng/inputswitch';
 
 import { DasGridModule } from '../../../common/components/das-grid/das-grid.module';
@@ -26,9 +27,9 @@ import { DvHousingMarketWidgetSettingComponent } from './housing-market-widget-s
     DasViewCommonModule,
     DasDashboardCoreModule,
     InputSwitchModule,
-    DevExtremeModule,
     DasGridModule,
-    DasHousingMarketQueryBuilderModule
+    DasHousingMarketQueryBuilderModule,
+    BaseChartDirective
   ],
   providers: []
 })

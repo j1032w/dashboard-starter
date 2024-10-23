@@ -45,7 +45,6 @@ export class DasChartSp500Service extends DasServiceBaes {
           }
         },
 
-
         labels: {
           usePointStyle: true,
           font: {
@@ -54,8 +53,9 @@ export class DasChartSp500Service extends DasServiceBaes {
         }
       },
 
-
-
+      datalabels: {
+        display: false,
+      },
     },
 
     scales: {
@@ -63,6 +63,7 @@ export class DasChartSp500Service extends DasServiceBaes {
         type: 'linear' as const,
         position: 'left' as const,
       },
+
       yAxisRight: {
         type: 'linear' as const,
         position: 'right' as const,

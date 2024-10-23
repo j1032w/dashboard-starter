@@ -1,9 +1,11 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, takeUntil, tap, throwError, timer } from 'rxjs';
-import {AppConfig} from '../../app-config';
+
+
 
 import { DAS_SPINNER_KEY } from '../components/das-spinner/services/das-http-state.service';
+import {DasConfig} from '../das-config';
 
 import { DasServiceBaes } from './das-service-baes';
 import { DasToastService } from './das-toast.service';
@@ -17,7 +19,7 @@ export class DasHttpClient extends DasServiceBaes {
   constructor(
     private readonly httpClient: HttpClient,
     private readonly toastService: DasToastService,
-    private readonly appConfig: AppConfig
+    private readonly dasConfig: DasConfig
   ) {
     super();
   }
@@ -53,7 +55,7 @@ export class DasHttpClient extends DasServiceBaes {
     const cacheKey = this.buildCacheKey(url, body);
     const headers = this.buildSpinnerHeader(spinnerId);
 
-    return this.httpClient.post(`${this.appConfig.dasDataApi}${url}`, body, headers).pipe(
+    return this.httpClient.post(`${this.dasConfig.dasDataApi}${url}`, body, headers).pipe(
       takeUntil(this.destroyed$),
 
       tap(response => {
