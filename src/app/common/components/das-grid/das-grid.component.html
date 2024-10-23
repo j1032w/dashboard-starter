@@ -1,5 +1,9 @@
-<das-auto-size (resized)="repaint()" class="h-100 w-100" >
-  <ag-grid-angular
+<das-auto-size (resized)="repaint()" class="flex-grow-1" >
+  <ag-grid-angular class="ag-theme-quartz h-100 w-100" #agGrid
+                   domLayout="normal"
+                   [pagination]="true"
+                   [rowSelection]="rowSelection"
+                   [defaultColDef]="defaultColDef"
     [rowData]="rowData"
     [columnDefs]="colDefs" />
 </das-auto-size>

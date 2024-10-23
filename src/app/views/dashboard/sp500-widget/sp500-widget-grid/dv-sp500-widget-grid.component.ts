@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DasGridComponent } from '../../../../common/components/das-grid/das-grid.component';
 import {
   DasGridCellTemplateEnum,
-  DasGridColumnTypeEnum
+  AgGridCellDataTypeEnum
 } from '../../../../common/components/das-grid/services/das-grid-column-interface';
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
@@ -21,12 +21,12 @@ export class DvSp500WidgetGridComponent extends DasWidgetContentBaseComponent im
   height = 300;
 
   columns: any[] = [
-    { dataField: 'year', caption: 'Year', dataType: DasGridColumnTypeEnum.Number },
+    { dataField: 'year', caption: 'Year', dataType: AgGridCellDataTypeEnum.Number },
 
     {
       dataField: 'averageClosingPrice',
       caption: 'Average Closing',
-      dataType: DasGridColumnTypeEnum.Number,
+      dataType: AgGridCellDataTypeEnum.Number,
       cellTemplate: DasGridCellTemplateEnum.Currency
     },
 
@@ -34,7 +34,7 @@ export class DvSp500WidgetGridComponent extends DasWidgetContentBaseComponent im
       dataField: 'annualChangePercent',
       caption: 'Annual Change %',
       width: 200,
-      dataType: DasGridColumnTypeEnum.Number,
+      dataType: AgGridCellDataTypeEnum.Number,
       cellTemplate: DasGridCellTemplateEnum.DecimalOptionalTwo
     }
   ];

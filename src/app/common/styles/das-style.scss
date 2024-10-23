@@ -1,11 +1,11 @@
 @import "variables";
 
-.toast-container{
+.toast-container {
   width: 100%;
 }
 
 .ngx-toastr {
-  width:500px !important;  // Specify toastr-dialog width for all devices
+  width: 500px !important; // Specify toastr-dialog width for all devices
 }
 
 
@@ -14,26 +14,20 @@
 }
 
 
-
-
-.toolbar-button {
-  height: 2rem;
-  width: 2rem;
-
-
-  padding: 0.4rem;
-  border-radius: 50%;
-  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
-
-  &.with-label{
+.toolbar {
+  margin-bottom: 0.25rem;
+  .btn {
+    padding: 0.4rem;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
     border-radius: 0;
-  }
 
-  &:hover {
-    cursor: pointer;
-    border-color: transparent;
-    background: $gray-300;
 
+    &:hover {
+      cursor: pointer;
+      border-color: transparent;
+      background: $gray-300;
+
+    }
 
   }
 }

@@ -3,7 +3,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { DasGridComponent } from '../../../../common/components/das-grid/das-grid.component';
 import {
   DasGridCellTemplateEnum,
-  DasGridColumnTypeEnum
+  AgGridCellDataTypeEnum
 } from '../../../../common/components/das-grid/services/das-grid-column-interface';
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
@@ -20,12 +20,12 @@ export class DvHousingMarketWidgetGridComponent extends DasWidgetContentBaseComp
   @Input() dataSource: BuildingTypePercentageInterface[] = [];
 
   columns: any[] = [
-    { dataField: 'buildingType', caption: 'Building Type', dataType: DasGridColumnTypeEnum.String },
+    { dataField: 'buildingType', caption: 'Building Type', dataType: AgGridCellDataTypeEnum.Text },
 
     {
       dataField: 'total',
       caption: 'Total',
-      dataType: DasGridColumnTypeEnum.Number,
+      dataType: AgGridCellDataTypeEnum.Number,
       cellTemplate: DasGridCellTemplateEnum.Integer
     },
 
@@ -33,7 +33,7 @@ export class DvHousingMarketWidgetGridComponent extends DasWidgetContentBaseComp
       dataField: 'percentage',
       caption: 'Percentage',
       width: 150,
-      dataType: DasGridColumnTypeEnum.Number,
+      dataType: AgGridCellDataTypeEnum.Number,
       cellTemplate: DasGridCellTemplateEnum.Percentage
     }
   ];

@@ -38,7 +38,7 @@
     "angular-feather": "^6.5.0",
     "angular-gridster2": "^18.0.1",
     "angular-resize-event-package": "^3.5.0",
-    "bootstrap": "^5.2.1",
+    "bootstrap": "^5.3.3",
     "devextreme": "^24.1.6",
     "devextreme-angular": "^24.1.6",
     "ag-grid-community": "^32.2.2",

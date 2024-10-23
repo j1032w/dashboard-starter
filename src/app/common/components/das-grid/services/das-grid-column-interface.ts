@@ -2,15 +2,16 @@ export interface DasGridColumnInterface {
   caption: string;
   cellTemplate?: DasGridCellTemplateEnum;
   dataField: string;
-  dataType: DasGridColumnTypeEnum;
+  dataType: AgGridCellDataTypeEnum;
   width?: number;
   visible: boolean;
 }
 
-// dxDataGrid requires lower case
-export enum DasGridColumnTypeEnum {
-  String = 'string',
+
+export enum AgGridCellDataTypeEnum {
+  Text = 'text',
   Number = 'number',
+  Boolean = 'boolean',
   Date = 'date'
 }
 
