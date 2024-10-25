@@ -10,7 +10,7 @@ stages:
 
 
 install_dependencies:
-  image: node:18-alpine3.17
+  image: node:22-alpine
   stage: dependencies
   script:
     - yarn install
@@ -26,7 +26,7 @@ install_dependencies:
 
 
 unit_test:
-  image: node:18-alpine3.17
+  image: node:22-alpine
   stage: test
   script:
     - yarn test
@@ -40,7 +40,7 @@ unit_test:
 
 
 lint:
-  image: node:18-alpine3.17
+  image: node:22-alpine
   stage: test
   script:
     - yarn lint
@@ -54,7 +54,7 @@ lint:
 
 
 build:
-  image: node:18-alpine3.17
+  image: node:22-alpine
   stage: build
   script:
     - yarn build
