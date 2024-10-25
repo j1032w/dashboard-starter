@@ -8,7 +8,7 @@
           <div class="col-12">
             <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
             <div class="fs-5">Delete confirmation</div>
-            <button (click)="delete()" class="btn btn-primary">Delete</button>
+            <button type="button" (click)="delete()" class="btn btn-primary">Delete</button>
           </div>
 
         </div>
@@ -17,18 +17,18 @@
           <div class="col-12">
             <div class="fs-5">Toast</div>
 
-            <button class="btn btn-primary me-3"
+            <button type="button" class="btn btn-primary me-3"
                     (click)="sendToast('success' )">Success
             </button>
 
-            <button class="btn btn-warning me-3"
+            <button type="button" class="btn btn-warning me-3"
                     (click)="sendToast('warn' )">Warn
             </button>
 
-            <button class="btn btn-info me-3"
+            <button type="button" class="btn btn-info me-3"
                     (click)="sendToast('info' )">Info
             </button>
-            <button class="btn btn-danger me-3"
+            <button type="button" class="btn btn-danger me-3"
                     (click)="sendToast('error' )">Error
             </button>
           </div>

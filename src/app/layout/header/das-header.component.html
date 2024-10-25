@@ -1,8 +1,8 @@
 <div class="header d-flex flex-row user-select-none">
-  <button class="menu toolbar-button m-2"
+  <button type="button" class="btn btn-light"
        (click)="layoutService.toggleSidebar()">
     <i-feather name="menu"></i-feather>
-    Menu
+    <span> Menu</span>
   </button>
 
   <div class="flex-grow-1 d-flex justify-content-center align-items-center title"
@@ -36,9 +36,8 @@
     </div>
 
 
-    <button class="github-icon toolbar-button d-flex justify-content-center align-content-center"
+    <button type="button" class="github-icon btn d-flex justify-content-center align-content-center"
          pTooltip="Source"
-         tooltipPosition="bottom"
          (click)="openLink('https://github.com/j1032w/dashboard-starter')">
       <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24">
         <path

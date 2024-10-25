@@ -78,11 +78,11 @@
 
 
 <ng-template #expandableItem let-ctx>
-  <button class="align-items-center item-label user-select-none"
+  <button type="button" class="btn w-100 align-items-center item-label user-select-none"
        routerLinkActive="is-active"
        [routerLink]="ctx.sidebarItem.path"
        (click)="toggleAccordionItem(ctx.accordionItemComponent, ctx.sidebarItem)">
-    <span>
+    <span class="float-start">
       <i-feather [name]="ctx.sidebarItem.icon"></i-feather>
       {{ ctx.sidebarItem.text }}
     </span>

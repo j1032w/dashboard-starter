@@ -11,7 +11,7 @@
       <mat-label>Enter your password</mat-label>
       <input autoComplete="new-password" id="password" name="password" matInput
              [type]="hidePassword ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+      <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hidePassword">
         <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
