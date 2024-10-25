@@ -1,17 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  ViewChild
-} from '@angular/core';
-import {
-  BubbleDataPoint,
-  ChartConfiguration,
-  ChartData,
-  ChartType,
-  Point
-} from 'chart.js';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChartData } from 'chart.js';
 import { takeUntil } from 'rxjs';
 
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
@@ -40,7 +28,6 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBaseComponent imple
   dataSource: BuildingTypePercentageInterface[] = [];
 
   public pieChartData: ChartData<'pie', number[], string>;
-
 
   constructor(
     protected override readonly dashboardCoreService: DasDashboardCoreEventService,

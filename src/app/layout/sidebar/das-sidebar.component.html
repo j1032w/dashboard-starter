@@ -78,7 +78,7 @@
 
 
 <ng-template #expandableItem let-ctx>
-  <div class="align-items-center item-label user-select-none"
+  <button class="align-items-center item-label user-select-none"
        routerLinkActive="is-active"
        [routerLink]="ctx.sidebarItem.path"
        (click)="toggleAccordionItem(ctx.accordionItemComponent, ctx.sidebarItem)">
@@ -96,5 +96,5 @@
       <i-feather name="chevron-left" class="float-end"
       ></i-feather>
     </ng-container>
-  </div>
+  </button>
 </ng-template>

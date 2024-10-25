@@ -23,7 +23,7 @@ https://www.j1032.com/dashboard \
 
 
 # What I have got here
-- Built with [Angular 15](https://angular.io), [Typescript 4](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 15](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
+- Built with [Angular 18](https://angular.io), [Typescript 5](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 18](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
 - Container and presentational components architecture
 - Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation, Module lazy loading, HTTP request throttling and caching, 
 - Responsive liquid layout, SVG Icons

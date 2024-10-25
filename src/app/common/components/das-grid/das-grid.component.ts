@@ -1,10 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import {
-  ColDef,
-  RowSelectionOptions
-} from 'ag-grid-community';
-import { Workbook } from 'exceljs';
+import { ColDef, RowSelectionOptions } from 'ag-grid-community';
 
 import { DasBaseComponent } from '../das-component-base.component';
 
@@ -30,13 +26,13 @@ export class DasGridComponent extends DasBaseComponent {
 
   rowSelection: RowSelectionOptions = {
     mode: 'multiRow',
-    headerCheckbox: false,
+    headerCheckbox: false
   };
 
   defaultColDef: ColDef = {
     filter: true, // Enable filtering on all columns
     editable: true, // Enable editing on all columns
-    floatingFilter: true,
+    floatingFilter: true
   };
 
   constructor() {
@@ -46,8 +42,6 @@ export class DasGridComponent extends DasBaseComponent {
   readonly repaint = () => {
     this.agGrid.api.resetRowHeights();
   };
-
-
 
   export() {
     this.agGrid.api.exportDataAsCsv();
