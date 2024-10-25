@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {CommonTestConfig} from '../../../../common/test-services/common-test-config';
+import {DasComponentFormModule} from '../das-component-form.module';
 
 import { CompFloatingLabelFormComponent } from './comp-floating-label-form.component';
 
@@ -8,7 +10,7 @@ describe('FloatingLabelFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CompFloatingLabelFormComponent]
+      imports: [...CommonTestConfig.imports, DasComponentFormModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CompFloatingLabelFormComponent);

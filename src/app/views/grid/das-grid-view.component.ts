@@ -53,9 +53,6 @@ export class DasGridViewComponent extends DasBaseComponent {
       });
   }
 
-  showColumnChooser() {
-    this.gridComponent.showColumnChooser();
-  }
 
   export() {
     this.gridComponent.export();

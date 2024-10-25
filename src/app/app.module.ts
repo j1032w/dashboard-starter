@@ -2,15 +2,20 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  provideCharts,
+  withDefaultRegisterables
+} from 'ng2-charts';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { DasSpinnerInterceptorService } from './common/components/das-spinner/services/das-spinner-interceptor.service';
 import { DasCommonModule } from './common/das-common.module';
 import { DasLayoutModule } from './layout/layout.module';
 import { DasChartViewModule } from './views/chart/das-chart-view.module';
 import { DasDashboardViewModule } from './views/dashboard/das-dashboard-view.module';
 import { DasGridViewModule } from './views/grid/das-grid-view.module';
+import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +39,18 @@ import { DasGridViewModule } from './views/grid/das-grid-view.module';
       provide: HTTP_INTERCEPTORS,
       useClass: DasSpinnerInterceptorService,
       multi: true
-    }
+    },
+    provideCharts(
+      withDefaultRegisterables(
+        DataLabelsPlugin,
+      ),
+      {
+        defaults: {
+          // For consistent rendering across CI and local envs
+          font: { family: 'Arial' },
+        },
+      },
+    )
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { DevExtremeModule } from 'devextreme-angular';
 
 import { DasGridModule } from '../../common/components/das-grid/das-grid.module';
 import { DasCommonModule } from '../../common/das-common.module';
@@ -12,7 +11,7 @@ import { GridViewSearchComponent } from './grid-view-search/grid-view-search.com
 
   exports: [DasGridViewComponent],
 
-  imports: [DasCommonModule, DevExtremeModule, DasGridModule, DasHousingMarketQueryBuilderModule],
+  imports: [DasCommonModule, DasGridModule, DasHousingMarketQueryBuilderModule],
   providers: []
 })
 export class DasGridViewModule {}

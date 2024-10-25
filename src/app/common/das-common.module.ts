@@ -5,9 +5,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FeatherModule } from 'angular-feather';
 import { GridsterModule } from 'angular-gridster2';
-import { AngularResizeEventModule } from 'angular-resize-event';
+
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { ToastrModule } from 'ngx-toastr';
+import {NgxResize} from 'ngxtension/resize';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
 import { TooltipModule } from 'primeng/tooltip';
@@ -42,7 +43,7 @@ import { DefaultOrderKeyValuePipe } from './pipes/default-order-key-value.pipe '
     }),
     TooltipModule,
     MatProgressBarModule,
-    AngularResizeEventModule
+    NgxResize
   ],
 
   exports: [

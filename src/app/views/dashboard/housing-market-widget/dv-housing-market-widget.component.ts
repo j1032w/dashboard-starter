@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChartData } from 'chart.js';
 import { takeUntil } from 'rxjs';
 
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
@@ -26,6 +27,8 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBaseComponent imple
 
   dataSource: BuildingTypePercentageInterface[] = [];
 
+  public pieChartData: ChartData<'pie', number[], string>;
+
   constructor(
     protected override readonly dashboardCoreService: DasDashboardCoreEventService,
     protected override readonly toastService: DasToastService,
@@ -40,8 +43,28 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBaseComponent imple
     this.housingMarketService
       .getHomeTypePercentages$(this.widgetOption.settingData.mongoQuery)
       .pipe(takeUntil(this.destroyed$))
-      .subscribe(data => {
-        this.dataSource = data;
+      .subscribe(response => {
+        this.pieChartData = {
+          labels: [
+            'Apartment',
+            'House',
+            'Duplex',
+            'Fourplex',
+            'Manufactured Home',
+            'Mobile Home',
+            'Multi Family',
+            'Parking',
+            'Townhouse',
+            'Triplex',
+            'Unknown'
+          ],
+
+          datasets: [
+            {
+              data: response.map((data: { percentage: any }) => data.percentage)
+            }
+          ]
+        };
       });
   }
 

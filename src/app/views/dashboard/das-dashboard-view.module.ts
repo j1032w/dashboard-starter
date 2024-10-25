@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { DevExtremeModule } from 'devextreme-angular';
 
 import { DasDashboardCoreModule } from '../../common/components/dashboard-core/das-dashboard-core.module';
 import { DasCommonModule } from '../../common/das-common.module';
@@ -28,7 +27,6 @@ import { DvSP500WidgetModule } from './sp500-widget/dv-sp500-widget.module';
     DasCommonModule,
     DasDashboardCoreModule,
     DasHousingMarketQueryBuilderModule,
-    DevExtremeModule,
     DvHousingMarketWidgetModule,
     DvLocWidgetModule,
     DvSP500WidgetModule

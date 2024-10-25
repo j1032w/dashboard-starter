@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { QueryBuilderConfig, Rule, RuleSet } from 'angular2-query-builder';
+import {
+  QueryBuilderConfig,
+  Rule,
+  RuleSet
+} from 'ngx-angular-query-builder';
+
 
 @Injectable({ providedIn: 'root' })
 export class DasQueryBuilderMongoConvertor {
@@ -63,7 +68,7 @@ export class DasQueryBuilderMongoConvertor {
 
   mapRuleSet = (ruleSet: RuleSet | Rule): any => {
     let rules = [];
-    if (!('rules' in ruleSet) || ruleSet.rules.length < 1) {
+    if (!ruleSet || !('rules' in ruleSet) || ruleSet.rules.length < 1) {
       return;
     } else {
       rules = ruleSet.rules;

@@ -1,144 +1,142 @@
-import {
-  DasGridCellTemplateEnum,
-  DasGridColumnInterface,
-  DasGridColumnTypeEnum
-} from '../../../common/components/das-grid/services/das-grid-column-interface';
+import { ColDef } from 'ag-grid-community';
+import { AgGridCellDataTypeEnum } from '../../../common/components/das-grid/services/das-grid-column-interface';
 
 export const GRID_VIEW_SPINNER_ID = 'grid-view-spinner';
 
-export const GRID_VIEW_COLUMNS: DasGridColumnInterface[] = [
+export const GRID_VIEW_COLUMNS: ColDef[] = [
   {
-    dataField: 'provinceName',
-    caption: 'Province Name',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: true
+    field: 'provinceName',
+
+    headerName: 'Province Name',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: false
   },
 
   {
-    dataField: 'city',
-    caption: 'City',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: true
+    field: 'city',
+    headerName: 'City',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: false
   },
 
   {
-    dataField: 'buildingBathroomTotal',
-    caption: 'Bathrooms Total',
-    dataType: DasGridColumnTypeEnum.Number,
-    visible: true
+    field: 'buildingBathroomTotal',
+    headerName: 'Bathrooms Total',
+    cellDataType: AgGridCellDataTypeEnum.Number,
+    hide: false
   },
 
   {
-    dataField: 'buildingBedroom',
-    caption: 'Bedrooms',
-    dataType: DasGridColumnTypeEnum.Number,
-    visible: false
+    field: 'buildingBedroom',
+    headerName: 'Bedrooms',
+    cellDataType: AgGridCellDataTypeEnum.Number,
+    hide: true
   },
 
   {
-    dataField: 'buildingStoriesTotal',
-    caption: 'Stories',
-    dataType: DasGridColumnTypeEnum.Number,
-    visible: true
+    field: 'buildingStoriesTotal',
+    headerName: 'Stories',
+    cellDataType: AgGridCellDataTypeEnum.Number,
+    hide: false
   },
 
   {
-    dataField: 'buildingType',
-    caption: 'Building Type',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: true
+    field: 'buildingType',
+    headerName: 'Building Type',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: false
   },
 
   {
-    dataField: 'landSizeTotal',
-    caption: 'Land Size (sqft)',
-    dataType: DasGridColumnTypeEnum.Number,
-    visible: false
+    field: 'landSizeTotal',
+    headerName: 'Land Size (sqft)',
+    cellDataType: AgGridCellDataTypeEnum.Number,
+    hide: true
   },
 
   {
-    dataField: 'priceUnformattedValue',
-    caption: 'Price',
-    dataType: DasGridColumnTypeEnum.Number,
-    cellTemplate: DasGridCellTemplateEnum.Currency,
-    visible: true
+    field: 'priceUnformattedValue',
+    headerName: 'Price',
+    cellDataType: AgGridCellDataTypeEnum.Number,
+    //cellTemplate: DasGridCellTemplateEnum.Currency,
+    hide: false
   },
 
   {
-    dataField: 'propertyOwnershipType',
-    caption: 'Ownership Type',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: true
+    field: 'propertyOwnershipType',
+    headerName: 'Ownership Type',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: false
   },
 
   {
-    dataField: 'propertyType',
-    caption: 'Property Type',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: true
+    field: 'propertyType',
+    headerName: 'Property Type',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: false
   },
 
   {
-    dataField: 'buildingAmenity',
-    caption: 'Building Amenities',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: false
+    field: 'buildingAmenity',
+    headerName: 'Building Amenities',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: true
   },
 
   {
-    dataField: 'buildingSizeInterior',
-    caption: 'Building Size',
-    dataType: DasGridColumnTypeEnum.Number,
-    visible: false
+    field: 'buildingSizeInterior',
+    headerName: 'Building Size',
+    cellDataType: AgGridCellDataTypeEnum.Number,
+    hide: true
   },
 
   {
-    dataField: 'landLandscapeFeature',
-    caption: 'Land Landscape Features',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: false
+    field: 'landLandscapeFeature',
+    headerName: 'Land Landscape Features',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: true
   },
 
   {
-    dataField: 'listingBoundary',
-    caption: 'Listing Boundary',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: false
+    field: 'listingBoundary',
+    headerName: 'Listing Boundary',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: true
   },
 
   {
-    dataField: 'postalCode',
-    caption: 'Postal Code',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: true
+    field: 'postalCode',
+    headerName: 'Postal Code',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: false
   },
 
   {
-    dataField: 'propertyAmenityNearBy',
-    caption: 'Property Amenities Near By',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: true
+    field: 'propertyAmenityNearBy',
+    headerName: 'Property Amenities Near By',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: false
   },
 
   {
-    dataField: 'propertyParkingSpaceTotal',
-    caption: 'Parking Space Total',
-    dataType: DasGridColumnTypeEnum.Number,
-    visible: true
+    field: 'propertyParkingSpaceTotal',
+    headerName: 'Parking Space Total',
+    cellDataType: AgGridCellDataTypeEnum.Number,
+    hide: false
   },
 
   {
-    dataField: 'propertyParkingType',
-    caption: 'Parking Type',
-    dataType: DasGridColumnTypeEnum.String,
-    visible: true
+    field: 'propertyParkingType',
+    headerName: 'Parking Type',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: false
   },
 
   {
-    dataField: 'listedTime',
-    caption: 'Listed Date',
-    dataType: DasGridColumnTypeEnum.Date,
-    visible: true
+    field: 'listedTime',
+    headerName: 'Listed Date',
+    cellDataType: AgGridCellDataTypeEnum.Date,
+    hide: false
   }
 ];
 

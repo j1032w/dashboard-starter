@@ -8,6 +8,7 @@ import { DasDashboardEventTypeEnum, DasDashboardMessage } from './das-dashboard-
 import { DasWidgetOption } from './das-widget-option';
 
 @Component({
+  selector: 'das-widget-base',
   template: ''
 })
 export class DasWidgetBaseComponent extends DasBaseComponent implements OnInit {

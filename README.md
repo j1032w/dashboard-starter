@@ -1,5 +1,5 @@
 # Dashboard Starter
-**A dashboard starter pack build with Angular.**\
+**A dashboard starter pack build with Angular**\
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)\
@@ -9,7 +9,7 @@
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)
 
 
-#### A ReactJS and NestJS edition can be found at https://github.com/j1032w/das-mono-nestjs-reactjs
+#### The ReactJS and NestJS edition can be found at https://github.com/j1032w/react-dashboard-starter
 
 # Demo
 https://www.j1032.com/dashboard \
@@ -23,7 +23,7 @@ https://www.j1032.com/dashboard \
 
 
 # What I have got here
-- Built with [Angular 15](https://angular.io), [Typescript 4](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 15](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
+- Built with [Angular 18](https://angular.io), [Typescript 5](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 18](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
 - Container and presentational components architecture
 - Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation, Module lazy loading, HTTP request throttling and caching, 
 - Responsive liquid layout, SVG Icons

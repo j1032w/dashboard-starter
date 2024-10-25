@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChartData } from 'chart.js';
 import { takeUntil } from 'rxjs';
 
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
@@ -17,9 +18,12 @@ export class DvLocWidgetComponent extends DasWidgetBaseComponent implements OnIn
 
   spinnerId = 'loc-widget-spinner';
 
-  dataSource: any[] = [];
+
 
   total: any = {};
+
+
+  pieChartData: ChartData<'pie', number[], string> ;
 
   constructor(
     protected override readonly dashboardCoreService: DasDashboardCoreEventService,
@@ -48,7 +52,14 @@ export class DvLocWidgetComponent extends DasWidgetBaseComponent implements OnIn
           response.splice(index, 1);
         }
 
-        this.dataSource = response;
+        this.pieChartData = {
+          labels: response.map((item: any) => item.language),
+          datasets: [
+            {
+              data: response.map((item: any) => item.lines)
+            }
+          ]
+        };
       });
   };
 }

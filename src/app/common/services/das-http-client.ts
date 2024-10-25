@@ -2,8 +2,11 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, takeUntil, tap, throwError, timer } from 'rxjs';
 
+
+
 import { DAS_SPINNER_KEY } from '../components/das-spinner/services/das-http-state.service';
-import { DasConfig } from './das-config';
+import {DasConfig} from '../das-config';
+
 import { DasServiceBaes } from './das-service-baes';
 import { DasToastService } from './das-toast.service';
 

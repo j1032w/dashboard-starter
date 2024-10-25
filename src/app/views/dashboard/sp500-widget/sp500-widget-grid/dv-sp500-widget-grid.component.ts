@@ -2,8 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { DasGridComponent } from '../../../../common/components/das-grid/das-grid.component';
 import {
-  DasGridCellTemplateEnum,
-  DasGridColumnTypeEnum
+  AgGridCellDataTypeEnum
 } from '../../../../common/components/das-grid/services/das-grid-column-interface';
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
@@ -21,21 +20,21 @@ export class DvSp500WidgetGridComponent extends DasWidgetContentBaseComponent im
   height = 300;
 
   columns: any[] = [
-    { dataField: 'year', caption: 'Year', dataType: DasGridColumnTypeEnum.Number },
+    { field: 'year', headerName: 'Year', cellDataType: AgGridCellDataTypeEnum.Number },
 
     {
-      dataField: 'averageClosingPrice',
-      caption: 'Average Closing',
-      dataType: DasGridColumnTypeEnum.Number,
-      cellTemplate: DasGridCellTemplateEnum.Currency
+      field: 'averageClosingPrice',
+      headerName: 'Average Closing',
+      cellDataType: AgGridCellDataTypeEnum.Number,
+
     },
 
     {
-      dataField: 'annualChangePercent',
-      caption: 'Annual Change %',
+      field: 'annualChangePercent',
+      headerName: 'Annual Change %',
       width: 200,
-      dataType: DasGridColumnTypeEnum.Number,
-      cellTemplate: DasGridCellTemplateEnum.DecimalOptionalTwo
+      cellDataType: AgGridCellDataTypeEnum.Number
+
     }
   ];
 

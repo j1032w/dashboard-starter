@@ -1,12 +1,12 @@
-<span class="btn btn-primary me-3" (click)="setSize('large')">Large Dialog</span>
-<span class="btn btn-primary me-3" (click)="setSize('medium')">Medium Dialog</span>
-<span class="btn btn-primary" (click)="setSize('small')">Small Dialog</span>
+<button type="button" class="btn btn-primary me-3" (click)="setSize('large')">Large Dialog</button>
+<button type="button" class="btn btn-primary me-3" (click)="setSize('medium')">Medium Dialog</button>
+<button type="button" class="btn btn-primary" (click)="setSize('small')">Small Dialog</button>
 
 
 <p-dialog [header]="header" appendTo="body"
           [(visible)]="visible"
           [style]="{width: width, height:'35rem', marginTop:'7rem', marginLeft:'5rem'}">
-  <ng-scrollbar appearance="compact" visibility="always">
+  <ng-scrollbar appearance="compact" visibility="visible">
     <das-comp-floating-label-form [colClass]="colClass" class="pe-2"></das-comp-floating-label-form>
   </ng-scrollbar>
 

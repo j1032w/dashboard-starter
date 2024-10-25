@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonTestConfig } from '../../../common/test-services/common-test-config';
+import { DasUserInterfaceModule } from '../das-user-interface.module';
 
 import { UiVirtualScrollComponent } from './ui-virtual-scroll.component';
 
@@ -8,7 +10,8 @@ describe('VirtualScrollComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UiVirtualScrollComponent]
+      declarations: [UiVirtualScrollComponent],
+      imports: [...CommonTestConfig.imports, DasUserInterfaceModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(UiVirtualScrollComponent);

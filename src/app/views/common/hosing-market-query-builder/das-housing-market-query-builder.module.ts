@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { QueryBuilderModule } from 'angular2-query-builder';
+import {NgxAngularQueryBuilderModule} from 'ngx-angular-query-builder';
 
 import { DasCommonModule } from '../../../common/das-common.module';
 import { DasHousingMarketQueryBuilderComponent } from './das-housing-market-query-builder.component';
@@ -7,7 +7,7 @@ import { DasHousingMarketQueryBuilderComponent } from './das-housing-market-quer
 @NgModule({
   declarations: [DasHousingMarketQueryBuilderComponent],
 
-  imports: [DasCommonModule, QueryBuilderModule],
+  imports: [DasCommonModule, NgxAngularQueryBuilderModule ],
 
   exports: [DasHousingMarketQueryBuilderComponent]
 })

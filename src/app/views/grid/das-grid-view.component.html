@@ -1,34 +1,29 @@
-<div class="toolbar m-2">
-  <span class="toolbar-button with-label" (click)="showSearchDialog()">
-     <i-feather name="search"></i-feather>
-    Search
-  </span>
+<div class="d-flex flex-column flex-grow-1">
+  <div class="toolbar d-flex flex-row justify-content-end">
+    <button type="button" class="btn btn-default btn-sm" (click)="showSearchDialog()">
+      <i-feather name="search"></i-feather>
+      Search
+    </button>
 
 
-  <span class="toolbar-button with-label" (click)="refresh()">
-     <i-feather name="rotate-cw"></i-feather>
-    Refresh
-  </span>
+    <button type="button" class="btn btn-default btn-sm" (click)="refresh()">
+      <i-feather name="rotate-cw"></i-feather>
+      Refresh
+    </button>
 
-  <span class="toolbar-button with-label" (click)="showColumnChooser()">
-     <i-feather name="server"></i-feather>
-    Columns
-  </span>
-
-  <span class="toolbar-button with-label" (click)="export()">
-     <i-feather name="external-link"></i-feather>
-    Export
-  </span>
-
+    <button type="button" class="btn btn-default btn-sm" (click)="export()">
+      <i-feather name="external-link"></i-feather>
+      Export
+    </button>
+  </div>
+  <das-grid #gridComponent
+            class="p-0 m-0 flex-grow-1 d-flex flex-column"
+            keyExpr="rowId"
+            [rowData]="dataSource"
+            [isGroupPanelVisible]="true"
+            [isAllowSelect]="true"
+            [colDefs]="columns"></das-grid>
 </div>
-
-<das-grid #gridComponent
-          class="p-0 m-0 h-100 w-100"
-          keyExpr="rowId"
-          [dataSource]="dataSource"
-          [isGroupPanelVisible]="true"
-          [isAllowSelect]="true"
-          [columns]="columns"></das-grid>
 
 
 <das-grid-view-search [(isVisible)]="isSearchDialogVisible"

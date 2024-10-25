@@ -4,8 +4,11 @@ import * as _ from 'lodash';
 import { isArray } from 'lodash';
 import { ConfirmationService } from 'primeng/api';
 import { filter, takeUntil } from 'rxjs';
+import {DasConfig} from '../../das-config';
 
-import { DasConfig } from '../../services/das-config';
+
+
+
 import { DasLocalStorageService } from '../../services/das-local-storage.service';
 import { DasToastService } from '../../services/das-toast.service';
 import { DasBaseComponent } from '../das-component-base.component';

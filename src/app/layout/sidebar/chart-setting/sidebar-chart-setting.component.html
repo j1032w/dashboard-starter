@@ -1,10 +1,12 @@
 <div class="ms-4 mt-2 me-2 mb-2 p-2 card text-dark chart-setting-container ">
   <div class="d-flex flex-row align-items-center">
-    <p-inputSwitch class="me-2" [(ngModel)]="chartService.isTitleVisible" inputId="showTitleSwitch"></p-inputSwitch>
+    <p-inputSwitch class="me-2" [(ngModel)]="chartService.isTitleVisible"
+                   (onChange)="chartService.setTitleVisible($event.checked)"
+                   inputId="showTitleSwitch"></p-inputSwitch>
 
     <!-- the id property of p-input should not be set, otherwise clicking label couldn't trigger p-input
          p-input works only with inputId. -->
-    <label  class="input-label fw-semibold">Show Title</label>
+    <span  class="input-label fw-semibold">Show Title</span>
   </div>
 
 
@@ -13,7 +15,7 @@
                    inputId="showLegendSwitch">
     </p-inputSwitch>
 
-    <label class="input-label fw-semibold">Show Legend</label>
+    <span class="input-label fw-semibold">Show Legend</span>
   </div>
 
 </div>

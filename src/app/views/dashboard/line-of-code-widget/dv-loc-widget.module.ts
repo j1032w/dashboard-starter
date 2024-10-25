@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { DevExtremeModule, DxDataGridModule } from 'devextreme-angular';
+import {BaseChartDirective} from 'ng2-charts';
 
 import { DasGridModule } from '../../../common/components/das-grid/das-grid.module';
 import { DasDashboardCoreModule } from '../../../common/components/dashboard-core/das-dashboard-core.module';
@@ -16,9 +16,8 @@ import { DvLocWidgetPieComponent } from './loc-widget-pie/dv-loc-widget-pie.comp
     DasCommonModule,
     DasViewCommonModule,
     DasDashboardCoreModule,
-    DxDataGridModule,
-    DevExtremeModule,
-    DasGridModule
+    DasGridModule,
+    BaseChartDirective
   ],
   providers: []
 })

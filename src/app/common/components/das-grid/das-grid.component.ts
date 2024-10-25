@@ -1,11 +1,8 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { exportDataGrid } from 'devextreme/excel_exporter';
-import { DxDataGridComponent } from 'devextreme-angular';
-import { Workbook } from 'exceljs';
-import * as fs from 'file-saver';
+import { AgGridAngular } from 'ag-grid-angular';
+import { ColDef, RowSelectionOptions } from 'ag-grid-community';
 
 import { DasBaseComponent } from '../das-component-base.component';
-import { DasGridColumnInterface } from './services/das-grid-column-interface';
 
 @Component({
   selector: 'das-grid',
@@ -13,12 +10,12 @@ import { DasGridColumnInterface } from './services/das-grid-column-interface';
   styleUrls: ['./das-grid.component.scss']
 })
 export class DasGridComponent extends DasBaseComponent {
-  @ViewChild('gridComponent', { static: true }) gridComponent: DxDataGridComponent;
+  @ViewChild('agGrid', { static: true }) agGrid: AgGridAngular;
 
   @Input()
-  dataSource: any[] = [];
+  rowData: any[] = [];
 
-  @Input() columns: DasGridColumnInterface[] = [];
+  @Input() colDefs: ColDef[] = [];
 
   @Input() keyExpr: string;
   @Input() isGroupPanelVisible = false;
@@ -27,43 +24,26 @@ export class DasGridComponent extends DasBaseComponent {
 
   @Input() isAllowSelect = false;
 
+  rowSelection: RowSelectionOptions = {
+    mode: 'multiRow',
+    headerCheckbox: false
+  };
+
+  defaultColDef: ColDef = {
+    filter: true, // Enable filtering on all columns
+    editable: true, // Enable editing on all columns
+    floatingFilter: true
+  };
+
   constructor() {
     super();
   }
 
   readonly repaint = () => {
-    this.gridComponent?.instance.refresh();
+    this.agGrid.api.resetRowHeights();
   };
 
-  showColumnChooser() {
-    this.gridComponent.instance.showColumnChooser();
-  }
-
   export() {
-    const workbook = new Workbook();
-    const worksheet = workbook.addWorksheet('Das Grid');
-
-    // Add new row
-    const titleRow = worksheet.addRow([]);
-
-    // Set font, size and style in title row.
-    titleRow.font = { name: 'Comic Sans MS', family: 4, size: 10, underline: 'double', bold: true };
-
-    const selectedRowsOnly = this.gridComponent.instance.getSelectedRowKeys().length > 0;
-
-    exportDataGrid({
-      component: this.gridComponent.instance,
-      worksheet,
-      selectedRowsOnly
-    })
-      .then(() => {
-        workbook.xlsx
-          .writeBuffer()
-          .then((buffer: BlobPart) => {
-            fs.saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'das-export.xlsx');
-          })
-          .catch();
-      })
-      .catch();
+    this.agGrid.api.exportDataAsCsv();
   }
 }

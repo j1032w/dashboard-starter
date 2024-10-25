@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { DevExtremeModule, DxDataGridModule } from 'devextreme-angular';
 import { InputSwitchModule } from 'primeng/inputswitch';
 
 import { DasGridModule } from '../../../common/components/das-grid/das-grid.module';
@@ -24,9 +23,7 @@ import { DvSp500WidgetSettingComponent } from './sp500-widget-setting/dv-sp500-w
     DasCommonModule,
     DasViewCommonModule,
     DasDashboardCoreModule,
-    DxDataGridModule,
     InputSwitchModule,
-    DevExtremeModule,
     DasGridModule
   ],
   providers: []

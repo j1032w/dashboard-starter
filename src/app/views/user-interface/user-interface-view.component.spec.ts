@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {CommonTestConfig} from '../../common/test-services/common-test-config';
 
 import { UserInterfaceViewComponent } from './user-interface-view.component';
 
@@ -8,7 +9,8 @@ describe('UiInterfaceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UserInterfaceViewComponent]
+      declarations: [UserInterfaceViewComponent],
+      imports: [...CommonTestConfig.imports]
     }).compileComponents();
 
     fixture = TestBed.createComponent(UserInterfaceViewComponent);
