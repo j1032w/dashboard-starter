@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {CommonTestConfig} from '../../../common/test-services/common-test-config';
+import {DasSidebarModule} from '../das-sidebar.module';
 
 import { SidebarChartSettingComponent } from './sidebar-chart-setting.component';
 
@@ -8,7 +10,8 @@ describe('ChartSettingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SidebarChartSettingComponent]
+      declarations: [SidebarChartSettingComponent],
+      imports: [...CommonTestConfig.imports, DasSidebarModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SidebarChartSettingComponent);

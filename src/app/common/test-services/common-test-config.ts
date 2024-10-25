@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import {BaseChartDirective} from 'ng2-charts';
 import { DasCommonModule } from '../das-common.module';
 
 // The compoonet use angular-resize-event needs the mock to pass the test
@@ -16,7 +16,9 @@ window.ResizeObserver =
     unobserve: jest.fn()
   }));
 
-const providers = [{ provide: APP_BASE_HREF, useValue: '/' }];
+const providers = [
+  { provide: APP_BASE_HREF, useValue: '/' }
+];
 
 const imports = [
   BrowserAnimationsModule,
@@ -25,7 +27,8 @@ const imports = [
   DasCommonModule,
   HttpClientModule,
   HttpClientTestingModule,
-  RouterTestingModule.withRoutes([])
+  RouterTestingModule.withRoutes([]),
+  BaseChartDirective
 ];
 
 export const CommonTestConfig = {

@@ -26,7 +26,7 @@ import { CompFormHorizontalComponent } from './horizontal-form/comp-form-horizon
     MatSelectModule,
     ReactiveFormsModule,
     CardModule,
-    NgScrollbarModule
+    NgScrollbarModule,
   ],
   exports: [CompFormComponent, CompFloatingLabelFormComponent]
 })
