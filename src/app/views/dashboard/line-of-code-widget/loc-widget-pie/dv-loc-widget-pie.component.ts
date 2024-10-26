@@ -1,13 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import {
-  BubbleDataPoint,
-  ChartConfiguration,
-  ChartData,
-  ChartType,
-  Point,
-
-} from 'chart.js';
-import {BaseChartDirective} from 'ng2-charts';
+import { BubbleDataPoint, ChartConfiguration, ChartData, ChartType, Point } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 import { ElementSizeInterface } from '../../../../common/components/das-auto-size/das-auto-size.component';
 import { DasGridComponent } from '../../../../common/components/das-grid/das-grid.component';
@@ -29,7 +22,6 @@ export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent {
 
   size: ElementSizeInterface = { height: 300, width: 300 };
 
-
   public pieChartType: ChartType = 'pie';
 
   public pieChartOptions: ChartConfiguration['options'] = {
@@ -40,7 +32,7 @@ export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent {
         position: 'top'
       },
 
-      datalabels:{
+      datalabels: {
         display: true,
         formatter: (value, ctx) => {
           let sum = 0;
@@ -51,7 +43,7 @@ export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent {
             }
           });
 
-          const percentage : number = (value * 100 / sum);
+          const percentage: number = (value * 100) / sum;
 
           if (!ctx.chart.data.labels || percentage < 5) {
             return '';
@@ -59,14 +51,13 @@ export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent {
 
           return ctx.chart.data.labels[ctx.dataIndex];
         },
-        color: 'black',
+        color: 'black'
       },
 
       title: {
         display: true,
         text: 'Lines of Code per Language',
-        color: 'black',
-
+        color: 'black'
       }
     }
   };
