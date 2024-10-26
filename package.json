@@ -16,7 +16,7 @@
     "build:prod": "ng build --aot --configuration production",
     "build:analyze": "ng build --configuration production --stats-json && ng analyze",
     "analyze": "webpack-bundle-analyzer ./dist/analyze-result.json",
-    "clean": "rimraf dist node_modules",
+    "clean": "rimraf dist node_modules .angular/cache .sonar",
     "cypr": "cross-env CYPRESS_REMOTE_DEBUGGING_PORT=9299 cypress open",
     "lint": "ng lint"
   },

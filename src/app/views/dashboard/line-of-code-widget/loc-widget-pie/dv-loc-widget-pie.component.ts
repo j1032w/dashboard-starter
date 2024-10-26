@@ -1,5 +1,20 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { BubbleDataPoint, ChartConfiguration, ChartData, ChartType, Point } from 'chart.js';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import {
+  BubbleDataPoint,
+  Chart,
+  ChartConfiguration,
+  ChartData,
+  ChartType,
+  Point
+} from 'chart.js';
+import DataLabelsPlugin from 'chartjs-plugin-datalabels';
+import {Options} from 'chartjs-plugin-datalabels/types/options';
 import { BaseChartDirective } from 'ng2-charts';
 
 import { ElementSizeInterface } from '../../../../common/components/das-auto-size/das-auto-size.component';
@@ -7,12 +22,14 @@ import { DasGridComponent } from '../../../../common/components/das-grid/das-gri
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
 
+
+
 @Component({
   selector: 'das-dv-loc-widget-pie',
   templateUrl: './dv-loc-widget-pie.component.html',
   styleUrls: ['./dv-loc-widget-pie.component.scss']
 })
-export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent {
+export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent implements OnInit {
   @ViewChild('pieChart') pieChartComponent: BaseChartDirective;
   @ViewChild('gridComponent') gridComponent: DasGridComponent;
 
@@ -52,7 +69,7 @@ export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent {
           return ctx.chart.data.labels[ctx.dataIndex];
         },
         color: 'black'
-      },
+      } as Options,
 
       title: {
         display: true,
@@ -67,6 +84,12 @@ export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent {
     protected override readonly dashboardCoreService: DasDashboardCoreEventService
   ) {
     super(elementRef, dashboardCoreService);
+  }
+
+  override ngOnInit() {
+    super.ngOnInit();
+    Chart.register(DataLabelsPlugin);
+
   }
 
   onResized($event: ElementSizeInterface) {
