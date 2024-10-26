@@ -5,9 +5,10 @@ FROM node:22-alpine AS build
 WORKDIR /ng-app
 # Add project into container, install dependencies
 
-ADD .yarn yarn.lock package.json angular.json tsconfig.json  tsconfig.app.json /ng-app/
-ADD src/ /ng-app/src/
+COPY .yarn yarn.lock package.json angular.json tsconfig.json  tsconfig.app.json /ng-app/
+COPY src/ /ng-app/src/
 RUN yarn install --update-checksums --no-progress --non-interactive --ignore-scripts
+
 
 # Build application
 RUN yarn --ignore-scripts build:prod

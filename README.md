@@ -107,6 +107,12 @@ docker image build --progress=plain --tag das-ui:develop
 docker container run -d -p 4201:80 --rm das-ui:develop
 ```  
 
+### Run test and lint with Docker cli
+```
+docker compose -f docker-compose.test.yml up test --build
+
+docker compose -f docker-compose.test.yml up lint --build
+```
 
 # GitLab CI/CD
 https://gitlab.com/j1032w/dashboard-starter/-/pipelines

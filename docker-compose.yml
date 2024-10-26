@@ -16,8 +16,6 @@ services:
     ports:
       - "4201:80"
 
-
-
 volumes:
   nginx_config:
   nginx_html:

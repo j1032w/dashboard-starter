@@ -16,9 +16,12 @@
     "build:prod": "ng build --aot --configuration production",
     "build:analyze": "ng build --configuration production --stats-json && ng analyze",
     "analyze": "webpack-bundle-analyzer ./dist/analyze-result.json",
-    "clean": "rimraf dist node_modules .angular/cache .sonar",
+    "clean": "rimraf dist node_modules .angular/cache .sonar && yarn cache clean && jest --clearCache",
     "cypr": "cross-env CYPRESS_REMOTE_DEBUGGING_PORT=9299 cypress open",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "docker:test": "docker compose -f docker-compose.test.yml up test --build",
+    "docker:lint": "docker compose -f docker-compose.test.yml up lint --build"
+
   },
   "dependencies": {
     "@angular/animations": "^18.2.0",

@@ -1,5 +1,19 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { BubbleDataPoint, ChartConfiguration, ChartData, ChartType, Point } from 'chart.js';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import {
+  BubbleDataPoint,
+  Chart,
+  ChartConfiguration,
+  ChartData,
+  ChartType,
+  Point
+} from 'chart.js';
+import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import {BaseChartDirective} from 'ng2-charts';
 
 import { ElementSizeInterface } from '../../../../common/components/das-auto-size/das-auto-size.component';
@@ -11,7 +25,7 @@ import { DasWidgetContentBaseComponent } from '../../../../common/components/das
   templateUrl: './dv-housing-market-widget-pie.component.html',
   styleUrls: ['./dv-housing-market-widget-pie.component.scss']
 })
-export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBaseComponent {
+export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBaseComponent implements OnInit  {
   @ViewChild('pieChart') pieChartComponent: BaseChartDirective | undefined;
 
   @Input() pieChartData: ChartData<'pie', number[], string>;
@@ -63,6 +77,12 @@ export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBaseCompo
     protected override readonly dashboardCoreService: DasDashboardCoreEventService
   ) {
     super(elementRef, dashboardCoreService);
+  }
+
+
+  override ngOnInit() {
+    super.ngOnInit();
+    Chart.register(DataLabelsPlugin);
   }
 
   protected override readonly repaintComponent = () => {
