@@ -11,10 +11,8 @@ describe('DasGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DasAutoSizeComponent],
-      imports: [...CommonTestConfig.imports, DasGridModule]
-
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DasGridModule, DasAutoSizeComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(DasGridComponent);
     component = fixture.componentInstance;

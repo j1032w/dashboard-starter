@@ -2,19 +2,20 @@ import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DasToastService } from '../../../services/das-toast.service';
-import { CommonTestConfig } from '../../../test-services/common-test-config';
-import { DasDashboardCoreModule } from '../das-dashboard-core.module';
 import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 import { DasWidgetBaseComponent } from '../services/das-widget-base.component';
 import { DasWidgetOption } from '../services/das-widget-option';
+import { DasWidgetDynamicLoaderDirective } from './das-widget-dynamic-loader.directive';
 
 const testComponentTemplate = '<div class="test-widget">test</div>';
 
 @Component({
-  selector: 'das-dv-demo-a-widget',
-  template: testComponentTemplate
+  selector: 'das-dv-mock-widget',
+  template: testComponentTemplate,
+  standalone: true,
+  imports: []
 })
-export class TestWidgetComponent extends DasWidgetBaseComponent {
+export class MockWidgetComponent extends DasWidgetBaseComponent {
   @Input() frontText = 'A';
   @Input() backText = 'A Back';
 
@@ -27,7 +28,10 @@ export class TestWidgetComponent extends DasWidgetBaseComponent {
 }
 
 @Component({
-  template: ` <ng-container dasWidgetDynamicLoader [widgetOption]="widgetOption"></ng-container>`
+  template: ` <ng-container dasWidgetDynamicLoader [widgetOption]="widgetOption"></ng-container>`,
+  standalone: true,
+  providers: [DasToastService],
+  imports: [DasWidgetDynamicLoaderDirective]
 })
 class ParentComponent {
   widgetOption = new DasWidgetOption({
@@ -37,7 +41,7 @@ class ParentComponent {
     rows: 7,
     x: 3,
     y: 7,
-    widgetClassName: 'TestWidgetComponent',
+    widgetClassName: 'MockWidgetComponent',
     title: 'Demo D',
     isMinimized: false,
     isShowRefreshButton: false,
@@ -52,14 +56,13 @@ describe('DasWidgetDynamicLoaderDirective', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ParentComponent, TestWidgetComponent],
-      imports: [...CommonTestConfig.imports, DasDashboardCoreModule]
+      imports: [ParentComponent, MockWidgetComponent]
     }).compileComponents();
 
     dashboardCoreService = TestBed.inject(DasDashboardCoreEventService);
     dashboardCoreService.widgetMap.set('TestWidgetComponent', {
       name: 'test widget',
-      type: TestWidgetComponent,
+      type: MockWidgetComponent,
       cols: 3,
       rows: 5
     });

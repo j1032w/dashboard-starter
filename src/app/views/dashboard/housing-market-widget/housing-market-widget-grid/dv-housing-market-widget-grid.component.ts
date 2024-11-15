@@ -8,9 +8,11 @@ import { DasWidgetContentBaseComponent } from '../../../../common/components/das
 import { BuildingTypePercentageInterface } from '../services/dv-housing-market.service';
 
 @Component({
-  selector: 'das-dv-housing-market-widget-grid',
-  templateUrl: './dv-housing-market-widget-grid.component.html',
-  styleUrls: ['./dv-housing-market-widget-grid.component.scss']
+    selector: 'das-dv-housing-market-widget-grid',
+    templateUrl: './dv-housing-market-widget-grid.component.html',
+    styleUrls: ['./dv-housing-market-widget-grid.component.scss'],
+    standalone: true,
+    imports: [DasGridComponent]
 })
 export class DvHousingMarketWidgetGridComponent extends DasWidgetContentBaseComponent {
   @ViewChild('gridComponent') gridComponent: DasGridComponent;

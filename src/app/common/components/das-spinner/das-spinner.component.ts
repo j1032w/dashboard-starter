@@ -4,11 +4,15 @@ import { filter, takeUntil } from 'rxjs';
 import { DasBaseComponent } from '../das-component-base.component';
 import { DasHttpProgressStateEnum } from './services/das-http-progress-state.enum';
 import { DasHttpStateService, IHttpState } from './services/das-http-state.service';
+import { NgIf } from '@angular/common';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'das-spinner',
-  templateUrl: './das-spinner.component.html',
-  styleUrls: ['./das-spinner.component.scss']
+    selector: 'das-spinner',
+    templateUrl: './das-spinner.component.html',
+    styleUrls: ['./das-spinner.component.scss'],
+    standalone: true,
+    imports: [NgIf, MatProgressSpinner]
 })
 export class DasSpinnerComponent extends DasBaseComponent implements OnInit {
   @Input() spinnerId: string;

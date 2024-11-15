@@ -1,16 +1,22 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ChartData } from 'chart.js';
 import { takeUntil } from 'rxjs';
+import {DasSpinnerComponent} from '../../../common/components/das-spinner/das-spinner.component';
+import { DasWidgetSettingCoreComponent } from '../../../common/components/dashboard-core/das-widget-setting/das-widget-setting-core.component';
 
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetBaseComponent } from '../../../common/components/dashboard-core/services/das-widget-base.component';
+import { DasWidgetCoreComponent } from '../../../common/components/dashboard-core/widget-core/das-widget-core.component';
 import { DasHttpClient } from '../../../common/services/das-http-client';
 import { DasToastService } from '../../../common/services/das-toast.service';
+import { DvLocWidgetPieComponent } from './loc-widget-pie/dv-loc-widget-pie.component';
 
 @Component({
   selector: 'das-dv-loc-widget',
   templateUrl: './dv-loc-widget.component.html',
-  styleUrls: ['./dv-loc-widget.component.scss']
+  styleUrls: ['./dv-loc-widget.component.scss'],
+  standalone: true,
+  imports: [DasWidgetSettingCoreComponent, DvLocWidgetPieComponent, DasWidgetCoreComponent, DasSpinnerComponent]
 })
 export class DvLocWidgetComponent extends DasWidgetBaseComponent implements OnInit {
   @ViewChild('frontTemplate') widgetFrontComponent: ElementRef;
@@ -18,12 +24,9 @@ export class DvLocWidgetComponent extends DasWidgetBaseComponent implements OnIn
 
   spinnerId = 'loc-widget-spinner';
 
-
-
   total: any = {};
 
-
-  pieChartData: ChartData<'pie', number[], string> ;
+  pieChartData: ChartData<'pie', number[], string>;
 
   constructor(
     protected override readonly dashboardCoreService: DasDashboardCoreEventService,

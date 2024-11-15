@@ -7,11 +7,8 @@ import { DasGridViewComponent } from './das-grid-view.component';
 import { GridViewSearchComponent } from './grid-view-search/grid-view-search.component';
 
 @NgModule({
-  declarations: [DasGridViewComponent, GridViewSearchComponent],
-
-  exports: [DasGridViewComponent],
-
-  imports: [DasCommonModule, DasGridModule, DasHousingMarketQueryBuilderModule],
-  providers: []
+    exports: [DasGridViewComponent],
+    imports: [DasCommonModule, DasGridModule, DasHousingMarketQueryBuilderModule, DasGridViewComponent, GridViewSearchComponent],
+    providers: []
 })
 export class DasGridViewModule {}

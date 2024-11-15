@@ -5,7 +5,8 @@ import { DasWidgetBaseComponent } from '../services/das-widget-base.component';
 import { DasWidgetOption } from '../services/das-widget-option';
 
 @Directive({
-  selector: '[dasWidgetDynamicLoader]'
+    selector: '[dasWidgetDynamicLoader]',
+    standalone: true
 })
 export class DasWidgetDynamicLoaderDirective implements OnInit, OnDestroy {
   @Input() widgetOption: DasWidgetOption;

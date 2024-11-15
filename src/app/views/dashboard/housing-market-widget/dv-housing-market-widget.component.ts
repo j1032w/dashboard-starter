@@ -11,11 +11,17 @@ import {
   DvHousingMarketService,
   HOUSE_MARKET_WIDGET_SPINNER_ID
 } from './services/dv-housing-market.service';
+import { DasWidgetCoreComponent } from '../../../common/components/dashboard-core/widget-core/das-widget-core.component';
+import { DvHousingMarketWidgetGridComponent } from './housing-market-widget-grid/dv-housing-market-widget-grid.component';
+import { DvHousingMarketWidgetSettingComponent } from './housing-market-widget-setting/dv-housing-market-widget-setting.component';
+import { DasSpinnerComponent } from '../../../common/components/das-spinner/das-spinner.component';
 
 @Component({
-  selector: 'das-dv-housing-market-widget',
-  templateUrl: './dv-housing-market-widget.component.html',
-  styleUrls: ['./dv-housing-market-widget.component.scss']
+    selector: 'das-dv-housing-market-widget',
+    templateUrl: './dv-housing-market-widget.component.html',
+    styleUrls: ['./dv-housing-market-widget.component.scss'],
+    standalone: true,
+    imports: [DasWidgetCoreComponent, DvHousingMarketWidgetPieComponent, DvHousingMarketWidgetGridComponent, DvHousingMarketWidgetSettingComponent, DasSpinnerComponent]
 })
 export class DvHousingMarketWidgetComponent extends DasWidgetBaseComponent implements OnInit {
   @ViewChild('pieComponent', { static: true }) pieComponent: DvHousingMarketWidgetPieComponent;

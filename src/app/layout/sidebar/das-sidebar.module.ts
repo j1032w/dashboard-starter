@@ -12,19 +12,19 @@ import { SidebarChartSettingComponent } from './chart-setting/sidebar-chart-sett
 import { DasSidebarComponent } from './das-sidebar.component';
 
 @NgModule({
-  declarations: [DasSidebarComponent, SidebarChartSettingComponent],
-  imports: [
-    CdkAccordionModule,
-    CheckboxModule,
-    DasCommonModule,
-    FormsModule,
-    InputSwitchModule,
-    InputTextModule,
-    NgScrollbarModule,
-    RouterLink,
-    RouterLinkActive
-  ],
-  exports: [DasSidebarComponent],
-  providers: []
+    imports: [
+        CdkAccordionModule,
+        CheckboxModule,
+        DasCommonModule,
+        FormsModule,
+        InputSwitchModule,
+        InputTextModule,
+        NgScrollbarModule,
+        RouterLink,
+        RouterLinkActive,
+        DasSidebarComponent, SidebarChartSettingComponent
+    ],
+    exports: [DasSidebarComponent],
+    providers: []
 })
 export class DasSidebarModule {}

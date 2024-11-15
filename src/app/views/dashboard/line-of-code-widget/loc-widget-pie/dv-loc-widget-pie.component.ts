@@ -17,17 +17,20 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import {Options} from 'chartjs-plugin-datalabels/types/options';
 import { BaseChartDirective } from 'ng2-charts';
 
-import { ElementSizeInterface } from '../../../../common/components/das-auto-size/das-auto-size.component';
+import { ElementSizeInterface, DasAutoSizeComponent } from '../../../../common/components/das-auto-size/das-auto-size.component';
 import { DasGridComponent } from '../../../../common/components/das-grid/das-grid.component';
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
+import { DecimalPipe } from '@angular/common';
 
 
 
 @Component({
-  selector: 'das-dv-loc-widget-pie',
-  templateUrl: './dv-loc-widget-pie.component.html',
-  styleUrls: ['./dv-loc-widget-pie.component.scss']
+    selector: 'das-dv-loc-widget-pie',
+    templateUrl: './dv-loc-widget-pie.component.html',
+    styleUrls: ['./dv-loc-widget-pie.component.scss'],
+    standalone: true,
+    imports: [DasAutoSizeComponent, BaseChartDirective, DecimalPipe]
 })
 export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent implements OnInit {
   @ViewChild('pieChart') pieChartComponent: BaseChartDirective;

@@ -10,9 +10,8 @@ describe('DvSp500WidgetBackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DvSp500WidgetGridComponent],
-      imports: [...CommonTestConfig.imports, DvSP500WidgetModule]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DvSP500WidgetModule, DvSp500WidgetGridComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(DvSp500WidgetGridComponent);
     component = fixture.componentInstance;

@@ -11,9 +11,8 @@ describe('HousingMarketTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DvHousingMarketWidgetGridComponent],
-      imports: [...CommonTestConfig.imports, DvHousingMarketWidgetModule, DasGridModule]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DvHousingMarketWidgetModule, DasGridModule, DvHousingMarketWidgetGridComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(DvHousingMarketWidgetGridComponent);
     component = fixture.componentInstance;

@@ -13,24 +13,20 @@ import { DvLocWidgetModule } from './line-of-code-widget/dv-loc-widget.module';
 import { DvSP500WidgetModule } from './sp500-widget/dv-sp500-widget.module';
 
 @NgModule({
-  declarations: [
-    DashboardViewComponent,
-    DvDemoAWidgetComponent,
-    DvDemoBWidgetComponent,
-    DvDemoCWidgetComponent,
-    DvDemoDWidgetComponent
-  ],
-
-  exports: [DashboardViewComponent],
-
-  imports: [
-    DasCommonModule,
-    DasDashboardCoreModule,
-    DasHousingMarketQueryBuilderModule,
-    DvHousingMarketWidgetModule,
-    DvLocWidgetModule,
-    DvSP500WidgetModule
-  ],
-  providers: []
+    exports: [DashboardViewComponent],
+    imports: [
+        DasCommonModule,
+        DasDashboardCoreModule,
+        DasHousingMarketQueryBuilderModule,
+        DvHousingMarketWidgetModule,
+        DvLocWidgetModule,
+        DvSP500WidgetModule,
+        DashboardViewComponent,
+        DvDemoAWidgetComponent,
+        DvDemoBWidgetComponent,
+        DvDemoCWidgetComponent,
+        DvDemoDWidgetComponent
+    ],
+    providers: []
 })
 export class DasDashboardViewModule {}

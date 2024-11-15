@@ -10,9 +10,8 @@ describe('ChartSettingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SidebarChartSettingComponent],
-      imports: [...CommonTestConfig.imports, DasSidebarModule]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DasSidebarModule, SidebarChartSettingComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(SidebarChartSettingComponent);
     component = fixture.componentInstance;

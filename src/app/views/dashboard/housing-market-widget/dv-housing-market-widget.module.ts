@@ -14,23 +14,20 @@ import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/d
 import { DvHousingMarketWidgetSettingComponent } from './housing-market-widget-setting/dv-housing-market-widget-setting.component';
 
 @NgModule({
-  declarations: [
-    DvHousingMarketWidgetComponent,
-    DvHousingMarketWidgetSettingComponent,
-    DvHousingMarketWidgetPieComponent,
-    DvHousingMarketWidgetGridComponent
-  ],
-
-  exports: [DvHousingMarketWidgetComponent],
-  imports: [
-    DasCommonModule,
-    DasViewCommonModule,
-    DasDashboardCoreModule,
-    InputSwitchModule,
-    DasGridModule,
-    DasHousingMarketQueryBuilderModule,
-    BaseChartDirective
-  ],
-  providers: []
+    exports: [DvHousingMarketWidgetComponent],
+    imports: [
+        DasCommonModule,
+        DasViewCommonModule,
+        DasDashboardCoreModule,
+        InputSwitchModule,
+        DasGridModule,
+        DasHousingMarketQueryBuilderModule,
+        BaseChartDirective,
+        DvHousingMarketWidgetComponent,
+        DvHousingMarketWidgetSettingComponent,
+        DvHousingMarketWidgetPieComponent,
+        DvHousingMarketWidgetGridComponent
+    ],
+    providers: []
 })
 export class DvHousingMarketWidgetModule {}

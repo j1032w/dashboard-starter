@@ -8,9 +8,8 @@ import { DasCommonModule } from '../../common/das-common.module';
 import { DasChartSp500Component } from './sp500-chart/das-chart-sp500.component';
 
 @NgModule({
-  declarations: [DasChartSp500Component],
-  imports: [CommonModule, DasCommonModule, BaseChartDirective],
-  exports: [DasChartSp500Component],
-  providers: []
+    imports: [CommonModule, DasCommonModule, BaseChartDirective, DasChartSp500Component],
+    exports: [DasChartSp500Component],
+    providers: []
 })
 export class DasViewCommonModule {}

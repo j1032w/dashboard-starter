@@ -8,8 +8,8 @@ describe('DasAutoSizeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DasAutoSizeComponent]
-    }).compileComponents();
+    imports: [DasAutoSizeComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(DasAutoSizeComponent);
     component = fixture.componentInstance;

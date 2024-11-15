@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import * as _ from 'lodash';
+import { DasWidgetSettingCoreComponent } from '../../../../common/components/dashboard-core/das-widget-setting/das-widget-setting-core.component';
 
 import { DasWidgetSettingBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-setting-base.component';
 import { DasHousingMarketQueryBuilderComponent } from '../../../common/hosing-market-query-builder/das-housing-market-query-builder.component';
@@ -9,7 +10,9 @@ import { HOUSING_MARKET_DEMO_QUERY } from '../../../common/hosing-market-query-b
 @Component({
   selector: 'das-dv-housing-market-widget-setting',
   templateUrl: './dv-housing-market-widget-setting.component.html',
-  styleUrls: ['./dv-housing-market-widget-setting.component.scss']
+  styleUrls: ['./dv-housing-market-widget-setting.component.scss'],
+  standalone: true,
+  imports: [DasWidgetSettingCoreComponent, FormsModule, ReactiveFormsModule, DasHousingMarketQueryBuilderComponent]
 })
 export class DvHousingMarketWidgetSettingComponent extends DasWidgetSettingBaseComponent implements OnInit {
   @ViewChild('queryBuilderComponent') queryBuilderComponent: DasHousingMarketQueryBuilderComponent;
@@ -17,10 +20,8 @@ export class DvHousingMarketWidgetSettingComponent extends DasWidgetSettingBaseC
 
   query: any = {};
 
-
-
-  constructor() {
-    super();
+  constructor(formBuilder: FormBuilder) {
+    super(formBuilder);
   }
 
   override ngOnInit() {

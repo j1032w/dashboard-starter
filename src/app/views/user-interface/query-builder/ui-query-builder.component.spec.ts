@@ -10,9 +10,8 @@ describe('QueryBuilderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UiQueryBuilderComponent],
-      imports: [...CommonTestConfig.imports, DasUserInterfaceModule]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DasUserInterfaceModule, UiQueryBuilderComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(UiQueryBuilderComponent);
     component = fixture.componentInstance;

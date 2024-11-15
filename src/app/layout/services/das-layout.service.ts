@@ -7,6 +7,8 @@ import { DasLayout } from './dasLayout';
 export class DasLayoutService {
   layout = new DasLayout();
 
+
+
   constructor(private readonly dashboardCoreService: DasDashboardCoreEventService) {}
 
   toggleSidebar() {

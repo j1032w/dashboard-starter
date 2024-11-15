@@ -10,9 +10,8 @@ describe('DvHousingMarketWidgetSettingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DvHousingMarketWidgetSettingComponent],
-      imports: [...CommonTestConfig.imports, DvHousingMarketWidgetModule]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DvHousingMarketWidgetModule, DvHousingMarketWidgetSettingComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(DvHousingMarketWidgetSettingComponent);
     component = fixture.componentInstance;

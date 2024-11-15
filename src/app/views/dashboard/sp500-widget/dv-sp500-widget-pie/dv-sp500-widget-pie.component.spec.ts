@@ -10,9 +10,8 @@ describe('DvSp500WidgetPieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DvSp500WidgetPieComponent],
-      imports: [...CommonTestConfig.imports, DvSP500WidgetModule]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DvSP500WidgetModule, DvSp500WidgetPieComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(DvSp500WidgetPieComponent);
     component = fixture.componentInstance;

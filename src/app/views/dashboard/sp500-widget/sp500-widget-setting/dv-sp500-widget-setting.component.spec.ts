@@ -11,9 +11,8 @@ describe('DvSp500WidgetSettingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DvSp500WidgetSettingComponent],
-      imports: [...CommonTestConfig.imports, DvSP500WidgetModule, DasDashboardCoreModule]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DvSP500WidgetModule, DasDashboardCoreModule, DvSp500WidgetSettingComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(DvSp500WidgetSettingComponent);
     component = fixture.componentInstance;

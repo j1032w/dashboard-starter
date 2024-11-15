@@ -10,9 +10,8 @@ describe('ChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DasChartViewComponent],
-      imports: [...CommonTestConfig.imports, DasChartViewModule]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DasChartViewModule, DasChartViewComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(DasChartViewComponent);
     component = fixture.componentInstance;

@@ -1,17 +1,23 @@
-import { CdkAccordionItem } from '@angular/cdk/accordion';
+import { CdkAccordionItem, CdkAccordion } from '@angular/cdk/accordion';
 import { Component } from '@angular/core';
 import { matExpansionAnimations } from '@angular/material/expansion';
-import { Router } from '@angular/router';
+import { Router, RouterLinkActive, RouterLink } from '@angular/router';
 
 import { DasBaseComponent } from '../../common/components/das-component-base.component';
 import { DasSidebarService } from './services/das-sidebar.service';
 import { DasSidebarItem, SidebarItemTypeEnum } from './services/das-sidebar-item';
+import { NgScrollbar } from 'ngx-scrollbar';
+import { NgFor, NgSwitch, NgSwitchCase, NgTemplateOutlet, NgIf, NgSwitchDefault } from '@angular/common';
+import { FeatherModule } from 'angular-feather';
+import { SidebarChartSettingComponent } from './chart-setting/sidebar-chart-setting.component';
 
 @Component({
-  selector: 'das-sidebar',
-  templateUrl: './das-sidebar.component.html',
-  styleUrls: ['./das-sidebar.component.scss'],
-  animations: [matExpansionAnimations.bodyExpansion]
+    selector: 'das-sidebar',
+    templateUrl: './das-sidebar.component.html',
+    styleUrls: ['./das-sidebar.component.scss'],
+    animations: [matExpansionAnimations.bodyExpansion],
+    standalone: true,
+    imports: [NgScrollbar, CdkAccordion, NgFor, CdkAccordionItem, NgSwitch, NgSwitchCase, NgTemplateOutlet, NgIf, RouterLinkActive, RouterLink, NgSwitchDefault, FeatherModule, SidebarChartSettingComponent]
 })
 export class DasSidebarComponent extends DasBaseComponent {
   sidebarItemTypeEnum = SidebarItemTypeEnum;

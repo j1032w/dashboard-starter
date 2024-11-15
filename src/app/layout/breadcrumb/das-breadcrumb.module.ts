@@ -5,9 +5,8 @@ import { DasCommonModule } from '../../common/das-common.module';
 import { DasBreadcrumbComponent } from './das-breadcrumb.component';
 
 @NgModule({
-  declarations: [DasBreadcrumbComponent],
-  imports: [DasCommonModule, RouterLink],
-  exports: [DasBreadcrumbComponent],
-  providers: []
+    imports: [DasCommonModule, RouterLink, DasBreadcrumbComponent],
+    exports: [DasBreadcrumbComponent],
+    providers: []
 })
 export class DasBreadcrumbModule {}

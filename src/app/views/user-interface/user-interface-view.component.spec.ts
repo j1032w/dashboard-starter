@@ -9,9 +9,8 @@ describe('UiInterfaceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UserInterfaceViewComponent],
-      imports: [...CommonTestConfig.imports]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, UserInterfaceViewComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(UserInterfaceViewComponent);
     component = fixture.componentInstance;

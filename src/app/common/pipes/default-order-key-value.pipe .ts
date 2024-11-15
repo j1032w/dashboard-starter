@@ -5,7 +5,8 @@ const keepOrder = (a: any) => a;
 
 // This pipe uses the angular key value pipe. but doesn't change order.
 @Pipe({
-  name: 'defaultOrderKeyValue'
+    name: 'defaultOrderKeyValue',
+    standalone: true
 })
 export class DefaultOrderKeyValuePipe extends KeyValuePipe implements PipeTransform {
   override transform(value: any): any {

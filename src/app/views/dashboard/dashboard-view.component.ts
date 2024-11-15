@@ -11,11 +11,14 @@ import { DvHousingMarketWidgetComponent } from './housing-market-widget/dv-housi
 import { DvLocWidgetComponent } from './line-of-code-widget/dv-loc-widget.component';
 import { DEFAULT_WIDGET_OPTIONS } from './services/dashboard-view.contant';
 import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component';
+import { DasDashboardCoreComponent } from '../../common/components/dashboard-core/das-dashboard-core.component';
 
 @Component({
-  selector: 'das-dashboard-view',
-  templateUrl: './dashboard-view.component.html',
-  styleUrls: ['./dashboard-view.component.scss']
+    selector: 'das-dashboard-view',
+    templateUrl: './dashboard-view.component.html',
+    styleUrls: ['./dashboard-view.component.scss'],
+    standalone: true,
+    imports: [DasDashboardCoreComponent]
 })
 export class DashboardViewComponent extends DasBaseComponent {
   defaultWidgetOptions: DasWidgetOption[] = [];

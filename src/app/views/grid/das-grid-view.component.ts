@@ -6,11 +6,16 @@ import { DasGridComponent } from '../../common/components/das-grid/das-grid.comp
 import { HOUSING_MARKET_DEMO_QUERY } from '../common/hosing-market-query-builder/services/das-query-builder.constant';
 import { DEMO_MONGO_FILTER, GRID_VIEW_COLUMNS, GRID_VIEW_SPINNER_ID } from './services/das-grid-view.constant';
 import { DasGridViewService } from './services/das-grid-view.service';
+import { FeatherModule } from 'angular-feather';
+import { GridViewSearchComponent } from './grid-view-search/grid-view-search.component';
+import { DasSpinnerComponent } from '../../common/components/das-spinner/das-spinner.component';
 
 @Component({
-  selector: 'das-grid-view',
-  templateUrl: './das-grid-view.component.html',
-  styleUrls: ['./das-grid-view.component.scss']
+    selector: 'das-grid-view',
+    templateUrl: './das-grid-view.component.html',
+    styleUrls: ['./das-grid-view.component.scss'],
+    standalone: true,
+    imports: [FeatherModule, DasGridComponent, GridViewSearchComponent, DasSpinnerComponent]
 })
 export class DasGridViewComponent extends DasBaseComponent {
   @ViewChild('gridComponent') gridComponent: DasGridComponent;

@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
+import { DialogModule } from 'primeng/dialog';
+import { NgScrollbar } from 'ngx-scrollbar';
+import { CompFloatingLabelFormComponent } from '../../component/form/floating-label-form/comp-floating-label-form.component';
+import { PrimeTemplate } from 'primeng/api';
 
 @Component({
-  selector: 'das-ui-responsive',
-  templateUrl: './ui-responsive.component.html',
-  styleUrls: ['./ui-responsive.component.scss']
+    selector: 'das-ui-responsive',
+    templateUrl: './ui-responsive.component.html',
+    styleUrls: ['./ui-responsive.component.scss'],
+    standalone: true,
+    imports: [DialogModule, NgScrollbar, CompFloatingLabelFormComponent, PrimeTemplate]
 })
 export class UiResponsiveComponent {
   visible = true;

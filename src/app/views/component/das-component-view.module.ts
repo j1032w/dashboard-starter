@@ -15,17 +15,15 @@ import { ToastModule } from 'primeng/toast';
 
 import { DasComponentViewComponent } from './das-component-view.component';
 import { DasComponentViewRoutingModule } from './das-component-view-routing.module';
-import { DasComponentFormModule } from './form/das-component-form.module';
+
 import { CompMultiplePurposeComponent } from './multiple-purpose/comp-multiple-purpose.component';
 import { CompNotificationComponent } from './notification/comp-notification.component';
 
 @NgModule({
-  declarations: [DasComponentViewComponent, CompMultiplePurposeComponent, CompNotificationComponent],
-  imports: [
+    imports: [
     CommonModule,
     DasComponentViewRoutingModule,
     FeatherModule,
-    DasComponentFormModule,
     ButtonModule,
     ConfirmDialogModule,
     ToastModule,
@@ -36,8 +34,9 @@ import { CompNotificationComponent } from './notification/comp-notification.comp
     RadioButtonModule,
     FormsModule,
     AvatarModule,
-    BadgeModule
-  ],
-  providers: [DasComponentViewComponent]
+    BadgeModule,
+    DasComponentViewComponent, CompMultiplePurposeComponent, CompNotificationComponent
+],
+    providers: [DasComponentViewComponent]
 })
 export class DasComponentViewModule {}

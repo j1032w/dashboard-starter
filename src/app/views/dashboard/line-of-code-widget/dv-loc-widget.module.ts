@@ -9,16 +9,15 @@ import { DvLocWidgetComponent } from './dv-loc-widget.component';
 import { DvLocWidgetPieComponent } from './loc-widget-pie/dv-loc-widget-pie.component';
 
 @NgModule({
-  declarations: [DvLocWidgetPieComponent, DvLocWidgetComponent],
-
-  exports: [],
-  imports: [
-    DasCommonModule,
-    DasViewCommonModule,
-    DasDashboardCoreModule,
-    DasGridModule,
-    BaseChartDirective
-  ],
-  providers: []
+    exports: [],
+    imports: [
+        DasCommonModule,
+        DasViewCommonModule,
+        DasDashboardCoreModule,
+        DasGridModule,
+        BaseChartDirective,
+        DvLocWidgetPieComponent, DvLocWidgetComponent
+    ],
+    providers: []
 })
 export class DvLocWidgetModule {}

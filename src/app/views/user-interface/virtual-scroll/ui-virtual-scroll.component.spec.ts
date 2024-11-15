@@ -10,9 +10,8 @@ describe('VirtualScrollComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UiVirtualScrollComponent],
-      imports: [...CommonTestConfig.imports, DasUserInterfaceModule]
-    }).compileComponents();
+    imports: [...CommonTestConfig.imports, DasUserInterfaceModule, UiVirtualScrollComponent]
+}).compileComponents();
 
     fixture = TestBed.createComponent(UiVirtualScrollComponent);
     component = fixture.componentInstance;

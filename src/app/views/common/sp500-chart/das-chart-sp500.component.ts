@@ -10,11 +10,14 @@ import {takeUntil} from 'rxjs';
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../common/components/dashboard-core/services/das-widget-content-base.component';
 import { DasChartSp500Service } from './das-chart-sp500.service';
+import { DasAutoSizeComponent } from '../../../common/components/das-auto-size/das-auto-size.component';
 
 @Component({
-  selector: 'das-chart-sp500',
-  templateUrl: './das-chart-sp500.component.html',
-  styleUrls: ['./das-chart-sp500.component.scss']
+    selector: 'das-chart-sp500',
+    templateUrl: './das-chart-sp500.component.html',
+    styleUrls: ['./das-chart-sp500.component.scss'],
+    standalone: true,
+    imports: [DasAutoSizeComponent, BaseChartDirective]
 })
 export class DasChartSp500Component extends DasWidgetContentBaseComponent {
   @ViewChild(BaseChartDirective) chartComponent: BaseChartDirective ;

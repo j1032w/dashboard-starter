@@ -16,14 +16,16 @@ import {
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import {BaseChartDirective} from 'ng2-charts';
 
-import { ElementSizeInterface } from '../../../../common/components/das-auto-size/das-auto-size.component';
+import { ElementSizeInterface, DasAutoSizeComponent } from '../../../../common/components/das-auto-size/das-auto-size.component';
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
 
 @Component({
-  selector: 'das-dv-housing-market-widget-pie',
-  templateUrl: './dv-housing-market-widget-pie.component.html',
-  styleUrls: ['./dv-housing-market-widget-pie.component.scss']
+    selector: 'das-dv-housing-market-widget-pie',
+    templateUrl: './dv-housing-market-widget-pie.component.html',
+    styleUrls: ['./dv-housing-market-widget-pie.component.scss'],
+    standalone: true,
+    imports: [DasAutoSizeComponent, BaseChartDirective]
 })
 export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBaseComponent implements OnInit  {
   @ViewChild('pieChart') pieChartComponent: BaseChartDirective | undefined;

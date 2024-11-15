@@ -5,10 +5,7 @@ import { DasCommonModule } from '../../../common/das-common.module';
 import { DasHousingMarketQueryBuilderComponent } from './das-housing-market-query-builder.component';
 
 @NgModule({
-  declarations: [DasHousingMarketQueryBuilderComponent],
-
-  imports: [DasCommonModule, NgxAngularQueryBuilderModule ],
-
-  exports: [DasHousingMarketQueryBuilderComponent]
+    imports: [DasCommonModule, NgxAngularQueryBuilderModule, DasHousingMarketQueryBuilderComponent],
+    exports: [DasHousingMarketQueryBuilderComponent]
 })
 export class DasHousingMarketQueryBuilderModule {}

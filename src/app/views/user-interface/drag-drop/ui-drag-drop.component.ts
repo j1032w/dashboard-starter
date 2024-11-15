@@ -1,10 +1,15 @@
-import { CdkDragDrop, CdkDragEnd, moveItemInArray, Point, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDragEnd, moveItemInArray, Point, transferArrayItem, CdkDrag, CdkDropListGroup, CdkDropList } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
+import { FeatherModule } from 'angular-feather';
+import { NgFor } from '@angular/common';
+import { CamelCasePipe } from '../../../common/pipes/camel-case.pipe';
 
 @Component({
-  selector: 'das-ui-drag-drop',
-  templateUrl: './ui-drag-drop.component.html',
-  styleUrls: ['./ui-drag-drop.component.scss']
+    selector: 'das-ui-drag-drop',
+    templateUrl: './ui-drag-drop.component.html',
+    styleUrls: ['./ui-drag-drop.component.scss'],
+    standalone: true,
+    imports: [CdkDrag, FeatherModule, CdkDropListGroup, CdkDropList, NgFor, CamelCasePipe]
 })
 export class UiDragDropComponent {
   dragAroundPosition: Point = { x: 0, y: 0 };

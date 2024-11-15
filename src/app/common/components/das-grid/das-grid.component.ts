@@ -3,11 +3,14 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, RowSelectionOptions } from 'ag-grid-community';
 
 import { DasBaseComponent } from '../das-component-base.component';
+import { DasAutoSizeComponent } from '../das-auto-size/das-auto-size.component';
 
 @Component({
-  selector: 'das-grid',
-  templateUrl: './das-grid.component.html',
-  styleUrls: ['./das-grid.component.scss']
+    selector: 'das-grid',
+    templateUrl: './das-grid.component.html',
+    styleUrls: ['./das-grid.component.scss'],
+    standalone: true,
+    imports: [DasAutoSizeComponent, AgGridAngular]
 })
 export class DasGridComponent extends DasBaseComponent {
   @ViewChild('agGrid', { static: true }) agGrid: AgGridAngular;

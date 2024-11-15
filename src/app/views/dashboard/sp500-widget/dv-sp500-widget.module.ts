@@ -11,21 +11,18 @@ import { DvSp500WidgetGridComponent } from './sp500-widget-grid/dv-sp500-widget-
 import { DvSp500WidgetSettingComponent } from './sp500-widget-setting/dv-sp500-widget-setting.component';
 
 @NgModule({
-  declarations: [
-    DvSp500WidgetGridComponent,
-    DvSp500WidgetComponent,
-    DvSp500WidgetSettingComponent,
-    DvSp500WidgetPieComponent
-  ],
-
-  exports: [DvSp500WidgetComponent],
-  imports: [
-    DasCommonModule,
-    DasViewCommonModule,
-    DasDashboardCoreModule,
-    InputSwitchModule,
-    DasGridModule
-  ],
-  providers: []
+    exports: [DvSp500WidgetComponent],
+    imports: [
+        DasCommonModule,
+        DasViewCommonModule,
+        DasDashboardCoreModule,
+        InputSwitchModule,
+        DasGridModule,
+        DvSp500WidgetGridComponent,
+        DvSp500WidgetComponent,
+        DvSp500WidgetSettingComponent,
+        DvSp500WidgetPieComponent
+    ],
+    providers: []
 })
 export class DvSP500WidgetModule {}

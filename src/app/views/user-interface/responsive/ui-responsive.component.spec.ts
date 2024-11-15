@@ -12,7 +12,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DasCommonModule } from '../../../common/das-common.module';
 import { CommonTestConfig } from '../../../common/test-services/common-test-config';
 import { DasHousingMarketQueryBuilderModule } from '../../common/hosing-market-query-builder/das-housing-market-query-builder.module';
-import { DasComponentFormModule } from '../../component/form/das-component-form.module';
+
 import { DasUserInterfaceRoutingModule } from '../das-user-interface-routing.module';
 
 import { UiResponsiveComponent } from './ui-responsive.component';
@@ -23,12 +23,10 @@ describe('ResponsiveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UiResponsiveComponent],
-      imports: [
+    imports: [
         ...CommonTestConfig.imports,
         CardModule,
         DasCommonModule,
-        DasComponentFormModule,
         DasHousingMarketQueryBuilderModule,
         DasUserInterfaceRoutingModule,
         DialogModule,
@@ -38,9 +36,10 @@ describe('ResponsiveComponent', () => {
         MessagesModule,
         NgScrollbarModule,
         NgxAngularQueryBuilderModule,
-        ScrollingModule
-      ]
-    }).compileComponents();
+        ScrollingModule,
+        UiResponsiveComponent
+    ]
+}).compileComponents();
 
     fixture = TestBed.createComponent(UiResponsiveComponent);
     component = fixture.componentInstance;

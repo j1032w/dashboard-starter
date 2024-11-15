@@ -10,16 +10,16 @@ import { DasBaseComponent } from '../../das-component-base.component';
 import { DasWidgetOption } from './das-widget-option';
 
 @Component({
-  template: ''
+    template: '',
+    standalone: true
 })
 export class DasWidgetSettingBaseComponent extends DasBaseComponent implements OnInit {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
 
   formGroup: FormGroup;
 
-  protected readonly formBuilder = inject(FormBuilder);
 
-  constructor() {
+  constructor(protected readonly formBuilder: FormBuilder) {
     super();
   }
 

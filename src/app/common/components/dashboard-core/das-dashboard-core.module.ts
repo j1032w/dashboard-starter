@@ -14,34 +14,30 @@ import { DasWidgetDynamicLoaderDirective } from './widget-dynamic-loader/das-wid
 import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-list.component';
 
 @NgModule({
-  declarations: [
-    DasDashboardCoreComponent,
-    DashboardWidgetListComponent,
-    DasWidgetBaseComponent,
-    DasWidgetContentBaseComponent,
-    DasWidgetCoreComponent,
-    DasWidgetDynamicLoaderDirective,
-    DasWidgetSettingCoreComponent,
-    DasWidgetSettingBaseComponent
-  ],
-
-  imports: [
-    DasCommonModule,
-    GridsterModule,
-    CdkDrag,
-    CdkDragHandle,
-    CdkDropList,
-    CdkDropListGroup,
-    ConfirmDialogModule
-  ],
-
-  exports: [
-    DasWidgetDynamicLoaderDirective,
-    DasDashboardCoreComponent,
-    DasWidgetCoreComponent,
-    DasWidgetSettingCoreComponent,
-    DasWidgetContentBaseComponent,
-    DasWidgetSettingBaseComponent
-  ]
+    imports: [
+        DasCommonModule,
+        GridsterModule,
+        CdkDrag,
+        CdkDragHandle,
+        CdkDropList,
+        CdkDropListGroup,
+        ConfirmDialogModule,
+        DasDashboardCoreComponent,
+        DashboardWidgetListComponent,
+        DasWidgetBaseComponent,
+        DasWidgetContentBaseComponent,
+        DasWidgetCoreComponent,
+        DasWidgetDynamicLoaderDirective,
+        DasWidgetSettingCoreComponent,
+        DasWidgetSettingBaseComponent
+    ],
+    exports: [
+        DasWidgetDynamicLoaderDirective,
+        DasDashboardCoreComponent,
+        DasWidgetCoreComponent,
+        DasWidgetSettingCoreComponent,
+        DasWidgetContentBaseComponent,
+        DasWidgetSettingBaseComponent
+    ]
 })
 export class DasDashboardCoreModule {}

@@ -9,9 +9,11 @@ import { DasWidgetContentBaseComponent } from '../../../../common/components/das
 import { DasChartSp500Service, Sp500AnnualHistory } from '../../../common/sp500-chart/das-chart-sp500.service';
 
 @Component({
-  selector: 'das-dv-sp500-widget-grid',
-  templateUrl: './dv-sp500-widget-grid.component.html',
-  styleUrls: ['./dv-sp500-widget-grid.component.scss']
+    selector: 'das-dv-sp500-widget-grid',
+    templateUrl: './dv-sp500-widget-grid.component.html',
+    styleUrls: ['./dv-sp500-widget-grid.component.scss'],
+    standalone: true,
+    imports: [DasGridComponent]
 })
 export class DvSp500WidgetGridComponent extends DasWidgetContentBaseComponent implements OnInit {
   @ViewChild('gridComponent', { static: true }) gridComponent: DasGridComponent;

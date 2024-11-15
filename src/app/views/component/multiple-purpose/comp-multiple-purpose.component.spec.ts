@@ -14,7 +14,7 @@ import { ToastModule } from 'primeng/toast';
 import { CommonTestConfig } from '../../../common/test-services/common-test-config';
 import { DasComponentViewRoutingModule } from '../das-component-view-routing.module';
 import { DasComponentViewModule } from '../das-component-view.module';
-import { DasComponentFormModule } from '../form/das-component-form.module';
+
 import { CompMultiplePurposeComponent } from './comp-multiple-purpose.component';
 
 describe('CompButtonComponent', () => {
@@ -28,7 +28,6 @@ describe('CompButtonComponent', () => {
         DasComponentViewModule,
         DasComponentViewRoutingModule,
         FeatherModule,
-        DasComponentFormModule,
         ButtonModule,
         ConfirmDialogModule,
         ToastModule,

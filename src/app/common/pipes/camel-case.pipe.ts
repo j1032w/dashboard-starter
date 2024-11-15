@@ -1,7 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
-@Pipe({ name: 'camelCase' })
+@Pipe({
+    name: 'camelCase',
+    standalone: true
+})
 export class CamelCasePipe implements PipeTransform {
   transform(input: string): string {
     return _.camelCase(input);
