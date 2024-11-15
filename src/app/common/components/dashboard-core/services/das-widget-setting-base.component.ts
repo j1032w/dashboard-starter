@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnInit
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { DasBaseComponent } from '../../das-component-base.component';
@@ -12,7 +17,9 @@ export class DasWidgetSettingBaseComponent extends DasBaseComponent implements O
 
   formGroup: FormGroup;
 
-  constructor(protected readonly formBuilder: FormBuilder) {
+  protected readonly formBuilder = inject(FormBuilder);
+
+  constructor() {
     super();
   }
 

@@ -17,8 +17,10 @@ export class DvHousingMarketWidgetSettingComponent extends DasWidgetSettingBaseC
 
   query: any = {};
 
-  constructor(protected override readonly formBuilder: FormBuilder) {
-    super(formBuilder);
+
+
+  constructor() {
+    super();
   }
 
   override ngOnInit() {

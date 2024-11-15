@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetSettingBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-setting-base.component';
@@ -13,10 +13,9 @@ import { DasChartSp500Service } from '../../../common/sp500-chart/das-chart-sp50
 export class DvSp500WidgetSettingComponent extends DasWidgetSettingBaseComponent implements OnInit {
   constructor(
     private readonly dashboardCoreService: DasDashboardCoreEventService,
-    protected override readonly formBuilder: FormBuilder,
     private readonly chartService: DasChartSp500Service
   ) {
-    super(formBuilder);
+    super();
   }
 
   override ngOnInit() {
