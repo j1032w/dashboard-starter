@@ -9,7 +9,7 @@
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)
 
 #### The backend WebAPI repository is available at: https://github.com/j1032w/dashboard-starter-data
-#### The ReactJS and NestJS edition can be found at https://github.com/j1032w/react-dashboard-starter
+#### The ReactJS edition can be found at https://github.com/j1032w/react-dashboard-starter
 
 # Demo
 https://www.j1032.com/dashboard \
@@ -24,7 +24,7 @@ https://www.j1032.com/dashboard \
 # What I have got here
 - Built with [Angular 18](https://angular.io), [Typescript 5](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 18](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
 - - [Containerized application](https://www.docker.com/) hosted on [Google GCP](https://cloud.google.com/)
-- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation, Standalone components and Module lazy loading, HTTP request throttling and caching, 
+- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation, Standalone components and Lazy loading, HTTP request throttling and caching, 
 - Responsive liquid layout, SVG Icons
 - Unit testing with [Jest](https://jestjs.io/) and E2E automation testing with [Cypress](https://www.cypress.io/)
 - Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)
