@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {CommonTestConfig} from '../../../../common/test-services/common-test-config';
-import {DvHousingMarketWidgetModule} from '../dv-housing-market-widget.module';
+import { CommonTestConfig } from '../../../../common/test-services/common-test-config';
 
 import { DvHousingMarketWidgetSettingComponent } from './dv-housing-market-widget-setting.component';
 
@@ -10,8 +9,8 @@ describe('DvHousingMarketWidgetSettingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [...CommonTestConfig.imports, DvHousingMarketWidgetModule, DvHousingMarketWidgetSettingComponent]
-}).compileComponents();
+      imports: [...CommonTestConfig.imports]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DvHousingMarketWidgetSettingComponent);
     component = fixture.componentInstance;

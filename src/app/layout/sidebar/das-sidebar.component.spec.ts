@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommonTestConfig } from '../../common/test-services/common-test-config';
 import { DasSidebarComponent } from './das-sidebar.component';
-import { DasSidebarModule } from './das-sidebar.module';
 
 describe('AdmSidebarComponent', () => {
   let component: DasSidebarComponent;
@@ -10,7 +9,7 @@ describe('AdmSidebarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [...CommonTestConfig.imports, DasSidebarModule],
+      imports: [...CommonTestConfig.imports],
       providers: [...CommonTestConfig.providers]
     }).compileComponents();
 

@@ -1,35 +1,40 @@
+import { CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GridsterComponent, GridsterItemComponent } from 'angular-gridster2';
 import * as _ from 'lodash';
 import { isArray } from 'lodash';
 import { ConfirmationService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { filter, takeUntil } from 'rxjs';
-import {DasConfig} from '../../das-config';
-
-
-
+import { DasCommonComponentModule } from '../../das-common-component.module';
+import { DasConfig } from '../../das-config';
 
 import { DasLocalStorageService } from '../../services/das-local-storage.service';
 import { DasToastService } from '../../services/das-toast.service';
 import { DasBaseComponent } from '../das-component-base.component';
-import { GRIDSTER_OPTIONS } from './services/das-dashboard.constant';
 import { DasDashboardCoreEventService } from './services/das-dashboard-core-event.service';
 import { DasDashboardEventTypeEnum } from './services/das-dashboard-message';
+import { GRIDSTER_OPTIONS } from './services/das-dashboard.constant';
 import { DasWidgetOption } from './services/das-widget-option';
-import { FeatherModule } from 'angular-feather';
-import { CdkDropListGroup, CdkDropList } from '@angular/cdk/drag-drop';
-import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-list.component';
-import { NgFor } from '@angular/common';
 import { DasWidgetDynamicLoaderDirective } from './widget-dynamic-loader/das-widget-dynamic-loader.directive';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DashboardWidgetListComponent } from './widget-list/dashboard-widget-list.component';
 
 @Component({
-    selector: 'das-dashboard-core',
-    templateUrl: './das-dashboard-core.component.html',
-    styleUrls: ['./das-dashboard-core.component.scss'],
-    providers: [ConfirmationService],
-    standalone: true,
-    imports: [FeatherModule, CdkDropListGroup, DashboardWidgetListComponent, GridsterComponent, CdkDropList, NgFor, GridsterItemComponent, DasWidgetDynamicLoaderDirective, ConfirmDialogModule]
+  selector: 'das-dashboard-core',
+  templateUrl: './das-dashboard-core.component.html',
+  styleUrls: ['./das-dashboard-core.component.scss'],
+  standalone: true,
+  imports: [
+    DasCommonComponentModule,
+    CdkDropListGroup,
+    DashboardWidgetListComponent,
+    GridsterComponent,
+    CdkDropList,
+    GridsterItemComponent,
+    DasWidgetDynamicLoaderDirective,
+    ConfirmDialogModule
+  ],
+  providers: [ConfirmationService]
 })
 export class DasDashboardCoreComponent extends DasBaseComponent implements OnInit {
   @Input() defaultWidgetOptions: DasWidgetOption[] = [];

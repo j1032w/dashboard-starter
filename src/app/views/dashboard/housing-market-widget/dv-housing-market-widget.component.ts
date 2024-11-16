@@ -4,6 +4,7 @@ import { takeUntil } from 'rxjs';
 
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetBaseComponent } from '../../../common/components/dashboard-core/services/das-widget-base.component';
+import {DasCommonComponentModule} from '../../../common/das-common-component.module';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/dv-housing-market-widget-pie.component';
 import {
@@ -21,7 +22,7 @@ import { DasSpinnerComponent } from '../../../common/components/das-spinner/das-
     templateUrl: './dv-housing-market-widget.component.html',
     styleUrls: ['./dv-housing-market-widget.component.scss'],
     standalone: true,
-    imports: [DasWidgetCoreComponent, DvHousingMarketWidgetPieComponent, DvHousingMarketWidgetGridComponent, DvHousingMarketWidgetSettingComponent, DasSpinnerComponent]
+    imports: [DasWidgetCoreComponent, DvHousingMarketWidgetPieComponent, DvHousingMarketWidgetGridComponent, DvHousingMarketWidgetSettingComponent, DasSpinnerComponent, DasCommonComponentModule]
 })
 export class DvHousingMarketWidgetComponent extends DasWidgetBaseComponent implements OnInit {
   @ViewChild('pieComponent', { static: true }) pieComponent: DvHousingMarketWidgetPieComponent;

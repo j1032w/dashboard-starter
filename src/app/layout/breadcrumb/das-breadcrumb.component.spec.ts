@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommonTestConfig } from '../../common/test-services/common-test-config';
 import { DasBreadcrumbComponent } from './das-breadcrumb.component';
-import { DasBreadcrumbModule } from './das-breadcrumb.module';
 
 describe('BreadcrumbComponent', () => {
   let component: DasBreadcrumbComponent;
@@ -10,7 +9,7 @@ describe('BreadcrumbComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [...CommonTestConfig.imports, DasBreadcrumbModule],
+      imports: [...CommonTestConfig.imports],
       providers: [...CommonTestConfig.providers]
     }).compileComponents();
 

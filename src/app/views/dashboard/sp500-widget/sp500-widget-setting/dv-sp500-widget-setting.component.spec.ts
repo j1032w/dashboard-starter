@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {DasDashboardCoreModule} from '../../../../common/components/dashboard-core/das-dashboard-core.module';
-import {CommonTestConfig} from '../../../../common/test-services/common-test-config';
-import {DvSP500WidgetModule} from '../dv-sp500-widget.module';
+import { CommonTestConfig } from '../../../../common/test-services/common-test-config';
 
 import { DvSp500WidgetSettingComponent } from './dv-sp500-widget-setting.component';
 
@@ -11,8 +9,8 @@ describe('DvSp500WidgetSettingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [...CommonTestConfig.imports, DvSP500WidgetModule, DasDashboardCoreModule, DvSp500WidgetSettingComponent]
-}).compileComponents();
+      imports: [...CommonTestConfig.imports]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DvSp500WidgetSettingComponent);
     component = fixture.componentInstance;

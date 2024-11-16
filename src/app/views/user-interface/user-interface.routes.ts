@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { UiAnimationComponent } from './animation/ui-animation.component';
 import { UiDragDropComponent } from './drag-drop/ui-drag-drop.component';
@@ -7,7 +6,7 @@ import { UiQueryBuilderComponent } from './query-builder/ui-query-builder.compon
 import { UiResponsiveComponent } from './responsive/ui-responsive.component';
 import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.component';
 
-const routes: Routes = [
+export const VIEWS_USER_INTERFACE_ROUTES: Routes = [
   {
     path: '',
     redirectTo: 'animation',
@@ -44,9 +43,3 @@ const routes: Routes = [
     data: { label: 'Responsive Design' }
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class DasUserInterfaceRoutingModule {}

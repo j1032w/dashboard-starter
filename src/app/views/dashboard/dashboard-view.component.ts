@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { DasBaseComponent } from '../../common/components/das-component-base.component';
 import { DasDashboardCoreEventService } from '../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetOption } from '../../common/components/dashboard-core/services/das-widget-option';
+import {DasCommonComponentModule} from '../../common/das-common-component.module';
 import { DvDemoAWidgetComponent } from './demo-widget-a/dv-demo-a-widget.component';
 import { DvDemoBWidgetComponent } from './demo-widget-b/dv-demo-b-widget.component';
 import { DvDemoCWidgetComponent } from './demo-widget-c/dv-demo-c-widget.component';
@@ -18,7 +19,7 @@ import { DasDashboardCoreComponent } from '../../common/components/dashboard-cor
     templateUrl: './dashboard-view.component.html',
     styleUrls: ['./dashboard-view.component.scss'],
     standalone: true,
-    imports: [DasDashboardCoreComponent]
+    imports: [DasDashboardCoreComponent, DasCommonComponentModule]
 })
 export class DashboardViewComponent extends DasBaseComponent {
   defaultWidgetOptions: DasWidgetOption[] = [];

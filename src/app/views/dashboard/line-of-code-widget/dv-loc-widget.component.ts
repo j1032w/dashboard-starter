@@ -7,6 +7,7 @@ import { DasWidgetSettingCoreComponent } from '../../../common/components/dashbo
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetBaseComponent } from '../../../common/components/dashboard-core/services/das-widget-base.component';
 import { DasWidgetCoreComponent } from '../../../common/components/dashboard-core/widget-core/das-widget-core.component';
+import {DasCommonComponentModule} from '../../../common/das-common-component.module';
 import { DasHttpClient } from '../../../common/services/das-http-client';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DvLocWidgetPieComponent } from './loc-widget-pie/dv-loc-widget-pie.component';
@@ -16,7 +17,7 @@ import { DvLocWidgetPieComponent } from './loc-widget-pie/dv-loc-widget-pie.comp
   templateUrl: './dv-loc-widget.component.html',
   styleUrls: ['./dv-loc-widget.component.scss'],
   standalone: true,
-  imports: [DasWidgetSettingCoreComponent, DvLocWidgetPieComponent, DasWidgetCoreComponent, DasSpinnerComponent]
+  imports: [DasWidgetSettingCoreComponent, DvLocWidgetPieComponent, DasWidgetCoreComponent, DasSpinnerComponent, DasCommonComponentModule]
 })
 export class DvLocWidgetComponent extends DasWidgetBaseComponent implements OnInit {
   @ViewChild('frontTemplate') widgetFrontComponent: ElementRef;

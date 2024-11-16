@@ -10,7 +10,8 @@ describe('FormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [...CommonTestConfig.imports, NgScrollbarModule]
+      imports: [...CommonTestConfig.imports, NgScrollbarModule],
+      providers: [...CommonTestConfig.providers],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CompFormComponent);

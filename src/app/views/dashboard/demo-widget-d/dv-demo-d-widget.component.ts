@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 
 import { DasDashboardCoreEventService } from '../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetBaseComponent } from '../../../common/components/dashboard-core/services/das-widget-base.component';
+import {DasCommonComponentModule} from '../../../common/das-common-component.module';
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DasWidgetCoreComponent } from '../../../common/components/dashboard-core/widget-core/das-widget-core.component';
 import { DasWidgetSettingCoreComponent } from '../../../common/components/dashboard-core/das-widget-setting/das-widget-setting-core.component';
@@ -11,7 +12,7 @@ import { DasWidgetSettingCoreComponent } from '../../../common/components/dashbo
     templateUrl: './dv-demo-d-widget.component.html',
     styleUrls: ['./dv-demo-d-widget.component.scss'],
     standalone: true,
-    imports: [DasWidgetCoreComponent, DasWidgetSettingCoreComponent]
+    imports: [DasWidgetCoreComponent, DasWidgetSettingCoreComponent, DasCommonComponentModule]
 })
 export class DvDemoDWidgetComponent extends DasWidgetBaseComponent {
   @ViewChild('frontTemplate') widgetFrontComponent: ElementRef;

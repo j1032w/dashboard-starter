@@ -1,28 +1,38 @@
-import { CdkAccordionItem, CdkAccordion } from '@angular/cdk/accordion';
+import { CdkAccordion, CdkAccordionItem } from '@angular/cdk/accordion';
 import { Component } from '@angular/core';
 import { matExpansionAnimations } from '@angular/material/expansion';
-import { Router, RouterLinkActive, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { NgScrollbar } from 'ngx-scrollbar';
 
 import { DasBaseComponent } from '../../common/components/das-component-base.component';
-import { DasSidebarService } from './services/das-sidebar.service';
-import { DasSidebarItem, SidebarItemTypeEnum } from './services/das-sidebar-item';
-import { NgScrollbar } from 'ngx-scrollbar';
-import { NgFor, NgSwitch, NgSwitchCase, NgTemplateOutlet, NgIf, NgSwitchDefault } from '@angular/common';
-import { FeatherModule } from 'angular-feather';
+import { DasCommonComponentModule } from '../../common/das-common-component.module';
 import { SidebarChartSettingComponent } from './chart-setting/sidebar-chart-setting.component';
+import { DasSidebarItem, SidebarItemTypeEnum } from './services/das-sidebar-item';
+import { DasSidebarService } from './services/das-sidebar.service';
 
 @Component({
-    selector: 'das-sidebar',
-    templateUrl: './das-sidebar.component.html',
-    styleUrls: ['./das-sidebar.component.scss'],
-    animations: [matExpansionAnimations.bodyExpansion],
-    standalone: true,
-    imports: [NgScrollbar, CdkAccordion, NgFor, CdkAccordionItem, NgSwitch, NgSwitchCase, NgTemplateOutlet, NgIf, RouterLinkActive, RouterLink, NgSwitchDefault, FeatherModule, SidebarChartSettingComponent]
+  selector: 'das-sidebar',
+  templateUrl: './das-sidebar.component.html',
+  styleUrls: ['./das-sidebar.component.scss'],
+  animations: [matExpansionAnimations.bodyExpansion],
+  standalone: true,
+  imports: [
+    NgScrollbar,
+    CdkAccordion,
+    CdkAccordionItem,
+    RouterLinkActive,
+    RouterLink,
+    SidebarChartSettingComponent,
+    DasCommonComponentModule
+  ]
 })
 export class DasSidebarComponent extends DasBaseComponent {
   sidebarItemTypeEnum = SidebarItemTypeEnum;
 
-  constructor(public readonly sidebarService: DasSidebarService, public readonly router: Router) {
+  constructor(
+    public readonly sidebarService: DasSidebarService,
+    public readonly router: Router
+  ) {
     super();
   }
 

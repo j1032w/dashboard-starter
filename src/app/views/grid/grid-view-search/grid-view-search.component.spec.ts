@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {CommonTestConfig} from '../../../common/test-services/common-test-config';
-import {DasGridViewModule} from '../das-grid-view.module';
+import { CommonTestConfig } from '../../../common/test-services/common-test-config';
 
 import { GridViewSearchComponent } from './grid-view-search.component';
 
@@ -10,7 +9,7 @@ describe('GridViewSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [...CommonTestConfig.imports, DasGridViewModule]
+      imports: [...CommonTestConfig.imports]
     }).compileComponents();
 
     fixture = TestBed.createComponent(GridViewSearchComponent);

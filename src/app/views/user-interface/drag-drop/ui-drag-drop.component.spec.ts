@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { DasUserInterfaceModule } from '../das-user-interface.module';
+import {CommonTestConfig} from '../../../common/test-services/common-test-config';
 import { UiDragDropComponent } from './ui-drag-drop.component';
 
 describe('DragDropComponent', () => {
@@ -9,7 +8,7 @@ describe('DragDropComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DasUserInterfaceModule]
+      imports: [...CommonTestConfig.imports],
     }).compileComponents();
 
     fixture = TestBed.createComponent(UiDragDropComponent);

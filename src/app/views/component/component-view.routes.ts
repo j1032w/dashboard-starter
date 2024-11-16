@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { CompFormComponent } from './form/comp-form.component';
 import { CompMultiplePurposeComponent } from './multiple-purpose/comp-multiple-purpose.component';
 import { CompNotificationComponent } from './notification/comp-notification.component';
 
-const routes: Routes = [
+export const VIEWS_COMPONENT_ROUTES: Routes = [
   {
     path: '',
     redirectTo: 'form',
@@ -30,9 +29,3 @@ const routes: Routes = [
     data: { label: 'Notification' }
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class DasComponentViewRoutingModule {}

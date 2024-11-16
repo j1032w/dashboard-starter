@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {DasCommonModule} from '../../../das-common.module';
+import { CommonTestConfig } from '../../../test-services/common-test-config';
 import { DasWidgetCoreComponent } from './das-widget-core.component';
 
 describe('WidgetComponent', () => {
@@ -8,7 +8,8 @@ describe('WidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DasCommonModule]
+      imports: [...CommonTestConfig.imports],
+      providers: [...CommonTestConfig.providers],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DasWidgetCoreComponent);

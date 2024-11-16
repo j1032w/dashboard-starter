@@ -1,17 +1,17 @@
+import { NgStyle } from '@angular/common';
 import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
-import { ResizeResult, NgxResize } from 'ngxtension/resize';
+import { NgxResize, ResizeResult } from 'ngxtension/resize';
 
 import { debounceTime, filter, Subject, takeUntil } from 'rxjs';
 
 import { DasBaseComponent } from '../das-component-base.component';
-import { NgStyle } from '@angular/common';
 
 @Component({
-    selector: 'das-auto-size',
-    templateUrl: './das-auto-size.component.html',
-    styleUrls: ['./das-auto-size.component.scss'],
-    standalone: true,
-    imports: [NgxResize, NgStyle]
+  selector: 'das-auto-size',
+  templateUrl: './das-auto-size.component.html',
+  styleUrls: ['./das-auto-size.component.scss'],
+  standalone: true,
+  imports: [NgxResize, NgStyle]
 })
 export class DasAutoSizeComponent extends DasBaseComponent implements OnInit {
   @Output() resized = new EventEmitter<ElementSizeInterface>();

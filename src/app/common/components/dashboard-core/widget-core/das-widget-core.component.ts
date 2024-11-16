@@ -1,38 +1,40 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, ContentChild, ElementRef, Input, TemplateRef } from '@angular/core';
 import { flipInY } from 'ng-animate';
-import {DasCommonModule} from '../../../das-common.module';
+import { DasCommonComponentModule } from '../../../das-common-component.module';
 
 import { DasBaseComponent } from '../../das-component-base.component';
-import {DasIconsModule} from '../../modules/das-icons.module';
 import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 import { DasWidgetOption } from '../services/das-widget-option';
-import { NgIf, NgClass, NgTemplateOutlet } from '@angular/common';
-import { FeatherModule } from 'angular-feather';
-import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
-    selector: 'das-widget-core',
-    templateUrl: './das-widget-core.component.html',
-    styleUrls: ['./das-widget-core.component.scss'],
-    animations: [
-        trigger('flip', [
-            state('shown', style({
-                transform: 'rotate(0)',
-                backgroundColor: 'white'
-            })),
-            state('hidden', style({
-                transform: 'rotateY(90deg)',
-                border: '1px solid gray',
-                margin: '2px',
-                backgroundColor: '#e9ecef' // $gray-200
-            })),
-            transition('hidden => shown', useAnimation(flipInY, { params: { timing: 2 } })),
-            transition('shown => hidden', useAnimation(flipInY, { params: { timing: 2 } }))
-        ])
-    ],
-    standalone: true,
-    imports: [NgIf, FeatherModule, TooltipModule, NgClass, NgTemplateOutlet, DasIconsModule]
+  selector: 'das-widget-core',
+  templateUrl: './das-widget-core.component.html',
+  styleUrls: ['./das-widget-core.component.scss'],
+  animations: [
+    trigger('flip', [
+      state(
+        'shown',
+        style({
+          transform: 'rotate(0)',
+          backgroundColor: 'white'
+        })
+      ),
+      state(
+        'hidden',
+        style({
+          transform: 'rotateY(90deg)',
+          border: '1px solid gray',
+          margin: '2px',
+          backgroundColor: '#e9ecef' // $gray-200
+        })
+      ),
+      transition('hidden => shown', useAnimation(flipInY, { params: { timing: 2 } })),
+      transition('shown => hidden', useAnimation(flipInY, { params: { timing: 2 } }))
+    ])
+  ],
+  standalone: true,
+  imports: [DasCommonComponentModule]
 })
 export class DasWidgetCoreComponent extends DasBaseComponent {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();

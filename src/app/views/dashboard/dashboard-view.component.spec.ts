@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommonTestConfig } from '../../common/test-services/common-test-config';
-import { DasDashboardViewModule } from './das-dashboard-view.module';
 import { DashboardViewComponent } from './dashboard-view.component';
 
 describe('DasDashboardComponent', () => {
@@ -10,7 +9,7 @@ describe('DasDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [...CommonTestConfig.imports, DasDashboardViewModule],
+      imports: [...CommonTestConfig.imports],
       providers: [...CommonTestConfig.providers]
     }).compileComponents();
 

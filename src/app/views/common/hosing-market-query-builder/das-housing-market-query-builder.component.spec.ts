@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommonTestConfig } from '../../../common/test-services/common-test-config';
 import { DasHousingMarketQueryBuilderComponent } from './das-housing-market-query-builder.component';
-import { DasHousingMarketQueryBuilderModule } from './das-housing-market-query-builder.module';
 
 describe('QueryBuilderComponent', () => {
   let component: DasHousingMarketQueryBuilderComponent;
@@ -10,7 +9,7 @@ describe('QueryBuilderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [...CommonTestConfig.imports, DasHousingMarketQueryBuilderModule]
+      imports: [...CommonTestConfig.imports]
     }).compileComponents();
 
     fixture = TestBed.createComponent(DasHousingMarketQueryBuilderComponent);

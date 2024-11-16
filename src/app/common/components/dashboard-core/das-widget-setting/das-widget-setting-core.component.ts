@@ -1,21 +1,19 @@
+import { NgTemplateOutlet } from '@angular/common';
 import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {DasCommonModule} from '../../../das-common.module';
+import { PrimeTemplate } from 'primeng/api';
+import { DialogModule } from 'primeng/dialog';
 
 import { DasBaseComponent } from '../../das-component-base.component';
 import { DasDashboardCoreEventService } from '../services/das-dashboard-core-event.service';
 import { DasWidgetOption } from '../services/das-widget-option';
-import { DialogModule } from 'primeng/dialog';
-import { NgTemplateOutlet } from '@angular/common';
-import { PrimeTemplate } from 'primeng/api';
 
 @Component({
-    selector: 'das-widget-setting-core',
-    templateUrl: './das-widget-setting-core.component.html',
-    styleUrls: ['./das-widget-setting-core.component.scss'],
-    standalone: true,
-    imports: [DialogModule, NgTemplateOutlet, PrimeTemplate,
-      FormsModule, ReactiveFormsModule]
+  selector: 'das-widget-setting-core',
+  templateUrl: './das-widget-setting-core.component.html',
+  styleUrls: ['./das-widget-setting-core.component.scss'],
+  standalone: true,
+  imports: [DialogModule, NgTemplateOutlet, PrimeTemplate, FormsModule, ReactiveFormsModule]
 })
 export class DasWidgetSettingCoreComponent extends DasBaseComponent implements OnInit {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();

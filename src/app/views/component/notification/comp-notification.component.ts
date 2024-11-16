@@ -4,12 +4,12 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 
 @Component({
-    selector: 'das-comp-notification',
-    templateUrl: './comp-notification.component.html',
-    styleUrls: ['./comp-notification.component.scss'],
-    providers: [MessageService, ConfirmationService],
-    standalone: true,
-    imports: [ConfirmDialogModule, ToastModule]
+  selector: 'das-comp-notification',
+  templateUrl: './comp-notification.component.html',
+  styleUrls: ['./comp-notification.component.scss'],
+  providers: [MessageService, ConfirmationService],
+  standalone: true,
+  imports: [ConfirmDialogModule, ToastModule]
 })
 export class CompNotificationComponent {
   constructor(

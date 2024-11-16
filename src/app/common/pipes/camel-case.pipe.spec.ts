@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DasCommonModule } from '../das-common.module';
+import { DasCommonComponentModule } from '../das-common-component.module';
 import { CommonTestConfig } from '../test-services/common-test-config';
 import { CamelCasePipe } from './camel-case.pipe';
 
@@ -9,7 +9,7 @@ describe('CamelCasePipe', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DasCommonModule, ...CommonTestConfig.imports],
+      imports: [DasCommonComponentModule, ...CommonTestConfig.imports],
       providers: [...CommonTestConfig.providers, CamelCasePipe]
     }).compileComponents();
 

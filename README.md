@@ -24,7 +24,7 @@ https://www.j1032.com/dashboard \
 # What I have got here
 - Built with [Angular 18](https://angular.io), [Typescript 5](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 18](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
 - - [Containerized application](https://www.docker.com/) hosted on [Google GCP](https://cloud.google.com/)
-- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation, Module lazy loading, HTTP request throttling and caching, 
+- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation, Standalone components and Module lazy loading, HTTP request throttling and caching, 
 - Responsive liquid layout, SVG Icons
 - Unit testing with [Jest](https://jestjs.io/) and E2E automation testing with [Cypress](https://www.cypress.io/)
 - Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)

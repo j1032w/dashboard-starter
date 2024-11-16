@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { filter, takeUntil } from 'rxjs';
-import { DasCommonModule } from '../../../das-common.module';
+import { DasCommonComponentModule } from '../../../das-common-component.module';
 
 import { DasToastService } from '../../../services/das-toast.service';
 import { DasBaseComponent } from '../../das-component-base.component';
@@ -12,7 +12,7 @@ import { DasWidgetOption } from './das-widget-option';
   selector: 'das-widget-base',
   template: '',
   standalone: true,
-  imports: [DasCommonModule]
+  imports: [DasCommonComponentModule]
 })
 export class DasWidgetBaseComponent extends DasBaseComponent implements OnInit {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();

@@ -3,7 +3,7 @@
   "exclude": [
     "/node_modules/**",
     "/dist/**",
-    "/cypress.config.ts",
+    "cypress.config.ts",
     "cypress",
     "**/*.cy.tsx"
   ],

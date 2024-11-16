@@ -9,6 +9,7 @@ describe('LineOfCodeWidgetComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [...CommonTestConfig.imports],
+      providers: [...CommonTestConfig.providers],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DvLocWidgetComponent);

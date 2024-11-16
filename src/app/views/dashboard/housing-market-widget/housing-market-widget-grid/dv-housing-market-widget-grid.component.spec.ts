@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {DasGridModule} from '../../../../common/components/das-grid/das-grid.module';
 import { CommonTestConfig } from '../../../../common/test-services/common-test-config';
-import {DvHousingMarketWidgetModule} from '../dv-housing-market-widget.module';
 
 import { DvHousingMarketWidgetGridComponent } from './dv-housing-market-widget-grid.component';
 
@@ -11,8 +9,8 @@ describe('HousingMarketTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [...CommonTestConfig.imports, DvHousingMarketWidgetModule, DasGridModule, DvHousingMarketWidgetGridComponent]
-}).compileComponents();
+      imports: [...CommonTestConfig.imports]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DvHousingMarketWidgetGridComponent);
     component = fixture.componentInstance;

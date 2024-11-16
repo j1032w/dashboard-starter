@@ -10,7 +10,8 @@ describe('FloatingLabelFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [...CommonTestConfig.imports]
+      imports: [...CommonTestConfig.imports],
+      providers: [...CommonTestConfig.providers],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CompFloatingLabelFormComponent);

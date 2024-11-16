@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {CommonTestConfig} from '../../test-services/common-test-config';
-import {DasAutoSizeComponent} from '../das-auto-size/das-auto-size.component';
+import { CommonTestConfig } from '../../test-services/common-test-config';
 
 import { DasGridComponent } from './das-grid.component';
-import {DasGridModule} from './das-grid.module';
 
 describe('DasGridComponent', () => {
   let component: DasGridComponent;
@@ -11,8 +9,8 @@ describe('DasGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [...CommonTestConfig.imports, DasGridModule, DasAutoSizeComponent]
-}).compileComponents();
+      imports: [...CommonTestConfig.imports]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DasGridComponent);
     component = fixture.componentInstance;

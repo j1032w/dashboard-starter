@@ -77,6 +77,7 @@ const icons = {
 };
 
 @NgModule({
-  imports: [FeatherModule.pick(icons)]
+  imports: [FeatherModule.pick(icons)],
+  exports: [FeatherModule]
 })
 export class DasIconsModule {}

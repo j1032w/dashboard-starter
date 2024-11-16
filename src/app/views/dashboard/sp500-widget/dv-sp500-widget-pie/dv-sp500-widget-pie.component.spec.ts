@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {CommonTestConfig} from '../../../../common/test-services/common-test-config';
-import {DvSP500WidgetModule} from '../dv-sp500-widget.module';
+import { CommonTestConfig } from '../../../../common/test-services/common-test-config';
 
 import { DvSp500WidgetPieComponent } from './dv-sp500-widget-pie.component';
 
@@ -10,8 +9,8 @@ describe('DvSp500WidgetPieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [...CommonTestConfig.imports, DvSP500WidgetModule, DvSp500WidgetPieComponent]
-}).compileComponents();
+      imports: [...CommonTestConfig.imports]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DvSp500WidgetPieComponent);
     component = fixture.componentInstance;

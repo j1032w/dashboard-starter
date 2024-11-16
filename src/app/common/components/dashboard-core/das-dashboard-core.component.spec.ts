@@ -4,7 +4,6 @@ import { DasLocalStorageService } from '../../services/das-local-storage.service
 import { CommonTestConfig } from '../../test-services/common-test-config';
 import { LocalStorageServiceMock } from '../../test-services/local-storage-service.mock';
 import { DasDashboardCoreComponent } from './das-dashboard-core.component';
-import { DasDashboardCoreModule } from './das-dashboard-core.module';
 import { DasWidgetOption } from './services/das-widget-option';
 
 describe('DasDashboardComponent', () => {
@@ -15,7 +14,7 @@ describe('DasDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DasDashboardCoreModule, ...CommonTestConfig.imports],
+      imports: [...CommonTestConfig.imports],
       providers: [...CommonTestConfig.providers]
     }).compileComponents();
 
