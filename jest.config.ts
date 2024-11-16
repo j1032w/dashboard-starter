@@ -14,7 +14,8 @@ export default {
       },
     ],
   },
-  testEnvironment: '@happy-dom/jest-environment',
+  // testEnvironment: '@happy-dom/jest-environment',
+  testEnvironment: 'jsdom',
   transformIgnorePatterns: [`node_modules/(?!.*\\.mjs$|${esModules})`],
   moduleNameMapper: {
     '.*\\.txt': 'jest-raw-loader',

@@ -8,12 +8,13 @@
 <a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.laobi.icu/badge?page_id=j1032w/dashboard-starter"></a>
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)
 
+#### Demo: https://www.j1032.com/dashboard
+
 #### The backend WebAPI repository is available at: https://github.com/j1032w/dashboard-starter-data
 #### The ReactJS edition can be found at https://github.com/j1032w/react-dashboard-starter
 
-# Demo
-https://www.j1032.com/dashboard \
-&nbsp;
+
+
 
 [![Demo](documentation/dashboard-cypress.gif)](https://www.j1032.com/dashboard)
 [![](https://j1032.com/assets/images/demo.gif)](https://www.j1032.com/dashboard)
