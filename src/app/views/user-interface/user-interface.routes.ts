@@ -1,45 +1,35 @@
 import { Routes } from '@angular/router';
 
-import { UiAnimationComponent } from './animation/ui-animation.component';
-import { UiDragDropComponent } from './drag-drop/ui-drag-drop.component';
-import { UiQueryBuilderComponent } from './query-builder/ui-query-builder.component';
-import { UiResponsiveComponent } from './responsive/ui-responsive.component';
-import { UiVirtualScrollComponent } from './virtual-scroll/ui-virtual-scroll.component';
-
 export const VIEWS_USER_INTERFACE_ROUTES: Routes = [
-  {
-    path: '',
-    redirectTo: 'animation',
-    pathMatch: 'full'
-  },
+  { path: '', redirectTo: 'animation', pathMatch: 'full' },
 
   {
     path: 'animation',
-    component: UiAnimationComponent,
+    loadComponent: () => import('./animation/ui-animation.component').then(m => m.UiAnimationComponent),
     data: { label: 'Animation' }
   },
 
   {
     path: 'drag-drop',
-    component: UiDragDropComponent,
+    loadComponent: () => import('./drag-drop/ui-drag-drop.component').then(m => m.UiDragDropComponent),
     data: { label: 'Drag and Drop' }
   },
 
   {
     path: 'query-builder',
-    component: UiQueryBuilderComponent,
+    loadComponent: () => import('./query-builder/ui-query-builder.component').then(m => m.UiQueryBuilderComponent),
     data: { label: 'Query Builder' }
   },
 
   {
     path: 'virtual-scroll',
-    component: UiVirtualScrollComponent,
+    loadComponent: () => import('./virtual-scroll/ui-virtual-scroll.component').then(m => m.UiVirtualScrollComponent),
     data: { label: 'Virtual Scroll' }
   },
 
   {
     path: 'responsive',
-    component: UiResponsiveComponent,
+    loadComponent: () => import('./responsive/ui-responsive.component').then(m => m.UiResponsiveComponent),
     data: { label: 'Responsive Design' }
   }
 ];

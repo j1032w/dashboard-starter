@@ -5,6 +5,8 @@ import { DasLayoutComponent } from './layout/das-layout.component';
 export const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
+  // There is a common side menu for all the views,
+  // so other views are loaded inside the DasLayoutComponent
   {
     path: '',
     component: DasLayoutComponent,
