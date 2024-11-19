@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { DasCommonComponentModule } from '../../../../common/das-common-component.module';
 import { DasToastService } from '../../../../common/services/das-toast.service';
+import {CheckboxGroupComponent} from '../common/checkbox-group/checkbox-group.component';
 import { passwordMatchValidator } from '../common/password-match-validator';
 
 @Component({
@@ -9,7 +10,7 @@ import { passwordMatchValidator } from '../common/password-match-validator';
   templateUrl: './comp-form-horizontal.component.html',
   styleUrls: ['./comp-form-horizontal.component.scss'],
   standalone: true,
-  imports: [FormsModule, DasCommonComponentModule]
+  imports: [FormsModule, DasCommonComponentModule, CheckboxGroupComponent]
 })
 export class CompFormHorizontalComponent {
   registrationForm: FormGroup;
@@ -35,7 +36,7 @@ export class CompFormHorizontalComponent {
         confirmPassword: [null, Validators.required],
         subscription: ['1'],
         favoriteLanguage: ['0'],
-        selectedProducts: formBuilder.array([this.formBuilder.control('etf'), this.formBuilder.control('bond')])
+        selectedProducts: [['etf', 'bond']]
       },
       { validators: passwordMatchValidator('password', 'confirmPassword') }
     );
@@ -57,20 +58,7 @@ export class CompFormHorizontalComponent {
     return this.registrationForm.get('selectedProducts') as FormArray;
   }
 
-  isProductChecked(productId: string): boolean {
-    return this.selectedProducts.value.includes(productId);
-  }
 
-  onProductSelectionChange(event: Event, productId: string) {
-    const checkbox = event.target as HTMLInputElement;
-
-    if (checkbox.checked) {
-      this.selectedProducts.push(this.formBuilder.control(productId));
-    } else {
-      const index = this.selectedProducts.controls.findIndex(control => control.value === productId);
-      this.selectedProducts.removeAt(index);
-    }
-  }
 
   onSubmit() {
     this.wasValidated = true;

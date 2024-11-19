@@ -32,6 +32,8 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"]
     },
   },
   {

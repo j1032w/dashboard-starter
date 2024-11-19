@@ -2,7 +2,7 @@
       [formGroup]="registrationForm"
       (ngSubmit)="onSubmit()">
 
-  
+
   <fieldset>
     <legend>Account Detail</legend>
     <div class="form-group  mb-3 row">
@@ -100,14 +100,11 @@
     <div class="form-group mb-3 row">
       <span class="col-sm-4 col-form-label text-end">Investments</span>
       <div class="col-sm-8 pt-2">
-        @for (item of investmentProducts; track item.id) {
-          <label class="me-1" [for]="item.name">{{ item.name }}</label>
-          <input class="me-3" type="checkbox"
-                 [id]="item.name"
-                 [checked]="isProductChecked(item.id)"
-                 [value]="item.id"
-                 (change)="onProductSelectionChange($event, item.id)">
-        }
+        <das-comp-checkbox-group [options]="investmentProducts"
+                                 formControlName="selectedProducts">
+
+
+        </das-comp-checkbox-group>
       </div>
     </div>
 
@@ -119,3 +116,5 @@
     </div>
   </fieldset>
 </form>
+
+
