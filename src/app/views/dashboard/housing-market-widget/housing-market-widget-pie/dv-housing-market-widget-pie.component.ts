@@ -16,7 +16,7 @@ import {
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import {BaseChartDirective} from 'ng2-charts';
 
-import { ElementSizeInterface, DasAutoSizeComponent } from '../../../../common/components/das-auto-size/das-auto-size.component';
+import { ElementDimension, DasAutoSizeComponent } from '../../../../common/components/das-auto-size/das-auto-size.component';
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
 
@@ -91,7 +91,7 @@ export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBaseCompo
     this.pieChartComponent?.render();
   };
 
-  onResized(e: ElementSizeInterface) {
+  onResized(e: ElementDimension) {
     this.size = {
       height: e.height,
       width: e.width

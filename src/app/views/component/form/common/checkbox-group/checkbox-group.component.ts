@@ -20,8 +20,8 @@ export class CheckboxGroupComponent implements ControlValueAccessor {
   @Input() options: checkboxOption[];
 
   selectedValues: string[] = [];
-  onChange: (value: string[]) => void = () => {};
-  onTouched: () => void = () => {};
+  onChange: (value: string[]) => void;
+  onTouched: () => void ;
 
   registerOnChange(fn: any): void {
     this.onChange = fn;

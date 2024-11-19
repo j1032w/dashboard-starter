@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonTestConfig } from '../../../../common/test-services/common-test-config';
 
 import { CompFormHorizontalComponent } from './comp-form-horizontal.component';
 
@@ -8,8 +9,9 @@ describe('HorizontalFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [CompFormHorizontalComponent]
-}).compileComponents();
+      providers: [...CommonTestConfig.providers],
+      imports: [CompFormHorizontalComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CompFormHorizontalComponent);
     component = fixture.componentInstance;

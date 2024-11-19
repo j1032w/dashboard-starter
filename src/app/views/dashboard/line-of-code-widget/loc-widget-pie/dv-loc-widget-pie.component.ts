@@ -17,7 +17,7 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import {Options} from 'chartjs-plugin-datalabels/types/options';
 import { BaseChartDirective } from 'ng2-charts';
 
-import { ElementSizeInterface, DasAutoSizeComponent } from '../../../../common/components/das-auto-size/das-auto-size.component';
+import { ElementDimension, DasAutoSizeComponent } from '../../../../common/components/das-auto-size/das-auto-size.component';
 import { DasGridComponent } from '../../../../common/components/das-grid/das-grid.component';
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
@@ -40,7 +40,7 @@ export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent imple
   @Input() pieChartData: ChartData<'pie', number[], string>;
   @Input() total: any;
 
-  size: ElementSizeInterface = { height: 300, width: 300 };
+  size: ElementDimension = { height: 300, width: 300 };
 
   public pieChartType: ChartType = 'pie';
 
@@ -95,7 +95,7 @@ export class DvLocWidgetPieComponent extends DasWidgetContentBaseComponent imple
 
   }
 
-  onResized($event: ElementSizeInterface) {
+  onResized($event: ElementDimension) {
     this.size = $event;
   }
 

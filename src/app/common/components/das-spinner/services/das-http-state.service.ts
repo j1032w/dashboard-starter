@@ -10,7 +10,7 @@ export class DasHttpStateService {
   state$ = new BehaviorSubject<IHttpState>({} as IHttpState);
 }
 
-export interface IHttpState {
+export type IHttpState = {
   startTime?: number;
   spinnerId: string;
   state: DasHttpProgressStateEnum;

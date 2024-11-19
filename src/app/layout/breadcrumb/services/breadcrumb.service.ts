@@ -11,7 +11,7 @@ export class BreadcrumbService extends DasServiceBaes {
   //
   // breadcrumbItems$: Observable<BreadcrumbItemInterface[]> = this.breadcrumbItemsSubject$.asObservable();
 
-  breadcrumbItems: BreadcrumbItemInterface[] = [];
+  breadcrumbItems: BreadcrumbItem[] = [];
 
   constructor(readonly router: Router, readonly activatedRoute: ActivatedRoute) {
     super();
@@ -48,7 +48,7 @@ export class BreadcrumbService extends DasServiceBaes {
   }
 }
 
-export interface BreadcrumbItemInterface {
+export type BreadcrumbItem = {
   label: string;
   path?: string;
 }

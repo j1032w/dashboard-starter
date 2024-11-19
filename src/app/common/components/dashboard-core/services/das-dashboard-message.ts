@@ -1,6 +1,6 @@
 import { DasWidgetOption } from './das-widget-option';
 
-export interface DasDashboardMessage {
+export type DasDashboardMessage = {
   eventType: DasDashboardEventTypeEnum;
   widgetOption?: DasWidgetOption;
 }

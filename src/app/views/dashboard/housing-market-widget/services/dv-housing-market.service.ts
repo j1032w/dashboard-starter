@@ -18,45 +18,45 @@ export class DvHousingMarketService extends DasServiceBaes {
     return this.housingMarketRepository.query$(query, HOUSE_MARKET_WIDGET_SPINNER_ID).pipe(
       takeUntil(this.destroyed$),
       map((data: any[]) => {
-        const apartmentPercentage: BuildingTypePercentageInterface = {
+        const apartmentPercentage: BuildingTypePercentage = {
           buildingType: BuildingTypeEnum.Apartment,
           total: 0
         };
 
-        const housePercentage: BuildingTypePercentageInterface = { buildingType: BuildingTypeEnum.House, total: 0 };
+        const housePercentage: BuildingTypePercentage = { buildingType: BuildingTypeEnum.House, total: 0 };
 
-        const duplexPercentage: BuildingTypePercentageInterface = { buildingType: BuildingTypeEnum.Duplex, total: 0 };
+        const duplexPercentage: BuildingTypePercentage = { buildingType: BuildingTypeEnum.Duplex, total: 0 };
 
-        const fourplexPercentage: BuildingTypePercentageInterface = {
+        const fourplexPercentage: BuildingTypePercentage = {
           buildingType: BuildingTypeEnum.Fourplex,
           total: 0
         };
 
-        const manufacturedHomePercentage: BuildingTypePercentageInterface = {
+        const manufacturedHomePercentage: BuildingTypePercentage = {
           buildingType: BuildingTypeEnum.ManufacturedHome,
           total: 0
         };
 
-        const mobileHomePercentage: BuildingTypePercentageInterface = {
+        const mobileHomePercentage: BuildingTypePercentage = {
           buildingType: BuildingTypeEnum.MobileHome,
           total: 0
         };
 
-        const multiFamilyPercentage: BuildingTypePercentageInterface = {
+        const multiFamilyPercentage: BuildingTypePercentage = {
           buildingType: BuildingTypeEnum.MultiFamily,
           total: 0
         };
 
-        const parkingPercentage: BuildingTypePercentageInterface = { buildingType: BuildingTypeEnum.Parking, total: 0 };
+        const parkingPercentage: BuildingTypePercentage = { buildingType: BuildingTypeEnum.Parking, total: 0 };
 
-        const townhousePercentage: BuildingTypePercentageInterface = {
+        const townhousePercentage: BuildingTypePercentage = {
           buildingType: BuildingTypeEnum.Townhouse,
           total: 0
         };
 
-        const triplexPercentage: BuildingTypePercentageInterface = { buildingType: BuildingTypeEnum.Triplex, total: 0 };
+        const triplexPercentage: BuildingTypePercentage = { buildingType: BuildingTypeEnum.Triplex, total: 0 };
 
-        const unknownPercentage: BuildingTypePercentageInterface = { buildingType: BuildingTypeEnum.Unknown, total: 0 };
+        const unknownPercentage: BuildingTypePercentage = { buildingType: BuildingTypeEnum.Unknown, total: 0 };
 
         data.forEach((item: any) => {
           switch (item.buildingType) {
@@ -136,7 +136,7 @@ export class DvHousingMarketService extends DasServiceBaes {
   };
 }
 
-export interface BuildingTypePercentageInterface {
+export type BuildingTypePercentage = {
   buildingType: BuildingTypeEnum;
   total: number;
   percentage?: number;

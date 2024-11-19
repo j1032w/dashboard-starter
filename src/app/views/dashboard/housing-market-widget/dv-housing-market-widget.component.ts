@@ -8,7 +8,7 @@ import {DasCommonComponentModule} from '../../../common/das-common-component.mod
 import { DasToastService } from '../../../common/services/das-toast.service';
 import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/dv-housing-market-widget-pie.component';
 import {
-  BuildingTypePercentageInterface,
+  BuildingTypePercentage,
   DvHousingMarketService,
   HOUSE_MARKET_WIDGET_SPINNER_ID
 } from './services/dv-housing-market.service';
@@ -32,7 +32,7 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBaseComponent imple
 
   readonly SPINNER_ID = HOUSE_MARKET_WIDGET_SPINNER_ID;
 
-  dataSource: BuildingTypePercentageInterface[] = [];
+  dataSource: BuildingTypePercentage[] = [];
 
   public pieChartData: ChartData<'pie', number[], string>;
 

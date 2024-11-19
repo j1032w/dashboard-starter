@@ -5,7 +5,7 @@ import {AgGridCellDataTypeEnum} from '../../../../common/components/das-grid/ser
 
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
-import { BuildingTypePercentageInterface } from '../services/dv-housing-market.service';
+import { BuildingTypePercentage } from '../services/dv-housing-market.service';
 
 @Component({
     selector: 'das-dv-housing-market-widget-grid',
@@ -17,7 +17,7 @@ import { BuildingTypePercentageInterface } from '../services/dv-housing-market.s
 export class DvHousingMarketWidgetGridComponent extends DasWidgetContentBaseComponent {
   @ViewChild('gridComponent') gridComponent: DasGridComponent;
 
-  @Input() dataSource: BuildingTypePercentageInterface[] = [];
+  @Input() dataSource: BuildingTypePercentage[] = [];
 
   columns: any[] = [
     { field: 'buildingType', headerName: 'Building Type', cellDataType: AgGridCellDataTypeEnum.Text },

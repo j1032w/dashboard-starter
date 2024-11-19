@@ -134,7 +134,7 @@ export class DasChartSp500Service extends DasServiceBaes {
   }
 }
 
-export interface Sp500AnnualHistory {
+export type Sp500AnnualHistory = {
   year: string;
 
   averageClosingPrice: number;

@@ -14,7 +14,7 @@ import { DasBaseComponent } from '../das-component-base.component';
   imports: [NgxResize, NgStyle]
 })
 export class DasAutoSizeComponent extends DasBaseComponent implements OnInit {
-  @Output() resized = new EventEmitter<ElementSizeInterface>();
+  @Output() resized = new EventEmitter<ElementDimension>();
 
   height = '300px';
   width = '300px';
@@ -58,7 +58,7 @@ export class DasAutoSizeComponent extends DasBaseComponent implements OnInit {
   }
 }
 
-export interface ElementSizeInterface {
+export type ElementDimension = {
   height: number;
   width: number;
-}
+};
