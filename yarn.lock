@@ -8513,10 +8513,10 @@ ngx-bootstrap@^18.1.2:
   dependencies:
     tslib "^2.3.0"
 
-ngx-scrollbar@^16.0.0:
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-scrollbar/-/ngx-scrollbar-16.0.0.tgz#276c267720c1aeda139723e9370a4514ae29215c"
-  integrity sha512-2saos6hjkkka0CuJhWNgyD5upsv4d+APwQTavy738MdD3eEhH7oSviXylM0S8caOWFvjScU9N1exexTofXZITw==
+ngx-scrollbar@^16.1.0:
+  version "16.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-scrollbar/-/ngx-scrollbar-16.1.0.tgz#cfd49c07d2621ce176e8418e70f0f37b2b8f24a4"
+  integrity sha512-X4jDsmEN+dEf3FWuZsoZWXPZNajUs3nB9iF044HqzaeIY7cKKJ8QZI9KULmabDt2W5pRagisxgFeSSVjNFq5IA==
   dependencies:
     tslib "^2.3.0"
 

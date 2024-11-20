@@ -52,7 +52,7 @@
     "ng2-charts": "^6.0.1",
     "ngx-angular-query-builder": "^18.0.0",
     "ngx-bootstrap": "^18.1.2",
-    "ngx-scrollbar": "^16.0.0",
+    "ngx-scrollbar": "^16.1.0",
     "ngx-toastr": "^19.0.0",
     "ngxtension": "^4.0.0",
     "normalize.css": "^8.0.1",

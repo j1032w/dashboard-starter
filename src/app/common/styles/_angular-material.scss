@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+
+// Define a custom theme
+$custom-theme: mat.m2-define-light-theme((
+        color: (
+                primary: mat.m2-define-palette(mat.$m2-blue-gray-palette),
+                accent: mat.m2-define-palette(mat.$m2-amber-palette),
+        ),
+
+));
+
+// Apply the theme
+@include mat.all-component-themes($custom-theme);
+
+@import "@angular/cdk/overlay-prebuilt.css";
+

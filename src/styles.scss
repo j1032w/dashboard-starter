@@ -4,6 +4,8 @@
 @import "bootstrap/scss/variables";
 @import "ag-grid-community/styles/ag-grid.css";
 @import 'ag-grid-community/styles/ag-theme-quartz.css';
+// @import 'app/common/styles/angular-material';
+@import '@angular/material/prebuilt-themes/azure-blue.css';
 
 // Added by angular material
 // ng add @angular/material
