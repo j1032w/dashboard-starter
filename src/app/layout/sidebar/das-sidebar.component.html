@@ -2,56 +2,54 @@
               class="sidebar-container d-flex flex-column h-100">
   <cdk-accordion class="sidebar-menu flex-grow-1" [multi]="true">
     <cdk-accordion-item
-      *ngFor="let sidebarItem of sidebarService.sidebarItems; let index = index;"
-      #accordionItemComponent="cdkAccordionItem"
-      [expanded]="sidebarItem.expanded"
-      class="accordion-item"
-      role="button"
-      tabindex="0"
-      [attr.id]="'accordion-header-' + index"
-      [attr.aria-expanded]="accordionItemComponent.expanded"
-      [attr.aria-controls]="'accordion-body-' + index">
+        *ngFor="let sidebarItem of sidebarService.sidebarItems; let index = index;"
+        #accordionItemComponent="cdkAccordionItem"
+        [expanded]="sidebarItem.expanded"
+        class="accordion-item"
+        role="button"
+        tabindex="0"
+        [attr.id]="'accordion-header-' + index"
+        [attr.aria-expanded]="accordionItemComponent.expanded"
+        [attr.aria-controls]="'accordion-body-' + index">
 
 
       <div class="ps-0 mb-0">
-        <ng-container [ngSwitch]="sidebarItem.type">
-
+        @switch (sidebarItem.type) {
           <!-- case:  child template        -->
-          <ng-container *ngSwitchCase="sidebarItemTypeEnum.WithChildTemplate">
+          @case (sidebarItemTypeEnum.WithChildTemplate) {
             <ng-template [ngTemplateOutlet]="expandableItem"
                          [ngTemplateOutletContext]="{$implicit:{accordionItemComponent, sidebarItem}}">
             </ng-template>
 
-            <ng-container *ngIf="accordionItemComponent.expanded">
+            @if (accordionItemComponent.expanded) {
               <div *ngTemplateOutlet="{chartSetting}[sidebarItem.childTemplate]??null">
 
               </div>
-            </ng-container>
-          </ng-container>
-
+            }
+          }
 
           <!-- case:  child items        -->
-          <ng-container *ngSwitchCase="sidebarItemTypeEnum.WithChildrenItems">
+          @case (sidebarItemTypeEnum.WithChildrenItems) {
             <ng-template [ngTemplateOutlet]="expandableItem"
                          [ngTemplateOutletContext]="{$implicit:{accordionItemComponent, sidebarItem}}">
 
             </ng-template>
 
-            <div *ngIf="accordionItemComponent.expanded"
-                 class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-0 child-container ">
-              <div *ngFor="let childItem of sidebarItem.childItems" class="item-label"
-                   [routerLink]="childItem.path"
-                   routerLinkActive="is-active">
-                <div href="#" class="user-select-none">
-                  {{childItem.text}}
-                </div>
+            @if (accordionItemComponent.expanded) {
+              <div class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-0 child-container ">
+                @for (childItem of sidebarItem.childItems; track childItem.path) {
+                  <div class="item-label"
+                       [routerLink]="childItem.path"
+                       routerLinkActive="is-active">
+                    <div href="#" class="user-select-none">
+                      {{ childItem.text }}
+                    </div>
+                  </div>
+                }
               </div>
-            </div>
-          </ng-container>
-
-
-          <!-- default        -->
-          <ng-container *ngSwitchDefault>
+            }
+          }
+          @default {
             <div [routerLink]="sidebarItem.path" routerLinkActive="is-active"
                  class="item-label user-select-none">
               <div class="align-items-center">
@@ -60,11 +58,8 @@
               </div>
 
             </div>
-          </ng-container>
-
-        </ng-container>
-
-
+          }
+        }
       </div>
     </cdk-accordion-item>
 
@@ -79,22 +74,22 @@
 
 <ng-template #expandableItem let-ctx>
   <button type="button" class="btn w-100 align-items-center item-label user-select-none"
-       routerLinkActive="is-active"
-       [routerLink]="ctx.sidebarItem.path"
-       (click)="toggleAccordionItem(ctx.accordionItemComponent, ctx.sidebarItem)">
+          routerLinkActive="is-active"
+          [routerLink]="ctx.sidebarItem.path"
+          (click)="toggleAccordionItem(ctx.accordionItemComponent, ctx.sidebarItem)">
     <span class="float-start">
       <i-feather [name]="ctx.sidebarItem.icon"></i-feather>
       {{ ctx.sidebarItem.text }}
     </span>
 
-    <ng-container *ngIf="ctx.accordionItemComponent.expanded">
+    @if (ctx.accordionItemComponent.expanded) {
       <i-feather name="chevron-down" class="float-end"
       ></i-feather>
-    </ng-container>
-
-    <ng-container *ngIf="!ctx.accordionItemComponent.expanded">
+    } @else {
       <i-feather name="chevron-left" class="float-end"
       ></i-feather>
-    </ng-container>
+    }
+
   </button>
 </ng-template>
+

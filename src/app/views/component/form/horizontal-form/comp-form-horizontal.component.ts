@@ -14,7 +14,6 @@ import { passwordMatchValidator } from '../common/password-match-validator';
 })
 export class CompFormHorizontalComponent {
   registrationForm: FormGroup;
-  wasValidated = false;
 
   investmentProducts = [
     { name: 'Stocks', id: 'stock' },
@@ -23,24 +22,42 @@ export class CompFormHorizontalComponent {
     { name: 'ETFs', id: 'etf' }
   ];
 
+
+  readonly initialValue = {
+    username: 'r2',
+    displayName: 'Artoo Detoo',
+    email: null,
+    password: null,
+    confirmPassword: null,
+    subscription: '1',
+    favoriteLanguage: '0',
+    selectedProducts: ['etf', 'bond'],
+  }
+
+
+
   constructor(
-    private formBuilder: FormBuilder,
+    formBuilder: FormBuilder,
     private toastService: DasToastService
   ) {
     this.registrationForm = formBuilder.group(
       {
-        username: ['r2', Validators.required],
-        displayName: [{ value: 'Artoo Detoo', disabled: true }, Validators.required],
-        email: [null, [Validators.required, Validators.email]],
-        password: [null, Validators.required],
-        confirmPassword: [null, Validators.required],
-        subscription: ['1'],
-        favoriteLanguage: ['0'],
-        selectedProducts: [['etf', 'bond']]
+        username: [{ value: this.initialValue.username, disabled: true }, [Validators.required]],
+        displayName: [{ value: this.initialValue.displayName, disabled: true }, [Validators.required]],
+        email: [this.initialValue.email, [Validators.required, Validators.email]],
+        password: [this.initialValue.password, Validators.required],
+        confirmPassword: [this.initialValue.confirmPassword, Validators.required],
+        subscription: [this.initialValue.subscription],
+        favoriteLanguage: [this.initialValue.favoriteLanguage],
+        selectedProducts: [this.initialValue.selectedProducts],
       },
       { validators: passwordMatchValidator('password', 'confirmPassword') }
     );
+
+    this.registrationForm.patchValue(this.initialValue);
   }
+
+
 
   get email() {
     return this.registrationForm.get('email');
@@ -58,11 +75,13 @@ export class CompFormHorizontalComponent {
     return this.registrationForm.get('selectedProducts') as FormArray;
   }
 
-
+  onReset() {
+    this.registrationForm.reset(this.initialValue);
+    this.registrationForm.markAsPristine();
+  }
 
   onSubmit() {
-    this.wasValidated = true;
-
+    this.registrationForm.markAllAsTouched();
     if (this.registrationForm.invalid) {
       this.toastService.showError('Please fill all the required fields');
       return;

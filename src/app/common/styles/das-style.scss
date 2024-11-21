@@ -15,11 +15,17 @@
 
 
 .toolbar {
-  margin-bottom: 0.25rem;
-  .btn {
-    padding: 0.4rem;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  column-gap: 0.5rem;
+  margin-right: 0.5rem;
+
+  .toolbar-button {
+    align-self: center;
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
     border-radius: 0;
+    font-size: 0.3rem;
 
 
     &:hover {

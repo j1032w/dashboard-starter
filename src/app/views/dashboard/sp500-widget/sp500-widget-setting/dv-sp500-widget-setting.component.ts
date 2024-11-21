@@ -2,22 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
-  FormsModule,
   ReactiveFormsModule
 } from '@angular/forms';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { DasWidgetSettingCoreComponent } from '../../../../common/components/dashboard-core/das-widget-setting/das-widget-setting-core.component';
 
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetSettingBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-setting-base.component';
 import { DasChartSp500Service } from '../../../common/sp500-chart/das-chart-sp500.service';
-import { DasWidgetSettingCoreComponent } from '../../../../common/components/dashboard-core/das-widget-setting/das-widget-setting-core.component';
-import { InputSwitchModule } from 'primeng/inputswitch';
 
 @Component({
-    selector: 'das-dv-sp500-widget-setting',
-    templateUrl: './dv-sp500-widget-setting.component.html',
-    styleUrls: ['./dv-sp500-widget-setting.component.scss'],
-    standalone: true,
-    imports: [DasWidgetSettingCoreComponent, FormsModule, ReactiveFormsModule, InputSwitchModule]
+  selector: 'das-dv-sp500-widget-setting',
+  templateUrl: './dv-sp500-widget-setting.component.html',
+  styleUrls: ['./dv-sp500-widget-setting.component.scss'],
+  standalone: true,
+  imports: [DasWidgetSettingCoreComponent, InputSwitchModule, ReactiveFormsModule]
 })
 export class DvSp500WidgetSettingComponent extends DasWidgetSettingBaseComponent implements OnInit {
   constructor(
