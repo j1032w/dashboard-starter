@@ -1,0 +1,1 @@
+import { Module } from '@nestjs/common';import { RepositoryModule } from '../../../infrastructures/mongo/repository.module';import {ListingService} from './listing.service';@Module({  imports: [RepositoryModule],  providers: [ListingService],  exports: [ListingService],})export class RealEstateApplicationModule {}

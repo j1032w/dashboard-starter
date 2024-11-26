@@ -1,0 +1,47 @@
+<div class="toolbar dashboard-setting-toolbar">
+    <button type="button" id="dashSettingSaveBtn" class="btn btn-sm"
+          (click)="saveSetting()">
+    <i-feather name="save"></i-feather>
+    <span class="ps-1">Save</span>
+  </button>
+
+  <button type="button" id="dashSettingRemoveAllBtn" class="btn btn-sm ps-2"
+        (click)="removeAll()">
+    <i-feather name="file"></i-feather>
+    <span class="ps-1">Remove All</span>
+  </button>
+
+  <button type="button" id="dashSettingResetBtn" class="btn btn-sm ps-2"
+        (click)="resetSetting()">
+    <i-feather name="server"></i-feather>
+    <span class="ps-1">Reset</span>
+  </button>
+
+  <button type="button" id="dashSettingWidgetListBtn" class="btn btn-sm ps-2"
+        (click)="showHideDashboardSetting()">
+    <i-feather name="settings"></i-feather>
+    <span class="ps-1">Widget List</span>
+  </button>
+</div>
+
+
+<div class="flex-grow-1"
+     cdkDropListGroup>
+  <das-dashboard-widget-list></das-dashboard-widget-list>
+
+
+  <gridster #gridsterComponent
+            cdkDropList (cdkDropListDropped)="dropped($event)"
+            [options]="gridsterOptions" class="p-0 gridster">
+    <gridster-item class="gridster-item rounded d-flex flex-column"
+                   *ngFor="let widgetOption of dashboardCoreService.widgetOptions;"
+                   [item]="widgetOption">
+      <ng-container dasWidgetDynamicLoader [widgetOption]="widgetOption"></ng-container>
+
+    </gridster-item>
+
+  </gridster>
+</div>
+
+
+<p-confirmDialog [style]="{width: '30rem'}"></p-confirmDialog>

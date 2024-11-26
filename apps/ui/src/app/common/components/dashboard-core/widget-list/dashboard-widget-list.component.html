@@ -1,0 +1,29 @@
+<p-dialog [(visible)]="dashboardService.isSettingVisible"
+          [resizable]="true"
+          [draggable]="true"
+          header="Widgets"
+          [modal]="false"
+          position="right"
+          contentStyleClass="m-0 p-2"
+          [style]="{height:'30rem', width: '15rem'}"
+          class="d-flex flex-column">
+  <ng-scrollbar class="flex-grow-1 ">
+    <div class="h-25"
+         cdkDropList
+         [cdkDropListSortingDisabled]="true">
+      <div class="card m-2 p-2 fs-6 widget-item"
+           cdkDrag
+           [cdkDragData]="widgetMap"
+           *ngFor="let widgetMap of dashboardService.widgetMap | defaultOrderKeyValue"
+           id="{{widgetMap.value.name | camelCase}}">
+        {{widgetMap.value.name}}
+      </div>
+
+    </div>
+  </ng-scrollbar>
+
+
+</p-dialog>
+
+
+

@@ -1,5 +1,5 @@
 # Dashboard Starter
-**A dashboard starter pack build with Angular**\
+**A starter pack for building dashboards with Angular**\
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=j1032w_dashboard-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=j1032w_dashboard-starter)\
@@ -8,111 +8,95 @@
 <a href="https://github.com/j1032w/dashboard-starter" target="_blank"><img src="https://visitor-badge.laobi.icu/badge?page_id=j1032w/dashboard-starter"></a>
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)
 
-#### Demo: https://www.j1032.com/dashboard
-
-#### The backend WebAPI repository is available at: https://github.com/j1032w/dashboard-starter-data
-#### The ReactJS edition can be found at https://github.com/j1032w/react-dashboard-starter
-
+#### Live Demo: https://www.j1032.com/dashboard
+#### Also available: [ReactJS Edition](https://github.com/j1032w/react-dashboard-starter)
 
 
 
 [![Demo](documentation/dashboard-cypress.gif)](https://www.j1032.com/dashboard)
 [![](https://j1032.com/assets/images/demo.gif)](https://www.j1032.com/dashboard)
 
+[![swagger](documentation/swagger-screenshot.jpg)]()
+
+
+[![graphql](documentation/graphql-screenshot.png)]()
 
 
 
-# What I have got here
-- Built with [Angular 18](https://angular.io), [Typescript 5](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 18](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)
-- - [Containerized application](https://www.docker.com/) hosted on [Google GCP](https://cloud.google.com/)
-- Ahead-of-time ([AOT](https://angular.io/guide/aot-compiler)) compilation, Standalone components and Lazy loading, HTTP request throttling and caching, 
-- Responsive liquid layout, SVG Icons
-- Unit testing with [Jest](https://jestjs.io/) and E2E automation testing with [Cypress](https://www.cypress.io/)
-- Source code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)
-- [Eslint](https://eslint.org/) and [Prettier](https://prettier.io/) integration
-- [Gitlab CI/CD](https://gitlab.com/j1032w/dashboard-starter/-/pipelines) pipeline
+# Features
+- **Technologies**:\
+  Built with [Angular 18](https://angular.io), [Nest.js 9](https://nestjs.com/), [Nx 20](https://nx.dev/), [RxJS 7](https://rxjs.dev/), [Angular Material CDK 18](https://material.angular.io/cdk/categories) and [Bootstrap 5](https://getbootstrap.com/)  
 
-
-# Roadmap: 
-* [ ] Update to Nx workspace and monorepo architecture
-* [ ] Turn dashboard module to standalone npm package
-* [ ] Increase unit tests coverage
-* [ ] Add more e2e automation tests
-
-
-
-&nbsp;
-
-It's designed to be easy to understand and use. Feel free to customize it to fit your needs.\
-Every donation is appreciated and will go towards the development of this project. Thank you for your support!
-[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)👈🏻👈🏻👈🏻
+- **Modern Development Practices**:\
+  Mono-repo structure with [Nx](https://nx.dev/)\
+  Containerized application hosted on [Google GCP](https://cloud.google.com/)\
+  Angular standalone components and lazy loading\
+  HTTP request throttling and caching\  
+  Liquid layout and SVG icons.
+- **Testing**:\
+  Unit testing with [Jest](https://jestjs.io/)\
+  End-to-end(E2E) automation testing with [Cypress](https://www.cypress.io/)
+- **Code Quality and CI/CD**:\
+  Code scanned with [SonarQube](https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter)\
+  [Gitlab CI/CD pipeline](https://gitlab.com/j1032w/dashboard-starter/-/pipelines)\
+  Integrated [Eslint](https://eslint.org/) and [Prettier](https://prettier.io/)
 
 
 
-# Quick start
-1. Clone repository
+# Roadmap:
+* [ ] Publish the dashboard module as a standalone npm package.
+* [ ] Increase unit test coverage.
+* [ ] Add integration tess for webapi.
+
+
+
+
+# Getting Started
+### Clone repository
 ```
 git clone https://github.com/j1032w/dashboard-starter.git
 ```
-2. Running development server
+
+### Install dependencies
 ```
 yarn install
-yarn start:dev
-```
-3. Navigate to [http://localhost:4200/](http://localhost:4200/)
-<br/>
-<br/>
-
-#### Running unit tests
-```
-yarn test
 ```
 
-#### Running e2e tests
+
+### Start with Docker compose
+
+1. Build and run the development server:
 ```
-yarn cypr
-```
-#### Running eslint
-```
-yarn lint
+docker compose -f docker-compose.dev.yml build
+docker compose -f docker-compose.dev.yml up
 ```
 
-#### Running build
-``` 
-yarn build
-``` 
-
-# Docker
-### Deployment
-1. Running container, fetch image form Google cloud Artifact Registry.
+2. Restore MongoDB database:
 ```
-docker run -d --pull=always -p 4201:80 --name=das-ui  northamerica-northeast2-docker.pkg.dev/j1032-dashboard-starter/docker/das-ui:develop
+mongorestore --uri="mongodb://localhost:27017" --gzip --drop --db das_data database-dump/das_data
 ```
-2. Navigate to http://localhost:4201
+3. Navigate to the following URLs:
+  - **UI**: http://localhost:4200 
+  - **API (Swagger)**: http://localhost:3000/api-docs
+  - Debug port: 9229
 
 
-### Build container with docker compose
-1. Run followed command in project directory.
+
+### Start Locally with Node.js
+Start development server
 ```
-docker compose build
-docker compose up -d
+yarn dev
 ```
-2. Navigate to http://localhost:4201
 
-### Build container with Docker cli
-
+### Testing and Linting
 ```
-docker image build --progress=plain --tag das-ui:develop 
+yarn ui:test
+yarn ui:lint
 
-docker container run -d -p 4201:80 --rm das-ui:develop
-```  
-
-### Run test and lint with docker compose
+yarn web:test
+yarn web:lint
 ```
-docker compose -f docker-compose.test.yml up test --build
 
-docker compose -f docker-compose.test.yml up lint --build
-```
 
 # GitLab CI/CD
 https://gitlab.com/j1032w/dashboard-starter/-/pipelines
@@ -140,6 +124,7 @@ https://sonarcloud.io/project/overview?id=j1032w_dashboard-starter
 
 
 
-
-<a href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12895563/0/906c012a/1/" data-canonical-src="https://c.statcounter.com/12895563/0/906c012a/1/" referrerPolicy="no-referrer-when-downgrade"></a>
-
+# Support
+This project is designed to be simple and customizable.\
+Your contributions and donations are greatly appreciated!\
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=29ZE3URD5V9Q8)👈🏻👈🏻👈🏻

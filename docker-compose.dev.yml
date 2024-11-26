@@ -1,0 +1,105 @@
+version: "3.7"
+services:
+  das_ui:
+    image: das_ui:dev
+    container_name: das_ui_dev
+
+    build:
+      context: .
+      dockerfile: "dev.Dockerfile"
+
+    volumes:
+      - ./apps:/app/apps
+      - ./nx.json:/app/nx.json
+      - ./tsconfig.base.json:/app/tsconfig.base.json
+
+      # nx also build the e2e project, which refers to these files in root
+      - ./eslint.config.js:/app/eslint.config.js
+      - ./jest.config.js:/app/jest.config.js
+      - ./jest.preset.js:/app/jest.preset.js
+
+
+    environment:
+      - NODE_ENV="development"
+
+    command: ["yarn", "ui:dev"]
+
+    networks:
+      - das_network
+
+    ports:
+      - "4200:4200"
+
+
+  das_webapi:
+    image: das_webapi:dev
+    container_name: das_webapi_dev
+
+    restart: always
+
+    build:
+      context: .
+      dockerfile: "dev.Dockerfile"
+
+    volumes:
+        - ./apps:/app/apps
+        - ./nx.json:/app/nx.json
+        - ./tsconfig.base.json:/app/tsconfig.base.json
+        - ./eslint.config.js:/app/eslint.config.js
+        - ./jest.config.js:/app/jest.config.js
+        - ./jest.preset.js:/app/jest.preset.js
+
+
+    environment:
+      - NODE_ENV="development"
+      - APP_PORT=3000
+      - APP_NAME="Dashboard Starter Data"
+      - API_PREFIX=das-api
+      - APP_FALLBACK_LANGUAGE=en
+      - APP_HEADER_LANGUAGE=x-custom-lang
+      - MONGO_URI=mongodb://das_mongodb:27017
+      - MONGO_DB_NAME=das_data
+
+    depends_on:
+      - das_mongodb
+
+    command: ["yarn", "webapi:dev"]
+
+    networks:
+      - das_network
+
+    ports:
+      - "3000:3000"
+      - "9231:9231"
+
+
+
+  das_mongodb:
+    image: "mongo:6.0.5"
+    container_name: das_mongodb
+    restart: always
+    volumes:
+      -  ./mongodb_volume/data/db:/data/db
+      - ./mongodb_volume/init/:/docker-entrypoint-initdb.d/
+
+    networks:
+      - das_network
+
+    ports:
+      - "27017:27017"
+
+
+#volumes:
+#  mongodb_volume:
+#    driver: local
+#    driver_opts:
+#        device: ./mongodb_volume
+#        o: bind
+#        type: none
+
+
+
+networks:
+  das_network:
+    name: das_network
+    driver: bridge

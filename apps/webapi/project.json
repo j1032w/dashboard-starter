@@ -1,0 +1,82 @@
+{
+  "name": "webapi",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/webapi/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "webapi:build",
+        "runBuildTargetDependencies": false,
+        "inspect": true,
+        "port": 9229,
+        "host": "0.0.0.0"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "webapi:build:development"
+        },
+        "production": {
+          "buildTarget": "webapi:build:production"
+        }
+      }
+    },
+
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "compiler": "tsc",
+        "outputPath": "dist/apps/webapi",
+        "main": "apps/webapi/src/main.ts",
+        "tsConfig": "apps/webapi/tsconfig.json",
+        "assets": ["apps/webapi/src/assets"],
+        "target": "node",
+        "sourceMap": true,
+        "webpackConfig": "apps/webapi/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "optimization": true,
+          "sourceMap": true
+        },
+        "production": {
+          "optimization": true,
+          "sourceMap": true
+        }
+      }
+    },
+
+
+    "nodemon": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cross-env NODE_ENV=development nodemon --config apps/webapi/nodemon.json"
+      }
+    },
+
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cross-env NODE_ENV=development ts-node-dev --project apps/webapi/tsconfig.json --respawn --watch 'apps/webapi/src' --ignore-watch [**/*.spec.ts] --inspect=0.0.0.0:9229 --debounce 2000 -- apps/webapi/src/main.ts"
+      }
+    },
+
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/webapi/jest.config.ts"
+      }
+    }
+  }
+
+}

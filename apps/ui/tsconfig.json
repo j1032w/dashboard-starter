@@ -1,0 +1,56 @@
+{
+  "extends": "../../tsconfig.base.json",
+
+  "compileOnSave": false,
+  "exclude": [
+    "cypress.config.ts",
+    "cypress",
+  ],
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": "./",
+    "outDir": "./out-tsc/app",
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "strictPropertyInitialization": false,
+    "target": "ES2022",
+    "types": ["node", "jest"],
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "paths": {
+      "jszip": [
+        "node_modules/jszip/dist/jszip.min.js"
+      ],
+      "exceljs": [
+        "node_modules/exceljs/dist/exceljs.min"
+      ]
+    },
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableIvy": false,
+    "fullTemplateTypeCheck": true,
+    "compilationMode": "full",
+    "annotateForClosureCompiler": true,
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

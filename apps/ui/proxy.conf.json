@@ -1,0 +1,11 @@
+{
+  "/api/das-webapi": {
+    "target": "http://192.168.11.101:3000",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/das-webapi": "/das-api"
+    }
+  }
+
+}
+

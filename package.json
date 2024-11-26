@@ -1,53 +1,95 @@
 {
-  "name": "dashboard-starter",
+  "name": "@dashboard-starter-nx/source",
   "version": "0.0.1",
+  "homepage": "https://www.j1032.com",
   "license": "MIT",
-  "author": "J1032",
   "scripts": {
-    "ng": "node  --max_old_space_size=16384 ./node_modules/@angular/cli/bin/ng",
-    "start": "ng serve",
-    "watch": "ng build --watch --configuration development",
-    "test": "jest",
-    "start:dev": "ng serve --configuration development --host 0.0.0.0",
-    "start:dev-4201": "ng start:dev --port 4201",
-    "start:prod": "ng serve --configuration production --host 0.0.0.0",
-    "start:hmr": "ng serve --configuration hmr --host 0.0.0.0",
-    "build": "ng build",
-    "build:prod": "ng build --aot --configuration production",
-    "build:analyze": "ng build --configuration production --stats-json && ng analyze",
-    "analyze": "webpack-bundle-analyzer ./dist/analyze-result.json",
-    "clean": "rimraf dist node_modules .angular/cache .sonar && yarn cache clean && jest --clearCache",
-    "cypr": "cross-env CYPRESS_REMOTE_DEBUGGING_PORT=9299 cypress open",
-    "lint": "ng lint",
-    "docker:test": "docker compose -f docker-compose.test.yml up test --build",
-    "docker:lint": "docker compose -f docker-compose.test.yml up lint --build"
+    "nx-reset": "nx reset",
+
+
+
+    "test": "nx run-many --target=test --all",
+    "lint": "nx run-many --target=lint --all",
+    "format": "nx run-many --target=format --all",
+
+    "test:docker": "docker compose -f ./docker-compose.test.yml up das_test --build --remove-orphans ",
+    "lint:docker": "docker compose -f ./docker-compose.test.yml up das_lint --build --remove-orphans ",
+
+    "build": "nx run-many --target=build --all",
+    "prod": "nx run-many --target=serve --all --output-style=stream",
+    "dev": "nx run-many --target=dev --all --output-style=stream",
+
+    "ui:dev": "nx run ui:serve:development",
+    "ui:build": "nx run ui:build:development",
+    "ui:build:prod": "nx run ui:build:production",
+    "ui:lint": "nx run ui:lint",
+    "ui:test": "nx run ui:test",
+
+
+    "webapi:dev": "nx run webapi:dev",
+    "webapi:build": "nx run webapi:build:development",
+    "webapi:build:prod": "nx run webapi:build:production",
+    "webapi:lint": "nx run webapi:lint",
+    "webapi:test": "nx run webapi:test"
+
+
 
   },
+  "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",
+
     "@angular/cdk": "^18.2.0",
     "@angular/common": "^18.2.0",
+
     "@angular/compiler": "^18.2.0",
+
     "@angular/core": "^18.2.0",
+
     "@angular/forms": "^18.2.0",
+
     "@angular/localize": "^18.2.0",
     "@angular/material": "^18.2.0",
     "@angular/platform-browser": "^18.2.0",
+
     "@angular/platform-browser-dynamic": "^18.2.0",
+
     "@angular/router": "^18.2.0",
+
+    "@apollo/server": "^4.9.4",
+    "@nestjs/apollo": "^12.2.1",
+    "@nestjs/common": "^9.4.3",
+    "@nestjs/config": "^3.3.0",
+    "@nestjs/core": "^9.4.3",
+    "@nestjs/graphql": "^12.2.1",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/passport": "^10.0.3",
+    "@nestjs/platform-express": "^9.4.3",
+    "@nestjs/platform-socket.io": "^9.4.3",
+    "@nestjs/swagger": "8.0.1",
+    "@nestjs/websockets": "^9.4.3",
     "@popperjs/core": "^2.11.8",
+    "@types/multer-s3": "^3.0.0",
     "ag-grid-angular": "^32.2.2",
     "ag-grid-community": "^32.2.2",
     "angular-feather": "^6.5.0",
     "angular-gridster2": "^18.0.1",
     "angular-resize-event-package": "^3.5.0",
+    "axios": "^1.6.0",
+    "bcryptjs": "2.4.3",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.5",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.14.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "graphql": "^16.8.1",
+    "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.41",
+    "mongodb": "^4.17.2",
+    "nest-mongodb": "^6.4.0",
     "ng-animate": "^2.0.1",
     "ng2-charts": "^6.0.1",
     "ngx-angular-query-builder": "^18.0.0",
@@ -58,66 +100,142 @@
     "normalize.css": "^8.0.1",
     "primeicons": "^7.0.0",
     "primeng": "^17.18.11",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "socket.io": "^4.8.0",
     "socket.io-client": "^4.8.0",
     "socket.io-parser": "^3.3.4",
-    "tslib": "^2.5.0",
-    "zone.js": "^0.14.10",
-    "web-animations-js": "^2.3.2"
+    "source-map-support": "0.5.21",
+    "swagger-ui-express": "^5.0.1",
+    "tslib": "^2.8.1",
+    "web-animations-js": "^2.3.2",
+    "winston": "^3.17.0",
+    "nest-winston": "^1.9.7",
+    "zone.js": "^0.14.10"
+
+
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.0",
+
     "@angular-devkit/core": "^18.2.0",
+
     "@angular-devkit/schematics": "^18.2.0",
+
     "@angular-eslint/eslint-plugin": "^18.2.0",
     "@angular/cli": "^18.2.0",
+
     "@angular/compiler-cli": "^18.2.0",
+
+    "@angular/language-service": "~18.2.0",
+    "@eslint/js": "^9.15.0",
     "@happy-dom/jest-environment": "^15.7.4",
+    "@nestjs/cli": "^9.5.0",
+    "@nestjs/schematics": "^9.2.0",
+    "@nestjs/testing": "^9.4.3",
+    "@nx/angular": "20.1.3",
+    "@nx/cypress": "20.1.3",
+    "@nx/esbuild": "20.1.3",
+    "@nx/eslint": "20.1.3",
+    "@nx/eslint-plugin": "20.1.3",
+    "@nx/jest": "20.1.3",
+    "@nx/js": "20.1.3",
+    "@nx/nest": "20.1.3",
+    "@nx/node": "20.1.3",
+    "@nx/web": "20.1.3",
+    "@nx/webpack": "20.1.3",
+    "@nx/workspace": "20.1.3",
     "@schematics/angular": "^18.2.0",
+
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "@types/bcryptjs": "2.4.6",
     "@types/chart.js": "^2.9.41",
+    "@types/express": "5.0.0",
+    "@types/facebook-js-sdk": "3.3.12",
     "@types/file-saver": "^2.0.5",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "29.4.0",
+
     "@types/jest-when": "^3.5.2",
+    "@types/js-yaml": "^4.0.9",
     "@types/lodash": "^4.14.191",
+    "@types/multer": "1.4.7",
     "@types/node": "^22.7.7",
-    "@typescript-eslint/eslint-plugin": "8.0.0",
-    "@typescript-eslint/parser": "8.0.0",
-    "@typescript-eslint/types": "8.0.0",
-    "@typescript-eslint/utils": "8.0.0",
+
+    "@types/supertest": "2.0.12",
+
+    "@typescript-eslint/parser": "8.15.0",
+    "@typescript-eslint/types": "8.15.0",
+    "@typescript-eslint/utils": "8.15.0",
+
+
     "angular-eslint": "^18.2.0",
     "cross-env": "^7.0.3",
-    "cypress": "^12.10.0",
+    "ts-node-dev": "^2.0.0",
+    "cypress": "^13.13.0",
     "cypress-real-events": "^1.7.6",
-    "eslint": "^9.13.0",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-import": "^2.31.0",
+    "env-cmd": "10.1.0",
+    "esbuild": "^0.19.2",
+
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.0.0",
+
+    "eslint-plugin-cypress": "^3.5.0",
+    "eslint-plugin-import": "2.27.5",
+
     "eslint-plugin-jest": "^28.8.3",
     "eslint-plugin-jsdoc": "^50.4.3",
     "eslint-plugin-no-null": "^1.0.2",
     "eslint-plugin-prefer-arrow": "^1.2.3",
+
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-unicorn": "^56.0.0",
     "happy-dom": "^15.11.6",
+    "husky": "8.0.3",
+    "hygen": "6.2.11",
+    "is-ci": "3.0.1",
+
     "jest": "29.7.0",
     "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "29.7.0",
+
     "jest-environment-node": "29.7.0",
+
     "jest-html-reporters": "^3.1.4",
     "jest-preset-angular": "^14.2.4",
+
     "jest-raw-loader": "^1.0.1",
     "jest-sonar-reporter": "^2.0.0",
     "jest-when": "^3.6.0",
     "lint-staged": "^13.2.0",
+    "node-dev": "^8.0.0",
+    "nodemon": "^3.1.7",
+    "nx": "20.1.3",
+
     "prettier": "^3.3.3",
     "pretty-quick": "^4.0.0",
     "rimraf": "^4.4.1",
     "sonarqube-scanner": "^3.0.1",
-    "ts-jest": "^29.2.5",
-    "ts-node": "^10.9.2",
+    "supertest": "6.3.3",
+    "ts-jest": "29.1.0",
+
+    "ts-loader": "9.4.2",
+    "ts-node": "10.9.1",
+
+    "tsconfig-paths": "4.2.0",
+
     "typescript": "5.4.5",
-    "typescript-eslint": "8.0.0"
+
+    "typescript-eslint": "8.15.0",
+
+    "webpack-cli": "^5.1.4"
   },
+
+  "engines": {
+    "node": ">=20"
+  },
+
   "prettier": {
     "arrowParens": "avoid",
     "endOfLine": "auto",

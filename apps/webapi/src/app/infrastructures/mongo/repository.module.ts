@@ -1,0 +1,1 @@
+import { Module } from '@nestjs/common';import { UtilityModule } from '../utils/utility.module';import { listingRepository } from './repositories';@Module({  imports: [UtilityModule],  providers: [listingRepository],  exports: [listingRepository],})export class RepositoryModule {}

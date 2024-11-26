@@ -1,20 +1,26 @@
 version: '3.8'
 
 services:
-  test:
+  das_test:
+    image: das_test
+    container_name: das_test
     build:
       context: .
-      dockerfile: Dockerfile-test
-    volumes:
-      - .:/app
+      dockerfile: test.Dockerfile
     environment:
-      - NODE_ENV=test
+      - NODE_ENV=development
 
-  lint:
+
+
+  das_lint:
+    image: das_lint
+    container_name: das_lint
     build:
       context: .
-      dockerfile: Dockerfile-lint
-    volumes:
-      - .:/app
+      dockerfile: lint.Dockerfile
     environment:
-      - NODE_ENV=test
+      - NODE_ENV=development
+
+
+
+

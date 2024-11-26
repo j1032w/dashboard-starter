@@ -1,0 +1,50 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type RealEstateListSchema {
+  id: String
+  buildingAmenity: String
+  buildingBathroomTotal: Float
+  buildingBedroom: Float
+  buildingSizeInterior: Float
+  buildingStoriesTotal: Float
+  buildingType: String
+  distance: String
+  landLandscapeFeature: String
+  landSizeTotal: String
+  listingBoundary: String
+  mlsNumber: String
+  postalCode: String
+  priceUnformattedValue: Float
+  propertyAmenityNearBy: String
+  propertyOwnershipType: String
+  propertyParkingSpaceTotal: Float
+  propertyParkingType: String
+  propertyType: String
+  provinceName: String
+  remark: String
+  city: String
+  listedTime: DateTime
+  modifiedTime: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  residentialProperties(filter: ListingQuery!): [RealEstateListSchema!]!
+}
+
+input ListingQuery {
+  id: String
+  priceUnformattedValue: Float
+  propertyType: String
+  buildingBathroomTotal: Float
+  buildingBedroom: Float
+  provinceName: String
+  buildingType: String
+  city: String
+}

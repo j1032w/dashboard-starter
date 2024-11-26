@@ -4,7 +4,15 @@ services:
 
 stages:
   - dependencies
+
+  - lint
+    - lint_ui
+    - lint_webapi
+
   - test
+    - unit_test_ui
+    - unit_test_webapi
+
   - build
   - deploy
 
@@ -25,11 +33,11 @@ install_dependencies:
       - node_modules
 
 
-unit_test:
+unit_test_ui:
   image: node:20-alpine
   stage: test
   script:
-    - yarn test
+    - yarn ui:test
   cache:
     key:
       files:
@@ -39,11 +47,38 @@ unit_test:
     policy: pull
 
 
-lint:
+unit_test_webapi:
   image: node:20-alpine
   stage: test
   script:
-    - yarn lint
+    - yarn webapi:test
+  cache:
+    key:
+      files:
+        - yarn.lock
+    paths:
+      - node_modules
+    policy: pull
+
+lint_ui:
+  image: node:20-alpine
+  stage: test
+  script:
+    - yarn ui:lint
+  cache:
+    key:
+      files:
+        - yarn.lock
+    paths:
+      - node_modules
+    policy: pull
+
+
+lint_webapi:
+  image: node:20-alpine
+  stage: test
+  script:
+    - yarn webapi:lint
   cache:
     key:
       files:

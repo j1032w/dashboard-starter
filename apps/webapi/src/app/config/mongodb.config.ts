@@ -1,0 +1,1 @@
+import { registerAs } from '@nestjs/config';export default registerAs('mongodbConfig', () => ({  mongoUri: process.env.MONGO_URI || 'mongodb://das_mongodb:27017',  mongoDbName: process.env.MONGO_DB_NAME || 'das_data',}));

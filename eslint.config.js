@@ -1,47 +1,33 @@
-// @ts-check
-const eslint = require("@eslint/js");
-const tseslint = require("typescript-eslint");
-const angular = require("angular-eslint");
+const nx = require('@nx/eslint-plugin');
 
-module.exports = tseslint.config(
+module.exports = [
+  ...nx.configs['flat/base'],
+  ...nx.configs['flat/typescript'],
+  ...nx.configs['flat/javascript'],
   {
-    files: ["**/*.ts"],
-
-    extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.stylistic,
-      ...angular.configs.tsRecommended,
-    ],
-    processor: angular.processInlineTemplates,
+    ignores: ['**/dist'],
+  },
+  {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     rules: {
-      "@typescript-eslint/no-explicit-any": "off",
-      "@angular-eslint/directive-selector": [
-        "error",
+      '@nx/enforce-module-boundaries': [
+        'error',
         {
-          type: "attribute",
-          prefix: "das",
-          style: "camelCase",
+          enforceBuildableLibDependency: true,
+          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
+          depConstraints: [
+            {
+              sourceTag: '*',
+              onlyDependOnLibsWithTags: ['*'],
+            },
+          ],
         },
       ],
-      "@angular-eslint/component-selector": [
-        "error",
-        {
-          type: "element",
-          prefix: "das",
-          style: "kebab-case",
-        },
-      ],
-
-      "@typescript-eslint/consistent-type-definitions": ["error", "type"]
     },
   },
   {
-    files: ["**/*.html"],
-    extends: [
-      ...angular.configs.templateRecommended,
-      ...angular.configs.templateAccessibility,
-    ],
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    // Override or add rules here
     rules: {},
-  }
-);
+  },
+];

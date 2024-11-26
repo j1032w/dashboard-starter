@@ -1,26 +1,71 @@
-version: '3.7'
-
+version: "3.7"
 services:
   das_ui:
     container_name: das_ui
-    image: ${DAS_UI_IMAGE:-das-ui}:${TAG:-develop}
+    image: ${DAS_UI_IMAGE:-das_ui}:${TAG:-develop}
 
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: "apps/ui/Dockerfile"
 
+    environment:
+      - NODE_ENV="production"
 
     networks:
-        - das_network
+      - das_network
 
     ports:
-      - "4201:80"
+      - "80:80"
 
-volumes:
-  nginx_config:
-  nginx_html:
-  mongodb_data:
-  mongodb_config:
+
+  das_webapi:
+    container_name: das_webapi
+    image: ${DAS_WEBAPI_IMAGE:-das_webapi}:${TAG:-develop}
+    restart: always
+
+    build:
+      context: .
+      dockerfile: "apps/webapi/Dockerfile"
+
+
+    environment:
+      - NODE_ENV="production"
+      - APP_PORT=3000
+      - APP_NAME="Dashboard Starter Data"
+      - API_PREFIX=das-api
+      - APP_FALLBACK_LANGUAGE=en
+      - APP_HEADER_LANGUAGE=x-custom-lang
+      - MONGO_URI=mongodb://das_mongodb:27017
+      - MONGO_DB_NAME=das_data
+
+    depends_on:
+      das_mongodb:
+        condition: service_healthy
+
+    networks:
+      - das_network
+
+    ports:
+      - "3000:3000"
+
+
+
+  das_mongodb:
+    image: "mongo:6.0.5"
+    container_name: das_mongodb
+    restart: always
+
+    healthcheck:
+      test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
+      interval: 10s
+      timeout: 300s
+      retries: 5
+
+    networks:
+      - das_network
+
+    ports:
+      - "27017:27017"
 
 
 networks:
