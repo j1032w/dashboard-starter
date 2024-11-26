@@ -4,15 +4,8 @@ services:
 
 stages:
   - dependencies
-
   - lint
-    - lint_ui
-    - lint_webapi
-
-  - test
-    - unit_test_ui
-    - unit_test_webapi
-
+  - test    
   - build
   - deploy
 
@@ -33,7 +26,7 @@ install_dependencies:
       - node_modules
 
 
-unit_test_ui:
+ui_test:
   image: node:20-alpine
   stage: test
   script:
@@ -47,7 +40,7 @@ unit_test_ui:
     policy: pull
 
 
-unit_test_webapi:
+webapi_test:
   image: node:20-alpine
   stage: test
   script:
@@ -60,9 +53,9 @@ unit_test_webapi:
       - node_modules
     policy: pull
 
-lint_ui:
+ui_lint:
   image: node:20-alpine
-  stage: test
+  stage: lint
   script:
     - yarn ui:lint
   cache:
@@ -74,9 +67,9 @@ lint_ui:
     policy: pull
 
 
-lint_webapi:
+webapi_lint:
   image: node:20-alpine
-  stage: test
+  stage: lint
   script:
     - yarn webapi:lint
   cache:
