@@ -14,6 +14,7 @@
 
 
 [![Demo](documentation/dashboard-cypress.gif)](https://www.j1032.com/dashboard)
+
 [![](https://j1032.com/assets/images/demo.gif)](https://www.j1032.com/dashboard)
 
 [![swagger](documentation/swagger-screenshot.jpg)]()
@@ -29,9 +30,9 @@
 
 - **Modern Development Practices**:\
   Mono-repo structure with [Nx](https://nx.dev/)\
-  Containerized application hosted on [Google GCP](https://cloud.google.com/)\
+  Containerized application stored on [Amazon ECR](https://gallery.ecr.aws/x0r2c3f9/das)\
   Angular standalone components and lazy loading\
-  HTTP request throttling and caching\  
+  HTTP request throttling and caching\
   Liquid layout and SVG icons.
 - **Testing**:\
   Unit testing with [Jest](https://jestjs.io/)\
@@ -52,33 +53,38 @@
 
 
 # Getting Started
-### Clone repository
+### Start with Pre-build Docker Image
+The pre-build image may not include the latest changes.
+
+1. Pull and run the production images from [Amazon ECR (https://gallery.ecr.aws/x0r2c3f9/das)](https://gallery.ecr.aws/x0r2c3f9/das)
+```
+docker compose -f docker-compose.prod.yml pull
+docker compose -f docker-compose.prod.yml up
+```
+2. Navigate to the following URLs: http://localhost:80
+
+
+
+### Start with Docker compose
+1. Clone repository and Install dependencies
 ```
 git clone https://github.com/j1032w/dashboard-starter.git
-```
-
-### Install dependencies
-```
 yarn install
 ```
 
 
-### Start with Docker compose
-
-1. Build and run the development server:
+2. Build and run the development server:
 ```
 docker compose -f docker-compose.dev.yml build
 docker compose -f docker-compose.dev.yml up
 ```
 
-2. Restore MongoDB database:
-```
-mongorestore --uri="mongodb://localhost:27017" --gzip --drop --db das_data database-dump/das_data
-```
 3. Navigate to the following URLs:
-  - **UI**: http://localhost:4200 
-  - **API (Swagger)**: http://localhost:3000/api-docs
-  - Debug port: 9229
+- UI: http://localhost:4200
+- API (Swagger): http://localhost:3000/api-docs
+- API (GraphQL Playground): http://localhost:3000/graphql
+- Web API Inspect Port: 9229
+
 
 
 

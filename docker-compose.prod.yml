@@ -2,11 +2,7 @@ version: "3.7"
 services:
   das_ui:
     container_name: das_ui
-    image: ${DAS_UI_IMAGE:-das_ui}:${TAG:-latest}
-
-    build:
-      context: .
-      dockerfile: "apps/ui/Dockerfile"
+    image: public.ecr.aws/x0r2c3f9/das:das_ui-latest
 
     environment:
       - NODE_ENV="production"
@@ -20,18 +16,15 @@ services:
     ports:
       - "80:80"
 
-#    volumes:
-#      - ./apps/ui/nginx/nginx.conf:/etc/nginx/nginx.conf
-#
+  #    volumes:
+  #      - ./apps/ui/nginx/nginx.conf:/etc/nginx/nginx.conf
+  #
+
 
   das_webapi:
     container_name: das_webapi
-    image: ${DAS_WEBAPI_IMAGE:-das_webapi}:${TAG:-latest}
+    image: public.ecr.aws/x0r2c3f9/das:das_webapi-latest
     restart: always
-
-    build:
-      context: .
-      dockerfile: "apps/webapi/Dockerfile"
 
 
     environment:
@@ -57,12 +50,9 @@ services:
 
 
   das_mongodb:
-    image: ${DAS_MONGODB_IMAGE:-das_mongodb}:${TAG:-latest}
+    image: public.ecr.aws/x0r2c3f9/das:das_mongodb-latest
     container_name: das_mongodb
 
-    build:
-        context: .
-        dockerfile: "das_mongodb/Dockerfile"
 
     command: ["/init-mongo.sh"]
 

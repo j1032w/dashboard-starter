@@ -6,8 +6,6 @@
   "scripts": {
     "nx-reset": "nx reset",
 
-
-
     "test": "nx run-many --target=test --all",
     "lint": "nx run-many --target=lint --all",
     "format": "nx run-many --target=format --all",
@@ -15,19 +13,21 @@
     "test:docker": "docker compose -f ./docker-compose.test.yml up das_test --build --remove-orphans ",
     "lint:docker": "docker compose -f ./docker-compose.test.yml up das_lint --build --remove-orphans ",
 
-    "build": "nx run-many --target=build --all",
-    "prod": "nx run-many --target=serve --all --output-style=stream",
-    "dev": "nx run-many --target=dev --all --output-style=stream",
+    "dev": "nx run-many --target=dev --all --configuration=development --output-style=stream",
+    "build:prod": "nx run-many --target=build --configuration=production --all",
+    "serve:prod": "nx run-many --target=serve --all --configuration=production --output-style=stream",
+
 
     "ui:dev": "nx run ui:serve:development",
-    "ui:build": "nx run ui:build:development",
+    "ui:prod": "nx run ui:serve:production",
+    "ui:build:dev": "nx run ui:build:development",
     "ui:build:prod": "nx run ui:build:production",
     "ui:lint": "nx run ui:lint",
     "ui:test": "nx run ui:test",
 
 
     "webapi:dev": "nx run webapi:dev",
-    "webapi:build": "nx run webapi:build:development",
+    "webapi:build:dev": "nx run webapi:build:development",
     "webapi:build:prod": "nx run webapi:build:production",
     "webapi:lint": "nx run webapi:lint",
     "webapi:test": "nx run webapi:test"

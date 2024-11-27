@@ -75,18 +75,28 @@ services:
 
 
   das_mongodb:
-    image: "mongo:6.0.5"
-    container_name: das_mongodb
+    image: das_mongodb:dev
+    container_name: das_mongodb_dev
+
+    build:
+      context: .
+      dockerfile: "das_mongodb/Dockerfile"
+
     restart: always
+
     volumes:
-      -  ./mongodb_volume/data/db:/data/db
-      - ./mongodb_volume/init/:/docker-entrypoint-initdb.d/
+      - ./mongodb_volume/data/db:/data/db
+      # - ./mongodb_volume/init/:/docker-entrypoint-initdb.d/
+
+    command: ["/init-mongo.sh"]
 
     networks:
       - das_network
 
     ports:
       - "27017:27017"
+
+
 
 
 #volumes:

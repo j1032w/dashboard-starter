@@ -45,5 +45,7 @@ Thumbs.db
 
 /logs
 /db
-/node.md
+/notes
+/database-dump
+
 .env
