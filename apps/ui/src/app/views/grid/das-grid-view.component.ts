@@ -51,7 +51,7 @@ export class DasGridViewComponent extends DasBaseComponent {
     }
 
     this.gridViewService
-      .fetchHousingMarketData$(this.mongoFilter)
+      .fetchHousingMarketData$(this.mongoFilter.filter)
       .pipe(takeUntil(this.destroyed$))
       .subscribe(data => {
         this.dataSource = data;

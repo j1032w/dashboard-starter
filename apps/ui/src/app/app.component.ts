@@ -10,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet]
 })
 export class AppComponent {
-  constructor(private titleService: Title) {
+  constructor(readonly titleService: Title) {
     titleService.setTitle('Dashboard Starter');
   }
 }

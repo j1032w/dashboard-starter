@@ -37,7 +37,7 @@ export class UiVirtualScrollComponent implements OnInit {
   amount = 10000;
   items: number[] = [];
 
-  constructor(private messageService: DasToastService) {
+  constructor(private readonly messageService: DasToastService) {
   }
 
   ngOnInit() {

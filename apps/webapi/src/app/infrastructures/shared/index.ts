@@ -1,1 +1,1 @@
-export * from './listing-query';
+export * from './real-estate-listing-query';

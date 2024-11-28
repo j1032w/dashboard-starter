@@ -1,6 +1,6 @@
 {
   "/api/das-webapi": {
-    "target": "http://localhost:3000",
+    "target": "http://das_webapi:3000",
     "secure": false,
     "pathRewrite": {
       "^/api/das-webapi": "/das-api"

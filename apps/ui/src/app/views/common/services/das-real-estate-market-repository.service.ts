@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { DasHttpClient } from '../../../common/services/das-http-client';
 
 @Injectable({ providedIn: 'root' })
-export class DasHousingMarketRepository {
+export class DasRealEstateMarketRepository {
   constructor(private readonly dasHttpClient: DasHttpClient) {}
 
   query$(mongoFilter: any, spinnerId: string): any {

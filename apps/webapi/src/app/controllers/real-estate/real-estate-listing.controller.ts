@@ -15,11 +15,12 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import {ListingService} from '../../core/applications/real-estate';
+import {Filter} from 'mongodb';
+import {RealEstateListingService} from '../../core/applications/real-estate';
 import {Listing} from '../../core/domains';
 
 
-import { ListingQuery } from '../../infrastructures/shared';
+import { RealEstateListingQuery } from '../../infrastructures/shared';
 
 
 @ApiTags('Real Estate Listings')
@@ -27,9 +28,9 @@ import { ListingQuery } from '../../infrastructures/shared';
   path: 'real-estate-listings',
   version: '1',
 })
-export class ListingController {
+export class RealEstateListingController {
   constructor(
-    private listingService: ListingService,
+    private listingService: RealEstateListingService,
   ) {}
 
 
@@ -76,13 +77,15 @@ export class ListingController {
     );
   }
 
+
+
   @ApiOperation({
     operationId: 'real_estate_list_find',
     description: `Find listings by mongodb query`,
   })
   @ApiBody({
     description: '',
-    type: ListingQuery,
+    type: RealEstateListingQuery,
     examples: {
       mongodbQuery: {
         value: {
@@ -97,7 +100,7 @@ export class ListingController {
   @ApiResponse({ status: 400, description: 'Bad request' })
   @HttpCode(200)
   @Post('find')
-  async find(@Body() query: ListingQuery) {
+  async find(@Body() query: Filter<RealEstateListingQuery>) {
     return await this.listingService.findAsync(query);
   }
 

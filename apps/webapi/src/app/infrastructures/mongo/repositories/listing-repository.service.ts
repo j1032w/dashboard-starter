@@ -6,7 +6,7 @@ import { UtilityService } from '../../utils';
 import { MongoRepositoryGeneric } from './mongo-repository.generic';
 
 @Injectable()
-export class listingRepository extends MongoRepositoryGeneric<Listing> {
+export class RealEstateListingRepository extends MongoRepositoryGeneric<Listing> {
   constructor(@InjectDb() db: Db, utilityService: UtilityService) {
     super(db, 'real_estate.listings', utilityService);
   }

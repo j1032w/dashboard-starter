@@ -19,7 +19,7 @@ export class DasSpinnerComponent extends DasBaseComponent implements OnInit {
 
   isLoading = false;
 
-  constructor(private httpStateService: DasHttpStateService) {
+  constructor(private readonly httpStateService: DasHttpStateService) {
     super();
   }
 

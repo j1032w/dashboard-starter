@@ -31,30 +31,7 @@ export class DvHousingMarketWidgetPieComponent extends DasWidgetContentBaseCompo
   @ViewChild('pieChart') pieChartComponent: BaseChartDirective | undefined;
 
   @Input() pieChartData: ChartData<'pie', number[], string>;
-
-
-
-
-
   public pieChartType: ChartType = 'pie';
-
-  public pieChartOptions1: ChartConfiguration['options'] = {
-    plugins: {
-      legend: {
-        display: true,
-        position: 'top',
-      },
-      datalabels: {
-        formatter: (value, ctx) => {
-          if (ctx.chart.data.labels) {
-            return ctx.chart.data.labels[ctx.dataIndex];
-          }
-          return '';
-        },
-      },
-    },
-  };
-
   public pieChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     plugins: {

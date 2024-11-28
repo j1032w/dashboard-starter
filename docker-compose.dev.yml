@@ -9,14 +9,22 @@ services:
       dockerfile: "dev.Dockerfile"
 
     volumes:
-      - ./apps:/app/apps
       - ./nx.json:/app/nx.json
       - ./tsconfig.base.json:/app/tsconfig.base.json
-
       # nx also build the e2e project, which refers to these files in root
       - ./eslint.config.js:/app/eslint.config.js
       - ./jest.config.js:/app/jest.config.js
       - ./jest.preset.js:/app/jest.preset.js
+
+      - ./apps/ui/src:/app/apps/ui/src
+      - ./apps/ui/public:/app/apps/ui/public
+      - ./apps/ui/eslint.config.js:/app/apps/ui/eslint.config.js
+      - ./apps/ui/jest.config.js:/app/apps/ui/jest.config.js
+      - ./apps/ui/project.json:/app/apps/ui/project.json
+      - ./apps/ui/tsconfig.json:/app/apps/ui/tsconfig.json
+      - ./apps/ui/tsconfig.app.json:/app/apps/ui/tsconfig.app.json
+      - ./apps/ui/tsconfig.spec.json:/app/apps/ui/tsconfig.spec.json
+      - ./apps/ui/proxy.conf-in-docker.json:/app/apps/ui/proxy.conf.json
 
 
     environment:
@@ -70,7 +78,7 @@ services:
 
     ports:
       - "3000:3000"
-      - "9231:9231"
+      - "9229:9229"
 
 
 

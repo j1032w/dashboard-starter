@@ -12,12 +12,12 @@ import { DasToastService } from '../../../common/services/das-toast.service';
 import { DvHousingMarketWidgetGridComponent } from './housing-market-widget-grid/dv-housing-market-widget-grid.component';
 import { DvHousingMarketWidgetPieComponent } from './housing-market-widget-pie/dv-housing-market-widget-pie.component';
 import { DvHousingMarketWidgetSettingComponent } from './housing-market-widget-setting/dv-housing-market-widget-setting.component';
-import { BuildingTypePercentage, DvHousingMarketService, HOUSE_MARKET_WIDGET_SPINNER_ID } from './services/dv-housing-market.service';
+import { BuildingTypePercentage, DvRealEstateMarketService, HOUSE_MARKET_WIDGET_SPINNER_ID } from './services/dv-real-estate-market.service';
 
 @Component({
-  selector: 'das-dv-housing-market-widget',
-  templateUrl: './dv-housing-market-widget.component.html',
-  styleUrls: ['./dv-housing-market-widget.component.scss'],
+  selector: 'das-dv-real-estate-market-widget',
+  templateUrl: './dv-real-estate-market-widget.component.html',
+  styleUrls: ['./dv-real-estate-market-widget.component.scss'],
   standalone: true,
   imports: [
     DasWidgetCoreComponent,
@@ -28,7 +28,7 @@ import { BuildingTypePercentage, DvHousingMarketService, HOUSE_MARKET_WIDGET_SPI
     DasCommonComponentModule,
   ],
 })
-export class DvHousingMarketWidgetComponent extends DasWidgetBaseComponent implements OnInit {
+export class DvRealEstateMarketWidgetComponent extends DasWidgetBaseComponent implements OnInit {
   @ViewChild('pieComponent', { static: true }) pieComponent: DvHousingMarketWidgetPieComponent;
   @ViewChild('frontTemplate') widgetFrontComponent: ElementRef;
   @ViewChild('backTemplate') widgetBackComponent: ElementRef;
@@ -38,50 +38,53 @@ export class DvHousingMarketWidgetComponent extends DasWidgetBaseComponent imple
 
   dataSource: BuildingTypePercentage[] = [];
 
-  private readonly pieChartLabels = ['Unknown'];
-
-  public pieChartData: ChartData<'pie', number[], string> = {
-    labels: this.pieChartLabels,
-    datasets: [{ data: [1] }],
-  };
+  public pieChartData: ChartData<'pie', number[], string>;
 
   constructor(
     protected override readonly dashboardCoreService: DasDashboardCoreEventService,
     protected override readonly toastService: DasToastService,
-    protected readonly housingMarketService: DvHousingMarketService,
+    protected readonly housingMarketService: DvRealEstateMarketService,
   ) {
     super(dashboardCoreService, toastService);
   }
 
   override ngOnInit() {
     super.ngOnInit();
-
-    this.housingMarketService
-      .getHomeTypePercentages$(this.widgetOption.settingData.mongoQuery)
-      .pipe(takeUntil(this.destroyed$))
-      .subscribe((response) => {
-        if (!isArray(response) || response.length === 0) {
-          return;
-        }
-
-        this.pieChartData = {
-          labels: response.map((data: { buildingType: any }) => data.buildingType),
-
-          datasets: [
-            {
-              data: response.map((data: { total: any }) => data.total),
-            },
-          ],
-        };
-      });
+    this.initializeData();
+    this.refresh();
   }
 
   protected override readonly refresh = () => {
     this.housingMarketService
-      .getHomeTypePercentages$({ filter: this.widgetOption.settingData.mongoQuery?this.widgetOption.settingData.mongoQuery:{} })
+      .getHomeTypePercentages$( this.widgetOption.settingData.mongoQuery ? this.widgetOption.settingData.mongoQuery : {} )
       .pipe(takeUntil(this.destroyed$))
       .subscribe((data) => {
+        if (!isArray(data) || data.length === 0) {
+          this.initializeData();
+
+          return;
+        }
+
+        this.pieChartData = {
+          labels: data.map((data: { buildingType: any }) => data.buildingType),
+
+          datasets: [
+            {
+              data: data.map((data: { total: any }) => data.total),
+            },
+          ],
+        };
+
         this.dataSource = data;
       });
   };
+
+  private initializeData() {
+    this.pieChartData = {
+      labels:  ['Unknown'],
+      datasets: [{ data: [1] }],
+    };
+
+    this.dataSource = [];
+  }
 }

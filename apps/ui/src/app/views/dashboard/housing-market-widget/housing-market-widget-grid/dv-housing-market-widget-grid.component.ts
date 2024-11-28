@@ -5,7 +5,7 @@ import {AgGridCellDataTypeEnum} from '../../../../common/components/das-grid/ser
 
 import { DasDashboardCoreEventService } from '../../../../common/components/dashboard-core/services/das-dashboard-core-event.service';
 import { DasWidgetContentBaseComponent } from '../../../../common/components/dashboard-core/services/das-widget-content-base.component';
-import { BuildingTypePercentage } from '../services/dv-housing-market.service';
+import { BuildingTypePercentage } from '../services/dv-real-estate-market.service';
 
 @Component({
     selector: 'das-dv-housing-market-widget-grid',

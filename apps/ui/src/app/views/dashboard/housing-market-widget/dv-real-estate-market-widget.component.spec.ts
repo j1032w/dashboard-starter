@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DasWidgetOption } from '../../../common/components/dashboard-core/services/das-widget-option';
 import { CommonTestConfig } from '../../../common/test-services/common-test-config';
-import { DvHousingMarketWidgetComponent } from './dv-housing-market-widget.component';
+import { DvRealEstateMarketWidgetComponent } from './dv-real-estate-market-widget.component';
 
 describe('DvHousingMarketWidgetComponent', () => {
-  let component: DvHousingMarketWidgetComponent;
-  let fixture: ComponentFixture<DvHousingMarketWidgetComponent>;
+  let component: DvRealEstateMarketWidgetComponent;
+  let fixture: ComponentFixture<DvRealEstateMarketWidgetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,7 +14,7 @@ describe('DvHousingMarketWidgetComponent', () => {
       providers: [...CommonTestConfig.providers],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DvHousingMarketWidgetComponent);
+    fixture = TestBed.createComponent(DvRealEstateMarketWidgetComponent);
     component = fixture.componentInstance;
     component.widgetOption = new DasWidgetOption();
     fixture.detectChanges();

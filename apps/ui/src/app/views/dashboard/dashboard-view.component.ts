@@ -8,7 +8,7 @@ import { DvDemoAWidgetComponent } from './demo-widget-a/dv-demo-a-widget.compone
 import { DvDemoBWidgetComponent } from './demo-widget-b/dv-demo-b-widget.component';
 import { DvDemoCWidgetComponent } from './demo-widget-c/dv-demo-c-widget.component';
 import { DvDemoDWidgetComponent } from './demo-widget-d/dv-demo-d-widget.component';
-import { DvHousingMarketWidgetComponent } from './housing-market-widget/dv-housing-market-widget.component';
+import { DvRealEstateMarketWidgetComponent } from './housing-market-widget/dv-real-estate-market-widget.component';
 import { DvLocWidgetComponent } from './line-of-code-widget/dv-loc-widget.component';
 import { DEFAULT_WIDGET_OPTIONS } from './services/dashboard-view.contant';
 import { DvSp500WidgetComponent } from './sp500-widget/dv-sp500-widget.component';
@@ -29,7 +29,7 @@ export class DashboardViewComponent extends DasBaseComponent {
 
     dasDashboardService.widgetMap.set('DvHousingMarketWidgetComponent', {
       name: 'Housing Market',
-      type: DvHousingMarketWidgetComponent,
+      type: DvRealEstateMarketWidgetComponent,
       cols: 5,
       rows: 8
     });

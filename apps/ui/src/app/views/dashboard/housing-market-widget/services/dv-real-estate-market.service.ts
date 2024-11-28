@@ -3,19 +3,20 @@ import { map, Observable, takeUntil } from 'rxjs';
 
 import { DasServiceBaes } from '../../../../common/services/das-service-baes';
 import { MongoQuery } from '../../../../common/services/mongo-query';
-import { DasHousingMarketRepository } from '../../../common/services/das-housing-market-repository.service';
+import {DasRealEstateMarketRepository} from '../../../common/services/das-real-estate-market-repository.service';
+
 import { BuildingTypeEnum } from './building-type.enum';
 
 export const HOUSE_MARKET_WIDGET_SPINNER_ID = 'house-market-widget-spinner-id';
 
 @Injectable({ providedIn: 'root' })
-export class DvHousingMarketService extends DasServiceBaes {
-  constructor(private readonly housingMarketRepository: DasHousingMarketRepository) {
+export class DvRealEstateMarketService extends DasServiceBaes {
+  constructor(private readonly realEstateMarketRepository: DasRealEstateMarketRepository) {
     super();
   }
 
   readonly getHomeTypePercentages$ = (query: MongoQuery): Observable<any> => {
-    return this.housingMarketRepository.query$(query, HOUSE_MARKET_WIDGET_SPINNER_ID).pipe(
+    return this.realEstateMarketRepository.query$(query, HOUSE_MARKET_WIDGET_SPINNER_ID).pipe(
       takeUntil(this.destroyed$),
       map((data: any[]) => {
         const apartmentPercentage: BuildingTypePercentage = {
