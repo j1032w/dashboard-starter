@@ -5,7 +5,7 @@ WORKDIR /das-ui
 # Only add basic files without the source code to avoid rebuilding
 COPY package.json ./
 COPY .yarn .yarn
-RUN yarn install --legacy-peer-deps
+RUN yarn install --legacy-peer-deps --ignore-scripts
 
 
 # Copy the Nx workspace

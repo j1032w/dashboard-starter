@@ -1,10 +1,10 @@
 FROM node:20-alpine3.16
 
 RUN apk add --no-cache bash
-RUN npm i -g @nestjs/cli typescript ts-node
+RUN npm i -g @nestjs/cli typescript ts-node --ignore-scripts
 
 COPY package*.json /tmp/app/
-RUN cd /tmp/app && npm install
+RUN cd /tmp/app && npm install --ignore-scripts
 
 COPY . /usr/src/app
 RUN cp -a /tmp/app/node_modules /usr/src/app

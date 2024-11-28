@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY ["package.json", "yarn.lock", ".yarn", "./"]
 
-RUN yarn install
+RUN yarn install --ignore-scripts
 
 
 COPY /apps ./

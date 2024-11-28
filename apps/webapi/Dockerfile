@@ -1,7 +1,7 @@
 FROM node:20-alpine3.20 as builder
 
 RUN apk add --no-cache bash
-RUN npm i -g @nestjs/cli typescript ts-node
+
 
 
 WORKDIR /das-api
@@ -9,7 +9,7 @@ WORKDIR /das-api
 # Only add basic files without the source code to avoid rebuilding
 COPY package.json package.json
 COPY .yarn .yarn
-RUN yarn install --legacy-peer-deps
+RUN yarn install --legacy-peer-deps --ignore-scripts
 
 
 # Copy the Nx workspace
