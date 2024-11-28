@@ -16,7 +16,6 @@ COPY ./tsconfig.base.json tsconfig.base.json
 COPY apps/ui/src ./apps/ui/src
 COPY apps/ui/tsconfig.json ./apps/ui/tsconfig.json
 COPY apps/ui/tsconfig.app.json ./apps/ui/tsconfig.app.json
-COPY apps/ui/angular.json ./apps/ui/angular.json
 COPY apps/ui/project.json ./apps/ui/project.json
 COPY apps/ui/nginx/nginx.conf ./apps/ui/nginx/nginx.conf
 
@@ -35,8 +34,8 @@ FROM nginx:1.21-alpine
 #    adduser -D -u 1001 -G nginx -h /var/cache/nginx -s /sbin/nologin nginx
 
 # Change the ownership of the directories that Nginx needs to write to
-RUN chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx
-RUN chmod g+wr /var/cache/nginx /var/run /var/log/nginx
+RUN chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx /etc/nginx
+RUN chmod g+wr /var/cache/nginx /var/run /var/log/nginx /etc/nginx
 
 
 

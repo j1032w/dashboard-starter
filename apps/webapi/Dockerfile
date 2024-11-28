@@ -44,8 +44,11 @@ COPY package.json /app/dist/apps/webapi
 FROM node:20-slim
 COPY --chown=node:node --from=builder /das-api/dist/apps /das-api/apps
 
-# Change permissions to ensure no write access
-RUN chmod -R a-w /das-api/apps
+# nest.js needs to modify schema.gql
+# not a good soultion, need to move schema.gql to a temp folder
+RUN chmod -R u+w /das-api/apps
+
+
 
 WORKDIR /das-api/apps/webapi
 EXPOSE ${PORT:-3000}
