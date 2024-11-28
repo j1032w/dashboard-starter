@@ -99,8 +99,8 @@ yarn dev
 yarn ui:test
 yarn ui:lint
 
-yarn web:test
-yarn web:lint
+yarn webapi:test
+yarn webapi:lint
 ```
 
 
