@@ -7,6 +7,6 @@ export class DasRealEstateMarketRepository {
   constructor(private readonly dasHttpClient: DasHttpClient) {}
 
   query$(mongoFilter: any, spinnerId: string): any {
-    return this.dasHttpClient.post$(`v1/real-estate-listings/find`, mongoFilter, spinnerId);
+    return this.dasHttpClient.post$(`v1/real-estate-listings/findAll`, mongoFilter, spinnerId);
   }
 }
