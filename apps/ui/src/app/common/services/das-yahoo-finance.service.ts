@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 
 @Injectable({ providedIn: 'root' })
 export class DasYahooFinanceService {
-  private socket: any;
+  private readonly socket: any;
 
   constructor() {
     this.socket = io('/api');

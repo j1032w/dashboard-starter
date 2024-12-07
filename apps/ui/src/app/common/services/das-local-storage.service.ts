@@ -7,7 +7,7 @@ import {DasConfig} from '../das-config';
 
 @Injectable({ providedIn: 'root' })
 export class DasLocalStorageService {
-  private storage: any;
+  private readonly storage: any;
 
 
   constructor(private readonly dasConfig: DasConfig) {

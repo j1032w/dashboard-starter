@@ -21,7 +21,7 @@ export class DasAutoSizeComponent extends DasBaseComponent implements OnInit {
 
   isContentHidden = false;
 
-  private resizedSubject$ = new Subject<ResizeResult>();
+  private readonly resizedSubject$ = new Subject<ResizeResult>();
 
   constructor(private readonly elementRef: ElementRef) {
     super();

@@ -16,8 +16,7 @@ import { HomeService } from './home.service';
 })
 export class HomeController {
   constructor(
-    private homeService: HomeService,
-
+    private readonly homeService: HomeService,
     private readonly logger: Logger,
   ) {}
 

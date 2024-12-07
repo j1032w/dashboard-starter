@@ -38,7 +38,7 @@ export class CompFormHorizontalComponent {
 
   constructor(
     formBuilder: FormBuilder,
-    private toastService: DasToastService
+    private readonly toastService: DasToastService
   ) {
     this.registrationForm = formBuilder.group(
       {

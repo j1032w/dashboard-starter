@@ -7,8 +7,8 @@ import sp500AnnualReturns from './mock-data/sp500-annual-returns.json';
 
 @Injectable({ providedIn: 'root' })
 export class DasChartSp500Service extends DasServiceBaes {
-  private chartOptionsSubject: BehaviorSubject<ChartConfiguration['options']>;
-  public chartOptions$: Observable<ChartConfiguration['options']>;
+  private readonly chartOptionsSubject: BehaviorSubject<ChartConfiguration['options']>;
+  public readonly chartOptions$: Observable<ChartConfiguration['options']>;
 
 
   public setTitleVisible(value: boolean): void {
@@ -20,7 +20,6 @@ export class DasChartSp500Service extends DasServiceBaes {
 
   set isTitleVisible(value: boolean) {
     this._isTitleVisible = value;
-    //this.optionData.plugins.title.display = value;
   }
 
   get isTitleVisible(): boolean {
@@ -33,7 +32,7 @@ export class DasChartSp500Service extends DasServiceBaes {
 
   isLegendVisible = true;
 
-  private optionData = {
+  private readonly optionData = {
     responsive: true,
     plugins: {
       legend: {

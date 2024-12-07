@@ -36,7 +36,7 @@ export class DvSp500WidgetComponent extends DasWidgetBaseComponent implements On
     this.setChartOption();
   }
 
-  private setChartOption = () => {
+  private readonly setChartOption = () => {
     const isTitleVisible = this.widgetOption.settingData?.isTitleVisible ?? true;
     const isLegendVisible = this.widgetOption.settingData?.isLegendVisible ?? true;
     this.chartSp500Service.isTitleVisible = isTitleVisible;

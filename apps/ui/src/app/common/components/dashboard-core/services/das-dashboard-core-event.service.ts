@@ -16,7 +16,7 @@ export class DasDashboardCoreEventService {
 
   dashboardEvent$: Observable<DasDashboardMessage>;
 
-  private dashboardEventSubject$: Subject<DasDashboardMessage>;
+  private readonly dashboardEventSubject$: Subject<DasDashboardMessage>;
 
   constructor() {
     this.dashboardEventSubject$ = new Subject<DasDashboardMessage>();

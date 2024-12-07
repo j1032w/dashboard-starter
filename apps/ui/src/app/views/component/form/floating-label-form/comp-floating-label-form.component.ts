@@ -57,7 +57,7 @@ export class CompFloatingLabelFormComponent {
   registrationForm: FormGroup;
 
 
-  constructor(formBuilder: FormBuilder, private toastService: DasToastService) {
+  constructor(formBuilder: FormBuilder, private readonly toastService: DasToastService) {
     this.registrationForm = formBuilder.group({
       email: [null, Validators.required],
       password: [null, Validators.required],

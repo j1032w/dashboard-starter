@@ -7,24 +7,32 @@
     <div class="title drag-handler p-2 fw-bold user-select-none flex-grow-1">
       {{widgetOption.title}}</div>
     <div class="toolbar" [hidden]="isToolbarHidden">
-      <i-feather name="repeat" class="toolbar-button"
+      <i-feather name="repeat" class="toolbar-button" tabindex="0"
                  *ngIf="widgetOption.isShowFlipButton"
                  pTooltip="Flip" tooltipPosition="bottom"
-                 (click)="flip()"></i-feather>
+                 (click)="flip()"
+                 (keydown)="onEnterKeyDown($event, flip)">
+      </i-feather>
 
-      <i-feather name="rotate-cw" class="toolbar-button"
+      <i-feather name="rotate-cw" class="toolbar-button" tabindex="0"
                  pTooltip="Refresh" tooltipPosition="bottom"
-                 (click)="dashboardEventService.emitWidgetSettingChanged(widgetOption)"></i-feather>
-
-      <i-feather name="settings" class="toolbar-button"
-                 pTooltip="Setting" tooltipPosition="bottom"
-                 (click)="showSettingModal()">
+                 (click)="refresh()"
+                 (keydown)="onEnterKeyDown($event, refresh)">
       </i-feather>
 
 
-      <i-feather name="x" class="toolbar-button"
+      <i-feather name="settings" class="toolbar-button" tabindex="0"
+                 pTooltip="Setting" tooltipPosition="bottom"
+                 (click)="showSettingModal()"
+                (keydown)="onEnterKeyDown($event, showSettingModal)">
+      </i-feather>
+
+
+      <i-feather name="x" class="toolbar-button" tabindex="0"
                  pTooltip="Remove" tooltipPosition="bottom"
-                 (click)="dashboardEventService.removeWidget(widgetOption)"></i-feather>
+                 (click)="remove()"
+                  (keydown)="onEnterKeyDown($event, remove)">
+      ></i-feather>
     </div>
 
   </div>

@@ -15,7 +15,7 @@ describe('DasDashboardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [...CommonTestConfig.imports],
-      providers: [...CommonTestConfig.providers]
+      providers: [...CommonTestConfig.providers],
     }).compileComponents();
 
     widgetOptions = [
@@ -25,7 +25,7 @@ describe('DasDashboardComponent', () => {
         cols: 2,
         rows: 2,
         x: 0,
-        y: 0
+        y: 0,
       }),
 
       new DasWidgetOption({
@@ -34,12 +34,17 @@ describe('DasDashboardComponent', () => {
         cols: 2,
         rows: 2,
         x: 2,
-        y: 0
-      })
+        y: 0,
+      }),
     ];
 
     dasLocalStorageService = TestBed.inject(DasLocalStorageService);
-    dasLocalStorageService['storage'] = new LocalStorageServiceMock();
+
+    // Mock the readonly `storage` property
+    Object.defineProperty(dasLocalStorageService, 'storage', {
+      writable: true,
+      value: new LocalStorageServiceMock()
+    });
 
     fixture = TestBed.createComponent(DasDashboardCoreComponent);
     component = fixture.componentInstance;

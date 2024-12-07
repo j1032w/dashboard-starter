@@ -9,7 +9,7 @@ import { DAS_SPINNER_KEY, DasHttpStateService } from './das-http-state.service';
 
 @Injectable({ providedIn: 'root' })
 export class DasSpinnerInterceptorService implements HttpInterceptor {
-  private exceptions: string[] = ['login'];
+  private readonly exceptions: string[] = ['login'];
 
   constructor(private readonly httpStateService: DasHttpStateService) {}
 

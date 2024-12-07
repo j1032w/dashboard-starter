@@ -18,7 +18,6 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { plainToInstance } from 'class-transformer';
-import { DeleteResult } from 'mongodb';
 import { RealEstateListingService } from '../../core/applications/real-estate';
 import { RealEstateListing } from '../../core/domains';
 
@@ -65,7 +64,7 @@ const listExample = {
   version: '1',
 })
 export class RealEstateListingController {
-  constructor(private listingService: RealEstateListingService) {}
+  constructor(private readonly listingService: RealEstateListingService) {}
 
   @ApiOperation({
     summary: 'Get a listing by id',

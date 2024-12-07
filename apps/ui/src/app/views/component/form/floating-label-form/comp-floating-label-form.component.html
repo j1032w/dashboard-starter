@@ -8,7 +8,7 @@
 
     <mat-form-field [ngClass]="colClass" class="mb-3" appearance="fill">
       <mat-label>Enter your password</mat-label>
-      <input autoComplete="new-password" matInput
+      <input autoComplete="hidePassword" matInput
              formControlName="password"
              [type]="hidePassword ? 'password' : 'text'">
       <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"

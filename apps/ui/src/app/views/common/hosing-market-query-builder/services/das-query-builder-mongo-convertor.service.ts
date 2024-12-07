@@ -27,11 +27,11 @@ export class DasQueryBuilderMongoConvertor {
     ['contains', '$regex']
   ]);
 
-  private getSchemaType = (field: string) => {
+  private readonly getSchemaType = (field: string) => {
     return this.config.fields[field].type;
   };
 
-  private mapRule = (rule: Rule) => {
+  private readonly mapRule = (rule: Rule) => {
     const field = rule.field;
     let value = rule.value;
 

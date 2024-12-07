@@ -60,6 +60,14 @@ export class DasWidgetCoreComponent extends DasBaseComponent {
     this.widgetOption.isFrontShown = !this.widgetOption.isFrontShown;
   }
 
+  refresh() {
+    this.dashboardEventService.emitWidgetSettingChanged(this.widgetOption)
+  }
+
+  remove(){
+    this.dashboardEventService.removeWidget(this.widgetOption)
+  }
+
   showSettingModal() {
     this.widgetOption.isSettingModalVisible = true;
   }

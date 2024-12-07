@@ -34,8 +34,8 @@ FROM nginx:1.21-alpine
 #    adduser -D -u 1001 -G nginx -h /var/cache/nginx -s /sbin/nologin nginx
 
 # Change the ownership of the directories that Nginx needs to write to
-RUN chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx /etc/nginx
-RUN chmod g+wr /var/cache/nginx /var/run /var/log/nginx /etc/nginx
+RUN chown -R nginx:nginx /var/cache/nginx /var/run /var/log/nginx /etc/nginx \
+&& chmod g+wr /var/cache/nginx /var/run /var/log/nginx /etc/nginx
 
 
 
