@@ -42,7 +42,7 @@ export class DashboardViewComponent extends DasBaseComponent {
     });
 
     dasDashboardService.widgetMap.set('DvLocWidgetComponent', {
-      name: 'Dashboard Starter UI LOC',
+      name: 'DAS UI LOC',
       type: DvLocWidgetComponent,
       cols: 3,
       rows: 5,

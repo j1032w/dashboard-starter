@@ -1,6 +1,7 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
 import { Component, ContentChild, ElementRef, Input, TemplateRef } from '@angular/core';
 import { flipInY } from 'ng-animate';
+import {PanelModule} from 'primeng/panel';
 import { DasCommonComponentModule } from '../../../das-common-component.module';
 
 import { DasBaseComponent } from '../../das-component-base.component';
@@ -17,8 +18,8 @@ import { DasWidgetOption } from '../services/das-widget-option';
         'shown',
         style({
           transform: 'rotate(0)',
-          backgroundColor: 'white'
-        })
+          backgroundColor: 'white',
+        }),
       ),
       state(
         'hidden',
@@ -26,15 +27,15 @@ import { DasWidgetOption } from '../services/das-widget-option';
           transform: 'rotateY(90deg)',
           border: '1px solid gray',
           margin: '2px',
-          backgroundColor: '#e9ecef' // $gray-200
-        })
+          backgroundColor: '#e9ecef', // $gray-200
+        }),
       ),
       transition('hidden => shown', useAnimation(flipInY, { params: { timing: 2 } })),
-      transition('shown => hidden', useAnimation(flipInY, { params: { timing: 2 } }))
-    ])
+      transition('shown => hidden', useAnimation(flipInY, { params: { timing: 2 } })),
+    ]),
   ],
   standalone: true,
-  imports: [DasCommonComponentModule]
+  imports: [DasCommonComponentModule, PanelModule],
 })
 export class DasWidgetCoreComponent extends DasBaseComponent {
   @Input() widgetOption: DasWidgetOption = new DasWidgetOption();
@@ -51,7 +52,7 @@ export class DasWidgetCoreComponent extends DasBaseComponent {
 
   constructor(
     public readonly dashboardEventService: DasDashboardCoreEventService,
-    private readonly elementRef: ElementRef
+    private readonly elementRef: ElementRef,
   ) {
     super();
   }
@@ -61,11 +62,11 @@ export class DasWidgetCoreComponent extends DasBaseComponent {
   }
 
   refresh() {
-    this.dashboardEventService.emitWidgetSettingChanged(this.widgetOption)
+    this.dashboardEventService.emitWidgetSettingChanged(this.widgetOption);
   }
 
-  remove(){
-    this.dashboardEventService.removeWidget(this.widgetOption)
+  remove() {
+    this.dashboardEventService.removeWidget(this.widgetOption);
   }
 
   showSettingModal() {

@@ -73,7 +73,7 @@ export const DEFAULT_WIDGET_OPTIONS: DasWidgetOption[] = [
     hasContent: true,
     originalRows: 7,
     isSettingModalVisible: false,
-    title: 'Dashboard Starter UI LOC',
+    title: 'DAS UI LOC',
     cols: 3,
     rows: 6,
     x: 9,

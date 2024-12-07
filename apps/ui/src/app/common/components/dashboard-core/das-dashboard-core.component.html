@@ -33,7 +33,7 @@
   <gridster #gridsterComponent
             cdkDropList (cdkDropListDropped)="dropped($event)"
             [options]="gridsterOptions" class="p-0 gridster">
-    <gridster-item class="gridster-item rounded d-flex flex-column"
+    <gridster-item class="gridster-item d-flex flex-column border rounded-3 border-secondary-subtle"
                    *ngFor="let widgetOption of dashboardCoreService.widgetOptions;"
                    [item]="widgetOption">
       <ng-container dasWidgetDynamicLoader [widgetOption]="widgetOption"></ng-container>
