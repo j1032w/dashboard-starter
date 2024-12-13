@@ -1,1 +1,1 @@
-export * from './real-estate-listing';
+export * from './real-estate-listing';export * from './listing-repository.interface';

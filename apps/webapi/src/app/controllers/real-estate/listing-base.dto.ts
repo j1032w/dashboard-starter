@@ -1,7 +1,24 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {Type} from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 
-export default class RealEstateListingBaseDto {
+export default class ListingBaseDto {
+  @ApiProperty({
+    description: `The hex string representation of the ObjectId`,
+    type: 'string',
+    example: '507c7f79bcf86cd7994f6c0e',
+    required: false,
+  })
+  @Expose()
+  persistenceId?: string;
+
+  @ApiProperty({
+    description: `The unique identifier of the listing`,
+    type: 'string',
+    example: '25472603',
+    required: false,
+  })
+  id?: string;
+
   @ApiProperty({
     description: `The building amenity`,
     type: 'string',
@@ -158,14 +175,12 @@ export default class RealEstateListingBaseDto {
   })
   remark: string;
 
-
   @ApiProperty({
     description: 'The city',
     type: 'string',
     example: 'Calgary',
   })
   city?: string;
-
 
   @ApiProperty({
     description: 'The listed time in UTC',
@@ -175,7 +190,6 @@ export default class RealEstateListingBaseDto {
   @Type(() => Date)
   listedTime: Date;
 
-
   @ApiProperty({
     description: 'The modified time in UTC',
     type: 'string',
@@ -184,7 +198,7 @@ export default class RealEstateListingBaseDto {
   @Type(() => Date)
   modifiedTime: Date;
 
-  constructor(data: Partial<RealEstateListingBaseDto>) {
+  constructor(data: Partial<ListingBaseDto>) {
     if (!data) {
       return;
     }

@@ -1,34 +1,18 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpCode,
-  HttpStatus,
-  Param,
-  Patch,
-  Post,
-} from '@nestjs/common';
-import {
-  ApiBearerAuth,
-  ApiBody,
-  ApiOperation,
-  ApiParam,
-  ApiResponse,
-  ApiTags,
-} from '@nestjs/swagger';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Inject, Param, Patch, Post } from '@nestjs/common';
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { plainToInstance } from 'class-transformer';
-import { RealEstateListingService } from '../../core/applications/real-estate';
+import MongodbFindDto from '../../common/mongo/mongodb-find-dto';
+import { LISTING_QUERY_SERVICE } from '../../core/applications/real-estate';
 import { RealEstateListing } from '../../core/domains';
-
-import { RealEstateListingQuery } from '../../infrastructures/shared';
 import {
   RESPONSE_200_DESCRIPTION,
   RESPONSE_201_DESCRIPTION,
   RESPONSE_400_DESCRIPTION,
 } from '../response-description.constant';
-import RealEstateListingRequestDto from './real-estate-listing-request.dto';
-import RealEstateListingResponseDto from './real-estate-listing-response.dto';
+import ListingRequestDto from './listing-request.dto';
+import ListingResponseDto from './listing-response.dto';
+import ListingQueryServiceInterface from '../../core/applications/real-estate/listing-query-service.interface';
+import { DeleteResult, Document } from 'mongodb';
 
 const listExample = {
   id: '25472603',
@@ -63,8 +47,11 @@ const listExample = {
   path: 'real-estate-listings',
   version: '1',
 })
-export class RealEstateListingController {
-  constructor(private readonly listingService: RealEstateListingService) {}
+export class ListingController {
+  constructor(
+    @Inject(LISTING_QUERY_SERVICE)
+    private readonly listingQueryService: ListingQueryServiceInterface,
+  ) {}
 
   @ApiOperation({
     summary: 'Get a listing by id',
@@ -86,7 +73,7 @@ export class RealEstateListingController {
   @ApiResponse({
     status: HttpStatus.OK,
     description: RESPONSE_200_DESCRIPTION,
-    type: RealEstateListingResponseDto,
+    type: ListingResponseDto,
     examples: {
       listing: {
         summary: 'A listing',
@@ -95,12 +82,9 @@ export class RealEstateListingController {
     },
   })
   @HttpCode(HttpStatus.OK)
-  @Get(':id')
-  async findOne(@Param('id') id: string) {
-    const list = await this.listingService.findOneByIdAsync(id);
-    return plainToInstance(RealEstateListingResponseDto, list, {
-      excludeExtraneousValues: true,
-    });
+  @Get(':persistenceId')
+  async findOne(@Param('persistenceId') persistenceId: string) {
+    return this.listingQueryService.findOneByIdAsync(persistenceId);
   }
 
   @ApiOperation({
@@ -111,7 +95,7 @@ export class RealEstateListingController {
   })
   @ApiBody({
     description: 'Add a new listing',
-    type: RealEstateListingRequestDto,
+    type: ListingRequestDto,
     required: true,
     examples: {
       listingDto: {
@@ -127,16 +111,13 @@ export class RealEstateListingController {
   @ApiResponse({
     status: HttpStatus.CREATED,
     description: RESPONSE_201_DESCRIPTION,
-    type: RealEstateListingResponseDto,
+    type: ListingResponseDto,
   })
   @HttpCode(HttpStatus.CREATED)
   @Post()
-  async insertOne(@Body() listingDto: RealEstateListingRequestDto) {
+  async insertOne(@Body() listingDto: ListingRequestDto): Promise<ListingResponseDto> {
     const listing = plainToInstance(RealEstateListing, listingDto);
-    const result = await this.listingService.insertOneAsync(listing);
-    return plainToInstance(RealEstateListingResponseDto, result, {
-      excludeExtraneousValues: true,
-    });
+    return this.listingQueryService.insertOneAsync(listing);
   }
 
   @ApiOperation({
@@ -147,7 +128,7 @@ export class RealEstateListingController {
   })
   @ApiBody({
     description: 'The listing to update',
-    type: RealEstateListingRequestDto,
+    type: ListingRequestDto,
     required: true,
     examples: {
       listing: {
@@ -163,14 +144,14 @@ export class RealEstateListingController {
   @ApiResponse({
     status: HttpStatus.OK,
     description: RESPONSE_200_DESCRIPTION,
-    type: RealEstateListingResponseDto,
+    type: ListingResponseDto,
   })
   @HttpCode(HttpStatus.OK)
   @Patch()
-  async updateOne(@Body() listingRequestDto: RealEstateListingRequestDto) {
+  async updateOne(@Body() listingRequestDto: ListingRequestDto) {
     const listing = plainToInstance(RealEstateListing, listingRequestDto);
-    const result = await this.listingService.updateOneAsync(listing);
-    return plainToInstance(RealEstateListingResponseDto, result, {
+    const result = await this.listingQueryService.updateOneAsync(listing);
+    return plainToInstance(ListingResponseDto, result, {
       excludeExtraneousValues: true,
     });
   }
@@ -183,16 +164,42 @@ export class RealEstateListingController {
   })
   @ApiBody({
     description: '',
-    type: RealEstateListingQuery,
+    type: MongodbFindDto,
     examples: {
       requestDto: {
         value: {
-          propertyType: 'Single Family',
-          provinceName: 'Alberta',
-          buildingType: 'House',
-          propertyOwnershipType: 'Freehold',
-          propertyAmenityNearBy: 'Park, Playground',
+          filter: {
+            city: {
+              $eq: 'Calgary',
+            },
+          },
+          options: {
+            projection: {
+              city: 1,
+              id: 1,
+              buildingType: 1,
+              postalCode: 1,
+              listedTime: 1,
+            },
+            sort: {
+              listedTime: 1,
+            },
+            skip: 1,
+            limit: 5,
+          },
         },
+      },
+    },
+  })
+  @ApiResponse({
+    status: HttpStatus.OK,
+    description: RESPONSE_200_DESCRIPTION,
+    type: ListingResponseDto,
+    isArray: true,
+    examples: {
+      listing: {
+        summary: 'A list of listings',
+        value: [listExample],
       },
     },
   })
@@ -200,21 +207,10 @@ export class RealEstateListingController {
     status: HttpStatus.BAD_REQUEST,
     description: RESPONSE_400_DESCRIPTION,
   })
-  @ApiResponse({
-    status: HttpStatus.OK,
-    description: RESPONSE_200_DESCRIPTION,
-    type: RealEstateListingResponseDto,
-    isArray: true,
-  })
   @HttpCode(HttpStatus.OK)
   @Post('findAll')
-  async findAllAsync(@Body() requestDto: RealEstateListingRequestDto) {
-    const listings = await this.listingService.findAllAsync(requestDto);
-    return listings.map((listing) =>
-      plainToInstance(RealEstateListingResponseDto, listing, {
-        excludeExtraneousValues: true,
-      }),
-    );
+  async findAllAsync(@Body() body: MongodbFindDto<ListingRequestDto>): Promise<Partial<ListingResponseDto>[]> {
+    return this.listingQueryService.findAllAsync(body.filter, body.options);
   }
 
   @ApiOperation({
@@ -237,8 +233,78 @@ export class RealEstateListingController {
     description: RESPONSE_200_DESCRIPTION,
   })
   @HttpCode(HttpStatus.OK)
-  @Delete(':id')
-  async deleteById(@Param('id') id: string) {
-    return await this.listingService.deleteOneAsync(id);
+  @Delete(':persistenceId')
+  async deleteById(@Param('persistenceId') persistenceId: string): Promise<DeleteResult> {
+    return await this.listingQueryService.deleteOneAsync(persistenceId);
+  }
+
+  @ApiOperation({
+    summary: 'Aggregate operations',
+    operationId: 'real_estate_list_aggregate',
+    description: `Aggregate operations`,
+    tags: ['Real Estate Listing', 'Find'],
+  })
+  @ApiBody({
+    description: 'The pipeline for aggregation',
+    // Document is a type from mongodb, but swagger requires a class
+    // Or a sophisticated way to define an aggregate pipeline class
+    type: Array,
+    examples: {
+      pipeline: {
+        value: [
+          {
+            $match: {
+              buildingType: 'House',
+            },
+          },
+          {
+            $group: {
+              _id: '$city',
+              count: {
+                $sum: 1,
+              },
+            },
+          },
+        ],
+      },
+    },
+  })
+  @ApiResponse({
+    status: HttpStatus.BAD_REQUEST,
+    description: RESPONSE_400_DESCRIPTION,
+  })
+  @ApiResponse({
+    status: HttpStatus.OK,
+    description: RESPONSE_200_DESCRIPTION,
+    isArray: true,
+    type: Array, // Document is a type
+    examples: {
+      listing: {
+        summary: 'Aggregate results',
+        value: [
+          {
+            _id: 'Toronto',
+            count: 304,
+          },
+          {
+            _id: 'Montreal',
+            count: 266,
+          },
+          {
+            _id: 'Vancouver',
+            count: 149,
+          },
+          {
+            _id: 'Calgary',
+            count: 305,
+          },
+        ],
+      },
+    },
+  })
+  @HttpCode(HttpStatus.OK)
+  @Post('aggregate')
+  async aggregateAsync(@Body() pipeline: Document[]): Promise<Document[]> {
+    return this.listingQueryService.aggregateAsync(pipeline);
   }
 }

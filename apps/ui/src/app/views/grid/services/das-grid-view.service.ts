@@ -9,7 +9,7 @@ import { GRID_VIEW_SPINNER_ID } from './das-grid-view.constant';
 export class DasGridViewService {
   constructor(private readonly realEstateMarketRepository: DasRealEstateMarketRepository) {}
 
-  fetchHousingMarketData$(mongoFilter: any): Observable<any> {
+  queryRealEstateListing$(mongoFilter: any): Observable<any> {
     return this.realEstateMarketRepository.query$(mongoFilter, GRID_VIEW_SPINNER_ID).pipe(
       tap((data: any[]) => {
         for (let i = 0; i < data.length; i++) {

@@ -15,7 +15,7 @@ import { DasGridViewService } from './services/das-grid-view.service';
   templateUrl: './das-grid-view.component.html',
   styleUrls: ['./das-grid-view.component.scss'],
   standalone: true,
-  imports: [DasCommonComponentModule, DasGridComponent, GridViewSearchComponent, DasSpinnerComponent]
+  imports: [DasCommonComponentModule, DasGridComponent, GridViewSearchComponent, DasSpinnerComponent],
 })
 export class DasGridViewComponent extends DasBaseComponent {
   @ViewChild('gridComponent') gridComponent: DasGridComponent;
@@ -51,9 +51,9 @@ export class DasGridViewComponent extends DasBaseComponent {
     }
 
     this.gridViewService
-      .fetchHousingMarketData$(this.mongoFilter.filter)
+      .queryRealEstateListing$(this.mongoFilter)
       .pipe(takeUntil(this.destroyed$))
-      .subscribe(data => {
+      .subscribe((data) => {
         this.dataSource = data;
       });
   }

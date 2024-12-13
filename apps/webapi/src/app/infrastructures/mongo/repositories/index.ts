@@ -1,1 +1,1 @@
-export * from './listing-repository.service';
+export * from './listing-repository';

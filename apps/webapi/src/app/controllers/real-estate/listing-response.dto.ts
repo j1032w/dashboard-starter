@@ -1,23 +1,12 @@
-import {ApiProperty} from '@nestjs/swagger';
-import {
-  Exclude,
-  Expose
-} from 'class-transformer';
-import RealEstateListingBaseDto from './real-estate-listing-base.dto';
+import { Expose } from 'class-transformer';
+import ListingBaseDto from './listing-base.dto';
 
-export default class RealEstateListingResponseDto extends RealEstateListingBaseDto {
+export default class ListingResponseDto extends ListingBaseDto {
+  @Expose()
+  persistenceId: string;
 
-  @ApiProperty({
-    description: `The unique identifier of the listing`,
-    type: 'string',
-    example: '25472603',
-    required: true
-  })
   @Expose()
   id: string;
-
-  @Exclude()
-  _id:object;
 
   @Expose()
   buildingAmenity?: string;

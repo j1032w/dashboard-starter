@@ -1,1 +1,1 @@
-export * from './real-estate-listing.service';export * from './real-estate-application.module';
+export * from './listing-query.service';export * from './listing-query-service.interface';export * from './real-estate-application.module';

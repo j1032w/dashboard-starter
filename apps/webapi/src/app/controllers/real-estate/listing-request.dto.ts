@@ -1,7 +1,15 @@
 import { IsDateString, IsNumber, IsOptional, IsString } from 'class-validator';
-import RealEstateListingBaseDto from './real-estate-listing-base.dto';
+import ListingBaseDto from './listing-base.dto';
 
-export default class RealEstateListingRequestDto extends RealEstateListingBaseDto {
+export default class ListingRequestDto extends ListingBaseDto {
+  @IsString()
+  @IsOptional()
+  persistenceId?: string;
+
+  @IsString()
+  @IsOptional()
+  id?: string;
+
   @IsString()
   @IsOptional()
   buildingAmenity?: string;
@@ -90,7 +98,7 @@ export default class RealEstateListingRequestDto extends RealEstateListingBaseDt
   @IsOptional()
   listedTime: Date;
 
-  constructor(data: Partial<RealEstateListingRequestDto>) {
+  constructor(data: Partial<ListingRequestDto>) {
     super(data);
   }
 }

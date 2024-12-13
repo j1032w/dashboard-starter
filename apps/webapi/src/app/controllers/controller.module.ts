@@ -5,7 +5,7 @@ import {RealEstateApplicationModule} from '../core/applications/real-estate';
 
 import { HomeController } from './home/home.controller';
 import { HomeService } from './home/home.service';
-import {RealEstateListingController} from './real-estate/real-estate-listing.controller';
+import {ListingController} from './real-estate/listing.controller';
 
 
 
@@ -13,7 +13,7 @@ import {RealEstateListingController} from './real-estate/real-estate-listing.con
 @Module({
   imports: [ConfigModule, RealEstateApplicationModule],
 
-  controllers: [HomeController, RealEstateListingController],
+  controllers: [HomeController, ListingController],
 
   providers: [HomeService, Logger],
 })

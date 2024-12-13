@@ -137,6 +137,13 @@ export const GRID_VIEW_COLUMNS: ColDef[] = [
     headerName: 'Listed Date',
     cellDataType: AgGridCellDataTypeEnum.Date,
     hide: false
+  },
+
+  {
+    field: 'persistenceId',
+    headerName: 'Persistence Id',
+    cellDataType: AgGridCellDataTypeEnum.Text,
+    hide: true
   }
 ];
 
