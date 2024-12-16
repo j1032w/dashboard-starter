@@ -1,5 +1,6 @@
-import { ListingGraphqlModule } from './real-estate-listings/listing-graphql.module';
+
 import { Module } from '@nestjs/common';
+import ListingGraphqlModule from "./real-estate-listings/listing-graphql.module";
 
 @Module({
   imports: [ListingGraphqlModule],
