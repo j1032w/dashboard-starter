@@ -15,7 +15,7 @@ export default interface ListingQueryServiceInterface {
 
   deleteManyAsync(filter: Filter<RealEstateListing>): Promise<DeleteResult>;
 
-  findAllAsync(filter: Filter<RealEstateListing>, options?: FindOptions): Promise<Partial<ListingResponseDto>[]>;
+  findAllAsync(filter: Filter<RealEstateListing>, options?: FindOptions<RealEstateListing>): Promise<Partial<ListingResponseDto>[]>;
 
   aggregateAsync(pipeline: Document[]): Promise<Document[]>;
 }

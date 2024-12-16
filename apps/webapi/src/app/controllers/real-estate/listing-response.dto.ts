@@ -1,79 +1,106 @@
 import { Expose } from 'class-transformer';
 import ListingBaseDto from './listing-base.dto';
+import {Field, ObjectType} from "@nestjs/graphql";
 
+@ObjectType()
 export default class ListingResponseDto extends ListingBaseDto {
+  @Field({nullable: true})
   @Expose()
-  persistenceId: string;
+  persistenceId?: string;
 
+  @Field({nullable: true})
   @Expose()
-  id: string;
+  id?: string;
 
+  @Field({nullable: true})
   @Expose()
   buildingAmenity?: string;
 
+  @Field({nullable: true})
   @Expose()
   buildingBathroomTotal?: number;
 
+  @Field({nullable: true})
   @Expose()
   buildingBedroom?: number;
 
+  @Field({nullable: true})
   @Expose()
-  buildingSizeInterior: number;
+  buildingSizeInterior?: number;
 
+  @Field({nullable: true})
   @Expose()
-  buildingStoriesTotal: number;
+  buildingStoriesTotal?: number;
 
+  @Field({nullable: true})
   @Expose()
-  buildingType: string;
+  buildingType?: string;
 
+  @Field({nullable: true})
   @Expose()
-  distance: string;
+  distance?: string;
 
+  @Field({nullable: true})
   @Expose()
-  landLandscapeFeature: string;
+  landLandscapeFeature?: string;
 
+  @Field({nullable: true})
   @Expose()
-  landSizeTotal: string;
+  landSizeTotal?: string;
 
+  @Field({nullable: true})
   @Expose()
-  listingBoundary: string;
+  listingBoundary?: string;
 
+  @Field({nullable: true})
   @Expose()
-  mlsNumber: string;
+  mlsNumber?: string;
 
+  @Field({nullable: true})
   @Expose()
-  postalCode: string;
+  postalCode?: string;
 
+  @Field({nullable: true})
   @Expose()
-  priceUnformattedValue: number;
+  priceUnformattedValue?: number;
 
+  @Field({nullable: true})
   @Expose()
-  propertyAmenityNearBy: string;
+  propertyAmenityNearBy?: string;
 
+  @Field({nullable: true})
   @Expose()
-  propertyOwnershipType: string;
+  propertyOwnershipType?: string;
 
+  @Field({nullable: true})
   @Expose()
-  propertyParkingSpaceTotal: number;
+  propertyParkingSpaceTotal?: number;
 
+  @Field({nullable: true})
   @Expose()
-  propertyParkingType: string;
+  propertyParkingType?: string;
 
+  @Field({nullable: true})
   @Expose()
-  propertyType: string;
+  propertyType?: string;
 
+  @Field({nullable: true})
   @Expose()
-  provinceName: string;
+  provinceName?: string;
 
+  @Field({nullable: true})
   @Expose()
-  remark: string;
+  remark?: string;
 
+  @Field({nullable: true})
   @Expose()
   city?: string;
 
+  @Field({nullable: true})
   @Expose()
-  listedTime: Date;
+  listedTime?: Date;
 
+  @Field({nullable: true})
   @Expose()
-  modifiedTime: Date;
+  modifiedTime?: Date;
 }

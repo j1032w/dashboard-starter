@@ -21,7 +21,7 @@ export class ListingQueryService implements ListingQueryServiceInterface {
     return plainToInstance(ListingResponseDto, result);
   }
 
-  async insertManyAsync(residentialProperties: ListingResponseDto[]) {
+  async insertManyAsync(residentialProperties: RealEstateListing[]) {
     const results = await this.repository.insertManyAsync(residentialProperties);
     return results.map((result) => plainToInstance(ListingResponseDto, result));
   }

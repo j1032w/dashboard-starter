@@ -49,7 +49,7 @@ export default class ListingBaseDto {
     example: '1556',
     required: false,
   })
-  buildingSizeInterior: number;
+  buildingSizeInterior?: number;
 
   @ApiProperty({
     description: 'The total number of stories of the building',
@@ -57,14 +57,14 @@ export default class ListingBaseDto {
     example: '2',
     required: false,
   })
-  buildingStoriesTotal: number;
+  buildingStoriesTotal?: number;
 
   @ApiProperty({
     description: 'The type of building',
     type: 'string',
     example: 'Row / Townhouse',
   })
-  buildingType: string;
+  buildingType?: string;
 
   @ApiProperty({
     description: 'The distance to the nearest landmark',
@@ -72,7 +72,7 @@ export default class ListingBaseDto {
     example: '1.5 km',
     required: false,
   })
-  distance: string;
+  distance?: string;
 
   @ApiProperty({
     description: 'The landscape feature of the land',
@@ -80,7 +80,7 @@ export default class ListingBaseDto {
     example: 'Landscaped',
     required: false,
   })
-  landLandscapeFeature: string;
+  landLandscapeFeature?: string;
 
   @ApiProperty({
     description: 'The land size in square feet',
@@ -88,7 +88,7 @@ export default class ListingBaseDto {
     example: '202.4 m2|0-4,050 sqft',
     required: false,
   })
-  landSizeTotal: string;
+  landSizeTotal?: string;
 
   @ApiProperty({
     description: 'The listing boundary',
@@ -96,21 +96,21 @@ export default class ListingBaseDto {
     example: 'America/Edmonton',
     required: false,
   })
-  listingBoundary: string;
+  listingBoundary?: string;
 
   @ApiProperty({
     description: 'The MLS number',
     type: 'string',
     example: 'A1111111',
   })
-  mlsNumber: string;
+  mlsNumber?: string;
 
   @ApiProperty({
     description: 'The postal code',
     type: 'string',
     example: 'T1T1T1',
   })
-  postalCode: string;
+  postalCode?: string;
 
   @ApiProperty({
     description: 'The unformatted price value',
@@ -118,7 +118,7 @@ export default class ListingBaseDto {
     example: '100000',
     required: false,
   })
-  priceUnformattedValue: number;
+  priceUnformattedValue?: number;
 
   @ApiProperty({
     description: 'The property amenity near by',
@@ -126,7 +126,7 @@ export default class ListingBaseDto {
     example: 'Shopping',
     required: false,
   })
-  propertyAmenityNearBy: string;
+  propertyAmenityNearBy?: string;
 
   @ApiProperty({
     description: 'The property ownership type',
@@ -134,7 +134,7 @@ export default class ListingBaseDto {
     example: 'Freehold',
     required: false,
   })
-  propertyOwnershipType: string;
+  propertyOwnershipType?: string;
 
   @ApiProperty({
     description: 'The total number of parking spaces',
@@ -142,7 +142,7 @@ export default class ListingBaseDto {
     example: '2',
     required: false,
   })
-  propertyParkingSpaceTotal: number;
+  propertyParkingSpaceTotal?: number;
 
   @ApiProperty({
     description: 'The property parking type',
@@ -150,21 +150,21 @@ export default class ListingBaseDto {
     example: 'Attached Garage',
     required: false,
   })
-  propertyParkingType: string;
+  propertyParkingType?: string;
 
   @ApiProperty({
     description: 'The property type',
     type: 'string',
     example: 'Single Family',
   })
-  propertyType: string;
+  propertyType?: string;
 
   @ApiProperty({
     description: 'The province name',
     type: 'string',
     example: 'Alberta',
   })
-  provinceName: string;
+  provinceName?: string;
 
   @ApiProperty({
     description: 'The remark',
@@ -173,7 +173,7 @@ export default class ListingBaseDto {
       'This stunning 2 storey house located in the sought-after Copperfield neighborhood is the perfect family home. ',
     required: false,
   })
-  remark: string;
+  remark?: string;
 
   @ApiProperty({
     description: 'The city',
@@ -188,7 +188,7 @@ export default class ListingBaseDto {
     example: '2021-05-01T00:00:00.000Z',
   })
   @Type(() => Date)
-  listedTime: Date;
+  listedTime?: Date;
 
   @ApiProperty({
     description: 'The modified time in UTC',
@@ -196,7 +196,7 @@ export default class ListingBaseDto {
     example: '2021-05-01T00:00:00.000Z',
   })
   @Type(() => Date)
-  modifiedTime: Date;
+  modifiedTime?: Date;
 
   constructor(data: Partial<ListingBaseDto>) {
     if (!data) {

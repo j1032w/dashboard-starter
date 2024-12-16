@@ -24,71 +24,71 @@ export default class ListingRequestDto extends ListingBaseDto {
 
   @IsNumber()
   @IsOptional()
-  buildingSizeInterior: number;
+  buildingSizeInterior?: number;
 
   @IsNumber()
   @IsOptional()
-  buildingStoriesTotal: number;
+  buildingStoriesTotal?: number;
 
   @IsString()
   @IsOptional()
-  buildingType: string;
+  buildingType?: string;
 
   @IsString()
   @IsOptional()
-  distance: string;
+  distance?: string;
 
   @IsString()
   @IsOptional()
-  landLandscapeFeature: string;
+  landLandscapeFeature?: string;
 
   @IsString()
   @IsOptional()
-  landSizeTotal: string;
+  landSizeTotal?: string;
 
   @IsString()
   @IsOptional()
-  listingBoundary: string;
+  listingBoundary?: string;
 
   @IsString()
   @IsOptional()
-  mlsNumber: string;
+  mlsNumber?: string;
 
   @IsString()
   @IsOptional()
-  postalCode: string;
+  postalCode?: string;
 
   @IsNumber()
   @IsOptional()
-  priceUnformattedValue: number;
+  priceUnformattedValue?: number;
 
   @IsString()
   @IsOptional()
-  propertyAmenityNearBy: string;
+  propertyAmenityNearBy?: string;
 
   @IsString()
   @IsOptional()
-  propertyOwnershipType: string;
+  propertyOwnershipType?: string;
 
   @IsNumber()
   @IsOptional()
-  propertyParkingSpaceTotal: number;
+  propertyParkingSpaceTotal?: number;
 
   @IsString()
   @IsOptional()
-  propertyParkingType: string;
+  propertyParkingType?: string;
 
   @IsString()
   @IsOptional()
-  propertyType: string;
+  propertyType?: string;
 
   @IsString()
   @IsOptional()
-  provinceName: string;
+  provinceName?: string;
 
   @IsString()
   @IsOptional()
-  remark: string;
+  remark?: string;
 
   @IsDateString()
   @IsOptional()
@@ -96,7 +96,7 @@ export default class ListingRequestDto extends ListingBaseDto {
 
   @IsDateString()
   @IsOptional()
-  listedTime: Date;
+  listedTime?: Date;
 
   constructor(data: Partial<ListingRequestDto>) {
     super(data);
